@@ -1,0 +1,7 @@
+@theme inline {
+    --font-display: var(--font-syne), sans-serif;
+    --font-sans: var(--font-inter), sans-serif;
+    --color-brand-orange: #F66C40;
+    --color-black: #0B0B0B;
+    --color-white: #FFFFFF;
+}
