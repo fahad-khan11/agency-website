@@ -120,8 +120,8 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
       <main ref={container} className="bg-black text-white min-h-screen">
 
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 w-full p-6 md:p-12 flex justify-between items-center z-50 mix-blend-difference">
-          <Link href="/#work" className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors uppercase text-sm tracking-widest font-bold">
+        <nav className="fixed top-24 left-0 w-full p-6 md:p-12 flex justify-between items-center z-50 mix-blend-difference">
+          <Link href="/projects" className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors uppercase text-sm tracking-widest font-bold">
             <ArrowLeft className="w-4 h-4" /> Back to Work
           </Link>
           <div className="uppercase text-sm tracking-widest font-bold">{project.category}</div>

@@ -16,7 +16,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
         {/* Brand Column */}
         <div className="md:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block">
-                 <h3 className="text-3xl font-display font-bold tracking-wide">ARCHETYPE</h3>
+                 <h3 className="text-3xl font-display font-bold tracking-wide">ATRIONA</h3>
             </Link>
             <p className="text-gray-400 max-w-sm leading-relaxed text-sm md:text-base">
                 A strategic design and engineering agency crafting world-class digital products used by millions. We build the future, pixel by pixel.
@@ -44,8 +44,8 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
          {/* Contact Column */}
         <div className="md:col-span-4 flex flex-col gap-6">
              <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">Get in touch</h4>
-             <a href="mailto:hello@archetype.studio" className="text-2xl md:text-3xl font-display font-bold hover:text-brand-orange transition-colors break-words">
-                hello@archetype.studio
+             <a href="mailto:hello@atriona.studio" className="text-2xl md:text-3xl font-display font-bold hover:text-brand-orange transition-colors break-words">
+                hello@atriona.studio
              </a>
              <div className="text-gray-400 text-sm leading-relaxed">
                 <p>123 Innovation Dr, Suite 400</p>
@@ -56,7 +56,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
       </div>
 
        <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8 text-sm text-gray-500">
-          <p>© 2024 ARCHETYPE. All rights reserved.</p>
+          <p>© 2024 ATRIONA. All rights reserved.</p>
           
           <div className="flex gap-6 mt-4 md:mt-0">
              <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Instagram">

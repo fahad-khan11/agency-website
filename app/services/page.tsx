@@ -71,23 +71,29 @@ export default function ServicesPage() {
         />
 
         {/* Hero Section */}
-        <div className="container mx-auto px-6 h-screen flex flex-col justify-center relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="animate-text text-6xl md:text-8xl font-display font-bold mb-6 tracking-tight">
-              <span className="block text-white">Crafting Digital</span>
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Masterpieces
-              </span>
-            </h1>
-            <p className="animate-text text-gray-400 text-xl md:text-2xl max-w-2xl leading-relaxed">
-              We blend aesthetics with functionality to deliver comprehensive digital solutions tailored to your brand's unique needs.
-            </p>
-          </div>
+        <div className="container mx-auto px-6 h-screen flex items-center relative z-10">
+          <div className="flex items-center gap-16 w-full max-w-7xl mx-auto">
+            {/* Left Side - Text Content */}
+            <div className="flex-1 flex flex-col justify-center min-w-0">
+              <h1 className="animate-text text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight">
+                <span className="block text-white">Crafting Digital</span>
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Masterpieces
+                </span>
+              </h1>
+              <p className="animate-text text-gray-400 text-xl md:text-2xl leading-relaxed">
+                We blend aesthetics with functionality to deliver comprehensive digital solutions tailored to your brand's unique needs.
+              </p>
+            </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-indicator">
-            <span className="text-sm uppercase tracking-widest text-gray-500">Scroll to Explore</span>
-            <ArrowDown className="w-6 h-6 text-white/50" />
+            {/* Right Side - Image */}
+            <div className="flex-1 flex items-center justify-center animate-text">
+              <img 
+                src="/services-hero.png" 
+                alt="Digital Services" 
+                className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
 

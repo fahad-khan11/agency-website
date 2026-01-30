@@ -47,10 +47,21 @@ export default function Header() {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group z-50" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
-         <span className={clsx(
-            "font-bold font-display tracking-wide text-xl transition-colors duration-500",
-            isLightMode ? "text-black" : "text-white"
-         )}>ARCHETYPE</span>
+         <div className="relative flex items-baseline">
+           <span className={clsx(
+              "font-extrabold font-sans tracking-[0.1em] text-2xl transition-colors duration-500",
+              isLightMode ? "text-black" : "text-white"
+           )}>AT</span>
+           <span className={clsx(
+              "font-extrabold font-sans italic tracking-[0.1em] text-3xl transition-colors duration-500",
+              isLightMode ? "text-black" : "text-white"
+           )}>RIO</span>
+           <span className={clsx(
+              "font-extrabold font-sans tracking-[0.1em] text-2xl transition-colors duration-500",
+              isLightMode ? "text-black" : "text-white"
+           )}>NA</span>
+           <span className="w-2 h-2 rounded-full bg-brand-orange absolute -top-1 -right-2"></span>
+         </div>
       </Link>
 
       {/* Desktop Nav */}

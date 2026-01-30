@@ -40,13 +40,13 @@ export default function FooterCTA({ isActive }: { isActive?: boolean }) {
           LET'S BUILD <br/> THE FUTURE.
         </h2>
         
-        <a href="mailto:hello@archetype.studio" className="inline-block text-xl md:text-2xl border-b border-white pb-1 hover:text-brand-orange hover:border-brand-orange transition-colors duration-300">
-           hello@archetype.studio
+        <a href="mailto:hello@atriona.studio" className="inline-block text-xl md:text-2xl border-b border-white pb-1 hover:text-brand-orange hover:border-brand-orange transition-colors duration-300">
+           hello@atriona.studio
         </a>
       </div>
 
        <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8 mt-12 text-sm text-gray-500">
-          <p>© 2024 ARCHETYPE. All rights reserved.</p>
+          <p>© 2024 ATRIONA. All rights reserved.</p>
           
           <div className="flex gap-6 mt-4 md:mt-0">
              <a href="#" className="hover:text-white transition-colors">Instagram</a>

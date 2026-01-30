@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ARCHETYPE | Premium Digital Studio",
+  title: "ATRIONA| Premium Digital Studio",
   description: "A high-end creative studio building digital experiences that matter.",
 };
 
