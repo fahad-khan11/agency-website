@@ -1,24 +1,117 @@
-import FooterCTA from "@/components/sections/FooterCTA";
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import ReactLenis from "lenis/react";
 
 export default function ContactPage() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    tl.from(".contact-reveal", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.15,
+      delay: 0.2,
+    });
+
+    tl.from(".contact-form", {
+      x: 50,
+      opacity: 0,
+      duration: 1,
+    }, "-=0.8");
+
+  }, { scope: container });
+
   return (
-    <main className="pt-24 min-h-screen bg-black text-white">
-      <div className="container mx-auto px-6 py-12 md:py-24">
-         <h1 className="text-4xl md:text-6xl font-display font-bold mb-8">Contact Us</h1>
-         <div className="grid md:grid-cols-2 gap-12">
+    <ReactLenis root>
+      <main ref={container} className="min-h-screen bg-black text-white relative overflow-hidden pt-32 pb-24 md:pt-40">
+
+        {/* Background Gradients */}
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+
+        <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 md:gap-24">
+
+          {/* Left Column: Info */}
+          <div className="flex flex-col justify-between h-full">
             <div>
-               <p className="text-xl text-gray-400 mb-6">
-                 Ready to start your next project? We are currently accepting new clients for Q2 2024.
-               </p>
-               <div className="bg-white/5 p-8 rounded-lg border border-white/10">
-                  <h3 className="text-xl font-bold mb-4 text-brand-orange">Contact Info</h3>
-                  <p className="mb-2">hello@archetype.studio</p>
-                  <p>+1 (555) 019-2834</p>
-               </div>
+              <h1 className="contact-reveal text-6xl md:text-8xl font-display font-bold mb-8 leading-none">
+                Let's start <br />
+                <span className="text-brand-orange">something new.</span>
+              </h1>
+              <p className="contact-reveal text-xl text-gray-400 max-w-lg mb-12 leading-relaxed">
+                We help ambitious brands define their future. Tell us about your project, and we'll get back to you within 24 hours.
+              </p>
             </div>
-         </div>
-      </div>
-      <FooterCTA />
-    </main>
+
+            <div className="space-y-8 contact-reveal">
+              <div className="group cursor-pointer">
+                <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Email</span>
+                <a href="mailto:hello@archetype.studio" className="text-2xl md:text-3xl font-display hover:text-brand-orange transition-colors flex items-center gap-2">
+                  hello@archetype.studio <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Phone</span>
+                  <p className="text-lg text-gray-300">+1 (555) 019-2834</p>
+                </div>
+                <div>
+                  <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Office</span>
+                  <p className="text-lg text-gray-300">Los Angeles, CA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Form */}
+          <div className="contact-form bg-neutral-900/30 backdrop-blur-sm border border-white/5 p-8 md:p-12 rounded-2xl">
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="name@company.com"
+                  className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Message</label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  placeholder="Tell us about your project..."
+                  className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
+                ></textarea>
+              </div>
+
+              <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-5 rounded-lg hover:bg-brand-orange hover:text-white transition-all duration-300 mt-8">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </main>
+    </ReactLenis>
   );
 }
