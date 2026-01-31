@@ -15,7 +15,7 @@ import FooterCTA from "@/components/sections/FooterCTA";
 export default function Home() {
   return (
     <PanelContainer>
-   
+
       <PanelSection index={0}>
         <Hero />
       </PanelSection>
@@ -28,12 +28,12 @@ export default function Home() {
         <Work />
       </PanelSection>
 
-      
+
       <PanelSection index={3}>
         <Services />
       </PanelSection>
 
-   
+
       <PanelSection index={4}>
         <OrangeStatement />
       </PanelSection>
@@ -42,7 +42,7 @@ export default function Home() {
         <Process />
       </PanelSection>
 
-     
+
       <PanelSection index={6}>
         <Testimonials />
       </PanelSection>
@@ -50,7 +50,7 @@ export default function Home() {
       <PanelSection index={7}>
         <Footer asPanel className="h-screen" />
       </PanelSection>
-     
+
     </PanelContainer>
   );
 }

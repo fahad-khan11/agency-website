@@ -77,42 +77,42 @@ const testimonials = [
 
 export default function Testimonials({ isActive }: { isActive?: boolean }) {
 
-  
+
   return (
     <section className="bg-white text-black h-full flex flex-col pt-24 pb-8 px-6 md:px-12 section-panel" data-index="6">
-      
+
       {/* Fixed Header */}
       <div className="max-w-7xl mx-auto w-full mb-8 flex-shrink-0 z-10 bg-white">
-         <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">Client Stories</h2>
-         <div className="h-1 w-20 bg-brand-orange"></div>
+        <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">Client Stories</h2>
+        <div className="h-1 w-20 bg-brand-orange"></div>
       </div>
 
       {/* Internal Scroll Container - Targeted by PanelContainer Observer by class name for Horizontal Scroll */}
       <div className="inner-panel-scroll-horizontal flex-1 overflow-x-auto no-scrollbar w-full max-w-full">
-         <div className="flex flex-row gap-8 px-6 md:px-12 pb-20 items-center h-full">
-             {testimonials.map((t, i) => (
-                 <div key={t.id} className="bg-[#F8F9FA] p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[350px] md:min-w-[450px] max-w-[450px] flex flex-col justify-between h-[400px] flex-shrink-0 whitespace-normal">
-                     <div>
-                        <Quote className="text-brand-orange w-8 h-8 mb-4 opacity-80" />
-                        <p className="text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
-                            "{t.quote}"
-                        </p>
-                     </div>
-                     <div className="flex items-center gap-4">
-                         <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                             <div className={`w-full h-full ${t.color}`}></div>
-                         </div>
-                         <div>
-                             <h4 className="font-bold font-display text-sm uppercase tracking-wide text-black">{t.author}</h4>
-                             <p className="text-xs text-gray-500">{t.role}</p>
-                         </div>
-                     </div>
-                 </div>
-             ))}
-         </div>
+        <div className="flex flex-row gap-8 px-6 md:px-12 pb-20 items-center h-full">
+          {testimonials.map((t, i) => (
+            <div key={t.id} className="bg-[#F8F9FA] p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[350px] md:min-w-[450px] max-w-[450px] flex flex-col justify-between h-[400px] flex-shrink-0 whitespace-normal">
+              <div>
+                <Quote className="text-brand-orange w-8 h-8 mb-4 opacity-80" />
+                <p className="text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
+                  "{t.quote}"
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                  <div className={`w-full h-full ${t.color}`}></div>
+                </div>
+                <div>
+                  <h4 className="font-bold font-display text-sm uppercase tracking-wide text-black">{t.author}</h4>
+                  <p className="text-xs text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-       
-       <style jsx global>{`
+
+      <style jsx global>{`
          .no-scrollbar::-webkit-scrollbar {
            display: none;
          }
