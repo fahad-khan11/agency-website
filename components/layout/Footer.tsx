@@ -21,8 +21,6 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                      alt="Atriona"
                      className=
                      "h-10 sm:h-11 md:h-12 lg:h-13 w-auto object-contain transition-opacity duration-500"
-
-
                   />
                </Link>
                <p className="text-gray-400 max-w-sm leading-relaxed text-sm md:text-base">
