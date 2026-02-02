@@ -37,7 +37,7 @@ export default function ContactPage() {
 
   return (
     <ReactLenis root>
-      <main ref={container} className="min-h-screen bg-black text-white relative overflow-hidden pt-32 pb-24 md:pt-40">
+      <main ref={container} className="min-h-screen bg-black text-white relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-20">
 
         {/* Background Gradients */}
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
@@ -45,74 +45,74 @@ export default function ContactPage() {
 
         <div className="container mx-auto px-6 md:px-12">
 
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 mb-24 md:mb-32">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 mb-16 md:mb-20">
             {/* Left Column: Info */}
             <div className="flex flex-col justify-between h-full">
               <div>
-                <h1 className="contact-reveal text-6xl md:text-8xl font-display font-bold mb-8 leading-none">
+                <h1 className="contact-reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 md:mb-8 leading-none">
                   Let's start <br />
                   <span className="text-brand-orange">something new.</span>
                 </h1>
-                <p className="contact-reveal text-xl text-gray-400 max-w-lg mb-12 leading-relaxed">
+                <p className="contact-reveal text-base sm:text-lg md:text-xl text-gray-400 max-w-lg mb-8 md:mb-10 leading-relaxed">
                   We help ambitious brands define their future. Tell us about your project, and we'll get back to you within 24 hours.
                 </p>
               </div>
 
-              <div className="space-y-8 contact-reveal">
+              <div className="space-y-6 md:space-y-8 contact-reveal">
                 <div className="group cursor-pointer">
-                  <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Email</span>
-                  <a href="mailto:hello@archetype.studio" className="text-2xl md:text-3xl font-display hover:text-brand-orange transition-colors flex items-center gap-2">
-                    hello@archetype.studio <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Email</span>
+                  <a href="mailto:hello@archetype.studio" className="text-xl sm:text-2xl md:text-3xl font-display hover:text-brand-orange transition-colors flex items-center gap-2">
+                    hello@archetype.studio <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-2 gap-6 md:gap-8">
                   <div>
-                    <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Phone</span>
-                    <p className="text-lg text-gray-300">+1 (555) 019-2834</p>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Phone</span>
+                    <p className="text-base sm:text-lg text-gray-300">+1 (555) 019-2834</p>
                   </div>
                   <div>
-                    <span className="text-sm uppercase tracking-widest text-gray-500 mb-2 block">Office</span>
-                    <p className="text-lg text-gray-300">Islamabad, PK</p>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Office</span>
+                    <p className="text-base sm:text-lg text-gray-300">Islamabad, PK</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Form */}
-            <div className="contact-form bg-neutral-900/30 backdrop-blur-sm border border-white/5 p-8 md:p-12 rounded-2xl">
-              <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <div className="contact-form bg-neutral-900/30 backdrop-blur-sm border border-white/5 p-6 sm:p-8 md:p-10 rounded-2xl">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Name</label>
+                  <label htmlFor="name" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Name</label>
                   <input
                     type="text"
                     id="name"
                     placeholder="Your Name"
-                    className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Email</label>
+                  <label htmlFor="email" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Email</label>
                   <input
                     type="email"
                     id="email"
                     placeholder="name@company.com"
-                    className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm uppercase tracking-widest text-gray-500 font-bold">Message</label>
+                  <label htmlFor="message" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Message</label>
                   <textarea
                     id="message"
                     rows={4}
                     placeholder="Tell us about your project..."
-                    className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
                   ></textarea>
                 </div>
 
-                <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-5 rounded-lg hover:bg-brand-orange hover:text-white transition-all duration-300 mt-8">
+                <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-4 text-sm rounded-lg hover:bg-brand-orange hover:text-white transition-all duration-300 mt-6">
                   Send Message
                 </button>
               </form>
@@ -120,10 +120,10 @@ export default function ContactPage() {
           </div>
 
           {/* Location & Map Section */}
-          <div className="space-y-16">
-            <div className="space-y-8">
+          <div className="space-y-12 md:space-y-16">
+            <div className="space-y-6 md:space-y-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 contact-reveal">
-                <h2 className="text-4xl md:text-5xl font-display font-bold">Office Location</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold">Office Location</h2>
                 <p className="text-gray-400 max-w-md text-sm md:text-base">
                   Our headquarters are located in the heart of Islamabad, a city where tradition meets modern innovation.
                 </p>
