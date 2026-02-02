@@ -18,8 +18,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ATRIONA| Premium Digital Studio",
+  title: "ATRIONA | Premium Digital Studio",
   description: "A high-end creative studio building digital experiences that matter.",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({

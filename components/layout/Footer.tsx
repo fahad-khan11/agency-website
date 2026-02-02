@@ -42,10 +42,22 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             {/* Socials Column */}
             <div className="md:col-span-2 flex flex-col gap-4">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Socials</h4>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300">Instagram</a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300">LinkedIn</a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300">Twitter</a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300">Behance</a>
+               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+                  <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>Instagram</span>
+               </a>
+               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+                  <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>LinkedIn</span>
+               </a>
+               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+                  <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>Twitter</span>
+               </a>
+               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+                  <Dribbble className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>Behance</span>
+               </a>
             </div>
 
             {/* Contact Column */}
