@@ -62,7 +62,8 @@ export default function Work({ isActive }: { isActive?: boolean }) {
           <span className="text-gray-500 hidden md:inline-block">2023 — 2024</span>
         </div>
 
-        <div className="flex flex-col">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {projects.map((project) => (
             <Link
               key={project.id}
@@ -70,20 +71,51 @@ export default function Work({ isActive }: { isActive?: boolean }) {
               className="block"
             >
               <div
-                className="work-item group relative border-b border-gray-800 py-12 flex flex-col md:flex-row justify-between items-start md:items-center cursor-pointer transition-colors hover:border-gray-600"
+                className="work-item group relative cursor-pointer"
                 onMouseEnter={() => setActiveProject(project.id)}
                 onMouseLeave={() => setActiveProject(null)}
               >
-                <div className="z-10 bg-black/50 backdrop-blur-sm md:bg-transparent p-2 md:p-0 rounded pointer-events-none">
-                  <h3 className="text-3xl md:text-5xl font-display font-semibold mb-2 group-hover:text-brand-orange transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm md:text-base">{project.category}</p>
+                {/* Image/Video Container */}
+                <div className="relative w-full aspect-[4/3] bg-neutral-900 rounded-xl overflow-hidden mb-6">
+                  {project.heroVideo ? (
+                    <video
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      src={project.heroVideo}
+                    />
+                  ) : project.heroImage ? (
+                    <img
+                      src={project.heroImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                      <span className="text-xs uppercase tracking-widest text-brand-orange">{project.title}</span>
+                    </div>
+                  )}
+
+                  {/* Overlay on Hover */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="flex items-center gap-2 text-white">
+                      <span className="text-sm font-medium">View Project</span>
+                      <ArrowUpRight className="w-5 h-5" />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-4 mt-4 md:mt-0 z-10 transition-transform duration-300 md:group-hover:-translate-x-12">
-                  <span className="text-gray-500 font-mono">{project.year}</span>
-                  <ArrowUpRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Project Info */}
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-display font-semibold mb-2 group-hover:text-brand-orange transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm md:text-base">{project.category}</p>
+                  </div>
+                  <span className="text-gray-500 font-mono text-sm mt-1">{project.year}</span>
                 </div>
               </div>
             </Link>
@@ -91,10 +123,10 @@ export default function Work({ isActive }: { isActive?: boolean }) {
         </div>
       </div>
 
-      {/* Floating Cursor / Image Preview */}
+      {/* Floating Cursor / Image Preview - Keep for desktop enhancement */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[320px] h-[220px] pointer-events-none z-50 hidden md:block -translate-x-1/2 -translate-y-1/2 rounded-lg overflow-hidden bg-gray-800 opacity-0 scale-0"
+        className="fixed top-0 left-0 w-[320px] h-[220px] pointer-events-none z-50 hidden lg:block -translate-x-1/2 -translate-y-1/2 rounded-lg overflow-hidden bg-gray-800 opacity-0 scale-0"
       >
         {projects.map((p) => (
           <div

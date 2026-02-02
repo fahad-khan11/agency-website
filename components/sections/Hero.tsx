@@ -117,7 +117,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
       {/* <nav className="w-full px-8 py-8 flex justify-between items-center z-50">...</nav> */}
 
       {/* Hero Content */}
-      <div className="flex-grow flex flex-col justify-center px-6 md:px-12 relative z-10 w-full max-w-[1800px] mx-auto">
+      <div className="flex-grow flex flex-col justify-center px-6 md:px-12 relative z-10 w-full max-w-[1800px] mx-auto mt-15">
 
         {/* Main Title Area */}
         <div className="relative mb-8" ref={titleRef}>
