@@ -79,22 +79,22 @@ export default function Testimonials({ isActive }: { isActive?: boolean }) {
 
 
   return (
-    <section className="bg-white text-black h-full flex flex-col pt-24 pb-8 px-6 md:px-12 section-panel" data-index="6">
+    <section className="bg-white text-black h-full flex flex-col px-6 md:px-12 section-panel overflow-hidden" data-index="6">
 
       {/* Fixed Header */}
-      <div className="max-w-7xl mx-auto w-full mb-8 flex-shrink-0 z-10 bg-white">
-        <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">Client Stories</h2>
-        <div className="h-1 w-20 bg-brand-orange"></div>
+      <div className="max-w-7xl mx-auto w-full pt-10 md:pt-16 pb-4 md:pb-5 flex-shrink-0 sticky top-0 bg-white z-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">Client Stories</h2>
+        <div className="h-1 w-16 md:w-20 bg-brand-orange"></div>
       </div>
 
       {/* Internal Scroll Container - Targeted by PanelContainer Observer by class name for Horizontal Scroll */}
-      <div className="inner-panel-scroll-horizontal flex-1 overflow-x-auto no-scrollbar w-full max-w-full">
-        <div className="flex flex-row gap-8 px-6 md:px-12 pb-20 items-center h-full">
+      <div className="inner-panel-scroll-horizontal flex-1 overflow-x-auto overflow-y-hidden no-scrollbar w-full max-w-full pb-2 md:pb-12">
+        <div className="flex flex-row gap-6 md:gap-8 items-center h-full min-h-[420px] md:min-h-[450px]">
           {testimonials.map((t, i) => (
-            <div key={t.id} className="bg-[#F8F9FA] p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[350px] md:min-w-[450px] max-w-[450px] flex flex-col justify-between h-[400px] flex-shrink-0 whitespace-normal">
+            <div key={t.id} className="bg-[#F8F9FA] p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal">
               <div>
-                <Quote className="text-brand-orange w-8 h-8 mb-4 opacity-80" />
-                <p className="text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
+                <Quote className="text-brand-orange w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-80" />
+                <p className="text-base sm:text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
                   "{t.quote}"
                 </p>
               </div>

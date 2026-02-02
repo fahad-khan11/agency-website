@@ -19,8 +19,8 @@ export default function Header() {
   const { navigateToPanel, activeIndex } = usePanel();
   const pathname = usePathname();
   const isHome = pathname === "/";
-  
-  const lightPanels = [1, 3, 6]; 
+
+  const lightPanels = [1, 3, 6];
   const isLightMode = isHome && lightPanels.includes(activeIndex);
 
   useEffect(() => {
@@ -32,10 +32,10 @@ export default function Header() {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent, item: { label: string; href: string; panelIndex?: number }) => {
-     if (isHome && item.panelIndex !== undefined) {
-         e.preventDefault();
-         navigateToPanel(item.panelIndex);
-     }
+    if (isHome && item.panelIndex !== undefined) {
+      e.preventDefault();
+      navigateToPanel(item.panelIndex);
+    }
   };
 
   return (
@@ -46,30 +46,36 @@ export default function Header() {
       )}
     >
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 group z-50" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
-         <div className="relative flex items-baseline">
-           <span className={clsx(
-              "font-extrabold font-sans tracking-[0.1em] text-2xl transition-colors duration-500",
-              isLightMode ? "text-black" : "text-white"
-           )}>AT</span>
-           <span className={clsx(
-              "font-extrabold font-sans italic tracking-[0.1em] text-3xl transition-colors duration-500",
-              isLightMode ? "text-black" : "text-white"
-           )}>RIO</span>
-           <span className={clsx(
-              "font-extrabold font-sans tracking-[0.1em] text-2xl transition-colors duration-500",
-              isLightMode ? "text-black" : "text-white"
-           )}>NA</span>
-           <span className="w-2 h-2 rounded-full bg-brand-orange absolute -top-1 -right-2"></span>
-         </div>
+      <Link href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
+        <div className="relative h-7 sm:h-8 md:h-9 lg:h-10 w-auto">
+          {/* Dark logo for light backgrounds */}
+          <img
+            src="/logo/atriona-dark.png"
+            alt="Atriona"
+            className={clsx(
+              "h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain transition-opacity duration-500 absolute top-0 left-0",
+              isLightMode ? "opacity-100" : "opacity-0"
+            )}
+          />
+          {/* White logo for dark backgrounds */}
+          <img
+            src="/logo/atriona-white.png"
+            alt="Atriona"
+            className={clsx(
+              "h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain transition-opacity duration-500",
+              isLightMode ? "opacity-0" : "opacity-100"
+            )}
+          />
+          <span className="w-2 h-2 rounded-full bg-brand-orange absolute -top-1 -right-2"></span>
+        </div>
       </Link>
 
       {/* Desktop Nav */}
       <nav className={clsx(
         "hidden md:flex gap-8 items-center px-8 py-3 rounded-full border transition-all duration-500 backdrop-blur-sm",
-        isLightMode 
-            ? "bg-black/5 border-black/10" 
-            : "bg-white/5 border-white/10 hover:bg-white/10"
+        isLightMode
+          ? "bg-black/5 border-black/10"
+          : "bg-white/5 border-white/10 hover:bg-white/10"
       )}>
         {navItems.map((item) => (
           <Link
@@ -77,10 +83,10 @@ export default function Header() {
             href={item.href}
             onClick={(e) => handleNavClick(e, item)}
             className={clsx(
-                "text-sm font-medium uppercase tracking-wider transition-colors relative group",
-                isLightMode 
-                    ? "text-gray-600 hover:text-black" 
-                    : "text-gray-300 hover:text-white"
+              "text-sm font-medium uppercase tracking-wider transition-colors relative group",
+              isLightMode
+                ? "text-gray-600 hover:text-black"
+                : "text-gray-300 hover:text-white"
             )}
           >
             {item.label}
@@ -90,14 +96,14 @@ export default function Header() {
       </nav>
 
       {/* CTA Button */}
-      <Link 
-        href="/contact" 
+      <Link
+        href="/contact"
         onClick={(e) => handleNavClick(e, navItems[3])}
         className={clsx(
-            "hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wide group px-5 py-2.5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300 z-50",
-            isLightMode 
-                ? "bg-black text-white" 
-                : "bg-white text-black"
+          "hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wide group px-5 py-2.5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300 z-50",
+          isLightMode
+            ? "bg-black text-white"
+            : "bg-white text-black"
         )}
       >
         <span>Let's Talk</span>
@@ -106,8 +112,8 @@ export default function Header() {
 
       {/* Mobile Menu Toggle (Simplified) */}
       <button className={clsx(
-          "md:hidden mix-blend-difference transition-colors duration-300",
-          isLightMode ? "text-black" : "text-white"
+        "md:hidden mix-blend-difference transition-colors duration-300",
+        isLightMode ? "text-black" : "text-white"
       )}>
         Menu
       </button>

@@ -11,6 +11,7 @@ import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
 import Footer from "@/components/layout/Footer";
 import FooterCTA from "@/components/sections/FooterCTA";
+import WorkLanding from "@/components/sections/WorkLanding";
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
       </PanelSection>
 
       <PanelSection index={2}>
-        <Work />
+        <WorkLanding />
       </PanelSection>
 
 
