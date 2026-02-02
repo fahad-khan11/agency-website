@@ -56,7 +56,7 @@ export default function WorkLanding({ isActive }: { isActive?: boolean }) {
 
     return (
         <section ref={containerRef} id="work" className="bg-black text-white py-12 md:py-14 px-6 md:px-12 relative h-full flex flex-col section-panel overflow-y-auto" data-index="2">
-            <div className="max-w-7xl mx-auto w-full">
+            <div className="max-w-7xl mx-auto w-full mt-20">
                 <div className="flex justify-between items-end mb-10 border-b border-gray-800 pb-4">
                     <h2 className="text-3xl md:text-5xl font-display font-bold">SELECTED WORK</h2>
                     <span className="text-gray-500 hidden md:inline-block text-sm">2023 — 2024</span>

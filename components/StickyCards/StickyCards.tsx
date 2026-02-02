@@ -229,7 +229,7 @@ const StickyCards = () => {
             {stickyCardsData.map((cardData, index) => (
                 <div 
                     key={index} 
-                    className="sticky-card relative w-full h-screen min-h-[600px] bg-white text-black px-16 py-12"
+                    className="sticky-card relative w-full min-h-screen md:h-screen md:min-h-[600px] bg-white text-black px-6 md:px-12 lg:px-16 py-8 md:py-12"
                     style={{ 
                         willChange: 'transform',
                     }}
@@ -241,29 +241,29 @@ const StickyCards = () => {
                     />
 
                     {/* Main Content - Index + Card Content in one row */}
-                    <div className="relative z-10 flex items-start gap-12 h-full max-w-[1600px] mx-auto">
+                    <div className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-8 lg:gap-12 h-full max-w-[1600px] mx-auto">
                         {/* Index Number */}
-                        <div className="flex-shrink-0 pt-8">
-                            <h1 className={`${syne.className} text-[6rem] font-bold leading-none text-gray-200 m-0`}>
+                        <div className="flex-shrink-0 md:pt-8">
+                            <h1 className={`${syne.className} text-5xl md:text-7xl lg:text-[6rem] font-bold leading-none text-gray-200 m-0`}>
                                 {cardData.index}
                             </h1>
                         </div>
 
                         {/* Card Content Wrapper */}
-                        <div className={`flex-1 flex items-center gap-16 self-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                        <div className={`flex-1 flex flex-col md:items-center gap-6 md:gap-12 lg:gap-16 self-stretch md:self-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                             {/* Text Section */}
-                            <div className="flex-1 flex flex-col gap-10">
-                                <h2 className={`${syne.className} text-[4.5rem] font-bold leading-[1.1] text-black m-0`}>
+                            <div className="flex-1 flex flex-col gap-4 md:gap-8 lg:gap-10">
+                                <h2 className={`${syne.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-bold leading-[1.1] text-black m-0`}>
                                     {cardData.title}
                                 </h2>
-                                <div className="flex flex-col gap-4">
-                                    <div className="mb-2">
+                                <div className="flex flex-col gap-3 md:gap-4">
+                                    <div className="mb-1 md:mb-2">
                                         <p className={`${inter.className} text-xs uppercase font-semibold tracking-[0.1em] text-gray-500 m-0`}>
                                             (about the service)
                                         </p>
                                     </div>
                                     <div>
-                                        <p className={`${inter.className} text-xl leading-[1.8] text-gray-700 m-0`}>
+                                        <p className={`${inter.className} text-sm sm:text-base md:text-lg lg:text-xl leading-[1.6] md:leading-[1.8] text-gray-700 m-0`}>
                                             {cardData.description}
                                         </p>
                                     </div>
@@ -271,11 +271,11 @@ const StickyCards = () => {
                             </div>
 
                             {/* Image Section */}
-                            <div className="flex-1 flex items-center justify-center">
+                            <div className="flex-1 w-full flex items-center justify-center">
                                 <img 
                                     src={cardData.image} 
                                     alt={cardData.title}
-                                    className="w-full h-auto aspect-[4/3] object-cover rounded-[20px] shadow-[0_25px_70px_rgba(0,0,0,0.2)]"
+                                    className="w-full h-auto aspect-[4/3] object-cover rounded-[12px] md:rounded-[16px] lg:rounded-[20px] shadow-[0_15px_40px_rgba(0,0,0,0.15)] md:shadow-[0_25px_70px_rgba(0,0,0,0.2)]"
                                 />
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import PanelContainer from "@/components/home/PanelContainer";
 import PanelSection from "@/components/home/PanelSection";
 import Hero from "@/components/sections/Hero";
@@ -14,9 +15,37 @@ import FooterCTA from "@/components/sections/FooterCTA";
 import WorkLanding from "@/components/sections/WorkLanding";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Mobile Layout - Simple scroll without animations
+  if (isMobile) {
+    return (
+      <div className="w-full bg-black">
+        <Hero />
+        <FeatureStrip />
+        <WorkLanding />
+        <Services />
+        <OrangeStatement />
+        <Process />
+        <Testimonials />
+        <Footer className="min-h-screen" />
+      </div>
+    );
+  }
+
+  // Desktop Layout - Panel animations
   return (
     <PanelContainer>
-
       <PanelSection index={0}>
         <Hero />
       </PanelSection>
@@ -29,11 +58,9 @@ export default function Home() {
         <WorkLanding />
       </PanelSection>
 
-
       <PanelSection index={3}>
         <Services />
       </PanelSection>
-
 
       <PanelSection index={4}>
         <OrangeStatement />
@@ -43,7 +70,6 @@ export default function Home() {
         <Process />
       </PanelSection>
 
-
       <PanelSection index={6}>
         <Testimonials />
       </PanelSection>
@@ -51,7 +77,6 @@ export default function Home() {
       <PanelSection index={7}>
         <Footer asPanel className="h-screen" />
       </PanelSection>
-
     </PanelContainer>
   );
 }
