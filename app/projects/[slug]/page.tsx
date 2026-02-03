@@ -180,14 +180,14 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         {/* Challenge & Solution */}
         <section className="container mx-auto px-6 md:px-12 py-32 grid md:grid-cols-12 gap-12 bg-neutral-900/20 rounded-3xl mx-6 mb-20">
           <div className="md:col-span-5">
-            <h2 className="text-3xl font-display font-semibold mb-6 text-brand-orange">The Challenge</h2>
+            <h2 className="text-3xl font-display font-semibold mb-6 text-[#00b4d9]">The Challenge</h2>
             <p className="text-gray-400 leading-relaxed text-lg">
               {project.challenge || "Every project starts with a unique problem. We identify the core constraints and opportunities to define a clear path forward."}
             </p>
           </div>
           <div className="md:col-span-2 hidden md:block" />
           <div className="md:col-span-5">
-            <h2 className="text-3xl font-display font-semibold mb-6 text-brand-orange">The Solution</h2>
+            <h2 className="text-3xl font-display font-semibold mb-6 text-[#00b4d9]">The Solution</h2>
             <p className="text-gray-200 leading-relaxed text-xl">
               {project.solution || "Our approach combines strategic insight with creative execution. We crafted a solution that not only meets the requirements but elevates the brand experience."}
             </p>

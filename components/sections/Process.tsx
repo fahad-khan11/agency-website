@@ -69,12 +69,12 @@ export default function Process({ isActive }: { isActive?: boolean }) {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step) => (
-            <div key={step.num} className="process-step border-t border-gray-800 pt-6 relative group hover:border-brand-orange transition-colors duration-500 opacity-100">
+            <div key={step.num} className="process-step border-t border-gray-800 pt-6 relative group hover:border-[#00b4d9] transition-colors duration-500 opacity-100">
               {/* Note: opacity-100 default, GSAP handles hide from/to */}
               <span className="text-4xl md:text-5xl font-mono font-bold text-gray-800 mb-6 block group-hover:text-white transition-colors duration-500">
                 {step.num}
               </span>
-              <h3 className="text-2xl font-bold font-display mb-3 text-brand-orange">{step.title}</h3>
+              <h3 className="text-2xl font-bold font-display mb-3 text-[#00b4d9]">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed max-w-[200px]">
                 {step.desc}
               </p>

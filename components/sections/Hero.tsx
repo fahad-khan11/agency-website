@@ -123,8 +123,8 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         <div className="relative mb-8" ref={titleRef}>
           {/* Top Decorative Line */}
           <div className="hero-fade mb-6 flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-brand-orange"></div>
-            <span className="text-brand-orange font-mono text-xs uppercase tracking-[0.3em]">Digital Experience Design</span>
+            <div className="w-12 h-[1px] bg-[#00B4D9]"></div>
+            <span className="text-[#00B4D9] font-mono text-xs uppercase tracking-[0.3em]">Digital Experience Design</span>
           </div>
 
           <h1 className="font-display font-black text-[13vw] leading-[0.8] tracking-tight uppercase mix-blend-difference relative">

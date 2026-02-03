@@ -232,7 +232,7 @@ export default function PanelContainer({ children }: { children: ReactNode }) {
             <button
               key={i}
               onClick={() => goToPanel(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentIndex.current ? 'bg-orange-500 scale-150' : 'bg-white/50 hover:bg-white'}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentIndex.current ? 'bg-[#00b4d9] scale-150' : 'bg-white/50 hover:bg-white'}`}
               aria-label={`Go to panel ${i + 1}`}
             />
           ))}

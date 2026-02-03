@@ -40,8 +40,8 @@ export default function ContactPage() {
       <main ref={container} className="min-h-screen bg-black text-white relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-20">
 
         {/* Background Gradients */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#00b4d9]/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#00b4d9]/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
 
         <div className="container mx-auto px-6 md:px-12">
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
               <div>
                 <h1 className="contact-reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 md:mb-8 leading-none">
                   Let's start <br />
-                  <span className="text-brand-orange">something new.</span>
+                  <span className="text-[#00b4d9]">something new.</span>
                 </h1>
                 <p className="contact-reveal text-base sm:text-lg md:text-xl text-gray-400 max-w-lg mb-8 md:mb-10 leading-relaxed">
                   We help ambitious brands define their future. Tell us about your project, and we'll get back to you within 24 hours.
@@ -61,7 +61,7 @@ export default function ContactPage() {
               <div className="space-y-6 md:space-y-8 contact-reveal">
                 <div className="group cursor-pointer">
                   <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Email</span>
-                  <a href="mailto:hello@archetype.studio" className="text-xl sm:text-2xl md:text-3xl font-display hover:text-brand-orange transition-colors flex items-center gap-2">
+                  <a href="mailto:hello@archetype.studio" className="text-xl sm:text-2xl md:text-3xl font-display hover:text-[#00b4d9] transition-colors flex items-center gap-2">
                     hello@archetype.studio <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                     type="text"
                     id="name"
                     placeholder="Your Name"
-                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
@@ -98,7 +98,7 @@ export default function ContactPage() {
                     type="email"
                     id="email"
                     placeholder="name@company.com"
-                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
@@ -108,11 +108,11 @@ export default function ContactPage() {
                     id="message"
                     rows={4}
                     placeholder="Tell us about your project..."
-                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-brand-orange focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
+                    className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
                   ></textarea>
                 </div>
 
-                <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-4 text-sm rounded-lg hover:bg-brand-orange hover:text-white transition-all duration-300 mt-6">
+                <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-4 text-sm rounded-lg hover:bg-[#00b4d9] hover:text-white transition-all duration-300 mt-6">
                   Send Message
                 </button>
               </form>
@@ -129,14 +129,19 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="contact-reveal w-full">
+
+
+              {/*   !!!!  ENABLE THIS IF YOU WANT TO SET CUSTOM LOCATION LIKE IRAN,AFGHANISTAN,INDIA etc...  !!!! 
+                   (not recommeneded , reason : becuase it is static and you have to put or set every node manually) */}
+
+              {/* <div className="contact-reveal w-full">
                 <WorldMap />
-              </div>
+              </div> */}
             </div>
 
             <div className="space-y-8">
               <div className="flex items-center gap-4 contact-reveal">
-                <div className="w-12 h-[1px] bg-brand-orange"></div>
+                <div className="w-12 h-[1px] bg-[#00b4d9]"></div>
                 <span className="text-sm uppercase tracking-widest text-gray-500">Interactive Map</span>
               </div>
 

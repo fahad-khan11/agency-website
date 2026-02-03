@@ -110,7 +110,7 @@ export default function Work({ isActive }: { isActive?: boolean }) {
                 {/* Project Info */}
                 <div className="flex justify-between items-start gap-4">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-display font-semibold mb-2 group-hover:text-brand-orange transition-colors">
+                    <h3 className="text-2xl md:text-3xl font-display font-semibold mb-2 group-hover:text-[#00b4d9] transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-gray-400 text-sm md:text-base">{project.category}</p>
