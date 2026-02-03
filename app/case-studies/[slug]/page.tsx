@@ -72,7 +72,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                     className="group flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:border-[#00b4d9] hover:bg-[#00b4d9]/10 transition-all"
                 >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    <span className="text-sm">Back to Grid</span>
+                    <span className="text-sm">Back</span>
                 </Link>
             </div>
 
@@ -81,7 +81,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                 {/* Background Elements */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat mix-blend-overlay"></div>
 
-                <div className="max-w-[1370px] w-full mx-auto relative z-10">
+                <div className="max-w-[1370px] w-full mx-auto relative z-10 mt-10">
                     <div className="flex flex-col gap-8 md:gap-12">
                         {/* Header */}
                         <div className="flex flex-col gap-4 md:gap-6">

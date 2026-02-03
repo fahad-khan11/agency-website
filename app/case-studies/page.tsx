@@ -109,62 +109,74 @@ export default function CaseStudiesPage() {
               <Link
                 key={study.id}
                 href={`/case-studies/${study.slug}`}
-                className="grid-item group relative bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-[#00b4d9]/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#00b4d9]/20"
+                className="grid-item group relative block"
               >
-                {/* Image Container */}
-                <div className="relative w-full aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={study.heroImage}
-                    alt={study.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                {/* Animated Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00B5D9]/0 to-[#00B5D9]/0 rounded-2xl opacity-0 group-hover:from-[#00B5D9]/10 group-hover:to-[#00B5D9]/5 group-hover:opacity-100 transition-all duration-500 blur-xl" />
 
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#00b4d9]/90 backdrop-blur-sm rounded-full">
-                    <span className="text-xs font-mono uppercase tracking-wider text-white">
-                      {study.category}
-                    </span>
+                {/* Card Container */}
+                <div className="relative bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:shadow-2xl group-hover:shadow-[#00B5D9]/30 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+
+                  {/* Shine Effect Overlay */}
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden z-20 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B5D9]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                   </div>
 
-                  {/* Color Accent */}
-                  <div
-                    className="absolute top-4 right-4 w-16 h-16 rounded-full opacity-40 blur-2xl group-hover:opacity-60 transition-opacity duration-500"
-                    style={{ backgroundColor: study.color }}
-                  ></div>
-                </div>
+                  {/* Image Container */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={study.heroImage}
+                      alt={study.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
 
-                {/* Content */}
-                <div className="p-6 md:p-8">
-                  {/* Year */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-mono text-gray-500">{study.year}</span>
-                    <span className="text-gray-600">•</span>
-                    <span className="text-xs text-gray-400">{study.client}</span>
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#00B5D9]/90 backdrop-blur-sm rounded-full transition-all duration-300 group-hover:scale-110 group-hover:bg-[#00B5D9]">
+                      <span className="text-xs font-mono uppercase tracking-wider text-white">
+                        {study.category}
+                      </span>
+                    </div>
+
+                    {/* Color Accent */}
+                    <div
+                      className="absolute top-4 right-4 w-16 h-16 rounded-full opacity-40 blur-2xl group-hover:opacity-60 transition-opacity duration-500"
+                      style={{ backgroundColor: study.color }}
+                    ></div>
                   </div>
 
-                  {/* Title */}
-                  <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 group-hover:text-[#00b4d9] transition-colors duration-300">
-                    {study.title}
-                  </h2>
+                  {/* Content */}
+                  <div className="relative p-6 md:p-8">
+                    {/* Year */}
+                    <div className="flex items-center gap-2 mb-3 transition-colors duration-300 group-hover:text-[#00B5D9]/70">
+                      <span className="text-xs font-mono text-gray-500 group-hover:text-[#00B5D9]/70 transition-colors duration-300">{study.year}</span>
+                      <span className="text-gray-600">•</span>
+                      <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{study.client}</span>
+                    </div>
 
-                  {/* Tagline */}
-                  <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-6">
-                    {study.tagline}
-                  </p>
+                    {/* Title */}
+                    <h2 className="text-2xl md:text-3xl font-display font-bold mb-3 transition-all duration-300 group-hover:text-[#00B5D9] group-hover:translate-x-1">
+                      {study.title}
+                    </h2>
 
-                  {/* CTA */}
-                  <div className="flex items-center gap-2 text-[#00b4d9] font-medium text-sm">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    {/* Tagline */}
+                    <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-6 transition-colors duration-300 group-hover:text-gray-300">
+                      {study.tagline}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-[#00B5D9] font-medium text-sm transition-all duration-300 group-hover:translate-x-2">
+                      <span>View Case Study</span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </div>
                   </div>
-                </div>
 
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#00b4d9]/10 to-transparent"></div>
+                  {/* Enhanced Hover Glow Effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#00B5D9]/10 to-transparent"></div>
+                  </div>
                 </div>
               </Link>
             ))}

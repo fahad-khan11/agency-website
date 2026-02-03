@@ -136,7 +136,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
             <div className="hero-text text-6xl mb-8 opacity-90">
               {service.icon}
             </div>
-            <p className="hero-text text-[#00b4d9] uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">
+            <p className="hero-text text-[#00B5D9] uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">
               {service.category}
             </p>
             <h1 className="hero-text text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 tracking-tight">
@@ -150,7 +150,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
           {/* Back Button */}
           <Link
             href="/services"
-            className="hero-text absolute top-32 left-6 md:left-12 z-30 flex items-center gap-2 text-white hover:text-[#00b4d9] transition-colors group"
+            className="hero-text absolute top-32 left-6 md:left-12 z-30 flex items-center gap-2 text-white hover:text-[#00B5D9] transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             <span className="font-medium">Back to Services</span>
@@ -188,7 +188,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
                     {service.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-4 py-2 bg-[#00b4d9]/80 border border-gray-800 rounded-full text-white text-sm hover:border-[#00b4d9]/50 transition-colors"
+                        className="px-4 py-2 bg-[#00B5D9]/10 border border-[#00B5D9]/30 rounded-full text-[#00B5D9] text-sm hover:border-[#00B5D9]/50 hover:bg-[#00B5D9]/20 transition-colors"
                       >
                         {tech}
                       </span>
@@ -206,15 +206,22 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {service.deliverables.map((deliverable, i) => (
-                  <div
-                    key={i}
-                    className="bg-gradient-to-br from-gray-900/50 to-black border border-gray-900 rounded-xl p-6 hover:border-[#00b4d9]/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#00b4d9]/80 flex items-center justify-center flex-shrink-0">
-                        <Check className="w-5 h-5 text-white" />
+                  <div key={i} className="group relative">
+                    {/* Animated Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00B5D9]/0 to-[#00B5D9]/0 rounded-xl opacity-0 group-hover:from-[#00B5D9]/10 group-hover:to-[#00B5D9]/5 group-hover:opacity-100 transition-all duration-500 blur-xl" />
+
+                    <div className="relative bg-gradient-to-br from-gray-900/50 to-black border border-gray-900 rounded-xl p-6 transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:shadow-2xl group-hover:shadow-[#00B5D9]/20 group-hover:-translate-y-1 group-hover:scale-[1.02]">
+                      {/* Shine Effect */}
+                      <div className="absolute inset-0 rounded-xl overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B5D9]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                       </div>
-                      <span className="text-gray-300 font-medium">{deliverable}</span>
+
+                      <div className="relative flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-full bg-[#00B5D9]/20 border border-[#00B5D9]/50 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#00B5D9]/30 group-hover:border-[#00B5D9]/70">
+                          <Check className="w-5 h-5 text-[#00B5D9] transition-transform duration-300 group-hover:scale-110" />
+                        </div>
+                        <span className="text-gray-300 font-medium transition-colors duration-300 group-hover:text-white">{deliverable}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -229,69 +236,29 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               </p>
               <div className="grid md:grid-cols-2 gap-8">
                 {service.process.map((step, i) => (
-                  <div
-                    key={i}
-                    className="relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 hover:border-[#00b4d9]/50 transition-all duration-300"
-                  >
-                    {/* Step Number */}
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#00b4d9] to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                      {step.step}
+                  <div key={i} className="group relative">
+                    {/* Animated Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00B5D9]/0 to-[#00B5D9]/0 rounded-xl opacity-0 group-hover:from-[#00B5D9]/10 group-hover:to-[#00B5D9]/5 group-hover:opacity-100 transition-all duration-500 blur-xl" />
+
+                    <div className="relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:shadow-2xl group-hover:shadow-[#00B5D9]/30 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                      {/* Shine Effect */}
+                      <div className="absolute inset-0 rounded-xl overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B5D9]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                      </div>
+
+                      {/* Step Number */}
+                      <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#00B5D9] to-[#0099BB] rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[#00B5D9]/50">
+                        {step.step}
+                      </div>
+                      <h3 className="relative text-2xl font-display font-bold mb-4 mt-2 transition-all duration-300 group-hover:text-[#00B5D9] group-hover:translate-x-1">{step.title}</h3>
+                      <p className="relative text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-300">{step.description}</p>
                     </div>
-                    <h3 className="text-2xl font-display font-bold mb-4 mt-2">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* 4. Pricing / Packages */}
-            <section className="content-section mb-24">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-center">Pricing & Packages</h2>
-              <p className="text-gray-400 text-lg mb-12 text-center max-w-3xl mx-auto">
-                Flexible pricing options designed to fit your needs and budget. All packages include our quality guarantee.
-              </p>
-              <div className="grid md:grid-cols-3 gap-8">
-                {service.pricing.map((pkg, i) => (
-                  <div
-                    key={i}
-                    className={`relative rounded-2xl p-8 transition-all duration-300 ${pkg.highlighted
-                      ? 'bg-gradient-to-br from-[#00b4d9]/40 to-blue-900/40 border-2 border-[#00b4d9] shadow-2xl shadow-[#00b4d9]/20 scale-105'
-                      : 'bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-gray-700'
-                      }`}
-                  >
-                    {pkg.highlighted && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#00b4d9] to-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Popular
-                      </div>
-                    )}
-                    <h3 className="text-2xl font-display font-bold mb-2">{pkg.name}</h3>
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold text-white">{pkg.price}</span>
-                      {pkg.price !== 'Custom' && <span className="text-gray-500 text-sm ml-2">USD</span>}
-                    </div>
-                    <p className="text-[#00b4d9] text-sm font-medium mb-2">{pkg.duration}</p>
-                    <p className="text-gray-400 mb-6 pb-6 border-b border-gray-800">{pkg.description}</p>
-                    <ul className="space-y-3 mb-8">
-                      {pkg.features.map((feature, j) => (
-                        <li key={j} className="flex items-start gap-2 text-gray-300 text-sm">
-                          <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/contact"
-                      className={`block w-full text-center py-3 rounded-lg font-semibold transition-all duration-300 ${pkg.highlighted
-                        ? 'bg-gradient-to-r from-[#00b4d9] to-blue-600 text-white hover:shadow-lg hover:shadow-[#00b4d9]/50'
-                        : 'bg-gray-800 text-white hover:bg-gray-700'
-                        }`}
-                    >
-                      Get Started
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </section>
+
 
             {/* 5. Results / Case Studies / Proof */}
             <section className="content-section mb-24">
@@ -300,37 +267,44 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               {/* Key Metrics */}
               <div className="grid md:grid-cols-3 gap-8 mb-16">
                 {service.results.map((result, i) => (
-                  <div
-                    key={i}
-                    className="text-center bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 hover:border-[#00b4d9]/50 transition-all duration-300"
-                  >
-                    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#00b4d9] to-blue-600 bg-clip-text text-transparent mb-4">
-                      {result.metric}
+                  <div key={i} className="group relative">
+                    {/* Animated Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00B5D9]/0 to-[#00B5D9]/0 rounded-xl opacity-0 group-hover:from-[#00B5D9]/10 group-hover:to-[#00B5D9]/5 group-hover:opacity-100 transition-all duration-500 blur-xl" />
+
+                    <div className="relative text-center bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:shadow-2xl group-hover:shadow-[#00B5D9]/30 group-hover:-translate-y-2 group-hover:scale-[1.05]">
+                      {/* Shine Effect */}
+                      <div className="absolute inset-0 rounded-xl overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B5D9]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                      </div>
+
+                      <div className="relative text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#00B5D9] to-[#0099BB] bg-clip-text text-transparent mb-4 transition-transform duration-300 group-hover:scale-110">
+                        {result.metric}
+                      </div>
+                      <p className="relative text-gray-400 transition-colors duration-300 group-hover:text-gray-300">{result.label}</p>
                     </div>
-                    <p className="text-gray-400">{result.label}</p>
                   </div>
                 ))}
               </div>
 
               {/* Case Study */}
-              <div className="bg-gradient-to-br from-[#00b4d9]/20 to-blue-900/10 border border-[#00b4d9]/30 rounded-2xl p-8 md:p-12">
+              <div className="bg-gradient-to-br from-[#00B5D9]/20 to-[#00B5D9]/5 border border-[#00B5D9]/30 rounded-2xl p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-2 h-2 bg-[#00b4d9]/100 rounded-full"></div>
-                  <span className="text-[#00b4d9]/90 uppercase tracking-wider text-sm font-semibold">Case Study</span>
+                  <div className="w-2 h-2 bg-[#00B5D9] rounded-full"></div>
+                  <span className="text-[#00B5D9] uppercase tracking-wider text-sm font-semibold">Case Study</span>
                 </div>
                 <h3 className="text-3xl font-display font-bold mb-4">{service.caseStudy.client}</h3>
 
                 <div className="grid md:grid-cols-3 gap-8">
                   <div>
-                    <h4 className="text-purple-400 font-semibold mb-2 uppercase text-sm">Challenge</h4>
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Challenge</h4>
                     <p className="text-gray-300">{service.caseStudy.challenge}</p>
                   </div>
                   <div>
-                    <h4 className="text-blue-400 font-semibold mb-2 uppercase text-sm">Solution</h4>
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Solution</h4>
                     <p className="text-gray-300">{service.caseStudy.solution}</p>
                   </div>
                   <div>
-                    <h4 className="text-green-400 font-semibold mb-2 uppercase text-sm">Results</h4>
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Results</h4>
                     <p className="text-gray-300">{service.caseStudy.results}</p>
                   </div>
                 </div>
@@ -350,7 +324,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               </div>
               <Link
                 href={`/services/${nextService.slug}`}
-                className="group flex items-center gap-3 px-8 py-4 bg-[#00b4d9]/90 hover:bg-[#00b4d9]/40 rounded-full transition-all duration-300 text-white font-medium"
+                className="group flex items-center gap-3 px-8 py-4 bg-[#00B5D9] hover:bg-[#00B5D9]/80 rounded-full transition-all duration-300 text-white font-medium"
               >
                 <span>View Service</span>
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -360,7 +334,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* 6. Call to Action */}
-        <section className="relative py-32 bg-gradient-to-br from-[#00b4d9]/20 to-blue-900/20 border-t border-gray-800">
+        <section className="relative py-32 bg-gradient-to-br from-[#00B5D9]/20 to-[#00B5D9]/5 border-t border-gray-800">
           <div className="container mx-auto px-6 md:px-12 text-center">
             <div className="text-6xl mb-8">{service.icon}</div>
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8">
@@ -372,7 +346,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-gradient-to-r from-[#00b4d9] to-[#00b4d9] text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105"
+                className="px-8 py-4 bg-gradient-to-r from-[#00B5D9] to-[#0099BB] text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-[#00B5D9]/50 transition-all duration-300 hover:scale-105"
               >
                 Start a Project
               </Link>

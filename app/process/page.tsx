@@ -102,10 +102,10 @@ export default function ProcessPage() {
     <div ref={containerRef} className="bg-black text-white min-h-screen">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 md:px-12 py-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/10 via-transparent to-transparent opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 via-transparent to-transparent opacity-30" />
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-display font-black mb-8 bg-gradient-to-r from-white via-white to-brand-orange bg-clip-text text-transparent">
+            <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-display font-black mb-8 bg-gradient-to-r from-white via-cyan-300 to-cyan-500 bg-clip-text text-transparent">
               How We Build Digital Experiences
             </h1>
             <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -121,14 +121,13 @@ export default function ProcessPage() {
           {processSteps.map((step, index) => (
             <div
               key={step.num}
-              className={`process-card mb-32 last:mb-0 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } flex flex-col md:items-center gap-12`}
+              className={`process-card mb-32 last:mb-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } flex flex-col md:items-center gap-12`}
             >
               {/* Content Side */}
               <div className="flex-1 space-y-6">
                 <div className="flex items-center gap-4">
-                  <span className="text-6xl md:text-7xl font-mono font-bold text-brand-orange/20">
+                  <span className="text-6xl md:text-7xl font-mono font-bold text-cyan-500/20">
                     {step.num}
                   </span>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-white">
@@ -143,7 +142,7 @@ export default function ProcessPage() {
                 <div className="space-y-3 pt-4">
                   {step.highlights.map((highlight, i) => (
                     <div key={i} className="flex items-center gap-3 group">
-                      <div className="w-2 h-2 rounded-full bg-brand-orange group-hover:scale-150 transition-transform duration-300" />
+                      <div className="w-2 h-2 rounded-full bg-cyan-500 group-hover:scale-150 transition-transform duration-300" />
                       <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
                         {highlight}
                       </span>
@@ -155,8 +154,8 @@ export default function ProcessPage() {
               {/* Image Side */}
               <div className="flex-1">
                 {step.image ? (
-                  <div className="process-image relative aspect-square rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-orange/50 transition-colors duration-500 group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                  <div className="process-image relative aspect-square rounded-2xl overflow-hidden border border-gray-800 hover:border-cyan-500/50 transition-colors duration-500 group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                     <Image
                       src={step.image}
                       alt={step.title}
@@ -166,12 +165,12 @@ export default function ProcessPage() {
                     />
                   </div>
                 ) : (
-                  <div className="process-image aspect-square rounded-2xl border-2 border-dashed border-gray-800 flex items-center justify-center bg-gradient-to-br from-gray-900 to-black relative overflow-hidden group hover:border-brand-orange/50 transition-colors duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="process-image aspect-square rounded-2xl border-2 border-dashed border-gray-800 flex items-center justify-center bg-gradient-to-br from-gray-900 to-black relative overflow-hidden group hover:border-cyan-500/50 transition-colors duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="text-center space-y-4 relative z-10">
-                      <div className="w-20 h-20 mx-auto rounded-full border-4 border-brand-orange/50 flex items-center justify-center">
+                      <div className="w-20 h-20 mx-auto rounded-full border-4 border-cyan-500/50 flex items-center justify-center">
                         <svg
-                          className="w-10 h-10 text-brand-orange"
+                          className="w-10 h-10 text-cyan-500"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -206,13 +205,13 @@ export default function ProcessPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <a
               href="/contact"
-              className="px-8 py-4 bg-brand-orange text-white font-semibold rounded-full hover:bg-brand-orange/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-orange/50"
+              className="px-8 py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50"
             >
               Get Started
             </a>
             <a
               href="/projects"
-              className="px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-full hover:border-brand-orange transition-all duration-300 hover:scale-105"
+              className="px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-full hover:border-cyan-500 transition-all duration-300 hover:scale-105"
             >
               View Our Work
             </a>
