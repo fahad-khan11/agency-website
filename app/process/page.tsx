@@ -193,7 +193,6 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-display font-black">
