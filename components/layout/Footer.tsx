@@ -61,13 +61,12 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             {/* Contact Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">Get in touch</h4>
-               <a href="mailto:hello@atriona.studio" className="text-2xl md:text-3xl font-display font-bold hover:text-brand-orange transition-colors break-words">
-                  hello@atriona.studio
+               <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-3xl font-display font-bold hover:text-brand-orange transition-colors break-words">
+                  info@atriona-digital.com
                </a>
                <div className="text-gray-400 text-sm leading-relaxed">
-                  <p>123 Innovation Dr, Suite 400</p>
-                  <p>New York, NY 10012</p>
-                  <p className="mt-2 text-[#00B4D9]">+1 (555) 123-4567</p>
+                  <p>Ohiostraße 15</p>
+                  <p>76149 Karlsruhe</p>
                </div>
             </div>
          </div>

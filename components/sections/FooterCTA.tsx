@@ -40,8 +40,8 @@ export default function FooterCTA({ isActive }: { isActive?: boolean }) {
           LET'S BUILD <br/> THE FUTURE.
         </h2>
         
-        <a href="mailto:hello@atriona.studio" className="inline-block text-xl md:text-2xl border-b border-white pb-1 hover:text-brand-orange hover:border-brand-orange transition-colors duration-300">
-           hello@atriona.studio
+        <a href="mailto:info@atriona-digital.com" className="inline-block text-xl md:text-2xl border-b border-white pb-1 hover:text-brand-orange hover:border-brand-orange transition-colors duration-300">
+           info@atriona-digital.com
         </a>
       </div>
 
