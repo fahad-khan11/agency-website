@@ -75,7 +75,7 @@ export default function WorkLanding({ isActive }: { isActive?: boolean }) {
                                 onMouseLeave={() => setActiveProject(null)}
                             >
                                 <div className="z-10 bg-black/50 backdrop-blur-sm md:bg-transparent p-2 md:p-0 rounded pointer-events-none">
-                                    <h3 className="text-2xl md:text-4xl font-display font-semibold mb-1 group-hover:text-brand-orange transition-colors">
+                                    <h3 className="text-2xl md:text-4xl font-display font-semibold mb-1 group-hover:text-[#00b4d9] transition-colors">
                                         {project.title}
                                     </h3>
                                     <p className="text-gray-400 text-xs md:text-sm">{project.category}</p>

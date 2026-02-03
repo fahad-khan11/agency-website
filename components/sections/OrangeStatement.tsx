@@ -41,7 +41,7 @@ export default function OrangeStatement({ isActive }: { isActive?: boolean }) {
   }, [isActive]);
 
   return (
-    <section ref={containerRef} className="bg-brand-orange text-white w-full h-screen px-6 md:px-12 relative overflow-hidden section-panel flex flex-col justify-center items-center text-center" data-index="4">
+    <section ref={containerRef} className="bg-[#00b4d9] text-white w-full h-screen px-6 md:px-12 relative overflow-hidden section-panel flex flex-col justify-center items-center text-center" data-index="4">
       {/* Background Noise/Grain is handled globally */}
 
       <div className="relative z-10 max-w-4xl mx-auto">

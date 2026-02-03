@@ -103,8 +103,8 @@ export default function Services({ isActive }: { isActive?: boolean }) {
         {/* Left Column */}
         <div className="flex flex-col justify-start lg:sticky lg:top-32 h-fit">
           <div className="service-anim flex items-center gap-3 mb-4">
-            <div className="h-[2px] w-6 bg-brand-orange"></div>
-            <span className="text-brand-orange font-mono text-xs tracking-widest uppercase">Our Expertise</span>
+            <div className="h-[2px] w-6 bg-[#00b4d9]"></div>
+            <span className="text-[#00b4d9] font-mono text-xs tracking-widest uppercase font-bold">Our Expertise</span>
           </div>
 
           <h2 className="service-anim text-4xl md:text-5xl font-display font-semibold leading-[1.1] tracking-tight mb-6">
@@ -135,13 +135,13 @@ export default function Services({ isActive }: { isActive?: boolean }) {
             const Icon = service.icon;
 
             return (
-              <div key={service.id} className={`group bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-orange/30 shadow-xl' : 'border-transparent shadow-sm hover:shadow-md hover:bg-[#f66d41] hover:border-[#ff6b00]'}`}>
+              <div key={service.id} className={`group bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-[#00b4d9]/30 shadow-xl' : 'border-transparent shadow-sm hover:shadow-md hover:bg-[#00b4d9] hover:border-[#00b4d9]'}`}>
                 <button
                   onClick={() => toggleAccordion(index)}
                   className="w-full p-4 md:p-5 flex items-center justify-between text-left transition-colors"
                 >
                   <div className="flex items-center gap-4 md:gap-5">
-                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${isOpen ? 'bg-brand-orange text-white' : 'bg-[#F2F4F7] text-gray-600 group-hover:bg-white group-hover:text-[#ff6b00]'}`}>
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${isOpen ? 'bg-[#00b4d9] text-white' : 'bg-[#F2F4F7] text-gray-600 group-hover:bg-white group-hover:text-[#00b4d9]'}`}>
                       <Icon
                         size={22}
                         strokeWidth={isOpen ? 2 : 1.5}

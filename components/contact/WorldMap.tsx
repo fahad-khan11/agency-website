@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 export default function WorldMap() {
     return (
         <div className="relative w-full aspect-[2/1] bg-[#050505] rounded-xl border border-white/5 overflow-hidden group">
-            {/* Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-            {/* Map Container */}
             <div className="absolute inset-0 flex items-center justify-center p-8 opacity-40 group-hover:opacity-60 transition-opacity duration-500">
                 <svg
                     viewBox="0 0 1008 651"
@@ -21,41 +19,34 @@ export default function WorldMap() {
                         fill="currentColor"
                     />
                     <path d="M165.5,135.5 C165.5,135.5 170.5,200.5 170.5,200.5 L200.5,230.5 L250.5,220.5 L280.5,250.5 L300.5,450.5 L350.5,500.5 L400.5,520.5" stroke="currentColor" strokeWidth="2" fill="none" className="opacity-20" />
-                    {/* Simplified Continents for aesthetics */}
                     <path fill="currentColor" d="M 230 80 Q 250 50 300 60 T 400 60 Q 450 60 500 80 T 600 80 Q 680 80 720 60 L 750 100 L 720 150 L 650 200 L 600 250 L 550 250 L 520 220 L 500 250 L 520 300 L 550 350 L 550 450 L 580 500 L 550 550 L 450 550 L 400 500 L 350 450 L 300 400 L 250 350 L 220 250 L 200 200 L 150 150 L 180 100 Z" className="opacity-20 hidden md:block" />
                 </svg>
             </div>
 
-            {/* Map Image Fallback / Better Representation */}
             <div className="absolute inset-0 opacity-30 select-none pointer-events-none mix-blend-screen">
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1000 500">
-                    {/* Rough World Map Paths */}
                     <path fill="#333" d="M185,137c0,0-16-16-11-28s32-9,32-9s16-19,30-14s16,23,0,32s-39,17-39,17L185,137z" />
                     <path fill="#333" d="M308,126c0,0,33-19,53-6s14,24,14,24l-10,13l-45,3L308,126z" />
                     <path fill="#333" d="M473,116c0,0,49-33,49-16s-18,29-18,29l-37,4L473,116z" />
                     <path fill="#333" d="M608,123c0,0,51,0,51,0l-6,21l-36,5L608,123z" />
-                    {/* This is a placeholder for a complex SVG. I'll use a grid overlay with the ping to be stylish instead of a bad hand-drawn map. */}
                 </svg>
             </div>
 
-            {/* Use a simple image for the world map if possible, or build a robust dot grid.
-           Given constraints, a Dot Grid Map is safer and looks premium.
-       */}
+
             <div className="absolute inset-0 p-8 flex items-center justify-center">
                 <div className="relative w-full h-full max-w-4xl mx-auto opacity-40">
-                    {/* Conceptual Dot Map - We will just use the Ping for now on a stylized background as requested */}
+
                     <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-contain bg-no-repeat bg-center opacity-30 invert"></div>
                 </div>
             </div>
 
-            {/* Ping for Islamabad (Approximate position on a standard map projection adjusted for the background image above) */}
-            {/* Assuming the image is centered. Islamabad is approx 68% X, 40% Y on a equirectangular map starting from left */}
+
             <div className="absolute top-[40%] left-[68%] -translate-x-1/2 -translate-y-1/2 z-10">
                 <div className="relative flex items-center justify-center">
-                    <span className="absolute inline-flex h-8 w-8 animate-ping rounded-full bg-brand-orange opacity-75"></span>
-                    <span className="relative inline-flex h-3 w-3 rounded-full bg-brand-orange"></span>
+                    <span className="absolute inline-flex h-8 w-8 animate-ping rounded-full bg-[#00b4d9] opacity-75"></span>
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-[#00b4d9]"></span>
 
-                    {/* Tooltip */}
+
                     <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none mt-2">
                         ISLAMABAD
                     </div>

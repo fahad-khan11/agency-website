@@ -82,7 +82,7 @@ export default function Header() {
               isLightMode ? "opacity-0" : "opacity-100"
             )}
           />
-          <span className="w-2 h-2 rounded-full bg-brand-orange absolute -top-1 -right-2"></span>
+          <span className="w-2 h-2 rounded-full bg-[#00b4d9] absolute -top-1 -right-2"></span>
         </div>
       </Link>
 
@@ -106,7 +106,7 @@ export default function Header() {
             )}
           >
             {item.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand-orange transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
           </Link>
         ))}
       </nav>
@@ -116,7 +116,7 @@ export default function Header() {
         href="/contact"
         onClick={(e) => handleNavClick(e, navItems[4])}
         className={clsx(
-          "hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wide group px-5 py-2.5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300 z-50",
+          "hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wide group px-5 py-2.5 rounded-full hover:bg-[#00b4d9] hover:text-white transition-all duration-300 z-50",
           isLightMode
             ? "bg-black text-white"
             : "bg-white text-black"
@@ -127,14 +127,14 @@ export default function Header() {
       </Link>
 
       {/* Mobile Menu Toggle Button */}
-      <button 
+      <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={clsx(
           "md:hidden z-[10000] text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 transition-colors duration-300 relative",
-          mobileMenuOpen 
-            ? "text-white" 
-            : isLightMode 
-              ? "text-black" 
+          mobileMenuOpen
+            ? "text-white"
+            : isLightMode
+              ? "text-black"
               : "text-white"
         )}
         style={{ color: !mobileMenuOpen && !isLightMode ? '#FFFFFF' : undefined }}
@@ -173,9 +173,9 @@ export default function Header() {
               href={item.href}
               onClick={(e) => handleNavClick(e, item)}
               className={clsx(
-                "text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-brand-orange transition-all duration-300 transform",
-                mobileMenuOpen 
-                  ? "translate-y-0 opacity-100" 
+                "text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300 transform",
+                mobileMenuOpen
+                  ? "translate-y-0 opacity-100"
                   : "translate-y-4 opacity-0"
               )}
               style={{
@@ -185,15 +185,15 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          
+
           {/* Mobile CTA Button */}
           <Link
             href="/contact"
             onClick={(e) => handleNavClick(e, navItems[4])}
             className={clsx(
-              "flex items-center gap-2 text-base sm:text-lg font-bold uppercase tracking-wide px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-brand-orange text-white hover:bg-white hover:text-black transition-all duration-300 mt-4 sm:mt-6 transform",
-              mobileMenuOpen 
-                ? "translate-y-0 opacity-100" 
+              "flex items-center gap-2 text-base sm:text-lg font-bold uppercase tracking-wide px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#00b4d9] text-white hover:bg-white hover:text-black transition-all duration-300 mt-4 sm:mt-6 transform",
+              mobileMenuOpen
+                ? "translate-y-0 opacity-100"
                 : "translate-y-4 opacity-0"
             )}
             style={{

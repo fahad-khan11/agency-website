@@ -84,7 +84,7 @@ export default function Testimonials({ isActive }: { isActive?: boolean }) {
       {/* Fixed Header */}
       <div className="max-w-7xl mx-auto w-full pt-10 md:pt-16 pb-4 md:pb-5 flex-shrink-0 sticky top-0 bg-white z-10">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">Client Stories</h2>
-        <div className="h-1 w-16 md:w-20 bg-brand-orange"></div>
+        <div className="h-1 w-16 md:w-20 bg-[#00b4d9]"></div>
       </div>
 
       {/* Internal Scroll Container - Targeted by PanelContainer Observer by class name for Horizontal Scroll */}
@@ -93,7 +93,7 @@ export default function Testimonials({ isActive }: { isActive?: boolean }) {
           {testimonials.map((t, i) => (
             <div key={t.id} className="bg-[#F8F9FA] p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal">
               <div>
-                <Quote className="text-brand-orange w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-80" />
+                <Quote className="text-[#00b4d9] w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-80" />
                 <p className="text-base sm:text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
                   "{t.quote}"
                 </p>

@@ -30,29 +30,29 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
 
             <div className="md:col-span-2 md:col-start-6 flex flex-col gap-4">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Sitemap</h4>
-               <Link href="/" className="hover:text-brand-orange transition-colors text-gray-300">Home</Link>
-               <Link href="/about" className="hover:text-brand-orange transition-colors text-gray-300">About</Link>
-               <Link href="/projects" className="hover:text-brand-orange transition-colors text-gray-300">Work</Link>
-               <Link href="/services" className="hover:text-brand-orange transition-colors text-gray-300">Services</Link>
-               <Link href="/contact" className="hover:text-brand-orange transition-colors text-gray-300">Contact</Link>
+               <Link href="/" className="hover:text-[#00B4D9] transition-colors text-gray-300">Home</Link>
+               <Link href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">About</Link>
+               <Link href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">Work</Link>
+               <Link href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">Services</Link>
+               <Link href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">Contact</Link>
             </div>
 
             {/* Socials Column */}
             <div className="md:col-span-2 flex flex-col gap-4">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Socials</h4>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Instagram</span>
                </a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>LinkedIn</span>
                </a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Twitter</span>
                </a>
-               <a href="#" className="hover:text-brand-orange transition-colors text-gray-300 flex items-center gap-2 group">
+               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Dribbble className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Behance</span>
                </a>
@@ -67,7 +67,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                <div className="text-gray-400 text-sm leading-relaxed">
                   <p>123 Innovation Dr, Suite 400</p>
                   <p>New York, NY 10012</p>
-                  <p className="mt-2 text-brand-orange">+1 (555) 123-4567</p>
+                  <p className="mt-2 text-[#00B4D9]">+1 (555) 123-4567</p>
                </div>
             </div>
          </div>
