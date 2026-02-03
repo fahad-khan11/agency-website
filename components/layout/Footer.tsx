@@ -61,9 +61,9 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             {/* Contact Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">Get in touch</h4>
-               <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-3xl font-display font-bold hover:text-brand-orange transition-colors break-words">
-                  info@atriona-digital.com
-               </a>
+                <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-2xl font-display font-bold hover:text-[#00b8db] transition-colors whitespace-nowrap">
+                   info@atriona-digital.com
+                </a>
                <div className="text-gray-400 text-sm leading-relaxed">
                   <p>Ohiostraße 15</p>
                   <p>76149 Karlsruhe</p>
