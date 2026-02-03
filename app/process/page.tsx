@@ -219,8 +219,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+
     </div>
   );
 }
