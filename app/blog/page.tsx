@@ -205,53 +205,92 @@ export default function BlogPage() {
 
         {/* --- Blog Grid --- */}
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group block h-full">
-                <article className="blog-card h-full flex flex-col bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-[#00B5D9]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00B5D9]/10">
+          <div className="space-y-12">
+            {/* Featured Post (Only show if no search/filters are active) */}
+            {!hasActiveFilters && filteredPosts.length > 0 && (
+              <div className="w-full">
+                <Link href={`/blog/${filteredPosts[0].slug}`} className="group relative block w-full aspect-[21/9] md:aspect-[2.5/1] rounded-3xl overflow-hidden border border-white/5 hover:border-[#00B5D9]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#00B5D9]/10">
+                  <Image
+                    src={filteredPosts[0].heroImage}
+                    alt={filteredPosts[0].title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
-                  {/* Image */}
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
-                    <Image
-                      src={post.heroImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                      {post.categories.slice(0, 2).map(c => (
-                        <span key={c} className="px-2 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold text-white tracking-wide uppercase">
+                  <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full md:w-2/3">
+                    <div className="flex items-center gap-3 mb-4">
+                      {filteredPosts[0].categories.map(c => (
+                        <span key={c} className="px-3 py-1 bg-[#00B5D9] text-black rounded-full text-xs font-bold uppercase tracking-wider">
                           {c}
                         </span>
                       ))}
+                      <span className="text-gray-300 text-xs font-mono">{filteredPosts[0].date}</span>
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col grow">
-                    <div className="flex items-center justify-between text-xs text-gray-400 mb-4 font-mono">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-display font-bold mb-3 group-hover:text-[#00B5D9] transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                      {post.excerpt}
+                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 text-white group-hover:text-[#00B5D9] transition-colors">
+                      {filteredPosts[0].title}
+                    </h2>
+                    <p className="text-gray-300 text-lg line-clamp-2 md:line-clamp-3 mb-6 max-w-xl">
+                      {filteredPosts[0].excerpt}
                     </p>
-
-                    <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                       <span className="text-xs font-bold text-gray-500">{post.author}</span>
-                       <div className="flex items-center text-[#00B5D9] font-bold text-xs tracking-wide uppercase">
-                         Read Article <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
-                       </div>
+                    <div className="flex items-center text-[#00B5D9] font-bold tracking-wide uppercase">
+                      Read Featured Article <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </article>
-              </Link>
-            ))}
+                </Link>
+              </div>
+            )}
+
+            {/* Remaining Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {(hasActiveFilters ? filteredPosts : filteredPosts.slice(1)).map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="group block h-full">
+                  <article className="blog-card h-full flex flex-col bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-[#00B5D9]/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00B5D9]/10">
+                    
+                    {/* Image */}
+                    <div className="relative aspect-[16/9] w-full overflow-hidden">
+                      <Image
+                        src={post.heroImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                        {post.categories.slice(0, 2).map(c => (
+                          <span key={c} className="px-2 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold text-white tracking-wide uppercase">
+                            {c}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col grow">
+                      <div className="flex items-center justify-between text-xs text-gray-400 mb-4 font-mono">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-display font-bold mb-3 group-hover:text-[#00B5D9] transition-colors leading-tight">
+                        {post.title}
+                      </h3>
+                      
+                      <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                         <span className="text-xs font-bold text-gray-500">{post.author}</span>
+                         <div className="flex items-center text-[#00B5D9] font-bold text-xs tracking-wide uppercase">
+                           Read Article <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                         </div>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center animate-header">
