@@ -38,7 +38,8 @@ export default function LeafletMap({ position, zoom = 13 }: LeafletMapProps) {
                     <Popup>
                         <div className="text-black font-sans">
                             <strong>Archetype Studio</strong><br />
-                            Islamabad, Pakistan
+                            Ohiostraße 15<br />
+                            76149 Karlsruhe, Germany
                         </div>
                     </Popup>
                 </Marker>
