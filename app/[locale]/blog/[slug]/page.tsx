@@ -8,12 +8,14 @@ import { blogPosts } from "@/data/blog";
 import { notFound } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { getBlogPostTranslation, getBlogTranslations } from "@/lib/blogTranslations";
 
-export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
+  const { slug, locale } = use(params);
   const containerRef = useRef(null);
+  const t = getBlogTranslations(locale || 'en');
 
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getBlogPostTranslation(locale || 'en', slug);
 
   useGSAP(() => {
     gsap.from(".animate-in", {
@@ -43,7 +45,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         <div className="mb-12 animate-in">
           <Link href="/blog" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-[#00B5D9] transition-colors group">
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Insights
+            {t.page?.backToInsights || "Back to Insights"}
           </Link>
         </div>
 
@@ -78,7 +80,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider mr-2">Share:</span>
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider mr-2">{t.page?.share || "Share:"}Share:</span>
               <button className="p-2 rounded-full bg-zinc-900 border border-white/10 hover:border-[#00B5D9] hover:text-[#00B5D9] transition-all"><Twitter className="w-4 h-4" /></button>
               <button className="p-2 rounded-full bg-zinc-900 border border-white/10 hover:border-[#00B5D9] hover:text-[#00B5D9] transition-all"><Linkedin className="w-4 h-4" /></button>
               <button className="p-2 rounded-full bg-zinc-900 border border-white/10 hover:border-[#00B5D9] hover:text-[#00B5D9] transition-all"><LinkIcon className="w-4 h-4" /></button>
@@ -120,7 +122,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             {/* Diagrams Section */}
             {post.diagrams && post.diagrams.length > 0 && (
               <div className="mt-16 pt-8 border-t border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6">Visual Diagrams</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">{t.page?.visualDiagrams || "Visual Diagrams"}</h3>
                 <div className={`grid gap-8 ${post.diagrams.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
                   {post.diagrams.map((diagram, index) => (
                     <div key={index} className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-[#00B5D9]/5 bg-zinc-900/50">
@@ -144,7 +146,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   {post.author.charAt(0)}
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">Written by</p>
+                  <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">{t.page?.writtenBy || "Written by"}</p>
                   <p className="text-lg font-bold text-white">{post.author}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-400 font-mono mt-2">
                     <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {post.date}</span>
@@ -170,18 +172,18 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             {/* Newsletter CTA */}
             <div className="p-8 rounded-3xl bg-[#00B5D9] relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-2 text-black">Weekly Insights.</h3>
+                <h3 className="text-xl font-bold mb-2 text-black">{t.page?.weeklyInsights || "Weekly Insights."}</h3>
                 <p className="text-sm text-black/80 mb-6 font-medium leading-relaxed">
-                  Join 5,000+ founders receiving strategic design breakdowns.
+                  {t.page?.newsletterText || "Join 5,000+ founders receiving strategic design breakdowns."}
                 </p>
                 <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                   <input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder={t.page?.emailPlaceholder || "your@email.com"}
                     className="w-full px-4 py-3 rounded-xl bg-white/90 text-black placeholder:text-gray-500 border-0 focus:ring-2 focus:ring-black/20"
                   />
                   <button className="w-full px-4 py-3 rounded-xl bg-black text-white font-bold hover:bg-gray-900 transition-colors">
-                    Subscribe
+                    {t.page?.subscribe || "Subscribe"}
                   </button>
                 </form>
               </div>
@@ -192,18 +194,21 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
             {/* Related Posts */}
             <div className="p-6 rounded-3xl bg-zinc-900/30 border border-white/5">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">More to Read</h4>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-6">{t.page?.moreToRead || "More to Read"}</h4>
               <ul className="space-y-6">
-                {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map(related => (
-                  <li key={related.slug}>
-                    <Link href={`/blog/${related.slug}`} className="group block">
-                      <span className="text-[10px] uppercase font-bold text-[#00B5D9] mb-1 block">{related.categories[0]}</span>
-                      <h5 className="font-bold text-white group-hover:text-[#00B5D9] transition-colors line-clamp-2 leading-snug">
-                        {related.title}
-                      </h5>
-                    </Link>
-                  </li>
-                ))}
+                {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map(related => {
+                  const relatedTranslated = getBlogPostTranslation(locale || 'en', related.slug);
+                  return (
+                    <li key={related.slug}>
+                      <Link href={`/${locale}/blog/${related.slug}`} className="group block">
+                        <span className="text-[10px] uppercase font-bold text-[#00B5D9] mb-1 block">{relatedTranslated.categories[0]}</span>
+                        <h5 className="font-bold text-white group-hover:text-[#00B5D9] transition-colors line-clamp-2 leading-snug">
+                          {relatedTranslated.title}
+                        </h5>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

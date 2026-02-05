@@ -7,11 +7,13 @@ import Link from "next/link";
 import { CheckCircle2, ArrowLeft, ArrowRight } from "lucide-react";
 import { getCaseStudyBySlug, getAdjacentCaseStudies } from "@/data/caseStudiesData";
 import { notFound } from "next/navigation";
+import { getCaseStudiesTranslations, getCaseStudyTranslation } from "@/lib/caseStudiesTranslations";
 
-export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = use(params);
+export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
+    const { slug, locale } = use(params);
     const containerRef = useRef<HTMLDivElement>(null);
-    const study = getCaseStudyBySlug(slug);
+    const t = getCaseStudiesTranslations(locale || 'en');
+    const study = getCaseStudyTranslation(locale || 'en', slug);
     const { previous, next } = getAdjacentCaseStudies(slug);
 
     // If case study not found, show 404
@@ -72,7 +74,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                     className="group flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:border-[#00b4d9] hover:bg-[#00b4d9]/10 transition-all"
                 >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    <span className="text-sm">Back</span>
+                    <span className="text-sm">{t.page.back}</span>
                 </Link>
             </div>
 
@@ -91,7 +93,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                                 <span className="text-gray-600">•</span>
                                 <span className="text-gray-500 font-mono">{study.year}</span>
                                 <span className="text-gray-600 hidden sm:inline">•</span>
-                                <span className="text-gray-400 text-xs md:text-sm w-full sm:w-auto">Client: <span className="text-white">{study.client}</span></span>
+                                <span className="text-gray-400 text-xs md:text-sm w-full sm:w-auto">{t.page.client} <span className="text-white">{study.client}</span></span>
                             </div>
 
                             {/* Title */}
@@ -131,7 +133,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                 <div className="max-w-[1370px] mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                         <div className="lg:col-span-2">
-                            <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-4">Overview</h3>
+                            <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-4">{t.page.overview}</h3>
                             <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed">
                                 {study.overview}
                             </p>
@@ -139,7 +141,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
 
                         <div className="flex flex-col gap-6">
                             <div>
-                                <h3 className="text-xs md:text-sm uppercase tracking-widest text-gray-500 mb-3">Services</h3>
+                                <h3 className="text-xs md:text-sm uppercase tracking-widest text-gray-500 mb-3">{t.page.services}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {study.services.map((service, idx) => (
                                         <span
@@ -163,7 +165,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                         <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 md:p-10">
                             <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-6 flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-[#00b4d9]"></div>
-                                The Challenge
+                                {t.page.theChallenge}
                             </h3>
                             <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed">
                                 {study.challenge}
@@ -173,7 +175,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                         <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 md:p-10">
                             <h3 className="text-xs md:text-sm uppercase tracking-widest text-green-400 mb-6 flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                                Our Solution
+                                {t.page.ourSolution}
                             </h3>
                             <p className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed">
                                 {study.solution}
@@ -210,7 +212,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
             {/* Key Features */}
             <section className="animate-section w-full py-12 md:py-20 px-4 md:px-12">
                 <div className="max-w-[1370px] mx-auto">
-                    <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-8">Key Features</h3>
+                    <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-8">{t.page.keyFeatures}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {study.keyFeatures.map((feature, idx) => (
                             <div
@@ -229,7 +231,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
             <section className="animate-section w-full py-12 md:py-20 px-4 md:px-12">
                 <div className="max-w-[1370px] mx-auto">
                     <div className="bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 rounded-2xl p-8 md:p-14">
-                        <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-10">Results & Impact</h3>
+                        <h3 className="text-xs md:text-sm uppercase tracking-widest text-[#00b4d9] mb-10">{t.page.resultsImpact}</h3>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                             {study.results.map((result, idx) => (
                                 <div key={idx} className="flex flex-col gap-2">
@@ -283,7 +285,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <ArrowLeft className="w-5 h-5 text-[#00b4d9] group-hover:-translate-x-1 transition-transform" />
-                                    <span className="text-xs uppercase tracking-wider text-gray-500">Previous Project</span>
+                                    <span className="text-xs uppercase tracking-wider text-gray-500">{t.page.previousProject}</span>
                                 </div>
                                 <h3 className="text-xl md:text-2xl font-display font-bold group-hover:text-[#00b4d9] transition-colors">
                                     {previous.title}
@@ -299,7 +301,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                                 className="group relative bg-white/[0.02] border border-white/10 rounded-xl p-6 md:p-8 hover:border-[#00b4d9]/50 transition-all md:text-right"
                             >
                                 <div className="flex items-center justify-end gap-3 mb-4">
-                                    <span className="text-xs uppercase tracking-wider text-gray-500">Next Project</span>
+                                    <span className="text-xs uppercase tracking-wider text-gray-500">{t.page.nextProject}</span>
                                     <ArrowRight className="w-5 h-5 text-[#00b4d9] group-hover:translate-x-1 transition-transform" />
                                 </div>
                                 <h3 className="text-xl md:text-2xl font-display font-bold group-hover:text-[#00b4d9] transition-colors">
@@ -319,15 +321,15 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                 <div className="max-w-[1370px] mx-auto relative z-10 text-center">
                     <div className="flex flex-col items-center gap-8">
                         <span className="text-[#00b4d9] font-mono text-sm uppercase tracking-widest">
-                            Ready to Transform?
+                            {t.page.detailCtaBadge}
                         </span>
 
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold max-w-4xl leading-tight">
-                            Let's Create Your Success Story
+                            {t.page.detailCtaTitle}
                         </h2>
 
                         <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
-                            Every great project starts with a conversation. Share your vision, and we'll turn it into reality.
+                            {t.page.detailCtaSubtitle}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -336,7 +338,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                                 className="group relative px-8 py-4 bg-[#00b4d9] text-white rounded-full font-medium overflow-hidden transition-all hover:shadow-lg hover:shadow-[#00b4d9]/50"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
-                                    Start Your Project
+                                    {t.page.startYourProject}
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </span>
                                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform"></div>
@@ -346,7 +348,7 @@ export default function CaseStudyDetailPage({ params }: { params: Promise<{ slug
                                 href="/case-studies"
                                 className="px-8 py-4 border border-white/20 text-white rounded-full font-medium hover:border-[#00b4d9] hover:bg-[#00b4d9]/10 transition-all"
                             >
-                                View All Case Studies
+                                {t.page.viewAllCaseStudies}
                             </Link>
                         </div>
                     </div>

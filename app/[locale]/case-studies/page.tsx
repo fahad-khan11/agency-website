@@ -6,9 +6,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { caseStudies } from "@/data/caseStudiesData";
+import { useParams } from "next/navigation";
+import { getCaseStudiesTranslations } from "@/lib/caseStudiesTranslations";
 
 export default function CaseStudiesPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const t = getCaseStudiesTranslations(locale);
+
+  // Merge static data with translations
+  const localizedStudies = caseStudies.map(study => {
+    const key = study.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    const trans = (t.studies as any)[key];
+    return {
+      ...study,
+      title: trans?.title || study.title,
+      category: trans?.category || study.category,
+      tagline: trans?.tagline || study.tagline
+    };
+  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -69,17 +86,17 @@ export default function CaseStudiesPage() {
             {/* Small Label */}
             <div className="hero-title opacity-0 translate-y-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
               <span className="w-2 h-2 rounded-full bg-[#00b4d9] animate-pulse"></span>
-              <span className="text-sm text-gray-400 uppercase tracking-wider">Portfolio</span>
+              <span className="text-sm text-gray-400 uppercase tracking-wider">{t.page.badge}</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="hero-title opacity-0 translate-y-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-bold leading-[0.9] md:leading-[0.95] tracking-tight max-w-5xl px-4">
-              Case Studies
+              {t.page.title}
             </h1>
 
             {/* Subtitle */}
             <p className="hero-subtitle opacity-0 translate-y-8 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 leading-relaxed font-light max-w-3xl px-4">
-              Explore our portfolio of transformative digital experiences. Each project represents a unique challenge solved through strategic thinking, creative innovation, and technical excellence.
+              {t.page.subtitle}
             </p>
 
             {/* Stats */}
@@ -89,12 +106,12 @@ export default function CaseStudiesPage() {
                   {caseStudies.length}
                 </span>
                 <span className="text-gray-500 text-xs md:text-sm uppercase tracking-wider">
-                  Projects
+                  {t.page.projectsLabel}
                 </span>
               </div>
               <span className="text-gray-600 hidden sm:inline">•</span>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
-                <span className="text-gray-400 font-mono text-xs md:text-sm">2023 — 2024</span>
+                <span className="text-gray-400 font-mono text-xs md:text-sm">{t.page.yearRange}</span>
               </div>
             </div>
           </div>
@@ -105,7 +122,7 @@ export default function CaseStudiesPage() {
       <section className="w-full py-12 md:py-20 px-4 md:px-12">
         <div className="max-w-[1370px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {caseStudies.map((study, index) => (
+            {localizedStudies.map((study, index) => (
               <Link
                 key={study.id}
                 href={`/case-studies/${study.slug}`}
@@ -168,7 +185,7 @@ export default function CaseStudiesPage() {
 
                     {/* CTA */}
                     <div className="flex items-center gap-2 text-[#00B5D9] font-medium text-sm transition-all duration-300 group-hover:translate-x-2">
-                      <span>View Case Study</span>
+                      <span>{t.page.viewCaseStudy}</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </div>
                   </div>
@@ -191,15 +208,15 @@ export default function CaseStudiesPage() {
         <div className="max-w-[1370px] mx-auto relative z-10 text-center">
           <div className="flex flex-col items-center gap-6 md:gap-8">
             <span className="text-[#00b4d9] font-mono text-xs md:text-sm uppercase tracking-widest">
-              Ready to Transform?
+              {t.page.ctaBadge}
             </span>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold max-w-4xl leading-tight px-4">
-              Let's Create Your Success Story
+              {t.page.ctaTitle}
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed px-4">
-              Every great project starts with a conversation. Share your vision, and we'll turn it into reality with the same dedication and expertise you've seen in these case studies.
+              {t.page.ctaSubtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6 w-full sm:w-auto px-4">
@@ -208,7 +225,7 @@ export default function CaseStudiesPage() {
                 className="group relative px-6 md:px-8 py-3 md:py-4 bg-[#00b4d9] text-white rounded-full font-medium overflow-hidden transition-all hover:shadow-lg hover:shadow-[#00b4d9]/50 text-sm md:text-base"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Start Your Project
+                  {t.page.startYourProject}
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform"></div>
@@ -218,7 +235,7 @@ export default function CaseStudiesPage() {
                 href="/projects"
                 className="px-6 md:px-8 py-3 md:py-4 border border-white/20 text-white rounded-full font-medium hover:border-[#00b4d9] hover:bg-[#00b4d9]/10 transition-all text-sm md:text-base"
               >
-                View More Work
+                {t.page.viewMoreWork}
               </a>
             </div>
           </div>

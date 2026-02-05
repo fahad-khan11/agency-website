@@ -73,6 +73,8 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-2 gap-6 md:gap-8">
                   <div>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Phone</span>
+                    <p className="text-base sm:text-lg text-gray-300">+49 1522 4931924</p>
                     <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">{t.info.phone}</span>
                     <p className="text-base sm:text-lg text-gray-300">+1 (555) 019-2834</p>
                   </div>

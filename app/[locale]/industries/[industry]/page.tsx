@@ -59,8 +59,10 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".modules-grid",
-        start: "top 85%"
-      }
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      immediateRender: false
     });
 
      // Lists Animation
@@ -72,8 +74,10 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".lists-section",
-            start: "top 80%"
-        }
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        immediateRender: false
     });
 
   }, { scope: containerRef });
