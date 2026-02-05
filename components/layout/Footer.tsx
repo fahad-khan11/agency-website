@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Instagram, Linkedin, Twitter, Dribbble } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Dribbble, Facebook } from "lucide-react";
 
 export default function Footer({ asPanel, className }: { asPanel?: boolean; className?: string }) {
    const pathname = usePathname();
@@ -40,30 +40,31 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             {/* Socials Column */}
             <div className="md:col-span-2 flex flex-col gap-4">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Socials</h4>
-               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
+               <Link target="_blank" href="https://www.facebook.com/atrionadigital" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
+                  <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span>Facebook</span>
+               </Link>
+               <Link target="_blank" href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Instagram</span>
-               </a>
-               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
+               </Link>
+               <Link target="_blank" href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>LinkedIn</span>
-               </a>
-               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
+               </Link>
+               <Link target="_blank" href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Twitter</span>
-               </a>
-               <a href="#" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
-                  <Dribbble className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span>Behance</span>
-               </a>
+               </Link>
+
             </div>
 
             {/* Contact Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">Get in touch</h4>
-                <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-2xl font-display font-bold hover:text-[#00b8db] transition-colors whitespace-nowrap">
-                   info@atriona-digital.com
-                </a>
+               <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-2xl font-display font-bold hover:text-[#00b8db] transition-colors whitespace-nowrap">
+                  info@atriona-digital.com
+               </a>
                <div className="text-gray-400 text-sm leading-relaxed">
                   <p>Ohiostraße 15</p>
                   <p>76149 Karlsruhe</p>
@@ -75,20 +76,21 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             <p>© 2024 ATRIONA. All rights reserved.</p>
 
             <div className="flex gap-6 mt-4 md:mt-0">
-               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Instagram">
+               <Link href="https://www.facebook.com/atrionadigital" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Facebook" target="_blank">
+                  <Facebook className="w-5 h-5" />
+               </Link>
+               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Instagram" target="_blank">
                   <Instagram className="w-5 h-5" />
                </Link>
-               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Dribbble">
-                  <Dribbble className="w-5 h-5" />
-               </Link>
-               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="LinkedIn">
+
+               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="LinkedIn" target="_blank">
                   <Linkedin className="w-5 h-5" />
                </Link>
-               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Twitter">
+               <Link href="#" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Twitter" target="_blank">
                   <Twitter className="w-5 h-5" />
                </Link>
             </div>
          </div>
-      </footer>
+      </footer >
    );
 }

@@ -73,7 +73,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Office</span>
-                    <p className="text-base sm:text-lg text-gray-300">Islamabad, PK</p>
+                    <p className="text-base sm:text-lg text-gray-300">Karlsruhe, DE</p>
                   </div>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 contact-reveal">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold">Office Location</h2>
                 <p className="text-gray-400 max-w-md text-sm md:text-base">
-                  Our headquarters are located in the heart of Islamabad, a city where tradition meets modern innovation.
+                  Our headquarters are located in Karlsruhe, Germany, a vibrant city known for its innovation and technology.
                 </p>
               </div>
 
@@ -146,7 +146,7 @@ export default function ContactPage() {
               </div>
 
               <div className="w-full h-[400px] md:h-[500px] contact-reveal border border-white/10 rounded-xl overflow-hidden">
-                <LeafletMap position={[33.6844, 73.0479]} />
+                <LeafletMap position={[49.032786838519634, 8.393529638388353]} />
               </div>
             </div>
           </div>
