@@ -7,7 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 import ReactLenis from "lenis/react";
 import dynamic from "next/dynamic";
 import WorldMap from "@/components/contact/WorldMap";
-import { useTranslations } from 'next-intl';
+import { useParams } from "next/navigation";
+import { getContactTranslations } from "@/lib/contactTranslations";
 
 const LeafletMap = dynamic(() => import("@/components/contact/LeafletMap"), {
   ssr: false,
@@ -16,7 +17,9 @@ const LeafletMap = dynamic(() => import("@/components/contact/LeafletMap"), {
 
 export default function ContactPage() {
   const container = useRef(null);
-  const t = useTranslations('contact');
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const t = getContactTranslations(locale);
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -52,17 +55,17 @@ export default function ContactPage() {
             <div className="flex flex-col justify-between h-full">
               <div>
                 <h1 className="contact-reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 md:mb-8 leading-none">
-                  Let's start <br />
-                  <span className="text-[#00b4d9]">something new.</span>
+                  {t.hero.titleStart} <br />
+                  <span className="text-[#00b4d9]">{t.hero.titleEnd}</span>
                 </h1>
                 <p className="contact-reveal text-base sm:text-lg md:text-xl text-gray-400 max-w-lg mb-8 md:mb-10 leading-relaxed">
-                  We help ambitious brands define their future. Tell us about your project, and we'll get back to you within 24 hours.
+                  {t.hero.description}
                 </p>
               </div>
 
               <div className="space-y-6 md:space-y-8 contact-reveal">
                 <div className="group cursor-pointer">
-                  <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Email</span>
+                  <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">{t.info.email}</span>
                   <a href="mailto:hello@archetype.studio" className="text-xl sm:text-2xl md:text-3xl font-display hover:text-[#00b4d9] transition-colors flex items-center gap-2">
                     hello@archetype.studio <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -70,11 +73,11 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-2 gap-6 md:gap-8">
                   <div>
-                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Phone</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">{t.info.phone}</span>
                     <p className="text-base sm:text-lg text-gray-300">+1 (555) 019-2834</p>
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">Office</span>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-2 block">{t.info.office}</span>
                     <p className="text-base sm:text-lg text-gray-300">Karlsruhe, DE</p>
                   </div>
                 </div>
@@ -85,37 +88,37 @@ export default function ContactPage() {
             <div className="contact-form bg-neutral-900/30 backdrop-blur-sm border border-white/5 p-6 sm:p-8 md:p-10 rounded-2xl">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Name</label>
+                  <label htmlFor="name" className="text-xs uppercase tracking-widest text-gray-500 font-bold">{t.form.nameLabel}</label>
                   <input
                     type="text"
                     id="name"
-                    placeholder="Your Name"
+                    placeholder={t.form.namePlaceholder}
                     className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Email</label>
+                  <label htmlFor="email" className="text-xs uppercase tracking-widest text-gray-500 font-bold">{t.form.emailLabel}</label>
                   <input
                     type="email"
                     id="email"
-                    placeholder="name@company.com"
+                    placeholder={t.form.emailPlaceholder}
                     className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-xs uppercase tracking-widest text-gray-500 font-bold">Message</label>
+                  <label htmlFor="message" className="text-xs uppercase tracking-widest text-gray-500 font-bold">{t.form.messageLabel}</label>
                   <textarea
                     id="message"
                     rows={4}
-                    placeholder="Tell us about your project..."
+                    placeholder={t.form.messagePlaceholder}
                     className="w-full bg-transparent border-b border-gray-700 py-3 text-base sm:text-lg md:text-xl focus:border-[#00b4d9] focus:outline-none transition-colors placeholder:text-gray-600 resize-none"
                   ></textarea>
                 </div>
 
                 <button className="w-full bg-white text-black font-bold uppercase tracking-widest py-4 text-sm rounded-lg hover:bg-[#00b4d9] hover:text-white transition-all duration-300 mt-6">
-                  Send Message
+                  {t.form.submitButton}
                 </button>
               </form>
             </div>
@@ -125,13 +128,11 @@ export default function ContactPage() {
           <div className="space-y-12 md:space-y-16">
             <div className="space-y-6 md:space-y-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 contact-reveal">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold">Office Location</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold">{t.location.title}</h2>
                 <p className="text-gray-400 max-w-md text-sm md:text-base">
-                  Our headquarters are located in Karlsruhe, Germany, a vibrant city known for its innovation and technology.
+                  {t.location.description}
                 </p>
               </div>
-
-
 
               {/*   !!!!  ENABLE THIS IF YOU WANT TO SET CUSTOM LOCATION LIKE IRAN,AFGHANISTAN,INDIA etc...  !!!! 
                    (not recommeneded , reason : becuase it is static and you have to put or set every node manually) */}
@@ -144,7 +145,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div className="flex items-center gap-4 contact-reveal">
                 <div className="w-12 h-[1px] bg-[#00b4d9]"></div>
-                <span className="text-sm uppercase tracking-widest text-gray-500">Interactive Map</span>
+                <span className="text-sm uppercase tracking-widest text-gray-500">{t.location.mapLabel}</span>
               </div>
 
               <div className="w-full h-[400px] md:h-[500px] contact-reveal border border-white/10 rounded-xl overflow-hidden">

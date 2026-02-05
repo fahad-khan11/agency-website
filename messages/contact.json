@@ -1,0 +1,54 @@
+{
+    "en": {
+        "hero": {
+            "titleStart": "Let's start",
+            "titleEnd": "something new.",
+            "description": "We help ambitious brands define their future. Tell us about your project, and we'll get back to you within 24 hours."
+        },
+        "info": {
+            "email": "Email",
+            "phone": "Phone",
+            "office": "Office"
+        },
+        "form": {
+            "nameLabel": "Name",
+            "namePlaceholder": "Your Name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "name@company.com",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Tell us about your project...",
+            "submitButton": "Send Message"
+        },
+        "location": {
+            "title": "Office Location",
+            "description": "Our headquarters are located in Karlsruhe, Germany, a vibrant city known for its innovation and technology.",
+            "mapLabel": "Interactive Map"
+        }
+    },
+    "de": {
+        "hero": {
+            "titleStart": "Lassen Sie uns etwas",
+            "titleEnd": "Neues beginnen.",
+            "description": "Wir helfen ambitionierten Marken, ihre Zukunft zu definieren. Erzählen Sie uns von Ihrem Projekt, und wir melden uns innerhalb von 24 Stunden bei Ihnen."
+        },
+        "info": {
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "office": "Büro"
+        },
+        "form": {
+            "nameLabel": "Name",
+            "namePlaceholder": "Ihr Name",
+            "emailLabel": "E-Mail",
+            "emailPlaceholder": "name@firma.com",
+            "messageLabel": "Nachricht",
+            "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
+            "submitButton": "Nachricht senden"
+        },
+        "location": {
+            "title": "Bürostandort",
+            "description": "Unser Hauptsitz befindet sich in Karlsruhe, Deutschland, einer lebendigen Stadt, die für Innovation und Technologie bekannt ist.",
+            "mapLabel": "Interaktive Karte"
+        }
+    }
+}
