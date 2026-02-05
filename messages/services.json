@@ -1,0 +1,744 @@
+{
+    "en": {
+        "page": {
+            "title": "Our Services",
+            "subtitle": "Comprehensive digital solutions tailored to your brand's unique needs. From concept to launch, we bring your vision to life.",
+            "learnMore": "Learn More",
+            "backToServices": "Back to Services",
+            "serviceOverview": "Service Overview",
+            "whatWeOffer": "What We Offer",
+            "technologiesWeUse": "Technologies We Use",
+            "whatYoullGet": "What You'll Get",
+            "whatYoullGetDesc": "Every project is delivered with comprehensive documentation and assets to ensure your success.",
+            "howWeWork": "How We Work",
+            "howWeWorkDesc": "Our proven process ensures transparency, quality, and results at every stage.",
+            "provenResults": "Proven Results",
+            "caseStudy": "Case Study",
+            "challenge": "Challenge",
+            "solution": "Solution",
+            "results": "Results",
+            "nextService": "Next Service",
+            "viewService": "View Service",
+            "readyToStart": "Ready to Get Started?",
+            "letsDiscuss": "Let's discuss how we can help bring your vision to life with our {service} services.",
+            "startProject": "Start a Project",
+            "viewAllServices": "View All Services",
+            "mediaUnavailable": "Media Unavailable"
+        },
+        "services": {
+            "webDevelopment": {
+                "title": "Web Development",
+                "category": "Development",
+                "tagline": "Building Digital Experiences That Convert",
+                "description": "We craft high-performance websites and web applications that combine stunning design with cutting-edge technology.",
+                "overview": "From responsive corporate websites to complex web applications, we deliver solutions that are fast, scalable, and built to last. Our development process focuses on clean code, optimal performance, and seamless user experiences across all devices.",
+                "features": [
+                    "Custom Web Applications",
+                    "E-Commerce Solutions",
+                    "Progressive Web Apps (PWA)",
+                    "API Development & Integration",
+                    "Performance Optimization",
+                    "Responsive Design"
+                ],
+                "deliverables": [
+                    "Fully Responsive Website",
+                    "Source Code & Documentation",
+                    "Content Management System",
+                    "Analytics Integration",
+                    "SEO Foundation",
+                    "Ongoing Support"
+                ],
+                "process": [
+                    {
+                        "title": "Discovery & Planning",
+                        "description": "We start by understanding your business goals, target audience, and technical requirements. We create a detailed project roadmap and wireframes."
+                    },
+                    {
+                        "title": "Design & Prototyping",
+                        "description": "Our designers create high-fidelity mockups and interactive prototypes. We iterate based on your feedback until the design is perfect."
+                    },
+                    {
+                        "title": "Development",
+                        "description": "We build your website using modern technologies, following best practices for performance, security, and scalability."
+                    },
+                    {
+                        "title": "Testing & Launch",
+                        "description": "Rigorous testing across devices and browsers ensures everything works flawlessly. We handle the deployment and post-launch support."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Average increase in conversions"
+                    },
+                    {
+                        "label": "Page speed score"
+                    },
+                    {
+                        "label": "Faster load times"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Outdated website with poor mobile experience and slow load times affecting conversions.",
+                    "solution": "Complete redesign with Next.js, optimized images, and modern UX patterns.",
+                    "results": "200% increase in mobile conversions, 85% faster page loads, 40% increase in user engagement."
+                }
+            },
+            "brandIdentity": {
+                "title": "Brand Identity",
+                "category": "Branding",
+                "tagline": "Creating Memorable Brands That Resonate",
+                "description": "We develop distinctive brand identities that capture your essence and connect with your audience on a deeper level.",
+                "overview": "Your brand is more than a logo—it's the complete experience your customers have with your business. We create cohesive brand identities that tell your story, differentiate you from competitors, and build lasting emotional connections with your audience.",
+                "features": [
+                    "Logo Design & Visual Identity",
+                    "Brand Strategy & Positioning",
+                    "Typography & Color Systems",
+                    "Brand Guidelines",
+                    "Packaging Design",
+                    "Marketing Collateral"
+                ],
+                "deliverables": [
+                    "Complete Brand Identity System",
+                    "Logo Variations & Files",
+                    "Brand Style Guide",
+                    "Stationery Design",
+                    "Social Media Templates",
+                    "Brand Assets Library"
+                ],
+                "process": [
+                    {
+                        "title": "Brand Discovery",
+                        "description": "Deep dive into your business values, target audience, and competitive landscape. We uncover what makes your brand unique."
+                    },
+                    {
+                        "title": "Strategy & Positioning",
+                        "description": "We develop your brand strategy, including messaging, voice, and visual direction that resonates with your audience."
+                    },
+                    {
+                        "title": "Design Exploration",
+                        "description": "Multiple logo concepts and visual identity options are created. We refine based on your feedback."
+                    },
+                    {
+                        "title": "Finalization & Guidelines",
+                        "description": "Complete brand guidelines are delivered with all assets, ensuring consistent application across all touchpoints."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Brand recognition increase"
+                    },
+                    {
+                        "label": "Brands successfully launched"
+                    },
+                    {
+                        "label": "Client satisfaction rate"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "New organic skincare brand needed to stand out in a saturated market with generic competitors.",
+                    "solution": "Created a distinctive, nature-inspired identity with earthy tones and elegant typography.",
+                    "results": "Brand sold out initial inventory in 3 weeks, 5x social media engagement, featured in major beauty publications."
+                }
+            },
+            "uiUxDesign": {
+                "title": "UI/UX Design",
+                "category": "Design",
+                "tagline": "Designing Interfaces Users Love",
+                "description": "We create intuitive, beautiful interfaces that prioritize user needs while achieving your business objectives.",
+                "overview": "Great design is invisible. It guides users effortlessly through their journey, making complex tasks feel simple. We combine user research, psychology, and aesthetics to create interfaces that not only look beautiful but work beautifully.",
+                "features": [
+                    "User Research & Testing",
+                    "Wireframing & Prototyping",
+                    "Interface Design",
+                    "Design Systems",
+                    "Usability Testing",
+                    "Interaction Design"
+                ],
+                "deliverables": [
+                    "High-Fidelity Designs",
+                    "Interactive Prototypes",
+                    "Design System",
+                    "User Flow Diagrams",
+                    "Component Library",
+                    "Design Documentation"
+                ],
+                "process": [
+                    {
+                        "title": "Research & Analysis",
+                        "description": "User research, competitive analysis, and stakeholder interviews to understand the problem space and user needs."
+                    },
+                    {
+                        "title": "Wireframing & Flow",
+                        "description": "Create information architecture, user flows, and low-fidelity wireframes to establish structure."
+                    },
+                    {
+                        "title": "High-Fidelity Design",
+                        "description": "Detailed visual design with brand application, creating pixel-perfect interfaces across all screens."
+                    },
+                    {
+                        "title": "Testing & Handoff",
+                        "description": "User testing, iteration, and developer handoff with comprehensive design system documentation."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Increase in user engagement"
+                    },
+                    {
+                        "label": "Reduction in support tickets"
+                    },
+                    {
+                        "label": "Higher conversion rates"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Complex financial dashboard was confusing users, leading to high drop-off rates and poor adoption.",
+                    "solution": "Simplified information hierarchy, introduced progressive disclosure, and redesigned with user-centered approach.",
+                    "results": "73% increase in daily active users, 58% reduction in onboarding time, 4.8/5 app store rating."
+                }
+            },
+            "motionDesign": {
+                "title": "Motion Design",
+                "category": "Animation",
+                "tagline": "Bringing Your Brand to Life",
+                "description": "We create captivating animations and motion graphics that engage audiences and elevate your brand storytelling.",
+                "overview": "Motion adds dimension to your brand. From subtle micro-interactions to full-scale animations, we use movement to guide attention, communicate ideas, and create memorable experiences. Our motion work spans from web animations to explainer videos and beyond.",
+                "features": [
+                    "Web Animations",
+                    "Logo Animation",
+                    "Explainer Videos",
+                    "3D Motion Graphics",
+                    "Micro-Interactions",
+                    "Video Editing"
+                ],
+                "deliverables": [
+                    "Animated Assets",
+                    "Web-Ready Animations",
+                    "Video Files (All Formats)",
+                    "Animation Guidelines",
+                    "Source Files",
+                    "Implementation Code"
+                ],
+                "process": [
+                    {
+                        "title": "Concept & Storyboard",
+                        "description": "Define the narrative, create mood boards, and develop detailed storyboards for the animation."
+                    },
+                    {
+                        "title": "Style Frames",
+                        "description": "Design key frames that establish the visual style, color palette, and overall aesthetic."
+                    },
+                    {
+                        "title": "Animation & Sound",
+                        "description": "Bring the storyboard to life with animation, add sound design and music to enhance the experience."
+                    },
+                    {
+                        "title": "Delivery & Optimization",
+                        "description": "Final rendering, optimization for different platforms, and delivery in all required formats."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Increase in video engagement"
+                    },
+                    {
+                        "label": "Better information retention"
+                    },
+                    {
+                        "label": "Total views on projects"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Needed to explain complex SaaS platform to non-technical audience in an engaging way.",
+                    "solution": "Created a 90-second animated explainer video with custom illustrations and smooth transitions.",
+                    "results": "Video used on homepage increased conversions by 127%, shared 2,500+ times, reduced sales cycle by 30%."
+                }
+            },
+            "seoDigitalMarketing": {
+                "title": "SEO & Digital Marketing",
+                "category": "Marketing",
+                "tagline": "Growing Your Digital Presence",
+                "description": "We develop data-driven strategies to increase your visibility, drive traffic, and convert visitors into customers.",
+                "overview": "Beautiful design means nothing if no one sees it. We combine technical SEO, content strategy, and digital marketing to ensure your brand gets found by the right people at the right time. Our approach is holistic, data-driven, and focused on sustainable growth.",
+                "features": [
+                    "Technical SEO Optimization",
+                    "Content Strategy",
+                    "Link Building",
+                    "Local SEO",
+                    "Paid Advertising (PPC)",
+                    "Social Media Marketing"
+                ],
+                "deliverables": [
+                    "SEO Strategy & Roadmap",
+                    "Keyword Research Report",
+                    "On-Page Optimization",
+                    "Monthly Performance Reports",
+                    "Content Calendar",
+                    "Campaign Management"
+                ],
+                "process": [
+                    {
+                        "title": "Audit & Strategy",
+                        "description": "Comprehensive SEO audit, competitor analysis, and keyword research to develop a data-driven strategy."
+                    },
+                    {
+                        "title": "On-Page Optimization",
+                        "description": "Optimize content, meta tags, site structure, and technical elements for search engines."
+                    },
+                    {
+                        "title": "Content & Link Building",
+                        "description": "Create high-quality content and build authoritative backlinks to improve domain authority."
+                    },
+                    {
+                        "title": "Monitor & Refine",
+                        "description": "Continuous monitoring, A/B testing, and strategy refinement based on performance data."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Average organic traffic increase"
+                    },
+                    {
+                        "label": "Rankings achieved for 200+ keywords"
+                    },
+                    {
+                        "label": "ROI on marketing spend"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Zero online visibility, competing against national gym chains in local market.",
+                    "solution": "Implemented local SEO strategy, optimized Google Business Profile, created location-specific content.",
+                    "results": "Ranked #1 for 15 local keywords, 320% increase in organic traffic, 85 new memberships from organic search."
+                }
+            },
+            "ecommerceSolutions": {
+                "title": "E-Commerce Solutions",
+                "category": "Development",
+                "tagline": "Building Online Stores That Sell",
+                "description": "We create powerful e-commerce platforms that deliver exceptional shopping experiences and drive sales.",
+                "overview": "Selling online requires more than just a shopping cart. We build complete e-commerce ecosystems that handle everything from product discovery to checkout, inventory management to customer retention. Our solutions are scalable, secure, and optimized for conversions.",
+                "features": [
+                    "Custom Store Design",
+                    "Product Management System",
+                    "Payment Gateway Integration",
+                    "Inventory Management",
+                    "Order Fulfillment",
+                    "Customer Analytics"
+                ],
+                "deliverables": [
+                    "Fully Functional Online Store",
+                    "Mobile-Optimized Design",
+                    "Payment Processing",
+                    "Admin Dashboard",
+                    "Email Marketing Setup",
+                    "Training & Support"
+                ],
+                "process": [
+                    {
+                        "title": "Platform Selection & Setup",
+                        "description": "Choose the right e-commerce platform based on your needs, products, and scale. Set up hosting and core infrastructure."
+                    },
+                    {
+                        "title": "Store Design & Development",
+                        "description": "Custom design and development of your store, including product pages, checkout flow, and mobile optimization."
+                    },
+                    {
+                        "title": "Integration & Testing",
+                        "description": "Integrate payment gateways, shipping, inventory, and marketing tools. Thorough testing across devices."
+                    },
+                    {
+                        "title": "Launch & Optimization",
+                        "description": "Store launch with ongoing optimization, A/B testing, and conversion rate improvements."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Average sales increase"
+                    },
+                    {
+                        "label": "Average conversion rate"
+                    },
+                    {
+                        "label": "Revenue generated for clients"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Brick-and-mortar store wanted to expand online but had zero e-commerce experience.",
+                    "solution": "Built custom Shopify store with product photography, optimized checkout, and email marketing automation.",
+                    "results": "Generated $250K in first 6 months, 3.8% conversion rate, expanded to international shipping, hired 3 new staff."
+                }
+            }
+        }
+    },
+    "de": {
+        "page": {
+            "title": "Unsere Dienstleistungen",
+            "subtitle": "Umfassende digitale Lösungen, zugeschnitten auf die einzigartigen Bedürfnisse Ihrer Marke. Vom Konzept bis zum Start erwecken wir Ihre Vision zum Leben.",
+            "learnMore": "Mehr erfahren",
+            "backToServices": "Zurück zu Dienstleistungen",
+            "serviceOverview": "Dienstleistungsübersicht",
+            "whatWeOffer": "Was wir bieten",
+            "technologiesWeUse": "Technologien, die wir nutzen",
+            "whatYoullGet": "Was Sie erhalten",
+            "whatYoullGetDesc": "Jedes Projekt wird mit umfassender Dokumentation und Assets geliefert, um Ihren Erfolg sicherzustellen.",
+            "howWeWork": "Wie wir arbeiten",
+            "howWeWorkDesc": "Unser bewährter Prozess sorgt für Transparenz, Qualität und Ergebnisse auf jeder Stufe.",
+            "provenResults": "Bewiesene Ergebnisse",
+            "caseStudy": "Fallstudie",
+            "challenge": "Herausforderung",
+            "solution": "Lösung",
+            "results": "Ergebnisse",
+            "nextService": "Nächste Dienstleistung",
+            "viewService": "Dienstleistung ansehen",
+            "readyToStart": "Bereit loszulegen?",
+            "letsDiscuss": "Lassen Sie uns besprechen, wie wir Ihre Vision mit unseren {service}-Dienstleistungen zum Leben erwecken können.",
+            "startProject": "Projekt starten",
+            "viewAllServices": "Alle Dienstleistungen ansehen",
+            "mediaUnavailable": "Medien nicht verfügbar"
+        },
+        "services": {
+            "webDevelopment": {
+                "title": "Webentwicklung",
+                "category": "Entwicklung",
+                "tagline": "Digitale Erlebnisse schaffen, die konvertieren",
+                "description": "Wir entwickeln leistungsstarke Websites und Webanwendungen, die beeindruckendes Design mit modernster Technologie verbinden.",
+                "overview": "Von responsiven Unternehmenswebseiten bis hin zu komplexen Webanwendungen liefern wir Lösungen, die schnell, skalierbar und langlebig sind. Unser Entwicklungsprozess konzentriert sich auf sauberen Code, optimale Leistung und nahtlose Benutzererlebnisse auf allen Geräten.",
+                "features": [
+                    "Maßgeschneiderte Webanwendungen",
+                    "E-Commerce-Lösungen",
+                    "Progressive Web Apps (PWA)",
+                    "API-Entwicklung & Integration",
+                    "Leistungsoptimierung",
+                    "Responsives Design"
+                ],
+                "deliverables": [
+                    "Vollständig responsive Website",
+                    "Quellcode & Dokumentation",
+                    "Content-Management-System",
+                    "Analytics-Integration",
+                    "SEO-Grundlage",
+                    "Laufender Support"
+                ],
+                "process": [
+                    {
+                        "title": "Entdeckung & Planung",
+                        "description": "Wir beginnen damit, Ihre Geschäftsziele, Zielgruppe und technischen Anforderungen zu verstehen. Wir erstellen eine detaillierte Projekt-Roadmap und Wireframes."
+                    },
+                    {
+                        "title": "Design & Prototyping",
+                        "description": "Unsere Designer erstellen High-Fidelity-Mockups und interaktive Prototypen. Wir iterieren basierend auf Ihrem Feedback, bis das Design perfekt ist."
+                    },
+                    {
+                        "title": "Entwicklung",
+                        "description": "Wir bauen Ihre Website mit modernen Technologien und folgen Best Practices für Leistung, Sicherheit und Skalierbarkeit."
+                    },
+                    {
+                        "title": "Testen & Start",
+                        "description": "Strenge Tests auf verschiedenen Geräten und Browsern stellen sicher, dass alles einwandfrei funktioniert. Wir kümmern uns um die Bereitstellung und den Support nach dem Start."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Durchschnittliche Steigerung der Conversions"
+                    },
+                    {
+                        "label": "Page-Speed-Score"
+                    },
+                    {
+                        "label": "Schnellere Ladezeiten"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Veraltete Website mit schlechter mobiler Erfahrung und langsamen Ladezeiten, die Conversions beeinträchtigten.",
+                    "solution": "Komplettes Redesign mit Next.js, optimierten Bildern und modernen UX-Mustern.",
+                    "results": "200% Steigerung der mobilen Conversions, 85% schnellere Seitenladevorgänge, 40% Steigerung des Benutzerengagements."
+                }
+            },
+            "brandIdentity": {
+                "title": "Markenidentität",
+                "category": "Branding",
+                "tagline": "Unvergessliche Marken schaffen, die resonieren",
+                "description": "Wir entwickeln unverwechselbare Markenidentitäten, die Ihre Essenz erfassen und sich auf einer tieferen Ebene mit Ihrem Publikum verbinden.",
+                "overview": "Ihre Marke ist mehr als ein Logo – es ist das gesamte Erlebnis, das Ihre Kunden mit Ihrem Unternehmen haben. Wir schaffen kohärente Markenidentitäten, die Ihre Geschichte erzählen, Sie von Wettbewerbern abheben und dauerhafte emotionale Verbindungen zu Ihrem Publikum aufbauen.",
+                "features": [
+                    "Logo-Design & Visuelle Identität",
+                    "Markenstrategie & Positionierung",
+                    "Typografie & Farbsysteme",
+                    "Markenrichtlinien",
+                    "Verpackungsdesign",
+                    "Marketingmaterialien"
+                ],
+                "deliverables": [
+                    "Komplettes Markenidentitätssystem",
+                    "Logo-Variationen & Dateien",
+                    "Marken-Styleguide",
+                    "Briefpapier-Design",
+                    "Social-Media-Vorlagen",
+                    "Marken-Asset-Bibliothek"
+                ],
+                "process": [
+                    {
+                        "title": "Markenentdeckung",
+                        "description": "Eintauchen in Ihre Unternehmenswerte, Zielgruppe und Wettbewerbslandschaft. Wir decken auf, was Ihre Marke einzigartig macht."
+                    },
+                    {
+                        "title": "Strategie & Positionierung",
+                        "description": "Wir entwickeln Ihre Markenstrategie, einschließlich Messaging, Stimme und visueller Ausrichtung, die bei Ihrem Publikum Anklang findet."
+                    },
+                    {
+                        "title": "Design-Exploration",
+                        "description": "Mehrere Logo-Konzepte und visuelle Identitätsoptionen werden erstellt. Wir verfeinern basierend auf Ihrem Feedback."
+                    },
+                    {
+                        "title": "Finalisierung & Richtlinien",
+                        "description": "Vollständige Markenrichtlinien werden mit allen Assets geliefert, um eine konsistente Anwendung über alle Touchpoints hinweg sicherzustellen."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Steigerung der Markenbekanntheit"
+                    },
+                    {
+                        "label": "Erfolgreich eingeführte Marken"
+                    },
+                    {
+                        "label": "Kundenzufriedenheitsrate"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Neue organische Hautpflegemarke musste sich in einem gesättigten Markt mit generischen Wettbewerbern abheben.",
+                    "solution": "Schuf eine unverwechselbare, naturinspirierte Identität mit erdigen Tönen und eleganter Typografie.",
+                    "results": "Marke verkaufte den anfänglichen Bestand in 3 Wochen, 5x Social-Media-Engagement, vorgestellt in großen Beauty-Publikationen."
+                }
+            },
+            "uiUxDesign": {
+                "title": "UI/UX Design",
+                "category": "Design",
+                "tagline": "Schnittstellen entwerfen, die Nutzer lieben",
+                "description": "Wir erstellen intuitive, schöne Schnittstellen, die Benutzerbedürfnisse priorisieren und gleichzeitig Ihre Geschäftsziele erreichen.",
+                "overview": "Großartiges Design ist unsichtbar. Es führt Benutzer mühelos durch ihre Reise und macht komplexe Aufgaben einfach. Wir kombinieren Benutzerforschung, Psychologie und Ästhetik, um Schnittstellen zu schaffen, die nicht nur schön aussehen, sondern auch schön funktionieren.",
+                "features": [
+                    "Benutzerforschung & Tests",
+                    "Wireframing & Prototyping",
+                    "Interface Design",
+                    "Design-Systeme",
+                    "Usability-Tests",
+                    "Interaktionsdesign"
+                ],
+                "deliverables": [
+                    "High-Fidelity-Designs",
+                    "Interaktive Prototypen",
+                    "Design-System",
+                    "User-Flow-Diagramme",
+                    "Komponentenbibliothek",
+                    "Design-Dokumentation"
+                ],
+                "process": [
+                    {
+                        "title": "Forschung & Analyse",
+                        "description": "Benutzerforschung, Wettbewerbsanalyse und Stakeholder-Interviews, um den Problemraum und die Benutzerbedürfnisse zu verstehen."
+                    },
+                    {
+                        "title": "Wireframing & Flow",
+                        "description": "Erstellung von Informationsarchitektur, User Flows und Low-Fidelity-Wireframes zur Etablierung der Struktur."
+                    },
+                    {
+                        "title": "High-Fidelity-Design",
+                        "description": "Detailliertes visuelles Design mit Markenanwendung, Erstellung pixelgenauer Schnittstellen für alle Bildschirme."
+                    },
+                    {
+                        "title": "Testen & Übergabe",
+                        "description": "Benutzertests, Iteration und Entwicklerübergabe mit umfassender Design-System-Dokumentation."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Steigerung des Benutzerengagements"
+                    },
+                    {
+                        "label": "Reduzierung von Support-Tickets"
+                    },
+                    {
+                        "label": "Höhere Konversionsraten"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Komplexes Finanz-Dashboard verwirrte Benutzer, was zu hohen Abbrechraten und schlechter Akzeptanz führte.",
+                    "solution": "Vereinfachte Informationshierarchie, Einführung progressiver Offenlegung und Neugestaltung mit benutzerzentriertem Ansatz.",
+                    "results": "73% Steigerung der täglich aktiven Nutzer, 58% Reduzierung der Onboarding-Zeit, 4,8/5 App-Store-Bewertung."
+                }
+            },
+            "motionDesign": {
+                "title": "Motion Design",
+                "category": "Animation",
+                "tagline": "Ihre Marke zum Leben erwecken",
+                "description": "Wir erstellen fesselnde Animationen und Motion Graphics, die das Publikum einbinden und Ihr Brand Storytelling verbessern.",
+                "overview": "Bewegung verleiht Ihrer Marke Dimension. Von subtilen Mikro-Interaktionen bis hin zu vollwertigen Animationen nutzen wir Bewegung, um Aufmerksamkeit zu lenken, Ideen zu kommunizieren und unvergessliche Erlebnisse zu schaffen.",
+                "features": [
+                    "Web-Animationen",
+                    "Logo-Animation",
+                    "Erklärvideos",
+                    "3D Motion Graphics",
+                    "Mikro-Interaktionen",
+                    "Videobearbeitung"
+                ],
+                "deliverables": [
+                    "Animierte Assets",
+                    "Web-Ready Animationen",
+                    "Videodateien (Alle Formate)",
+                    "Animationsrichtlinien",
+                    "Quelldateien",
+                    "Implementierungscode"
+                ],
+                "process": [
+                    {
+                        "title": "Konzept & Storyboard",
+                        "description": "Definition der Erzählung, Erstellung von Moodboards und Entwicklung detaillierter Storyboards für die Animation."
+                    },
+                    {
+                        "title": "Styleframes",
+                        "description": "Design von Keyframes, die den visuellen Stil, die Farbpalette und die allgemeine Ästhetik festlegen."
+                    },
+                    {
+                        "title": "Animation & Sound",
+                        "description": "Das Storyboard mit Animation zum Leben erwecken, Sounddesign und Musik hinzufügen, um das Erlebnis zu verbessern."
+                    },
+                    {
+                        "title": "Lieferung & Optimierung",
+                        "description": "Endgültiges Rendering, Optimierung für verschiedene Plattformen und Lieferung in allen erforderlichen Formaten."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Steigerung des Video-Engagements"
+                    },
+                    {
+                        "label": "Bessere Informationsspeicherung"
+                    },
+                    {
+                        "label": "Gesamtansichten bei Projekten"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Musste komplexe SaaS-Plattform einem nicht-technischen Publikum auf ansprechende Weise erklären.",
+                    "solution": "Erstellte ein 90-sekündiges animiertes Erklärvideo mit benutzerdefinierten Illustrationen und flüssigen Übergängen.",
+                    "results": "Video auf der Homepage steigerte Conversions um 127%, über 2.500 Mal geteilt, reduzierte Verkaufszyklus um 30%."
+                }
+            },
+            "seoDigitalMarketing": {
+                "title": "SEO & Digitales Marketing",
+                "category": "Marketing",
+                "tagline": "Ihre digitale Präsenz ausbauen",
+                "description": "Wir entwickeln datengesteuerte Strategien, um Ihre Sichtbarkeit zu erhöhen, Traffic zu generieren und Besucher in Kunden zu verwandeln.",
+                "overview": "Schönes Design bedeutet nichts, wenn es niemand sieht. Wir kombinieren technisches SEO, Content-Strategie und digitales Marketing, um sicherzustellen, dass Ihre Marke von den richtigen Leuten zur richtigen Zeit gefunden wird.",
+                "features": [
+                    "Technische SEO-Optimierung",
+                    "Content-Strategie",
+                    "Link-Building",
+                    "Lokales SEO",
+                    "Bezahlte Werbung (PPC)",
+                    "Social-Media-Marketing"
+                ],
+                "deliverables": [
+                    "SEO-Strategie & Roadmap",
+                    "Keyword-Recherche-Bericht",
+                    "On-Page-Optimierung",
+                    "Monatliche Leistungsberichte",
+                    "Content-Kalender",
+                    "Kampagnenmanagement"
+                ],
+                "process": [
+                    {
+                        "title": "Audit & Strategie",
+                        "description": "Umfassendes SEO-Audit, Wettbewerbsanalyse und Keyword-Recherche zur Entwicklung einer datengesteuerten Strategie."
+                    },
+                    {
+                        "title": "On-Page-Optimierung",
+                        "description": "Optimierung von Inhalten, Meta-Tags, Seitenstruktur und technischen Elementen für Suchmaschinen."
+                    },
+                    {
+                        "title": "Content & Link-Building",
+                        "description": "Erstellung hochwertiger Inhalte und Aufbau autoritärer Backlinks zur Verbesserung der Domain-Autorität."
+                    },
+                    {
+                        "title": "Überwachung & Verfeinerung",
+                        "description": "Laufende Überwachung, A/B-Tests und Strategieverfeinerung basierend auf Leistungsdaten."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Durchschnittliche Steigerung des organischen Traffics"
+                    },
+                    {
+                        "label": "Erreichte Rankings für 200+ Keywords"
+                    },
+                    {
+                        "label": "ROI bei Marketingausgaben"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Keine Online-Sichtbarkeit, Wettbewerb gegen nationale Fitnessketten im lokalen Markt.",
+                    "solution": "Implementierte lokale SEO-Strategie, optimiertes Google Unternehmensprofil, erstellte standortspezifischen Content.",
+                    "results": "Platz 1 für 15 lokale Keywords, 320% Steigerung des organischen Traffics, 85 neue Mitgliedschaften durch organische Suche."
+                }
+            },
+            "ecommerceSolutions": {
+                "title": "E-Commerce-Lösungen",
+                "category": "Entwicklung",
+                "tagline": "Online-Shops bauen, die verkaufen",
+                "description": "Wir erstellen leistungsstarke E-Commerce-Plattformen, die außergewöhnliche Einkaufserlebnisse bieten und den Umsatz steigern.",
+                "overview": "Online verkaufen erfordert mehr als nur einen Warenkorb. Wir bauen komplette E-Commerce-Ökosysteme, die alles von der Produktentdeckung bis zum Checkout, Bestandsmanagement bis zur Kundenbindung abwickeln.",
+                "features": [
+                    "Individuelles Shop-Design",
+                    "Produktmanagementsystem",
+                    "Zahlungsgateway-Integration",
+                    "Bestandsmanagement",
+                    "Auftragsabwicklung",
+                    "Kundenanalytik"
+                ],
+                "deliverables": [
+                    "Voll funktionsfähiger Online-Shop",
+                    "Mobil-optimiertes Design",
+                    "Zahlungsabwicklung",
+                    "Admin-Dashboard",
+                    "E-Mail-Marketing-Einrichtung",
+                    "Schulung & Support"
+                ],
+                "process": [
+                    {
+                        "title": "Plattformauswahl & Einrichtung",
+                        "description": "Wählen Sie die richtige E-Commerce-Plattform basierend auf Ihren Bedürfnissen. Einrichtung von Hosting und Kerninfrastruktur."
+                    },
+                    {
+                        "title": "Shop-Design & Entwicklung",
+                        "description": "Individuelles Design und Entwicklung Ihres Shops, einschließlich Produktseiten, Checkout-Flow und mobiler Optimierung."
+                    },
+                    {
+                        "title": "Integration & Tests",
+                        "description": "Integration von Zahlungsgateways, Versand, Inventar und Marketing-Tools. Gründliche Tests auf allen Geräten."
+                    },
+                    {
+                        "title": "Start & Optimierung",
+                        "description": "Shop-Start mit laufender Optimierung, A/B-Tests und Verbesserungen der Konversionsrate."
+                    }
+                ],
+                "results": [
+                    {
+                        "label": "Durchschnittliche Umsatzsteigerung"
+                    },
+                    {
+                        "label": "Durchschnittliche Konversionsrate"
+                    },
+                    {
+                        "label": "Generierter Umsatz für Kunden"
+                    }
+                ],
+                "caseStudy": {
+                    "challenge": "Einzelhandelsgeschäft wollte online expandieren, hatte aber keine E-Commerce-Erfahrung.",
+                    "solution": "Erstellte benutzerdefinierten Shopify-Shop mit Produktfotografie, optimiertem Checkout und E-Mail-Marketing-Automatisierung.",
+                    "results": "Generierte 250.000 € im ersten Halbjahr, 3,8% Konversionsrate, Expansion in den internationalen Versand."
+                }
+            }
+        }
+    }
+}

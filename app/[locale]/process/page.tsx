@@ -5,12 +5,17 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "@/components/layout/Footer";
+import { useParams } from "next/navigation";
+import { getProcessTranslations } from "@/lib/processTranslations";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProcessPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const t = getProcessTranslations(locale);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,36 +72,18 @@ export default function ProcessPage() {
     return () => ctx.revert();
   }, []);
 
-  const processSteps = [
-    {
-      num: "01",
-      title: "Discover",
-      desc: "We dig deep into your business goals, audience, and market landscape. Through workshops and research, we uncover what makes your brand unique and how to position it for maximum impact in the digital space.",
-      image: "/process-step-1.png",
-      highlights: ["Stakeholder workshops", "Market research", "Competitive analysis"]
-    },
-    {
-      num: "02",
-      title: "Design",
-      desc: "Crafting visual systems and interfaces that are intuitive and impactful. We blend strategy with aesthetics to create design solutions that don't just look good—they convert and engage.",
-      image: "/process-step-2.png",
-      highlights: ["UI/UX design", "Brand identity", "Design systems"]
-    },
-    {
-      num: "03",
-      title: "Build",
-      desc: "Clean code, scalable architecture, and pixel-perfect implementation. Our development team brings designs to life using modern tech stacks, ensuring performance, accessibility, and SEO excellence.",
-      image: "/process-step-3.png",
-      highlights: ["Front-end development", "Back-end integration", "Performance optimization"]
-    },
-    {
-      num: "04",
-      title: "Launch",
-      desc: "QA, testing, and a smooth go-live process with post-launch support. We don't just ship and disappear—we monitor, optimize, and ensure your digital product thrives in the real world.",
-      image: null,
-      highlights: ["Quality assurance", "Deployment", "Ongoing support"]
-    }
+  // Static Data (Images & Numbers) mapped to translations
+  const staticSteps = [
+    { num: "01", image: "/process-step-1.png" },
+    { num: "02", image: "/process-step-2.png" },
+    { num: "03", image: "/process-step-3.png" },
+    { num: "04", image: null }
   ];
+
+  const processSteps = staticSteps.map((step, i) => ({
+    ...step,
+    ...t.steps[i]
+  }));
 
   return (
     <div ref={containerRef} className="bg-black text-white min-h-screen">
@@ -106,10 +93,10 @@ export default function ProcessPage() {
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-display font-black mb-8 bg-gradient-to-r from-white via-cyan-300 to-cyan-500 bg-clip-text text-transparent">
-              How We Build Digital Experiences
+              {t.hero.title}
             </h1>
             <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              A proven methodology that transforms ambitious ideas into market-leading digital products. From strategy to launch, we're with you every step of the way.
+              {t.hero.subtitle}
             </p>
           </div>
         </div>
@@ -136,7 +123,7 @@ export default function ProcessPage() {
                 </div>
 
                 <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-                  {step.desc}
+                  {step.description}
                 </p>
 
                 <div className="space-y-3 pt-4">
@@ -183,7 +170,7 @@ export default function ProcessPage() {
                           />
                         </svg>
                       </div>
-                      <p className="text-gray-500 font-mono text-sm">Launch Ready</p>
+                      <p className="text-gray-500 font-mono text-sm">{t.steps[3].readyLabel}</p>
                     </div>
                   </div>
                 )}
@@ -196,29 +183,27 @@ export default function ProcessPage() {
       <section className="py-24 px-6 md:px-12 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-display font-black">
-            Ready to Start Your Project?
+            {t.cta.title}
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Let's build something that refuses to be ignored. Tell us about your vision, and we'll craft a digital experience that dominates.
+            {t.cta.text}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <a
               href="/contact"
               className="px-8 py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50"
             >
-              Get Started
+              {t.cta.getStarted}
             </a>
             <a
               href="/projects"
               className="px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-full hover:border-cyan-500 transition-all duration-300 hover:scale-105"
             >
-              View Our Work
+              {t.cta.viewWork}
             </a>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }

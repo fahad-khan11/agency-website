@@ -8,13 +8,23 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import ReactLenis from "lenis/react";
-import { services } from "@/data/services";
+import { getServicesTranslations, getServiceTranslation } from "@/lib/servicesTranslations";
+
+/* 
+   We keep the static import for index calculation, 
+   but we will use the helper for the main service data 
+*/
+import { services as staticServices } from "@/data/services"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
-  const service = services.find((s) => s.slug === slug);
+export default function ServiceDetailPage({ params }: { params: Promise<{ slug: string, locale?: string }> }) {
+  const { slug, locale = 'en' } = use(params);
+  
+  // Get merged translated data
+  const service = getServiceTranslation(locale, slug);
+  const t = getServicesTranslations(locale);
+  
   const container = useRef(null);
 
   if (!service) {
@@ -22,8 +32,11 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
   }
 
   // Calculate next service for navigation
-  const currentIndex = services.findIndex((s) => s.slug === slug);
-  const nextService = services[(currentIndex + 1) % services.length];
+  // Calculate next service for navigation
+  const currentIndex = staticServices.findIndex((s) => s.slug === slug);
+  const nextStatic = staticServices[(currentIndex + 1) % staticServices.length];
+  // Fetch translated next service to get correct title
+  const nextService = getServiceTranslation(locale, nextStatic.slug);
 
   // Helper to determine media type
   const getMediaType = (src: string) => {
@@ -79,7 +92,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
       return (
         <div className={`flex items-center justify-center bg-gray-900 border border-white/10 ${className}`}>
           <div className="text-center">
-            <p className="text-gray-500 uppercase tracking-widest text-sm mb-2">Media Unavailable</p>
+            <p className="text-gray-500 uppercase tracking-widest text-sm mb-2">{t.page.mediaUnavailable}</p>
             <div className="w-16 h-16 rounded-full border border-gray-700 flex items-center justify-center mx-auto">
               <span className="text-2xl text-gray-500">?</span>
             </div>
@@ -153,7 +166,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
             className="hero-text absolute top-32 left-6 md:left-12 z-30 flex items-center gap-2 text-white hover:text-[#00B5D9] transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-            <span className="font-medium">Back to Services</span>
+            <span className="font-medium">{t.page.backToServices}</span>
           </Link>
         </section>
 
@@ -163,14 +176,14 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
 
             {/* 1. Service Overview */}
             <section className="content-section mb-24">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">Service Overview</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">{t.page.serviceOverview}</h2>
               <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
                 {service.overview}
               </p>
               <div className="grid md:grid-cols-2 gap-8 mt-12">
                 {/* Features */}
                 <div>
-                  <h3 className="text-2xl font-display font-bold mb-6 text-[#00b4d9]">What We Offer</h3>
+                  <h3 className="text-2xl font-display font-bold mb-6 text-[#00b4d9]">{t.page.whatWeOffer}</h3>
                   <ul className="space-y-3">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -183,7 +196,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
 
                 {/* Technologies */}
                 <div>
-                  <h3 className="text-2xl font-display font-bold mb-6 text-[#00b4d9]">Technologies We Use</h3>
+                  <h3 className="text-2xl font-display font-bold mb-6 text-[#00b4d9]">{t.page.technologiesWeUse}</h3>
                   <div className="flex flex-wrap gap-3">
                     {service.technologies.map((tech, i) => (
                       <span
@@ -200,9 +213,9 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
 
             {/* 2. Deliverables / What You Get */}
             <section className="content-section mb-24">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">What You'll Get</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">{t.page.whatYoullGet}</h2>
               <p className="text-gray-400 text-lg mb-12">
-                Every project is delivered with comprehensive documentation and assets to ensure your success.
+                {t.page.whatYoullGetDesc}
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {service.deliverables.map((deliverable, i) => (
@@ -230,9 +243,9 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
 
             {/* 3. Process / How We Work */}
             <section className="content-section mb-24">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">How We Work</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">{t.page.howWeWork}</h2>
               <p className="text-gray-400 text-lg mb-12">
-                Our proven process ensures transparency, quality, and results at every stage.
+                {t.page.howWeWorkDesc}
               </p>
               <div className="grid md:grid-cols-2 gap-8">
                 {service.process.map((step, i) => (
@@ -262,7 +275,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
 
             {/* 5. Results / Case Studies / Proof */}
             <section className="content-section mb-24">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">Proven Results</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">{t.page.provenResults}</h2>
 
               {/* Key Metrics */}
               <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -290,21 +303,21 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
               <div className="bg-gradient-to-br from-[#00B5D9]/20 to-[#00B5D9]/5 border border-[#00B5D9]/30 rounded-2xl p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
                   <div className="w-2 h-2 bg-[#00B5D9] rounded-full"></div>
-                  <span className="text-[#00B5D9] uppercase tracking-wider text-sm font-semibold">Case Study</span>
+                  <span className="text-[#00B5D9] uppercase tracking-wider text-sm font-semibold">{t.page.caseStudy}</span>
                 </div>
                 <h3 className="text-3xl font-display font-bold mb-4">{service.caseStudy.client}</h3>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                  <div>
-                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Challenge</h4>
+                  <div className="md:col-span-1">
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">{t.page.challenge}</h4>
                     <p className="text-gray-300">{service.caseStudy.challenge}</p>
                   </div>
-                  <div>
-                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Solution</h4>
+                  <div className="md:col-span-1">
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">{t.page.solution}</h4>
                     <p className="text-gray-300">{service.caseStudy.solution}</p>
                   </div>
-                  <div>
-                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">Results</h4>
+                  <div className="md:col-span-1">
+                    <h4 className="text-[#00B5D9] font-semibold mb-2 uppercase text-sm">{t.page.results}</h4>
                     <p className="text-gray-300">{service.caseStudy.results}</p>
                   </div>
                 </div>
@@ -319,14 +332,14 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
           <div className="container mx-auto px-6 md:px-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-sm mb-2">Next Service</p>
-                <h3 className="text-4xl md:text-5xl font-display font-bold">{nextService.title}</h3>
+                <p className="text-gray-500 uppercase tracking-wider text-sm mb-2">{t.page.nextService}</p>
+                <h3 className="text-4xl md:text-5xl font-display font-bold">{nextService?.title}</h3>
               </div>
               <Link
                 href={`/services/${nextService.slug}`}
                 className="group flex items-center gap-3 px-8 py-4 bg-[#00B5D9] hover:bg-[#00B5D9]/80 rounded-full transition-all duration-300 text-white font-medium"
               >
-                <span>View Service</span>
+                <span>{t.page.viewService}</span>
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
@@ -338,23 +351,23 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ slug: 
           <div className="container mx-auto px-6 md:px-12 text-center">
             <div className="text-6xl mb-8">{service.icon}</div>
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8">
-              Ready to Get Started?
+              {t.page.readyToStart}
             </h2>
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can help bring your vision to life with our {service.title.toLowerCase()} services.
+              {t.page.letsDiscuss.replace('{service}', service.title.toLowerCase())}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="px-8 py-4 bg-gradient-to-r from-[#00B5D9] to-[#0099BB] text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-[#00B5D9]/50 transition-all duration-300 hover:scale-105"
               >
-                Start a Project
+                {t.page.startProject}
               </Link>
               <Link
                 href="/services"
                 className="px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                View All Services
+                {t.page.viewAllServices}
               </Link>
             </div>
           </div>

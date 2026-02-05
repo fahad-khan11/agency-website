@@ -6,10 +6,27 @@ import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { services } from "@/data/services";
+import { useParams } from "next/navigation";
+import { getServicesTranslations } from "@/lib/servicesTranslations";
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
   const [activeService, setActiveService] = useState<number | null>(null);
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const t = getServicesTranslations(locale);
+
+  // Merge static data with translations for the grid
+  const localizedServices = services.map(service => {
+      const key = service.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+      const trans = (t.services as any)[key];
+      return {
+          ...service,
+          title: trans?.title || service.title,
+          category: trans?.category || service.category,
+          description: trans?.description || service.description
+      };
+  });
 
   useGSAP(() => {
     // Header Animation
@@ -44,18 +61,17 @@ export default function ServicesPage() {
           <h1 className="animate-header text-6xl md:text-8xl font-display font-bold mb-8 tracking-tight">
             <span className="block text-white">Our</span>
             <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-              Services
+              {t.page.title.replace('Our ', '')}
             </span>
           </h1>
           <p className="animate-header text-gray-400 text-xl md:text-2xl max-w-2xl leading-relaxed">
-            Comprehensive digital solutions tailored to your brand's unique needs.
-            From concept to launch, we bring your vision to life.
+            {t.page.subtitle}
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
-          {services.map((service) => (
+          {localizedServices.map((service) => (
             <Link
               key={service.id}
               href={`/services/${service.slug}`}
@@ -99,7 +115,7 @@ export default function ServicesPage() {
 
                   {/* Arrow Icon */}
                   <div className="relative flex items-center gap-2 text-[#00B5D9] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2">
-                    <span className="text-sm font-medium">Learn More</span>
+                    <span className="text-sm font-medium">{t.page.learnMore}</span>
                     <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </div>
                 </div>
