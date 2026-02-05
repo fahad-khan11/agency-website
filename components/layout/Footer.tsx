@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Instagram, Linkedin, Twitter, Dribbble, Facebook } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export default function Footer({ asPanel, className }: { asPanel?: boolean; className?: string }) {
    const pathname = usePathname();
+   const t = useTranslations('footer');
 
    if (pathname === "/" && !asPanel) return null;
 
@@ -24,22 +26,22 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                   />
                </Link>
                <p className="text-gray-400 max-w-sm leading-relaxed text-sm md:text-base">
-                  A strategic design and engineering agency crafting world-class digital products used by millions. We build the future, pixel by pixel.
+                  {t('description')}
                </p>
             </div>
 
             <div className="md:col-span-2 md:col-start-6 flex flex-col gap-4">
-               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Sitemap</h4>
-               <Link href="/" className="hover:text-[#00B4D9] transition-colors text-gray-300">Home</Link>
-               <Link href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">About</Link>
-               <Link href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">Work</Link>
-               <Link href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">Services</Link>
-               <Link href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">Contact</Link>
+               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t('sitemap')}</h4>
+               <Link href="/" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('home')}</Link>
+               <Link href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('about')}</Link>
+               <Link href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('work')}</Link>
+               <Link href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('services')}</Link>
+               <Link href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('contact')}</Link>
             </div>
 
             {/* Socials Column */}
             <div className="md:col-span-2 flex flex-col gap-4">
-               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Socials</h4>
+               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t('socials')}</h4>
                <Link target="_blank" href="https://www.facebook.com/atrionadigital" className="hover:text-[#00B4D9] transition-colors text-gray-300 flex items-center gap-2 group">
                   <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>Facebook</span>
@@ -61,7 +63,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
 
             {/* Contact Column */}
             <div className="md:col-span-4 flex flex-col gap-6">
-               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">Get in touch</h4>
+               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('getInTouch')}</h4>
                <a href="mailto:info@atriona-digital.com" className="text-2xl md:text-2xl font-display font-bold hover:text-[#00b8db] transition-colors whitespace-nowrap">
                   info@atriona-digital.com
                </a>
@@ -73,7 +75,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
          </div>
 
          <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8 text-sm text-gray-500">
-            <p>© 2024 ATRIONA. All rights reserved.</p>
+            <p>{t('rights')}</p>
 
             <div className="flex gap-6 mt-4 md:mt-0">
                <Link href="https://www.facebook.com/atrionadigital" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Facebook" target="_blank">

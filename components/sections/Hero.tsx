@@ -3,11 +3,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { MoveRight, ArrowDown } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export default function Hero({ isActive }: { isActive?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('hero');
 
   useEffect(() => {
     if (isActive !== undefined && !isActive) return;
@@ -124,23 +126,23 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           {/* Top Decorative Line */}
           <div className="hero-fade mb-6 flex items-center gap-4">
             <div className="w-12 h-[1px] bg-[#00B4D9]"></div>
-            <span className="text-[#00B4D9] font-mono text-xs uppercase tracking-[0.3em]">Digital Experience Design</span>
+            <span className="text-[#00B4D9] font-mono text-xs uppercase tracking-[0.3em]">{t('tagline')}</span>
           </div>
 
-          <h1 className="font-display font-black text-[13vw] leading-[0.8] tracking-tight uppercase mix-blend-difference relative">
+          <h1 className="font-display font-black text-[12.5vw] leading-[0.9] tracking-tight uppercase mix-blend-difference relative pb-4">
             <div className="overflow-hidden">
-              <div className="hero-line-inner">DIGITAL</div>
+              <div className="hero-line-inner">{t('title1')}</div>
             </div>
 
-            <div className="overflow-hidden flex items-baseline gap-[2vw]">
+            <div className="flex items-baseline gap-[2vw]">
               {/* Visual Interruption in text */}
               <div className="hero-visual-item parallax-layer-2 w-[10vw] h-[10vw] rounded-full overflow-hidden border border-white/20 mt-4 md:mt-0 hidden lg:block floating-shape">
                 <div className="w-full h-full bg-gradient-to-tr from-brand-orange to-purple-600 scale-150 animate-spin-slow opacity-80"></div>
               </div>
 
               <div className="hero-line-inner flex items-baseline">
-                <span className="outline-text italic font-serif opacity-80 pr-4">Soul</span>
-                <span>ALCHEMY</span>
+                <span className="outline-text italic font-serif opacity-80 pr-4">{t('title2')}</span>
+                <span>{t('title3')}</span>
               </div>
             </div>
           </h1>
@@ -150,18 +152,18 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         <div className="w-full flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-8 mt-4">
           <div className="hero-fade max-w-xl">
             <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed">
-              We blend <span className="text-white font-medium">strategy, design, and motion</span> to build brands that refuse to be ignored in the digital noise.
+              {t('description')} <span className="text-white font-medium">{t('descriptionBold')}</span> {t('descriptionEnd')}
             </p>
           </div>
 
           <div className="hero-fade flex items-center gap-10 mt-10 md:mt-0">
             <div className="hidden md:block text-right">
-              <span className="block text-xs text-gray-500 uppercase tracking-widest mb-1">Based in</span>
-              <span className="block font-medium">San Francisco</span>
+              <span className="block text-xs text-gray-500 uppercase tracking-widest mb-1">{t('basedIn')}</span>
+              <span className="block font-medium">{t('location')}</span>
             </div>
             <div className="hidden md:block text-right">
-              <span className="block text-xs text-gray-500 uppercase tracking-widest mb-1">Since</span>
-              <span className="block font-medium">2024</span>
+              <span className="block text-xs text-gray-500 uppercase tracking-widest mb-1">{t('since')}</span>
+              <span className="block font-medium">{t('year')}</span>
             </div>
 
             {/* <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center animate-bounce duration-[3000ms]">
@@ -177,7 +179,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
       {/* Ticker at the bottom */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden py-2 bg-white/5 backdrop-blur-sm border-t border-white/5 z-20">
         <div className="flex animate-ticker w-max">
-          {Array(10).fill("STRATEGY • DESIGN • DEVELOPMENT • MOTION • ").map((text, i) => (
+          {Array(10).fill(t('ticker')).map((text, i) => (
             <span key={i} className="text-xs font-bold text-gray-500 tracking-[0.2em] px-4 whitespace-nowrap opacity-60">
               {text}
             </span>

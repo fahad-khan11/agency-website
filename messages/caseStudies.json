@@ -1,0 +1,340 @@
+{
+    "en": {
+        "page": {
+            "badge": "Portfolio",
+            "title": "Case Studies",
+            "subtitle": "Explore our portfolio of transformative digital experiences. Each project represents a unique challenge solved through strategic thinking, creative innovation, and technical excellence.",
+            "projectsLabel": "Projects",
+            "yearRange": "2023 — 2024",
+            "viewCaseStudy": "View Case Study",
+            "ctaBadge": "Ready to Transform?",
+            "ctaTitle": "Let's Create Your Success Story",
+            "ctaSubtitle": "Every great project starts with a conversation. Share your vision, and we'll turn it into reality with the same dedication and expertise you've seen in these case studies.",
+            "startYourProject": "Start Your Project",
+            "viewMoreWork": "View More Work",
+            "back": "Back",
+            "client": "Client:",
+            "overview": "Overview",
+            "services": "Services",
+            "theChallenge": "The Challenge",
+            "ourSolution": "Our Solution",
+            "keyFeatures": "Key Features",
+            "resultsImpact": "Results & Impact",
+            "previousProject": "Previous Project",
+            "nextProject": "Next Project",
+            "detailCtaBadge": "Ready to Transform?",
+            "detailCtaTitle": "Let's Create Your Success Story",
+            "detailCtaSubtitle": "Every great project starts with a conversation. Share your vision, and we'll turn it into reality.",
+            "viewAllCaseStudies": "View All Case Studies"
+        },
+        "studies": {
+            "luminaScent": {
+                "title": "Lumina Scent",
+                "category": "E-Commerce / Branding",
+                "client": "Lumina Organics",
+                "tagline": "A Sensory Journey Through Organic Scents",
+                "overview": "We crafted a complete digital experience that evokes the purity and elegance of nature for Lumina Organics, a luxury organic perfume brand. The project encompassed brand identity, e-commerce platform design, and a comprehensive digital marketing strategy.",
+                "challenge": "Lumina needed a brand identity that stood out in the crowded organic beauty market. The primary challenge was to communicate scent—a purely olfactory experience—through visual and digital mediums without losing the essence of the product. Additionally, they needed to convey luxury while maintaining an authentic connection to nature and sustainability.",
+                "solution": "We developed a visual language based on fluid, organic shapes and a calming, earth-toned palette. The website features immersive scroll interactions that mimic the diffusion of scent, guiding users through a narrative-driven shopping experience. We created custom botanical illustrations, implemented micro-animations for product interactions, and built a seamless checkout process optimized for conversions.",
+                "services": [
+                    "Brand Identity",
+                    "Web Design",
+                    "E-Commerce Development",
+                    "Digital Strategy",
+                    "Content Creation"
+                ],
+                "results": [
+                    {
+                        "metric": "215%",
+                        "label": "Increase in Online Sales"
+                    },
+                    {
+                        "metric": "4.8x",
+                        "label": "Return on Investment"
+                    },
+                    {
+                        "metric": "68%",
+                        "label": "User Engagement Growth"
+                    },
+                    {
+                        "metric": "3.2min",
+                        "label": "Average Session Duration"
+                    }
+                ],
+                "keyFeatures": [
+                    "Custom brand identity with botanical elements",
+                    "Immersive scroll-based storytelling",
+                    "Optimized product photography system",
+                    "Scent profile quiz for personalization",
+                    "Seamless checkout experience"
+                ],
+                "testimonial": {
+                    "quote": "The team transformed our vision into a digital experience that truly captures the essence of our brand. Our customers frequently comment on how the website makes them feel connected to nature.",
+                    "author": "Sarah Mitchell",
+                    "role": "Founder, Lumina Organics"
+                }
+            },
+            "apexFinance": {
+                "title": "Apex Finance",
+                "category": "Web App / FinTech",
+                "client": "Apex Global",
+                "tagline": "Redefining the Future of Trading",
+                "overview": "We designed and built a high-performance trading platform for professional traders and institutions. The platform combines advanced data visualization with an intuitive interface, making complex financial instruments accessible without sacrificing depth or functionality.",
+                "challenge": "Complex financial data is often overwhelming and intimidating. Apex wanted to democratize access to advanced trading tools while maintaining the depth and speed required by professional traders. The technical challenge included real-time data processing, sub-second response times, and presenting multiple data streams simultaneously without cognitive overload.",
+                "solution": "We adopted a 'data-first' approach, prioritizing legibility and hierarchy through careful typography and color coding. A modular dashboard system allows users to customize their workspace completely. We implemented WebGL for real-time data visualization, ensuring smooth performance even with high-frequency updates. The design system includes dark mode optimization to reduce eye strain during extended trading sessions.",
+                "services": [
+                    "UX/UI Design",
+                    "Frontend Development",
+                    "Design System",
+                    "Real-time Data Visualization",
+                    "Performance Optimization"
+                ],
+                "results": [
+                    {
+                        "metric": "3.2M",
+                        "label": "Active Users"
+                    },
+                    {
+                        "metric": "99.9%",
+                        "label": "System Uptime"
+                    },
+                    {
+                        "metric": "45%",
+                        "label": "Faster Trade Execution"
+                    },
+                    {
+                        "metric": "<50ms",
+                        "label": "Average Response Time"
+                    }
+                ],
+                "keyFeatures": [
+                    "Customizable modular dashboard",
+                    "Real-time WebGL data visualization",
+                    "Advanced charting with 50+ indicators",
+                    "Multi-monitor support",
+                    "One-click trading execution"
+                ],
+                "testimonial": {
+                    "quote": "This platform has become indispensable for our trading desk. The combination of speed, clarity, and customization gives us a competitive edge in fast-moving markets.",
+                    "author": "Michael Chen",
+                    "role": "Head of Trading, Apex Global"
+                }
+            },
+            "vogueEditorial": {
+                "title": "Vogue Editorial",
+                "category": "Digital Experience",
+                "client": "Vogue Magazine",
+                "tagline": "Fashion Meets Technology",
+                "overview": "An interactive editorial piece exploring the intersection of fashion and technology through immersive digital storytelling. We created a scrollytelling experience that brings fashion photography to life, allowing readers to explore content at their own pace while maintaining Vogue's prestigious editorial standards.",
+                "challenge": "Traditional static editorials fail to capture the dynamic nature of modern fashion and the movement inherent in clothing. Vogue wanted an interactive story that readers could explore at their own pace, blurring the line between reading and watching, while maintaining the sophistication and prestige of the Vogue brand.",
+                "solution": "We created a cinematic scrollytelling experience where user input drives the narrative progression. Parallax effects, video backgrounds, and typographic animations bring fashion shoots to life. The interface adapts seamlessly from desktop to mobile, ensuring the premium experience translates across all devices. We implemented lazy loading and optimized assets to maintain fast load times despite rich media content.",
+                "services": [
+                    "Art Direction",
+                    "Motion Design",
+                    "Web Development",
+                    "Interactive Storytelling",
+                    "Mobile Optimization"
+                ],
+                "results": [
+                    {
+                        "metric": "2.5M",
+                        "label": "Story Views"
+                    },
+                    {
+                        "metric": "8min",
+                        "label": "Average Time Spent"
+                    },
+                    {
+                        "metric": "92%",
+                        "label": "Completion Rate"
+                    },
+                    {
+                        "metric": "156%",
+                        "label": "Social Sharing Increase"
+                    }
+                ],
+                "keyFeatures": [
+                    "Parallax scrolling effects",
+                    "Integrated video backgrounds",
+                    "Dynamic typography animations",
+                    "Seamless mobile adaptation",
+                    "Social sharing optimization"
+                ],
+                "testimonial": {
+                    "quote": "This project redefined what's possible in digital editorial. The engagement metrics speak for themselves—readers are spending more time with our content than ever before.",
+                    "author": "Alexandra Dubois",
+                    "role": "Digital Director, Vogue Magazine"
+                }
+            }
+        }
+    },
+    "de": {
+        "page": {
+            "badge": "Portfolio",
+            "title": "Fallstudien",
+            "subtitle": "Erkunden Sie unser Portfolio transformativer digitaler Erlebnisse. Jedes Projekt repräsentiert eine einzigartige Herausforderung, gelöst durch strategisches Denken, kreative Innovation und technische Exzellenz.",
+            "projectsLabel": "Projekte",
+            "yearRange": "2023 — 2024",
+            "viewCaseStudy": "Fallstudie ansehen",
+            "ctaBadge": "Bereit zur Transformation?",
+            "ctaTitle": "Lassen Sie uns Ihre Erfolgsgeschichte schaffen",
+            "ctaSubtitle": "Jedes großartige Projekt beginnt mit einem Gespräch. Teilen Sie Ihre Vision, und wir verwandeln sie mit der gleichen Hingabe und Expertise, die Sie in diesen Fallstudien gesehen haben, in Realität.",
+            "startYourProject": "Starten Sie Ihr Projekt",
+            "viewMoreWork": "Mehr Arbeiten ansehen",
+            "back": "Zurück",
+            "client": "Kunde:",
+            "overview": "Überblick",
+            "services": "Dienstleistungen",
+            "theChallenge": "Die Herausforderung",
+            "ourSolution": "Unsere Lösung",
+            "keyFeatures": "Hauptmerkmale",
+            "resultsImpact": "Ergebnisse & Auswirkungen",
+            "previousProject": "Vorheriges Projekt",
+            "nextProject": "Nächstes Projekt",
+            "detailCtaBadge": "Bereit zur Transformation?",
+            "detailCtaTitle": "Lassen Sie uns Ihre Erfolgsgeschichte schaffen",
+            "detailCtaSubtitle": "Jedes großartige Projekt beginnt mit einem Gespräch. Teilen Sie Ihre Vision, und wir verwandeln sie in Realität.",
+            "viewAllCaseStudies": "Alle Fallstudien ansehen"
+        },
+        "studies": {
+            "luminaScent": {
+                "title": "Lumina Scent",
+                "category": "E-Commerce / Branding",
+                "client": "Lumina Organics",
+                "tagline": "Eine sensorische Reise durch organische Düfte",
+                "overview": "Wir haben ein komplettes digitales Erlebnis geschaffen, das die Reinheit und Eleganz der Natur für Lumina Organics, eine luxuriöse Bio-Parfümmarke, hervorruft. Das Projekt umfasste Markenidentität, E-Commerce-Plattform-Design und eine umfassende digitale Marketingstrategie.",
+                "challenge": "Lumina benötigte eine Markenidentität, die sich im überfüllten Bio-Beauty-Markt abhob. Die primäre Herausforderung bestand darin, Duft – ein rein olfaktorisches Erlebnis – durch visuelle und digitale Medien zu kommunizieren, ohne die Essenz des Produkts zu verlieren. Zusätzlich mussten sie Luxus vermitteln und gleichzeitig eine authentische Verbindung zu Natur und Nachhaltigkeit aufrechterhalten.",
+                "solution": "Wir entwickelten eine visuelle Sprache basierend auf fließenden, organischen Formen und einer beruhigenden, erdtonigen Palette. Die Website bietet immersive Scroll-Interaktionen, die die Diffusion von Duft nachahmen und Benutzer durch ein narrativ gesteuertes Einkaufserlebnis führen. Wir erstellten maßgeschneiderte botanische Illustrationen, implementierten Mikro-Animationen für Produktinteraktionen und bauten einen nahtlosen, auf Conversions optimierten Checkout-Prozess.",
+                "services": [
+                    "Markenidentität",
+                    "Webdesign",
+                    "E-Commerce-Entwicklung",
+                    "Digitale Strategie",
+                    "Content-Erstellung"
+                ],
+                "results": [
+                    {
+                        "metric": "215%",
+                        "label": "Steigerung der Online-Verkäufe"
+                    },
+                    {
+                        "metric": "4,8x",
+                        "label": "Return on Investment"
+                    },
+                    {
+                        "metric": "68%",
+                        "label": "Wachstum des Benutzerengagements"
+                    },
+                    {
+                        "metric": "3,2 Min.",
+                        "label": "Durchschnittliche Sitzungsdauer"
+                    }
+                ],
+                "keyFeatures": [
+                    "Maßgeschneiderte Markenidentität mit botanischen Elementen",
+                    "Immersives scroll-basiertes Storytelling",
+                    "Optimiertes Produktfotografie-System",
+                    "Duftprofil-Quiz zur Personalisierung",
+                    "Nahtloses Checkout-Erlebnis"
+                ],
+                "testimonial": {
+                    "quote": "Das Team hat unsere Vision in ein digitales Erlebnis verwandelt, das die Essenz unserer Marke wirklich einfängt. Unsere Kunden kommentieren häufig, wie die Website sie mit der Natur verbunden fühlen lässt.",
+                    "author": "Sarah Mitchell",
+                    "role": "Gründerin, Lumina Organics"
+                }
+            },
+            "apexFinance": {
+                "title": "Apex Finance",
+                "category": "Web-App / FinTech",
+                "client": "Apex Global",
+                "tagline": "Die Zukunft des Handels neu definieren",
+                "overview": "Wir haben eine leistungsstarke Handelsplattform für professionelle Händler und Institutionen entworfen und gebaut. Die Plattform kombiniert fortschrittliche Datenvisualisierung mit einer intuitiven Benutzeroberfläche und macht komplexe Finanzinstrumente zugänglich, ohne Tiefe oder Funktionalität zu opfern.",
+                "challenge": "Komplexe Finanzdaten sind oft überwältigend und einschüchternd. Apex wollte den Zugang zu fortschrittlichen Handelstools demokratisieren und gleichzeitig die Tiefe und Geschwindigkeit beibehalten, die professionelle Händler benötigen. Die technische Herausforderung umfasste Echtzeit-Datenverarbeitung, Reaktionszeiten unter einer Sekunde und die gleichzeitige Präsentation mehrerer Datenströme ohne kognitive Überlastung.",
+                "solution": "Wir verfolgten einen 'Data-First'-Ansatz und priorisierten Lesbarkeit und Hierarchie durch sorgfältige Typografie und Farbcodierung. Ein modulares Dashboard-System ermöglicht es Benutzern, ihren Arbeitsbereich vollständig anzupassen. Wir implementierten WebGL für Echtzeit-Datenvisualisierung und stellten eine reibungslose Leistung auch bei hochfrequenten Updates sicher. Das Design-System umfasst Dark-Mode-Optimierung zur Reduzierung der Augenbelastung während längerer Handelssitzungen.",
+                "services": [
+                    "UX/UI-Design",
+                    "Frontend-Entwicklung",
+                    "Design-System",
+                    "Echtzeit-Datenvisualisierung",
+                    "Performance-Optimierung"
+                ],
+                "results": [
+                    {
+                        "metric": "3,2 Mio.",
+                        "label": "Aktive Benutzer"
+                    },
+                    {
+                        "metric": "99,9%",
+                        "label": "System-Verfügbarkeit"
+                    },
+                    {
+                        "metric": "45%",
+                        "label": "Schnellere Handelsausführung"
+                    },
+                    {
+                        "metric": "<50ms",
+                        "label": "Durchschnittliche Antwortzeit"
+                    }
+                ],
+                "keyFeatures": [
+                    "Anpassbares modulares Dashboard",
+                    "Echtzeit-WebGL-Datenvisualisierung",
+                    "Erweiterte Charts mit über 50 Indikatoren",
+                    "Multi-Monitor-Unterstützung",
+                    "Ein-Klick-Handelsausführung"
+                ],
+                "testimonial": {
+                    "quote": "Diese Plattform ist für unseren Handelsdesk unverzichtbar geworden. Die Kombination aus Geschwindigkeit, Klarheit und Anpassung gibt uns einen Wettbewerbsvorteil in schnelllebigen Märkten.",
+                    "author": "Michael Chen",
+                    "role": "Leiter Handel, Apex Global"
+                }
+            },
+            "vogueEditorial": {
+                "title": "Vogue Editorial",
+                "category": "Digitales Erlebnis",
+                "client": "Vogue Magazine",
+                "tagline": "Mode trifft Technologie",
+                "overview": "Ein interaktives redaktionelles Stück, das die Schnittstelle von Mode und Technologie durch immersives digitales Storytelling erkundet. Wir haben ein Scrollytelling-Erlebnis geschaffen, das Modefotografie zum Leben erweckt und es Lesern ermöglicht, Inhalte in ihrem eigenen Tempo zu erkunden, während die prestigeträchtigen redaktionellen Standards von Vogue beibehalten werden.",
+                "challenge": "Traditionelle statische Editorials erfassen nicht die dynamische Natur moderner Mode und die Bewegung, die Kleidung innewohnt. Vogue wollte eine interaktive Geschichte, die Leser in ihrem eigenen Tempo erkunden können, die Grenze zwischen Lesen und Ansehen verwischen und gleichzeitig die Raffinesse und das Prestige der Marke Vogue beibehalten.",
+                "solution": "Wir haben ein kinematisches Scrollytelling-Erlebnis geschaffen, bei dem Benutzereingaben den narrativen Fortschritt steuern. Parallax-Effekte, Video-Hintergründe und typografische Animationen erwecken Modeshootings zum Leben. Die Benutzeroberfläche passt sich nahtlos von Desktop zu Mobil an und stellt sicher, dass das Premium-Erlebnis auf allen Geräten übersetzt wird. Wir implementierten Lazy Loading und optimierte Assets, um trotz reichhaltiger Medieninhalte schnelle Ladezeiten aufrechtzuerhalten.",
+                "services": [
+                    "Art Direction",
+                    "Motion Design",
+                    "Webentwicklung",
+                    "Interaktives Storytelling",
+                    "Mobile-Optimierung"
+                ],
+                "results": [
+                    {
+                        "metric": "2,5 Mio.",
+                        "label": "Story-Aufrufe"
+                    },
+                    {
+                        "metric": "8 Min.",
+                        "label": "Durchschnittlich verbrachte Zeit"
+                    },
+                    {
+                        "metric": "92%",
+                        "label": "Abschlussrate"
+                    },
+                    {
+                        "metric": "156%",
+                        "label": "Steigerung des Social Sharing"
+                    }
+                ],
+                "keyFeatures": [
+                    "Parallax-Scrolling-Effekte",
+                    "Integrierte Video-Hintergründe",
+                    "Dynamische Typografie-Animationen",
+                    "Nahtlose Mobile-Anpassung",
+                    "Social-Sharing-Optimierung"
+                ],
+                "testimonial": {
+                    "quote": "Dieses Projekt hat neu definiert, was im digitalen Editorial möglich ist. Die Engagement-Metriken sprechen für sich – Leser verbringen mehr Zeit mit unseren Inhalten als je zuvor.",
+                    "author": "Alexandra Dubois",
+                    "role": "Digital Director, Vogue Magazine"
+                }
+            }
+        }
+    }
+}

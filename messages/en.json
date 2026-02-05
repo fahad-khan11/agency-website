@@ -1,0 +1,202 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "industries": "Industries",
+        "process": "Process",
+        "caseStudies": "Case Studies",
+        "blogs": "Blogs",
+        "contact": "Contact Us",
+        "letsTalk": "Let's Talk"
+    },
+    "hero": {
+        "tagline": "Digital Experience Design",
+        "title1": "DIGITAL",
+        "title2": "Soul",
+        "title3": "ALCH",
+        "description": "We blend",
+        "descriptionBold": "strategy, design, and motion",
+        "descriptionEnd": "to build brands that refuse to be ignored in the digital noise.",
+        "basedIn": "Based in",
+        "location": "San Francisco",
+        "since": "Since",
+        "year": "2024",
+        "ticker": "STRATEGY • DESIGN • DEVELOPMENT • MOTION • "
+    },
+    "services": {
+        "expertise": "Our Expertise",
+        "title": "Digital solutions",
+        "titleHighlight": "that scale.",
+        "description": "We don't just make things look good. We build comprehensive design systems and digital products that function flawlessly.",
+        "yearsExp": "Years Exp",
+        "awardsWon": "Awards Won",
+        "brandStrategy": {
+            "title": "Brand Strategy",
+            "desc": "We build brands that stand slightly to the left of normal. Includes logo systems, visual guidelines, tone of voice, and brand architecture."
+        },
+        "productDesign": {
+            "title": "Product Design",
+            "desc": "User-centric UI/UX design for web and mobile applications. We focus on clarity, conversion, and delight."
+        },
+        "webDevelopment": {
+            "title": "Web Development",
+            "desc": "Robust front-end and back-end engineering using modern stacks (Next.js, React, Node). Performance-obsessed and SEO-ready."
+        },
+        "motionInteraction": {
+            "title": "Motion & Interaction",
+            "desc": "Adding life to interfaces through WebGL, GSAP animations, and micro-interactions that guide and reward the user."
+        }
+    },
+    "featureStrip": {
+        "capabilities": "Capabilities",
+        "brandIdentity": "Brand Identity",
+        "webDesign": "Web Design",
+        "creativeDev": "Creative Dev",
+        "motionDirection": "Motion Direction",
+        "mainTitle": "We turn complex ideas into clean, compelling digital narratives.",
+        "approach": "Our approach blends strategic thinking with obsessively crafted visuals to drive real business growth.",
+        "badge": "• DIGITAL • ALCHEMY • DESIGN"
+    },
+    "workLanding": {
+        "title": "SELECTED WORK",
+        "years": "2023 — 2024",
+        "viewCase": "View Case"
+    },
+    "orangeStatement": {
+        "title": "WE BUILD BRANDS THAT REFUSE TO BE IGNORED.",
+        "description": "In a world of noise, we create the signal. Your digital presence shouldn't just exist—it should dominate."
+    },
+    "process": {
+        "title": "The Process",
+        "discover": {
+            "title": "Discover",
+            "desc": "We dig deep into your business goals, audience, and market landscape."
+        },
+        "design": {
+            "title": "Design",
+            "desc": "Crafting visual systems and interfaces that are intuitive and impactful."
+        },
+        "build": {
+            "title": "Build",
+            "desc": "Clean code, scalable architecture, and pixel-perfect implementation."
+        },
+        "launch": {
+            "title": "Launch",
+            "desc": "QA, testing, and a smooth go-live process with post-launch support."
+        }
+    },
+    "testimonials": {
+        "title": "Client Stories",
+        "testimonial1": {
+            "quote": "They completely transformed how we present ourselves online. The attention to detail and creative direction was exactly what we needed to level up.",
+            "author": "Sarah Jenkins",
+            "role": "CMO, Apex Finance"
+        },
+        "testimonial2": {
+            "quote": "Archetype doesn't just build websites, they build brands. The motion design and user experience is first-class. Highly recommended.",
+            "author": "Marcus Chen",
+            "role": "Founder, Lumina Scent"
+        },
+        "testimonial3": {
+            "quote": "A team that truly understands the intersection of art and technology. Our conversion rates doubled after the redesign.",
+            "author": "Elena Rodriguez",
+            "role": "Director, Veloce Motors"
+        }
+    },
+    "categories": {
+        "ecommerceBranding": "E-Commerce / Branding",
+        "webAppFintech": "Web App / FinTech",
+        "digitalExperience": "Digital Experience"
+    },
+    "about": {
+        "hero": {
+            "headline": "We design brands and build digital experiences",
+            "description": "We are a strategic design and engineering agency that helps companies navigate the digital landscape with speed, clarity, and bold creativity.",
+            "viewWork": "View Work",
+            "getInTouch": "Get in Touch",
+            "coreDisciplines": "Core Disciplines",
+            "digitalStrategy": "Digital Strategy",
+            "brandIdentity": "Brand Identity",
+            "uiUxDesign": "UI/UX Design",
+            "fullStackDev": "Full Stack Development"
+        },
+        "story": {
+            "tagline": "Our Story",
+            "title": "Built on the belief that design is a strategic advantage.",
+            "paragraph1": "Founded in 2020, Atriona emerged from a simple observation: most digital products are either beautifully designed but poorly engineered, or technically sound but visually uninspiring.",
+            "paragraph2": "We set out to bridge that gap—creating a studio where design and development aren't separate departments, but two sides of the same coin. Every project we take on is a collaboration between strategists, designers, and engineers who speak the same language.",
+            "paragraph3": "Today, we work with ambitious startups and established brands who refuse to settle for mediocrity. Our work has been featured in Awwwards, CSS Design Awards, and has driven measurable results for our clients."
+        },
+        "values": {
+            "tagline": "Our Core Values",
+            "title": "The principles that guide every pixel and line of code.",
+            "value1": {
+                "title": "Craft",
+                "desc": "We sweat the details. We believe that quality is fractal—if the code is clean, the design is clean."
+            },
+            "value2": {
+                "title": "Clarity",
+                "desc": "Complexity is easy; simplicity is hard. We strip away the noise to find the signal in the static."
+            },
+            "value3": {
+                "title": "Speed",
+                "desc": "Momentum matters. We build efficient workflows to ship value to users as fast as possible."
+            },
+            "value4": {
+                "title": "Partnership",
+                "desc": "We are not a vendor; we are an extension of your team. Your wins are our wins."
+            }
+        },
+        "team": {
+            "title": "Minds behind the magic.",
+            "description": "We are a diverse team of thinkers and makers, united by a passion for creating exceptional digital experiences."
+        },
+        "cta": {
+            "title": "Let's build the future of your brand.",
+            "description": "We combine aesthetic excellence with engineering precision to deliver digital products that stand the test of time.",
+            "button": "Start Your Project"
+        }
+    },
+    "contact": {
+        "hero": {
+            "tagline": "Get in Touch",
+            "title": "Let's create something exceptional.",
+            "description": "Whether you have a project in mind or just want to chat about possibilities, we'd love to hear from you."
+        },
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "Your name",
+            "email": "Email",
+            "emailPlaceholder": "your@email.com",
+            "company": "Company",
+            "companyPlaceholder": "Your company name",
+            "message": "Message",
+            "messagePlaceholder": "Tell us about your project...",
+            "submit": "Send Message",
+            "sending": "Sending..."
+        },
+        "info": {
+            "email": "Email",
+            "location": "Location",
+            "locationValue": "Karlsruhe, Germany",
+            "socials": "Follow Us"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 ATRIONA. All rights reserved.",
+        "description": "A strategic design and engineering agency crafting world-class digital products used by millions. We build the future, pixel by pixel.",
+        "sitemap": "Sitemap",
+        "home": "Home",
+        "about": "About",
+        "work": "Work",
+        "services": "Services",
+        "contact": "Contact",
+        "socials": "Socials",
+        "getInTouch": "Get in touch"
+    },
+    "language": {
+        "english": "English",
+        "german": "Deutsch"
+    }
+}

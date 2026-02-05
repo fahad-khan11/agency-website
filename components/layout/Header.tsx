@@ -1,20 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { MoveRight, Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { usePanel } from "@/lib/PanelContext";
 import { usePathname } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LocaleLink from "@/components/LocaleLink";
 
 const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Process", href: "/process" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Blogs", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "about", href: "/about" },
+  { label: "services", href: "/services" },
+  { label: "industries", href: "/industries" },
+  { label: "process", href: "/process" },
+  { label: "caseStudies", href: "/case-studies" },
+  { label: "blogs", href: "/blog" },
+  { label: "contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -22,7 +24,8 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const t = useTranslations('nav');
+  const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
 
   const lightPanels = [1, 3, 6];
   const isLightMode = isHome && lightPanels.includes(activeIndex);
@@ -63,7 +66,7 @@ export default function Header() {
       )}
     >
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
+      <LocaleLink href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
         <div className="relative h-6 sm:h-7 md:h-9 lg:h-10 w-auto">
           {/* Dark logo for light backgrounds */}
           <img
@@ -85,47 +88,48 @@ export default function Header() {
           />
           <span className="w-2 h-2 rounded-full bg-[#00b4d9] absolute -top-1 -right-2"></span>
         </div>
-      </Link>
+      </LocaleLink>
 
       {/* Desktop Nav */}
       <nav className={clsx(
-        "hidden md:flex gap-8 items-center px-8 py-3 rounded-full border transition-all duration-500 backdrop-blur-sm",
+        "hidden md:flex gap-6 items-center px-6 py-2.5 rounded-full border transition-all duration-500 backdrop-blur-sm",
         isLightMode
           ? "bg-black/5 border-black/10"
           : "bg-white/5 border-white/10 hover:bg-white/10"
       )}>
         {navItems.map((item) => (
-          <Link
+          <LocaleLink
             key={item.label}
             href={item.href}
             onClick={(e) => handleNavClick(e, item)}
             className={clsx(
-              "text-sm font-bold uppercase tracking-wider transition-colors relative group",
+              "text-xs font-bold uppercase tracking-wider transition-colors relative group",
               isLightMode
                 ? "text-gray-600 hover:text-black"
                 : "text-gray-300 hover:text-white"
             )}
           >
-            {item.label}
+            {t(item.label)}
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
-          </Link>
+          </LocaleLink>
         ))}
+        <LanguageSwitcher isLightMode={isLightMode} />
       </nav>
 
       {/* Desktop CTA Button */}
-      <Link
+      <LocaleLink
         href="/contact"
-        onClick={(e) => handleNavClick(e, navItems[4])}
+        onClick={(e) => handleNavClick(e, navItems[6])}
         className={clsx(
-          "hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wide group px-5 py-2.5 rounded-full hover:bg-[#00b4d9] hover:text-white transition-all duration-300 z-50",
+          "hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wide group px-4 py-2 rounded-full hover:bg-[#00b4d9] hover:text-white transition-all duration-300 z-50",
           isLightMode
             ? "bg-black text-white"
             : "bg-white text-black"
         )}
       >
-        <span>Let's Talk</span>
+        <span>{t('letsTalk')}</span>
         <MoveRight className="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300" />
-      </Link>
+      </LocaleLink>
 
       {/* Mobile Menu Toggle Button */}
       <button
@@ -169,7 +173,7 @@ export default function Header() {
       >
         <nav className="flex flex-col items-center justify-center h-full gap-4 sm:gap-6 px-6 py-24" style={{ position: 'relative', zIndex: 10000 }}>
           {navItems.map((item, index) => (
-            <Link
+            <LocaleLink
               key={item.label}
               href={item.href}
               onClick={(e) => handleNavClick(e, item)}
@@ -183,16 +187,14 @@ export default function Header() {
                 transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
               }}
             >
-              {item.label}
-            </Link>
+              {t(item.label)}
+            </LocaleLink>
           ))}
 
-          {/* Mobile CTA Button */}
-          <Link
-            href="/contact"
-            onClick={(e) => handleNavClick(e, navItems[4])}
+          {/* Mobile Language Switcher */}
+          <div
             className={clsx(
-              "flex items-center gap-2 text-base sm:text-lg font-bold uppercase tracking-wide px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#00b4d9] text-white hover:bg-white hover:text-black transition-all duration-300 mt-4 sm:mt-6 transform",
+              "transform transition-all duration-300",
               mobileMenuOpen
                 ? "translate-y-0 opacity-100"
                 : "translate-y-4 opacity-0"
@@ -201,9 +203,26 @@ export default function Header() {
               transitionDelay: mobileMenuOpen ? `${navItems.length * 100}ms` : "0ms"
             }}
           >
-            <span>Let's Talk</span>
+            <LanguageSwitcher isLightMode={false} />
+          </div>
+
+          {/* Mobile CTA Button */}
+          <LocaleLink
+            href="/contact"
+            onClick={(e) => handleNavClick(e, navItems[6])}
+            className={clsx(
+              "flex items-center gap-2 text-sm sm:text-base font-bold uppercase tracking-wide px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#00b4d9] text-white hover:bg-white hover:text-black transition-all duration-300 mt-4 sm:mt-6 transform",
+              mobileMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
+            )}
+            style={{
+              transitionDelay: mobileMenuOpen ? `${(navItems.length + 1) * 100}ms` : "0ms"
+            }}
+          >
+            <span>{t('letsTalk')}</span>
             <MoveRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </Link>
+          </LocaleLink>
         </nav>
       </div>
     </header>
