@@ -6,11 +6,15 @@ import { ArrowUpRight } from "lucide-react";
 // import Image from "next/image"; // Kept if needed later, but using standard img or div for now per previous style
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { useTranslations } from 'next-intl';
+import { getCategoryKey } from '@/lib/translationUtils';
 
 export default function WorkLanding({ isActive }: { isActive?: boolean }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const cursorRef = useRef<HTMLDivElement>(null);
     const [activeProject, setActiveProject] = useState<number | null>(null);
+    const t = useTranslations('workLanding');
+    const tCategories = useTranslations('categories');
 
     useEffect(() => {
         // Entrance Animation
@@ -58,8 +62,8 @@ export default function WorkLanding({ isActive }: { isActive?: boolean }) {
         <section ref={containerRef} id="work" className="bg-black text-white py-12 md:py-14 px-6 md:px-12 relative h-full flex flex-col section-panel overflow-y-auto" data-index="2">
             <div className="max-w-7xl mx-auto w-full mt-20">
                 <div className="flex justify-between items-end mb-10 border-b border-gray-800 pb-4">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold">SELECTED WORK</h2>
-                    <span className="text-gray-500 hidden md:inline-block text-sm">2023 — 2024</span>
+                    <h2 className="text-3xl md:text-5xl font-display font-bold">{t('title')}</h2>
+                    <span className="text-gray-500 hidden md:inline-block text-sm">{t('years')}</span>
                 </div>
 
                 <div className="flex flex-col">
@@ -78,7 +82,7 @@ export default function WorkLanding({ isActive }: { isActive?: boolean }) {
                                     <h3 className="text-2xl md:text-4xl font-display font-semibold mb-1 group-hover:text-[#00b4d9] transition-colors">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 text-xs md:text-sm">{project.category}</p>
+                                    <p className="text-gray-400 text-xs md:text-sm">{tCategories(getCategoryKey(project.category))}</p>
                                 </div>
 
                                 <div className="flex items-center gap-4 mt-4 md:mt-0 z-10 transition-transform duration-300 md:group-hover:-translate-x-12">
@@ -124,7 +128,7 @@ export default function WorkLanding({ isActive }: { isActive?: boolean }) {
                 ))}
 
                 <div className="absolute bottom-4 right-4 bg-white text-black text-[10px] font-bold px-2 py-1 rounded uppercase">
-                    View Case
+                    {t('viewCase')}
                 </div>
             </div>
         </section>

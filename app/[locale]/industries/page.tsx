@@ -8,9 +8,32 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { industries } from "@/data/industries";
 import { clsx } from "clsx";
+import { useParams } from 'next/navigation';
+import { getIndustriesTranslations } from '@/lib/industriesTranslations';
 
 export default function IndustriesPage() {
   const containerRef = useRef(null);
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const t = getIndustriesTranslations(locale);
+  
+  // Merge static data with translations
+  const localizedIndustries = industries.map(ind => {
+    // Generate camelCase key from slug (hotels-resorts -> hotelsResorts)
+    // Special case for smes-service-businesses -> smesServiceBusinesses
+    let key = ind.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    
+    // Safety check: access translation
+    const translation = (t.industries as any)[key];
+    
+    return {
+      ...ind,
+      title: translation?.title || ind.title,
+      summary: translation?.summary || ind.summary,
+      industryTag: translation?.industryTag || ind.industryTag,
+      tags: translation?.tags || ind.tags
+    };
+  });
   
   // State
   const [viewMode, setViewMode] = useState<"featured" | "all">("featured");
@@ -24,22 +47,20 @@ export default function IndustriesPage() {
 
   // Hardcoded Service List as requested
   const definedServices = [
-    { label: "Web Development", link: "web-development" },
-    { label: "Brand Identity", link: "branding" },
-    { label: "UI/UX Design", link: "ui-ux-design" },
-    { label: "Motion Design", link: "motion-graphics" }, // Adjusted based on standard naming conventions
-    { label: "SEO & Digital Marketing", link: "seo-digital-marketing" },
-    { label: "E-Commerce Solutions", link: "ecommerce-solutions" }
+    { label: t.services.webDevelopment, link: "web-development" },
+    { label: t.services.brandIdentity, link: "branding" },
+    { label: t.services.uiUxDesign, link: "ui-ux-design" },
+    { label: t.services.motionDesign, link: "motion-graphics" },
+    { label: t.services.seoMarketing, link: "seo-digital-marketing" },
+    { label: t.services.ecommerceSolutions, link: "ecommerce-solutions" }
   ];
 
   // Derived Data for Filters
-  const uniqueIndustryTags = useMemo(() => {
-    return Array.from(new Set(industries.map(i => i.industryTag))).filter(Boolean).sort();
-  }, []);
+  const uniqueIndustryTags = Array.from(new Set(localizedIndustries.map(i => i.industryTag)));
 
   // Filtering Logic
   const filteredIndustries = useMemo(() => {
-    return industries.filter((industry) => {
+    return localizedIndustries.filter((industry) => {
       // 1. Featured Check
       if (viewMode === "featured" && !industry.featured) return false;
 
@@ -113,10 +134,10 @@ export default function IndustriesPage() {
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center mb-16">
           <h1 className="animate-header text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight">
-            We elevate industries <br/> with <span className="text-[#00B5D9]">outcomes.</span>
+            {t.page.title} <br/> {t.page.titleHighlight}
           </h1>
           <p className="animate-header text-gray-400 text-xl md:text-2xl max-w-2xl leading-relaxed">
-            Industries = use cases. Services = technology.
+            {t.page.subtitle}
           </p>
         </div>
 
@@ -134,7 +155,7 @@ export default function IndustriesPage() {
                   : "bg-zinc-800/50 text-gray-400 border-white/5 hover:text-[#00b6d9] hover:border-[#00b6d9]/30"
               )}
             >
-              <span className="text-lg">★</span> Featured
+              <span className="text-lg">★</span> {t.page.featured}
             </button>
 
             {/* Industry Dropdown */}
@@ -151,7 +172,7 @@ export default function IndustriesPage() {
                     : "bg-zinc-800/50 text-gray-400 border-white/5 hover:text-[#00b6d9] hover:border-[#00b6d9]/30"
                 )}
               >
-                <span>{selectedIndustryTag || "Industry"}</span>
+                <span>{selectedIndustryTag || t.page.industry}</span>
                 <ChevronDown className={clsx("w-4 h-4 transition-transform duration-300", industryDropdownOpen ? "rotate-180" : "")} />
               </button>
               
@@ -165,7 +186,7 @@ export default function IndustriesPage() {
                     }}
                     className="w-full text-left px-5 py-3 text-sm text-gray-400 hover:text-[#00b6d9] hover:bg-white/5 transition-colors"
                   >
-                    All Industries
+                    {t.page.allIndustries}
                   </button>
                   {uniqueIndustryTags.map(tag => (
                     <button
@@ -200,7 +221,7 @@ export default function IndustriesPage() {
                     : "bg-zinc-800/50 text-gray-400 border-white/5 hover:text-[#00b6d9] hover:border-[#00b6d9]/30"
                 )}
               >
-                <span>{selectedServiceTag || "Service"}</span>
+                <span>{selectedServiceTag || t.page.service}</span>
                 <ChevronDown className={clsx("w-4 h-4 transition-transform duration-300", serviceDropdownOpen ? "rotate-180" : "")} />
               </button>
 
@@ -214,7 +235,7 @@ export default function IndustriesPage() {
                     }}
                     className="w-full text-left px-5 py-3 text-sm text-gray-400 hover:text-[#00b6d9] hover:bg-white/5 transition-colors"
                   >
-                    All Services
+                    {t.page.allServices}
                   </button>
                   {definedServices.map(service => (
                     <button
@@ -241,7 +262,7 @@ export default function IndustriesPage() {
                   onClick={clearFilters}
                   className="ml-auto md:ml-0 text-sm text-gray-500 hover:text-[#00b6d9] transition-colors"
                 >
-                   Reset
+                   {t.page.reset}
                 </button>
              )}
           </div>
@@ -291,7 +312,7 @@ export default function IndustriesPage() {
 
                   {/* CTA */}
                   <div className="flex items-center gap-2 text-[#00B5D9] font-bold text-sm tracking-wide group-hover:translate-x-1 transition-transform">
-                    Explore Solutions <ArrowRight className="w-4 h-4" />
+                    {t.page.exploreSolutions} <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </article>
@@ -301,13 +322,13 @@ export default function IndustriesPage() {
 
         {filteredIndustries.length === 0 && (
           <div className="text-center py-20">
-            <h3 className="text-2xl font-bold text-gray-500 mb-2">No matching industries found</h3>
-            <p className="text-gray-600">Try adjusting your filters.</p>
+            <h3 className="text-2xl font-bold text-gray-500 mb-2">{t.page.noResults}</h3>
+            <p className="text-gray-600">{t.page.noResultsDesc}</p>
             <button 
               onClick={clearFilters}
               className="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
             >
-              Clear Filters
+              {t.page.clearFilters}
             </button>
           </div>
         )}

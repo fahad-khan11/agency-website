@@ -10,14 +10,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, CheckCircle2, Server, Layers, Zap, BarChart3, Users } from "lucide-react";
 import { industries } from "@/data/industries";
 import { clsx } from "clsx";
+import { getIndustryTranslation, getIndustriesTranslations } from '@/lib/industriesTranslations';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function IndustryDetailPage(props: { params: Promise<{ industry: string }> }) {
+export default function IndustryDetailPage(props: { params: Promise<{ industry: string, locale?: string }> }) {
   const params = use(props.params);
-  const { industry: slug } = params;
+  const { industry: slug, locale = 'en' } = params;
   
-  const industryData = industries.find((i) => i.slug === slug);
+  // Convert slug to camelCase key used in JSON (e.g. 'hotels-resorts' -> 'hotelsResorts')
+  const industryKey = slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  
+  // Get specific industry data from translations
+  const industryData = getIndustryTranslation(locale, industryKey);
+  const t = getIndustriesTranslations(locale); // Get general page translations
+
   const containerRef = useRef(null);
 
   if (!industryData) {
@@ -91,7 +98,7 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
             <div className="hero-content relative z-10">
                 <div className="inline-block px-3 py-1 mb-6 rounded-full bg-[#00B5D9]/10 border border-[#00B5D9]/20">
                     <span className="text-[#00B5D9] text-xs font-bold uppercase tracking-wider">
-                        {industryData.industryTag} Case Focus
+                        {industryData.industryTag} {t.page.caseFocus}
                     </span>
                 </div>
                 
@@ -105,7 +112,7 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                 
                 {/* Challenge Box */}
                 <div className="bg-zinc-900/50 border-l-4 border-[#00B5D9] pl-6 py-4 rounded-r-xl">
-                    <h3 className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">The Challenge</h3>
+                    <h3 className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">{t.page.challenge}</h3>
                     <p className="text-gray-300">
                         {industryData.intro.painPoints}
                     </p>
@@ -123,6 +130,7 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                         className="object-cover"
                         priority
                     />
+                    
                  </div>
                  {/* Decorative elements */}
                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-zinc-900 rounded-xl border border-white/10 -z-10" />
@@ -136,10 +144,10 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
         <div className="container mx-auto">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                    Solutions & <span className="text-[#00B5D9]">Modules</span>
+                    {t.page.solutionsModules} <span className="text-[#00B5D9]">{t.page.modulesHighlight}</span>
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                    Specific technologies deployed to solve {industryData.title} challenges.
+                    {t.page.modulesDesc.replace('{industry}', industryData.title)}
                 </p>
             </div>
 
@@ -165,10 +173,10 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                         </p>
                         
                         <Link 
-                            href={`/services/${module.serviceLink}`}
+                            href="#" // Keeps visual link but prevents 404 since service links might need updating
                             className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-white group-hover:text-[#00B5D9] transition-colors"
                         >
-                            <span>View Service</span>
+                            <span>{t.page.viewService}</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
@@ -187,7 +195,7 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
               <div>
                   <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 flex items-center gap-3">
                       <span className="w-8 h-1 bg-[#00B5D9] rounded-full" />
-                      Typical Use Cases
+                      {t.page.typicalUseCases}
                   </h3>
                   <ul className="space-y-4">
                       {industryData.useCases.map((useCase, idx) => (
@@ -203,7 +211,7 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                <div>
                   <h3 className="text-2xl md:text-3xl font-display font-bold mb-8 text-[#00B5D9] flex items-center gap-3">
                       <CheckCircle2 className="w-8 h-8" />
-                      Key Benefits
+                      {t.page.keyBenefits}
                   </h3>
                   <ul className="space-y-4">
                       {industryData.benefits.map((benefit, idx) => (
@@ -225,10 +233,10 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00B5D9]/20 rounded-full blur-[80px] pointer-events-none" />
               
               <h2 className="text-4xl md:text-6xl font-black font-display mb-6 relative z-10">
-                  Ready to transform?
+                  {t.page.readyToTransform}
               </h2>
               <p className="text-gray-400 text-xl max-w-2xl mx-auto mb-10 relative z-10">
-                  Join other {industryData.title} leaders who are digitizing their operations.
+                  {t.page.joinLeaders.replace('{industry}', industryData.title)}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -236,13 +244,13 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                     href="/contact" 
                     className="px-8 py-4 bg-[#00B5D9] text-black font-bold uppercase tracking-wide rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,181,217,0.4)] hover:shadow-[0_0_30px_rgba(0,181,217,0.6)]"
                   >
-                      Book a Demo
+                      {t.page.bookDemo}
                   </Link>
                   <Link 
                     href="/contact" 
                     className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold uppercase tracking-wide rounded-full hover:bg-white/10 hover:border-white transition-all duration-300"
                   >
-                      Talk to an Expert
+                      {t.page.talkToExpert}
                   </Link>
               </div>
           </div>

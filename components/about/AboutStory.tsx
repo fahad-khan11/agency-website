@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 // Register ScrollTrigger if not already done globally
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutStory() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('about.story');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,7 +44,7 @@ export default function AboutStory() {
 
         {/* Heading Section - Scaled and separated for alignment */}
         <div className="w-full flex flex-col gap-4 mb-12 md:mb-20 story-fade">
-          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-none">Our Story</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-none">{t('tagline')}</h2>
           <div className="h-[2px] w-12 bg-[#00b4d9]"></div>
         </div>
 
@@ -64,13 +66,13 @@ export default function AboutStory() {
           <div className="flex flex-col gap-12 story-fade justify-between py-2">
             <div className="flex flex-col gap-6 text-lg text-gray-800 font-light leading-relaxed">
               <p>
-                Founded in 2016, Archetype began with a simple mission: to bridge the gap between high-end aesthetic design and robust software engineering. We saw too many products that looked good but broke easily, or worked perfectly but felt soulless.
+                {t('paragraph1')}
               </p>
               <p>
-                Our team consists of polymaths—designers who code and engineers who dream in color. This interdisciplinary approach allows us to solve complex problems faster and more elegantly than traditional siloed agencies.
+                {t('paragraph2')}
               </p>
               <p>
-                We don't just build websites or apps; we build engines for growth. Every pixel is placed with purpose, and every line of code is written for scale.
+                {t('paragraph3')}
               </p>
             </div>
 

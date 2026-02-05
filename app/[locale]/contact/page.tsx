@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import ReactLenis from "lenis/react";
 import dynamic from "next/dynamic";
 import WorldMap from "@/components/contact/WorldMap";
+import { useTranslations } from 'next-intl';
 
 const LeafletMap = dynamic(() => import("@/components/contact/LeafletMap"), {
   ssr: false,
@@ -15,6 +16,7 @@ const LeafletMap = dynamic(() => import("@/components/contact/LeafletMap"), {
 
 export default function ContactPage() {
   const container = useRef(null);
+  const t = useTranslations('contact');
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });

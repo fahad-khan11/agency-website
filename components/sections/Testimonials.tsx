@@ -1,6 +1,7 @@
 "use client";
 
 import { Quote } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 const testimonials = [
   {
@@ -76,6 +77,10 @@ const testimonials = [
 ];
 
 export default function Testimonials({ isActive }: { isActive?: boolean }) {
+  const t = useTranslations('testimonials');
+  
+  // Only translate first 3 testimonials
+  const testimonialsToShow = testimonials.slice(0, 3);
 
 
   return (
@@ -83,32 +88,34 @@ export default function Testimonials({ isActive }: { isActive?: boolean }) {
 
       {/* Fixed Header */}
       <div className="max-w-7xl mx-auto w-full pt-10 md:pt-16 pb-4 md:pb-5 flex-shrink-0 sticky top-0 bg-white z-10">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">Client Stories</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">{t('title')}</h2>
         <div className="h-1 w-16 md:w-20 bg-[#00b4d9]"></div>
       </div>
 
       {/* Internal Scroll Container - Targeted by PanelContainer Observer by class name for Horizontal Scroll */}
       <div className="inner-panel-scroll-horizontal flex-1 overflow-x-auto overflow-y-hidden no-scrollbar w-full max-w-full pb-2 md:pb-12">
         <div className="flex flex-row gap-6 md:gap-8 items-center h-full min-h-[420px] md:min-h-[450px]">
-          {testimonials.map((t, i) => (
-            <div key={t.id} className="bg-[#F8F9FA] p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal">
+          {testimonialsToShow.map((testimonial, i) => {
+            const translationKey = `testimonial${i + 1}`;
+            return (
+            <div key={testimonial.id} className="bg-[#F8F9FA] p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal">
               <div>
                 <Quote className="text-[#00b4d9] w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-80" />
                 <p className="text-base sm:text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
-                  "{t.quote}"
+                  "{t(`${translationKey}.quote`)}"
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                  <div className={`w-full h-full ${t.color}`}></div>
+                  <div className={`w-full h-full ${testimonial.color}`}></div>
                 </div>
                 <div>
-                  <h4 className="font-bold font-display text-sm uppercase tracking-wide text-black">{t.author}</h4>
-                  <p className="text-xs text-gray-500">{t.role}</p>
+                  <h4 className="font-bold font-display text-sm uppercase tracking-wide text-black">{t(`${translationKey}.author`)}</h4>
+                  <p className="text-xs text-gray-500">{t(`${translationKey}.role`)}</p>
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 

@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
+import { useTranslations } from 'next-intl';
 
 export default function OrangeStatement({ isActive }: { isActive?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('orangeStatement');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,10 +48,10 @@ export default function OrangeStatement({ isActive }: { isActive?: boolean }) {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-none mb-8">
-          WE BUILD BRANDS THAT <br className="hidden md:block" /> REFUSE TO BE IGNORED.
+          {t('title')}
         </h2>
         <p className="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto">
-          In a world of noise, we create the signal. Your digital presence shouldn't just exist—it should dominate.
+          {t('description')}
         </p>
       </div>
 

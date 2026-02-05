@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
+import { useTranslations } from 'next-intl';
 
 const SplitText = ({ children, className, highlights = [] }: { children: string, className?: string, highlights?: string[] }) => {
   const words = children.split(" ");
   return (
     <span className={className}>
       {words.map((word, i) => {
-        const isHighlighted = highlights.includes(word.replace(/[^a-zA-Z0-9]/g, "")) || highlights.includes(word);
+        const isHighlighted = highlights.includes(word.replace(/[^a-zA-Z0-9äöüÄÖÜß]/g, "")) || highlights.includes(word);
         return (
           <span key={i} className="inline-block overflow-hidden align-top mr-[0.25em] -mb-[0.1em] pb-[0.1em]">
             <span className={`word-anim inline-block translate-y-full opacity-0 will-change-transform ${isHighlighted ? "text-[#00b4d9]" : ""}`}>
@@ -23,6 +24,7 @@ const SplitText = ({ children, className, highlights = [] }: { children: string,
 
 export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('featureStrip');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -113,9 +115,9 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
         {/* Left Column - Capabilities */}
         <div className="w-full md:w-1/4 flex flex-col justify-start md:pt-5">
           <div className="flex flex-col gap-4 md:gap-6">
-            <span className="block text-xs md:text-sm font-mono text-white bg-[#00b4d9] uppercase tracking-widest px-3 py-1 font-bold w-max mb-2">Capabilities</span>
+            <span className="block text-xs md:text-sm font-mono text-white bg-[#00b4d9] uppercase tracking-widest px-3 py-1 font-bold w-max mb-2">{t('capabilities')}</span>
             <div className="flex flex-col gap-0">
-              {["Brand Identity", "Web Design", "Creative Dev", "Motion Direction"].map((tag, i) => (
+              {[t('brandIdentity'), t('webDesign'), t('creativeDev'), t('motionDirection')].map((tag, i) => (
                 <div key={tag} className="tag-anim group relative py-4 md:py-6 border-b border-gray-300 cursor-pointer overflow-hidden opacity-0 translate-y-5">
                   <div className="absolute inset-0 bg-[#00b4d9] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ease-out -z-10"></div>
                   <div className="flex items-center justify-between group-hover:translate-x-2 transition-transform duration-300">
@@ -133,13 +135,13 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
         {/* Right Column - Main Content */}
         <div className="w-full md:w-3/4 flex flex-col justify-start relative">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black leading-[1.1] tracking-tight text-gray-900 mb-6 md:mb-10 relative z-10">
-            <SplitText highlights={["digital", "narratives."]}>We turn complex ideas into clean, compelling digital narratives.</SplitText>
+            <SplitText highlights={["digital", "digitale", "narratives.", "Narrative."]}>{t('mainTitle')}</SplitText>
           </h2>
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-10">
             <div className="tag-anim opacity-0 translate-y-5 flex items-start gap-4 md:gap-6 ml-0 md:ml-1 max-w-xl w-full">
               <div className="h-[2px] w-8 md:w-12 bg-[#00b4d9] mt-2 md:mt-3 flex-shrink-0"></div>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light text-balance">
-                Our approach blends strategic thinking with obsessively crafted visuals to drive real business growth.
+                {t('approach')}
               </p>
             </div>
             <div className="badge-anim opacity-0 scale-50 hidden lg:flex items-center justify-center w-32 h-32 rounded-full relative flex-shrink-0 border border-gray-200 bg-white">
@@ -149,7 +151,7 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
                   <path id="curve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent" />
                   <text>
                     <textPath href="#curve" className="text-[12px] font-mono font-bold uppercase tracking-[0.18em] fill-gray-900">
-                      • DIGITAL • ALCHEMY • DESIGN
+                      {t('badge')}
                     </textPath>
                   </text>
                 </svg>

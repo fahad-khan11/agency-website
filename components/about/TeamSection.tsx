@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TeamCard from "./TeamCard";
+import { useTranslations } from 'next-intl';
 
 // Using Unsplash source images for tech team feel
 const teamMembers = [
@@ -47,6 +48,7 @@ const teamMembers = [
 
 export default function TeamSection() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const t = useTranslations('about.team');
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -69,9 +71,9 @@ export default function TeamSection() {
         <section ref={containerRef} className="w-full bg-white text-black py-24 md:py-40 px-6 md:px-12">
             <div className="max-w-[1370px] mx-auto">
                 <div className="mb-24 max-w-4xl team-fade">
-                    <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mb-8">Minds behind the magic.</h2>
+                    <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight mb-8">{t('title')}</h2>
                     <p className="text-xl text-gray-500 leading-relaxed font-light max-w-2xl">
-                        We are a diverse team of thinkers and makers, united by a passion for creating exceptional digital experiences.
+                        {t('description')}
                     </p>
                 </div>
 

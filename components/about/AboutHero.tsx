@@ -5,9 +5,11 @@ import gsap from "@/lib/gsap";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 export default function AboutHero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('about.hero');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -33,7 +35,7 @@ export default function AboutHero() {
     return () => ctx.revert();
   }, []);
 
-  const headline = "We design brands and build digital experiences";
+  const headline = t('headline');
 
   return (
     <section ref={containerRef} className="w-full min-h-[90vh] bg-black text-white flex items-center pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
@@ -56,16 +58,16 @@ export default function AboutHero() {
 
           <div className="hero-fade opacity-0 translate-y-6 flex flex-col gap-8 max-w-lg">
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
-              We are a strategic design and engineering agency that helps companies navigate the digital landscape with speed, clarity, and bold creativity.
+              {t('description')}
             </p>
 
             <div className="flex gap-8">
               <Link href="/projects" className="group flex items-center gap-2 text-white border-b border-white hover:border-[#00b4d9] hover:text-[#00b4d9] transition-all pb-1 uppercase tracking-wider text-sm font-medium">
-                <span>View Work</span>
+                <span>{t('viewWork')}</span>
                 <MoveRight className="w-4 h-4 group-hover:-rotate-45 transition-transform" />
               </Link>
               <Link href="/contact" className="group flex items-center gap-2 text-white border-b border-white hover:border-[#00b4d9] hover:text-[#00b4d9] transition-all pb-1 uppercase tracking-wider text-sm font-medium">
-                <span>Get in Touch</span>
+                <span>{t('getInTouch')}</span>
                 <MoveRight className="w-4 h-4 group-hover:-rotate-45 transition-transform" />
               </Link>
             </div>
@@ -83,12 +85,12 @@ export default function AboutHero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
 
           <div className="relative z-10 p-8 w-full mt-auto">
-            <span className="block text-xs font-mono text-[#00b4d9] uppercase tracking-widest mb-4">Core Disciplines</span>
+            <span className="block text-xs font-mono text-[#00b4d9] uppercase tracking-widest mb-4">{t('coreDisciplines')}</span>
             <ul className="flex flex-col gap-2 text-base text-gray-200 font-light">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> Digital Strategy</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> Brand Identity</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> UI/UX Design</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> Full Stack Development</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> {t('digitalStrategy')}</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> {t('brandIdentity')}</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> {t('uiUxDesign')}</li>
+              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/50"></div> {t('fullStackDev')}</li>
             </ul>
           </div>
         </div>

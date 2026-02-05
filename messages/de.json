@@ -1,0 +1,202 @@
+{
+    "nav": {
+        "home": "Startseite",
+        "about": "Über uns",
+        "services": "Dienstleistungen",
+        "industries": "Branchen",
+        "process": "Prozess",
+        "caseStudies": "Fallstudien",
+        "blogs": "Blog",
+        "contact": "Kontakt",
+        "letsTalk": "Kontaktieren Sie uns"
+    },
+    "hero": {
+        "tagline": "Digitales Erlebnis Design",
+        "title1": "DIGITAL",
+        "title2": "Seele",
+        "title3": "ALCH",
+        "description": "Wir verbinden",
+        "descriptionBold": "Strategie, Design und Motion",
+        "descriptionEnd": "um Marken aufzubauen, die sich weigern, im digitalen Rauschen ignoriert zu werden.",
+        "basedIn": "Ansässig in",
+        "location": "San Francisco",
+        "since": "Seit",
+        "year": "2024",
+        "ticker": "STRATEGIE • DESIGN • ENTWICKLUNG • MOTION • "
+    },
+    "services": {
+        "expertise": "Unsere Expertise",
+        "title": "Digitale Lösungen",
+        "titleHighlight": "die skalieren.",
+        "description": "Wir lassen Dinge nicht nur gut aussehen. Wir entwickeln umfassende Designsysteme und digitale Produkte, die einwandfrei funktionieren.",
+        "yearsExp": "Jahre Erfahrung",
+        "awardsWon": "Auszeichnungen",
+        "brandStrategy": {
+            "title": "Markenstrategie",
+            "desc": "Wir bauen Marken, die etwas links von der Norm stehen. Beinhaltet Logo-Systeme, visuelle Richtlinien, Tonalität und Markenarchitektur."
+        },
+        "productDesign": {
+            "title": "Produktdesign",
+            "desc": "Benutzerzentriertes UI/UX-Design für Web- und Mobile-Anwendungen. Wir konzentrieren uns auf Klarheit, Konversion und Begeisterung."
+        },
+        "webDevelopment": {
+            "title": "Webentwicklung",
+            "desc": "Robuste Front-End- und Back-End-Entwicklung mit modernen Stacks (Next.js, React, Node). Performance-besessen und SEO-ready."
+        },
+        "motionInteraction": {
+            "title": "Motion & Interaktion",
+            "desc": "Wir hauchen Interfaces Leben ein durch WebGL, GSAP-Animationen und Mikro-Interaktionen, die den Benutzer führen und belohnen."
+        }
+    },
+    "featureStrip": {
+        "capabilities": "Fähigkeiten",
+        "brandIdentity": "Markenidentität",
+        "webDesign": "Webdesign",
+        "creativeDev": "Kreative Entwicklung",
+        "motionDirection": "Motion Direction",
+        "mainTitle": "Wir verwandeln komplexe Ideen in klare, überzeugende digitale Narrative.",
+        "approach": "Unser Ansatz verbindet strategisches Denken mit obsessiv gestalteten Visuals, um echtes Geschäftswachstum zu fördern.",
+        "badge": "• DIGITAL • ALCHEMIE • DESIGN"
+    },
+    "workLanding": {
+        "title": "AUSGEWÄHLTE ARBEITEN",
+        "years": "2023 — 2024",
+        "viewCase": "Fallstudie ansehen"
+    },
+    "orangeStatement": {
+        "title": "WIR BAUEN MARKEN, DIE SICH WEIGERN, IGNORIERT ZU WERDEN.",
+        "description": "In einer Welt voller Lärm schaffen wir das Signal. Ihre digitale Präsenz sollte nicht nur existieren – sie sollte dominieren."
+    },
+    "process": {
+        "title": "Der Prozess",
+        "discover": {
+            "title": "Entdecken",
+            "desc": "Wir tauchen tief in Ihre Geschäftsziele, Zielgruppe und Marktlandschaft ein."
+        },
+        "design": {
+            "title": "Design",
+            "desc": "Gestaltung visueller Systeme und Interfaces, die intuitiv und wirkungsvoll sind."
+        },
+        "build": {
+            "title": "Entwickeln",
+            "desc": "Sauberer Code, skalierbare Architektur und pixelgenaue Umsetzung."
+        },
+        "launch": {
+            "title": "Launch",
+            "desc": "QA, Testing und ein reibungsloser Go-Live-Prozess mit Post-Launch-Support."
+        }
+    },
+    "testimonials": {
+        "title": "Kundenstimmen",
+        "testimonial1": {
+            "quote": "Sie haben die Art und Weise, wie wir uns online präsentieren, völlig verändert. Die Liebe zum Detail und die kreative Leitung waren genau das, was wir brauchten, um aufzusteigen.",
+            "author": "Sarah Jenkins",
+            "role": "CMO, Apex Finance"
+        },
+        "testimonial2": {
+            "quote": "Archetype baut nicht nur Websites, sie bauen Marken. Das Motion Design und die Benutzererfahrung sind erstklassig. Sehr zu empfehlen.",
+            "author": "Marcus Chen",
+            "role": "Gründer, Lumina Scent"
+        },
+        "testimonial3": {
+            "quote": "Ein Team, das die Schnittstelle von Kunst und Technologie wirklich versteht. Unsere Konversionsraten haben sich nach dem Redesign verdoppelt.",
+            "author": "Elena Rodriguez",
+            "role": "Direktorin, Veloce Motors"
+        }
+    },
+    "categories": {
+        "ecommerceBranding": "E-Commerce / Branding",
+        "webAppFintech": "Web-App / FinTech",
+        "digitalExperience": "Digitales Erlebnis"
+    },
+    "about": {
+        "hero": {
+            "headline": "Wir gestalten Marken und entwickeln digitale Erlebnisse",
+            "description": "Wir sind eine strategische Design- und Engineering-Agentur, die Unternehmen hilft, sich mit Geschwindigkeit, Klarheit und mutiger Kreativität in der digitalen Landschaft zurechtzufinden.",
+            "viewWork": "Arbeiten ansehen",
+            "getInTouch": "Kontakt aufnehmen",
+            "coreDisciplines": "Kernkompetenzen",
+            "digitalStrategy": "Digitale Strategie",
+            "brandIdentity": "Markenidentität",
+            "uiUxDesign": "UI/UX Design",
+            "fullStackDev": "Full Stack Entwicklung"
+        },
+        "story": {
+            "tagline": "Unsere Geschichte",
+            "title": "Aufgebaut auf der Überzeugung, dass Design ein strategischer Vorteil ist.",
+            "paragraph1": "Gegründet im Jahr 2020, entstand Atriona aus einer einfachen Beobachtung: Die meisten digitalen Produkte sind entweder wunderschön gestaltet, aber schlecht entwickelt, oder technisch einwandfrei, aber visuell uninspirierend.",
+            "paragraph2": "Wir haben uns zum Ziel gesetzt, diese Lücke zu schließen – ein Studio zu schaffen, in dem Design und Entwicklung keine getrennten Abteilungen sind, sondern zwei Seiten derselben Medaille. Jedes Projekt, das wir übernehmen, ist eine Zusammenarbeit zwischen Strategen, Designern und Ingenieuren, die dieselbe Sprache sprechen.",
+            "paragraph3": "Heute arbeiten wir mit ambitionierten Startups und etablierten Marken, die sich nicht mit Mittelmäßigkeit zufrieden geben. Unsere Arbeit wurde in Awwwards und CSS Design Awards vorgestellt und hat messbare Ergebnisse für unsere Kunden erzielt."
+        },
+        "values": {
+            "tagline": "Unsere Grundwerte",
+            "title": "Die Prinzipien, die jedes Pixel und jede Codezeile leiten.",
+            "value1": {
+                "title": "Handwerk",
+                "desc": "Wir schwitzen über die Details. Wir glauben, dass Qualität fraktal ist – wenn der Code sauber ist, ist das Design sauber."
+            },
+            "value2": {
+                "title": "Klarheit",
+                "desc": "Komplexität ist einfach; Einfachheit ist schwer. Wir entfernen das Rauschen, um das Signal in der Statik zu finden."
+            },
+            "value3": {
+                "title": "Geschwindigkeit",
+                "desc": "Momentum ist wichtig. Wir bauen effiziente Workflows, um Nutzern so schnell wie möglich Mehrwert zu liefern."
+            },
+            "value4": {
+                "title": "Partnerschaft",
+                "desc": "Wir sind kein Lieferant; wir sind eine Erweiterung Ihres Teams. Ihre Erfolge sind unsere Erfolge."
+            }
+        },
+        "team": {
+            "title": "Die Köpfe hinter der Magie.",
+            "description": "Wir sind ein vielfältiges Team von Denkern und Machern, vereint durch die Leidenschaft, außergewöhnliche digitale Erlebnisse zu schaffen."
+        },
+        "cta": {
+            "title": "Lassen Sie uns die Zukunft Ihrer Marke gestalten.",
+            "description": "Wir kombinieren ästhetische Exzellenz mit technischer Präzision, um digitale Produkte zu liefern, die der Zeit standhalten.",
+            "button": "Projekt starten"
+        }
+    },
+    "contact": {
+        "hero": {
+            "tagline": "Kontakt aufnehmen",
+            "title": "Lassen Sie uns etwas Außergewöhnliches schaffen.",
+            "description": "Ob Sie ein Projekt im Kopf haben oder einfach nur über Möglichkeiten sprechen möchten, wir würden uns freuen, von Ihnen zu hören."
+        },
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "Ihr Name",
+            "email": "E-Mail",
+            "emailPlaceholder": "ihre@email.de",
+            "company": "Unternehmen",
+            "companyPlaceholder": "Ihr Firmenname",
+            "message": "Nachricht",
+            "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
+            "submit": "Nachricht senden",
+            "sending": "Wird gesendet..."
+        },
+        "info": {
+            "email": "E-Mail",
+            "location": "Standort",
+            "locationValue": "Karlsruhe, Deutschland",
+            "socials": "Folgen Sie uns"
+        }
+    },
+    "footer": {
+        "rights": "© 2024 ATRIONA. Alle Rechte vorbehalten.",
+        "description": "Eine strategische Design- und Engineering-Agentur, die erstklassige digitale Produkte entwickelt, die von Millionen genutzt werden. Wir bauen die Zukunft, Pixel für Pixel.",
+        "sitemap": "Sitemap",
+        "home": "Startseite",
+        "about": "Über uns",
+        "work": "Arbeiten",
+        "services": "Dienstleistungen",
+        "contact": "Kontakt",
+        "socials": "Soziale Medien",
+        "getInTouch": "Kontaktieren Sie uns"
+    },
+    "language": {
+        "english": "English",
+        "german": "Deutsch"
+    }
+}

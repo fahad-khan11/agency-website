@@ -1,0 +1,656 @@
+{
+    "en": {
+        "page": {
+            "title": "We elevate industries",
+            "titleHighlight": "with outcomes.",
+            "subtitle": "Industries = use cases. Services = technology.",
+            "featured": "Featured",
+            "industry": "Industry",
+            "service": "Service",
+            "allIndustries": "All Industries",
+            "allServices": "All Services",
+            "reset": "Reset",
+            "exploreSolutions": "Explore Solutions",
+            "noResults": "No matching industries found",
+            "noResultsDesc": "Try adjusting your filters.",
+            "clearFilters": "Clear Filters",
+            "caseFocus": "Case Focus",
+            "challenge": "The Challenge",
+            "solutionsModules": "Solutions &",
+            "modulesHighlight": "Modules",
+            "modulesDesc": "Specific technologies deployed to solve {industry} challenges.",
+            "viewService": "View Service",
+            "typicalUseCases": "Typical Use Cases",
+            "keyBenefits": "Key Benefits",
+            "readyToTransform": "Ready to transform?",
+            "joinLeaders": "Join other {industry} leaders who are digitizing their operations.",
+            "bookDemo": "Book a Demo",
+            "talkToExpert": "Talk to an Expert"
+        },
+        "services": {
+            "webDevelopment": "Web Development",
+            "brandIdentity": "Brand Identity",
+            "uiUxDesign": "UI/UX Design",
+            "motionDesign": "Motion Design",
+            "seoMarketing": "SEO & Digital Marketing",
+            "ecommerceSolutions": "E-Commerce Solutions"
+        },
+        "industries": {
+            "hotelsResorts": {
+                "title": "Hotels & Resorts",
+                "summary": "Elevate guest experiences with seamless digital solutions.",
+                "industryTag": "Hospitality",
+                "tags": [
+                    "Automation",
+                    "Guest Experience",
+                    "IoT"
+                ],
+                "intro": {
+                    "painPoints": "Traditional hospitality relies on manual processes, causing long check-in queues and disconnected guest experiences.",
+                    "outcomes": "We digitize the guest journey, enabling contactless entry, automated booking, and personalized concierge services."
+                },
+                "modules": {
+                    "digitalLocks": {
+                        "title": "Digital / Smart Locks",
+                        "description": "Keyless entry systems that allow guests to unlock rooms with their smartphones."
+                    },
+                    "digitalCheckin": {
+                        "title": "Digital Check-in & Check-out",
+                        "description": "Automate the arrival and departure process to reduce wait times and staff workload."
+                    },
+                    "digitalConcierge": {
+                        "title": "Digital Concierge",
+                        "description": "AI-driven guest assistance for room service, local recommendations, and requests."
+                    },
+                    "pmsBooking": {
+                        "title": "PMS / Booking Software",
+                        "description": "Centralized property management systems to handle reservations and housekeeping."
+                    },
+                    "guestPortal": {
+                        "title": "Guest Portal & Communication",
+                        "description": "Unified platform for guest messaging, feedback, and engagement."
+                    }
+                },
+                "useCases": [
+                    "Contactless arrival for VIP guests",
+                    "Automated upsell of room upgrades",
+                    "Real-time housekeeping status updates",
+                    "Integrated restaurant booking for guests"
+                ],
+                "benefits": [
+                    "Reduce front-desk wait times by 80%",
+                    "Increase revenue through automated upsells",
+                    "Improve guest satisfaction scores",
+                    "Streamline staff operations"
+                ]
+            },
+            "vacationRentals": {
+                "title": "Vacation Rentals (FEWO)",
+                "summary": "Automate property management and delight guests.",
+                "industryTag": "Hospitality",
+                "tags": [
+                    "Automation",
+                    "Property Tech",
+                    "Booking"
+                ],
+                "intro": {
+                    "painPoints": "Managing multiple vacation properties often involves chaotic key handovers and fragmented communication.",
+                    "outcomes": "Our solutions automate access, guest verification, and property care, making remote management effortless."
+                },
+                "modules": {
+                    "digitalLocks": {
+                        "title": "Digital / Smart Locks",
+                        "description": "Secure, remote access control for guests and maintenance staff."
+                    },
+                    "digitalCheckin": {
+                        "title": "Digital Check-in & Check-out",
+                        "description": "Seamless self-service arrival process with ID verification."
+                    },
+                    "digitalConcierge": {
+                        "title": "Digital Concierge",
+                        "description": "Digital guidebooks and local tips accessible via mobile."
+                    },
+                    "pmsBooking": {
+                        "title": "PMS / Booking Software",
+                        "description": "Sync availability across Airbnb, Booking.com, and direct channels."
+                    },
+                    "guestPortal": {
+                        "title": "Guest Portal & Communication",
+                        "description": "Automated messaging for check-in instructions and house rules."
+                    }
+                },
+                "useCases": [
+                    "Remote check-in for late arrivals",
+                    "Automated cleaning scheduling",
+                    "Direct booking website integration",
+                    "Damage deposit automation"
+                ],
+                "benefits": [
+                    "Eliminate physical key handovers",
+                    "Prevent double bookings automatically",
+                    "Increase direct booking revenue",
+                    "Ensure secure property access"
+                ]
+            },
+            "realEstate": {
+                "title": "Real Estate & Property Management",
+                "summary": "Streamline operations for portfolios of any size.",
+                "industryTag": "Real Estate",
+                "tags": [
+                    "Management",
+                    "Dashboards",
+                    "Lead Gen"
+                ],
+                "intro": {
+                    "painPoints": "Property managers struggle with paperwork, maintenance tracking, and tenant communication.",
+                    "outcomes": "We provide centralized dashboards and automation tools to manage leases, maintenance, and leads efficiently."
+                },
+                "modules": {
+                    "tenantPortals": {
+                        "title": "Tenant & Owner Portals",
+                        "description": "Dedicated access for tenants to pay rent and owners to view reports."
+                    },
+                    "maintenanceAutomation": {
+                        "title": "Maintenance Automation",
+                        "description": "Ticket systems that automatically route requests to vendors."
+                    },
+                    "accessControl": {
+                        "title": "Access Control Systems",
+                        "description": "Smart entry for common areas and units without physical keys."
+                    },
+                    "leadWorkflows": {
+                        "title": "Lead Workflows",
+                        "description": "Automated follow-ups for viewing inquiries and applications."
+                    },
+                    "reportingDashboards": {
+                        "title": "Reporting Dashboards",
+                        "description": "Real-time financial and occupancy analytics."
+                    }
+                },
+                "useCases": [
+                    "Online lease signing and storage",
+                    "Automated rent collection reminders",
+                    "Vendor job dispatch and tracking",
+                    "Virtual property tours"
+                ],
+                "benefits": [
+                    "Reduce administrative time by 50%",
+                    "Faster vacancy filling",
+                    "Transparent owner reporting",
+                    "Improved tenant retention"
+                ]
+            },
+            "gastronomy": {
+                "title": "Gastronomy",
+                "summary": "Modernize dining with smart integration.",
+                "industryTag": "Food & Bev",
+                "tags": [
+                    "POS",
+                    "Ordering",
+                    "Loyalty"
+                ],
+                "intro": {
+                    "painPoints": "Restaurants face high staff turnover, order errors, and thin margins.",
+                    "outcomes": "Our tech stack optimizes table turnover, reduces errors, and boosts customer loyalty through digital integration."
+                },
+                "modules": {
+                    "qrOrdering": {
+                        "title": "QR Ordering & Payments",
+                        "description": "Allow customers to order and pay from their table via smartphone."
+                    },
+                    "reservations": {
+                        "title": "Reservations Management",
+                        "description": "Digital booking system to optimize table allocation."
+                    },
+                    "loyaltyCrm": {
+                        "title": "Loyalty CRM",
+                        "description": "Reward repeat customers and track dining preferences."
+                    },
+                    "kitchenDisplay": {
+                        "title": "Kitchen Display Integrations",
+                        "description": "Send orders directly to kitchen screens to reduce errors."
+                    },
+                    "staffScheduling": {
+                        "title": "Staff Scheduling Automation",
+                        "description": "Smart shifts management based on forecasted demand."
+                    }
+                },
+                "useCases": [
+                    "Tableside digital ordering",
+                    "Automated inventory restocking",
+                    "Customer feedback collection",
+                    "Special event ticketing"
+                ],
+                "benefits": [
+                    "Increase average order value",
+                    "Turn tables faster",
+                    "Reduce food waste",
+                    "Build a loyal customer database"
+                ]
+            },
+            "retail": {
+                "title": "Retail",
+                "summary": "Unify physical and digital shopping.",
+                "industryTag": "Retail",
+                "tags": [
+                    "Ecommerce",
+                    "Omnichannel",
+                    "Analytics"
+                ],
+                "intro": {
+                    "painPoints": "Retailers struggle to connect in-store experiences with online data.",
+                    "outcomes": "We help you build an omnichannel strategy that syncs inventory, customers, and sales in real-time."
+                },
+                "modules": {
+                    "posIntegrations": {
+                        "title": "POS Integrations",
+                        "description": "Connect physical point-of-sale with your online store."
+                    },
+                    "inventorySync": {
+                        "title": "Inventory Sync",
+                        "description": "Real-time stock updates across all sales channels."
+                    },
+                    "customerEngagement": {
+                        "title": "Customer Engagement / CRM",
+                        "description": "Track customer history online and offline."
+                    },
+                    "analyticsDashboards": {
+                        "title": "Analytics Dashboards",
+                        "description": "Unified view of sales performance and trends."
+                    },
+                    "automationWorkflows": {
+                        "title": "Automation Workflows",
+                        "description": "Trigger marketing emails based on purchase behavior."
+                    }
+                },
+                "useCases": [
+                    "Click and collect implementation",
+                    "Personalized in-store recommendations",
+                    "Automated abandoned cart recovery",
+                    "Loyalty program integration"
+                ],
+                "benefits": [
+                    "Seamless omnichannel experience",
+                    "Prevent stockouts and overstock",
+                    "Increase customer lifetime value",
+                    "Data-driven decision making"
+                ]
+            },
+            "smesServiceBusinesses": {
+                "title": "SMEs / Service Businesses",
+                "summary": "Scale your service with smart automation.",
+                "industryTag": "Services",
+                "tags": [
+                    "CRM",
+                    "Scheduling",
+                    "Invoicing"
+                ],
+                "intro": {
+                    "painPoints": "Service businesses get bogged down in scheduling, invoicing, and chasing clients.",
+                    "outcomes": "We automate the busywork so you can focus on delivering great service and growing your client base."
+                },
+                "modules": {
+                    "crmPipeline": {
+                        "title": "CRM Pipeline",
+                        "description": "Track leads from initial contact to closed deal."
+                    },
+                    "appointmentBooking": {
+                        "title": "Appointment Booking",
+                        "description": "Self-service scheduling for clients."
+                    },
+                    "invoicingAutomation": {
+                        "title": "Invoicing Automation",
+                        "description": "Generate and send invoices automatically upon job completion."
+                    },
+                    "customerCommunication": {
+                        "title": "Customer Communication",
+                        "description": "Centralized inbox for email, SMS, and chat."
+                    },
+                    "analytics": {
+                        "title": "Analytics",
+                        "description": "Track billable hours and revenue growth."
+                    }
+                },
+                "useCases": [
+                    "24/7 online booking",
+                    "Automated review requests",
+                    "Client portal for project updates",
+                    "Recurring billing setup"
+                ],
+                "benefits": [
+                    "Fill your calendar automatically",
+                    "Get paid faster",
+                    "Professional client experience",
+                    "Reduce no-shows"
+                ]
+            }
+        }
+    },
+    "de": {
+        "page": {
+            "title": "Wir heben Branchen",
+            "titleHighlight": "mit Ergebnissen.",
+            "subtitle": "Branchen = Anwendungsfälle. Dienstleistungen = Technologie.",
+            "featured": "Empfohlen",
+            "industry": "Branche",
+            "service": "Dienstleistung",
+            "allIndustries": "Alle Branchen",
+            "allServices": "Alle Dienstleistungen",
+            "reset": "Zurücksetzen",
+            "exploreSolutions": "Lösungen erkunden",
+            "noResults": "Keine passenden Branchen gefunden",
+            "noResultsDesc": "Versuchen Sie, Ihre Filter anzupassen.",
+            "clearFilters": "Filter löschen",
+            "caseFocus": "Fallfokus",
+            "challenge": "Die Herausforderung",
+            "solutionsModules": "Lösungen &",
+            "modulesHighlight": "Module",
+            "modulesDesc": "Spezifische Technologien zur Lösung von {industry}-Herausforderungen.",
+            "viewService": "Dienstleistung ansehen",
+            "typicalUseCases": "Typische Anwendungsfälle",
+            "keyBenefits": "Hauptvorteile",
+            "readyToTransform": "Bereit zur Transformation?",
+            "joinLeaders": "Schließen Sie sich anderen Führungskräften im Bereich {industry} an, die ihre Betriebsabläufe digitalisieren.",
+            "bookDemo": "Demo buchen",
+            "talkToExpert": "Experten sprechen"
+        },
+        "services": {
+            "webDevelopment": "Webentwicklung",
+            "brandIdentity": "Markenidentität",
+            "uiUxDesign": "UI/UX Design",
+            "motionDesign": "Motion Design",
+            "seoMarketing": "SEO & Digital Marketing",
+            "ecommerceSolutions": "E-Commerce-Lösungen"
+        },
+        "industries": {
+            "hotelsResorts": {
+                "title": "Hotels & Resorts",
+                "summary": "Verbessern Sie Gästeerlebnisse mit nahtlosen digitalen Lösungen.",
+                "industryTag": "Gastgewerbe",
+                "tags": [
+                    "Automatisierung",
+                    "Gästeerlebnis",
+                    "IoT"
+                ],
+                "intro": {
+                    "painPoints": "Traditionelles Gastgewerbe verlässt sich auf manuelle Prozesse, was zu langen Check-in-Warteschlangen und unzusammenhängenden Gästeerlebnissen führt.",
+                    "outcomes": "Wir digitalisieren die Gäste-Journey und ermöglichen kontaktlosen Zugang, automatisierte Buchungen und personalisierten Concierge-Service."
+                },
+                "modules": {
+                    "digitalLocks": {
+                        "title": "Digitale / Smart Locks",
+                        "description": "Schlüssellose Zugangssysteme, die es Gästen ermöglichen, Zimmer mit ihrem Smartphone zu öffnen."
+                    },
+                    "digitalCheckin": {
+                        "title": "Digitaler Check-in & Check-out",
+                        "description": "Automatisieren Sie den Ankunfts- und Abreiseprozess, um Wartezeiten und Arbeitsbelastung zu reduzieren."
+                    },
+                    "digitalConcierge": {
+                        "title": "Digitaler Concierge",
+                        "description": "KI-gesteuerte Gästebetreuung für Zimmerservice, lokale Empfehlungen und Anfragen."
+                    },
+                    "pmsBooking": {
+                        "title": "PMS / Buchungssoftware",
+                        "description": "Zentralisierte Property-Management-Systeme zur Verwaltung von Reservierungen und Housekeeping."
+                    },
+                    "guestPortal": {
+                        "title": "Gästeportal & Kommunikation",
+                        "description": "Einheitliche Plattform für Gästenachrichten, Feedback und Engagement."
+                    }
+                },
+                "useCases": [
+                    "Kontaktlose Ankunft für VIP-Gäste",
+                    "Automatisiertes Upselling von Zimmer-Upgrades",
+                    "Echtzeit-Housekeeping-Statusaktualisierungen",
+                    "Integrierte Restaurantbuchung für Gäste"
+                ],
+                "benefits": [
+                    "Reduzieren Sie Wartezeiten an der Rezeption um 80%",
+                    "Steigern Sie den Umsatz durch automatisierte Upsells",
+                    "Verbessern Sie die Gästezufriedenheit",
+                    "Optimieren Sie den Personalbetrieb"
+                ]
+            },
+            "vacationRentals": {
+                "title": "Ferienwohnungen (FEWO)",
+                "summary": "Automatisieren Sie die Immobilienverwaltung und begeistern Sie Gäste.",
+                "industryTag": "Gastgewerbe",
+                "tags": [
+                    "Automatisierung",
+                    "Property Tech",
+                    "Buchung"
+                ],
+                "intro": {
+                    "painPoints": "Die Verwaltung mehrerer Ferienimmobilien beinhaltet oft chaotische Schlüsselübergaben und fragmentierte Kommunikation.",
+                    "outcomes": "Unsere Lösungen automatisieren den Zugang, die Gästeüberprüfung und die Immobilienpflege und machen die Fernverwaltung mühelos."
+                },
+                "modules": {
+                    "digitalLocks": {
+                        "title": "Digitale / Smart Locks",
+                        "description": "Sichere Fernzugriffskontrolle für Gäste und Wartungspersonal."
+                    },
+                    "digitalCheckin": {
+                        "title": "Digitaler Check-in & Check-out",
+                        "description": "Nahtloser Self-Service-Ankunftsprozess mit ID-Verifizierung."
+                    },
+                    "digitalConcierge": {
+                        "title": "Digitaler Concierge",
+                        "description": "Digitale Reiseführer und lokale Tipps, zugänglich über Mobilgeräte."
+                    },
+                    "pmsBooking": {
+                        "title": "PMS / Buchungssoftware",
+                        "description": "Synchronisieren Sie die Verfügbarkeit über Airbnb, Booking.com und direkte Kanäle."
+                    },
+                    "guestPortal": {
+                        "title": "Gästeportal & Kommunikation",
+                        "description": "Automatisierte Nachrichten für Check-in-Anweisungen und Hausregeln."
+                    }
+                },
+                "useCases": [
+                    "Remote-Check-in für späte Ankünfte",
+                    "Automatisierte Reinigungsplanung",
+                    "Integration der Direktbuchungswebsite",
+                    "Automatisierung der Kaution"
+                ],
+                "benefits": [
+                    "Eliminieren Sie physische Schlüsselübergaben",
+                    "Verhindern Sie automatisch Doppelbuchungen",
+                    "Steigern Sie den Direktbuchungsumsatz",
+                    "Gewährleisten Sie sicheren Immobilienzugang"
+                ]
+            },
+            "realEstate": {
+                "title": "Immobilien & Hausverwaltung",
+                "summary": "Optimieren Sie Abläufe für Portfolios jeder Größe.",
+                "industryTag": "Immobilien",
+                "tags": [
+                    "Verwaltung",
+                    "Dashboards",
+                    "Lead-Generierung"
+                ],
+                "intro": {
+                    "painPoints": "Immobilienverwalter kämpfen mit Papierkram, Wartungsverfolgung und Mieterkommunikation.",
+                    "outcomes": "Wir bieten zentralisierte Dashboards und Automatisierungstools zur effizienten Verwaltung von Mietverträgen, Wartung und Leads."
+                },
+                "modules": {
+                    "tenantPortals": {
+                        "title": "Mieter- & Eigentümerportale",
+                        "description": "Dedizierter Zugang für Mieter zur Mietzahlung und Eigentümer zur Berichtsansicht."
+                    },
+                    "maintenanceAutomation": {
+                        "title": "Wartungsautomatisierung",
+                        "description": "Ticketsysteme, die Anfragen automatisch an Dienstleister weiterleiten."
+                    },
+                    "accessControl": {
+                        "title": "Zugriffskontrollsysteme",
+                        "description": "Intelligenter Zugang für Gemeinschaftsbereiche und Einheiten ohne physische Schlüssel."
+                    },
+                    "leadWorkflows": {
+                        "title": "Lead-Workflows",
+                        "description": "Automatisierte Nachverfolgung für Besichtigungsanfragen und Bewerbungen."
+                    },
+                    "reportingDashboards": {
+                        "title": "Reporting-Dashboards",
+                        "description": "Echtzeit-Finanz- und Belegungsanalysen."
+                    }
+                },
+                "useCases": [
+                    "Online-Mietvertragsunterzeichnung und -speicherung",
+                    "Automatisierte Mietinkasso-Erinnerungen",
+                    "Dienstleister-Jobversand und -verfolgung",
+                    "Virtuelle Immobilienbesichtigungen"
+                ],
+                "benefits": [
+                    "Reduzieren Sie die Verwaltungszeit um 50%",
+                    "Schnellere Leerstandsfüllung",
+                    "Transparentes Eigentümer-Reporting",
+                    "Verbesserte Mieterbindung"
+                ]
+            },
+            "gastronomy": {
+                "title": "Gastronomie",
+                "summary": "Modernisieren Sie das Speisen mit intelligenter Integration.",
+                "industryTag": "Food & Bev",
+                "tags": [
+                    "POS",
+                    "Bestellung",
+                    "Treue"
+                ],
+                "intro": {
+                    "painPoints": "Restaurants kämpfen mit hoher Personalfluktuation, Bestellfehlern und geringen Margen.",
+                    "outcomes": "Unser Tech-Stack optimiert die Tischumschlagsrate, reduziert Fehler und steigert die Kundenbindung durch digitale Integration."
+                },
+                "modules": {
+                    "qrOrdering": {
+                        "title": "QR-Bestellung & Zahlungen",
+                        "description": "Ermöglichen Sie Kunden, von ihrem Tisch aus per Smartphone zu bestellen und zu bezahlen."
+                    },
+                    "reservations": {
+                        "title": "Reservierungsverwaltung",
+                        "description": "Digitales Buchungssystem zur Optimierung der Tischzuteilung."
+                    },
+                    "loyaltyCrm": {
+                        "title": "Treue-CRM",
+                        "description": "Belohnen Sie Stammkunden und verfolgen Sie Essenspräferenzen."
+                    },
+                    "kitchenDisplay": {
+                        "title": "Küchenbildschirm-Integrationen",
+                        "description": "Senden Sie Bestellungen direkt an Küchenbildschirme, um Fehler zu reduzieren."
+                    },
+                    "staffScheduling": {
+                        "title": "Personal-Planungsautomatisierung",
+                        "description": "Intelligente Schichtverwaltung basierend auf prognostizierter Nachfrage."
+                    }
+                },
+                "useCases": [
+                    "Digitale Bestellung am Tisch",
+                    "Automatisierte Bestandsauffüllung",
+                    "Kundenfeedback-Sammlung",
+                    "Ticketing für besondere Veranstaltungen"
+                ],
+                "benefits": [
+                    "Erhöhen Sie den durchschnittlichen Bestellwert",
+                    "Drehen Sie Tische schneller",
+                    "Reduzieren Sie Lebensmittelverschwendung",
+                    "Bauen Sie eine treue Kundendatenbank auf"
+                ]
+            },
+            "retail": {
+                "title": "Einzelhandel",
+                "summary": "Vereinen Sie physisches und digitales Einkaufen.",
+                "industryTag": "Einzelhandel",
+                "tags": [
+                    "E-Commerce",
+                    "Omnichannel",
+                    "Analytik"
+                ],
+                "intro": {
+                    "painPoints": "Einzelhändler haben Schwierigkeiten, In-Store-Erlebnisse mit Online-Daten zu verbinden.",
+                    "outcomes": "Wir helfen Ihnen, eine Omnichannel-Strategie aufzubauen, die Inventar, Kunden und Verkäufe in Echtzeit synchronisiert."
+                },
+                "modules": {
+                    "posIntegrations": {
+                        "title": "POS-Integrationen",
+                        "description": "Verbinden Sie physische Kassensysteme mit Ihrem Online-Shop."
+                    },
+                    "inventorySync": {
+                        "title": "Inventar-Synchronisation",
+                        "description": "Echtzeit-Bestandsaktualisierungen über alle Verkaufskanäle."
+                    },
+                    "customerEngagement": {
+                        "title": "Kundenbindung / CRM",
+                        "description": "Verfolgen Sie die Kundenhistorie online und offline."
+                    },
+                    "analyticsDashboards": {
+                        "title": "Analytik-Dashboards",
+                        "description": "Einheitliche Ansicht der Verkaufsleistung und Trends."
+                    },
+                    "automationWorkflows": {
+                        "title": "Automatisierungs-Workflows",
+                        "description": "Lösen Sie Marketing-E-Mails basierend auf Kaufverhalten aus."
+                    }
+                },
+                "useCases": [
+                    "Click-and-Collect-Implementierung",
+                    "Personalisierte In-Store-Empfehlungen",
+                    "Automatisierte Warenkorbabbruch-Wiederherstellung",
+                    "Treueprogramm-Integration"
+                ],
+                "benefits": [
+                    "Nahtloses Omnichannel-Erlebnis",
+                    "Verhindern Sie Lagerengpässe und Überbestände",
+                    "Erhöhen Sie den Customer Lifetime Value",
+                    "Datengesteuerte Entscheidungsfindung"
+                ]
+            },
+            "smesServiceBusinesses": {
+                "title": "KMU / Dienstleistungsunternehmen",
+                "summary": "Skalieren Sie Ihren Service mit intelligenter Automatisierung.",
+                "industryTag": "Dienstleistungen",
+                "tags": [
+                    "CRM",
+                    "Terminplanung",
+                    "Rechnungsstellung"
+                ],
+                "intro": {
+                    "painPoints": "Dienstleistungsunternehmen werden durch Terminplanung, Rechnungsstellung und Kundenverfolgung ausgebremst.",
+                    "outcomes": "Wir automatisieren die Routinearbeit, damit Sie sich auf die Erbringung großartiger Dienstleistungen und das Wachstum Ihres Kundenstamms konzentrieren können."
+                },
+                "modules": {
+                    "crmPipeline": {
+                        "title": "CRM-Pipeline",
+                        "description": "Verfolgen Sie Leads vom ersten Kontakt bis zum Abschluss."
+                    },
+                    "appointmentBooking": {
+                        "title": "Terminbuchung",
+                        "description": "Self-Service-Terminplanung für Kunden."
+                    },
+                    "invoicingAutomation": {
+                        "title": "Rechnungsautomatisierung",
+                        "description": "Erstellen und versenden Sie Rechnungen automatisch nach Auftragsabschluss."
+                    },
+                    "customerCommunication": {
+                        "title": "Kundenkommunikation",
+                        "description": "Zentralisierter Posteingang für E-Mail, SMS und Chat."
+                    },
+                    "analytics": {
+                        "title": "Analytik",
+                        "description": "Verfolgen Sie abrechenbare Stunden und Umsatzwachstum."
+                    }
+                },
+                "useCases": [
+                    "24/7 Online-Buchung",
+                    "Automatisierte Bewertungsanfragen",
+                    "Kundenportal für Projekt-Updates",
+                    "Wiederkehrende Abrechnungseinrichtung"
+                ],
+                "benefits": [
+                    "Füllen Sie Ihren Kalender automatisch",
+                    "Werden Sie schneller bezahlt",
+                    "Professionelles Kundenerlebnis",
+                    "Reduzieren Sie No-Shows"
+                ]
+            }
+        }
+    }
+}
