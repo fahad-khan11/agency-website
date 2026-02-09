@@ -21,6 +21,7 @@ export interface CaseStudy {
         role: string;
     };
     color: string;
+    featured: boolean;
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -57,7 +58,8 @@ export const caseStudies: CaseStudy[] = [
             author: "Sarah Mitchell",
             role: "Founder, Lumina Organics"
         },
-        color: "#8B9E7D"
+        color: "#8B9E7D",
+        featured: true
     },
     {
         id: 2,
@@ -92,7 +94,8 @@ export const caseStudies: CaseStudy[] = [
             author: "Michael Chen",
             role: "Head of Trading, Apex Global"
         },
-        color: "#4A90E2"
+        color: "#4A90E2",
+        featured: true
     },
     {
         id: 3,
@@ -127,7 +130,8 @@ export const caseStudies: CaseStudy[] = [
             author: "Alexandra Dubois",
             role: "Digital Director, Vogue Magazine"
         },
-        color: "#DC143C"
+        color: "#DC143C",
+        featured: true
     }
 ];
 

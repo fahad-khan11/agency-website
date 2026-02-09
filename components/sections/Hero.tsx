@@ -106,7 +106,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#050505] text-white flex flex-col overflow-hidden isolate"
+      className="relative min-h-screen w-full bg-[#050505] text-white flex flex-col overflow-hidden isolate "
     >
       <div className="absolute inset-0 z-[-1] parallax-bg opacity-20">
         <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-purple-900/30 rounded-full blur-[120px]"></div>

@@ -25,7 +25,16 @@
             "detailCtaBadge": "Ready to Transform?",
             "detailCtaTitle": "Let's Create Your Success Story",
             "detailCtaSubtitle": "Every great project starts with a conversation. Share your vision, and we'll turn it into reality.",
-            "viewAllCaseStudies": "View All Case Studies"
+            "viewAllCaseStudies": "View All Case Studies",
+            "featured": "Featured",
+            "category": "Category",
+            "service": "Service",
+            "allCategories": "All Categories",
+            "allServices": "All Services",
+            "reset": "Reset",
+            "noResults": "No matching projects found",
+            "noResultsDesc": "Try adjusting your filters.",
+            "clearFilters": "Clear Filters"
         },
         "studies": {
             "luminaScent": {
@@ -194,7 +203,16 @@
             "detailCtaBadge": "Bereit zur Transformation?",
             "detailCtaTitle": "Lassen Sie uns Ihre Erfolgsgeschichte schaffen",
             "detailCtaSubtitle": "Jedes großartige Projekt beginnt mit einem Gespräch. Teilen Sie Ihre Vision, und wir verwandeln sie in Realität.",
-            "viewAllCaseStudies": "Alle Fallstudien ansehen"
+            "viewAllCaseStudies": "Alle Fallstudien ansehen",
+            "featured": "Empfohlen",
+            "category": "Kategorie",
+            "service": "Dienstleistung",
+            "allCategories": "Alle Kategorien",
+            "allServices": "Alle Dienstleistungen",
+            "reset": "Zurücksetzen",
+            "noResults": "Keine passenden Projekte gefunden",
+            "noResultsDesc": "Versuchen Sie, Ihre Filter anzupassen.",
+            "clearFilters": "Filter löschen"
         },
         "studies": {
             "luminaScent": {

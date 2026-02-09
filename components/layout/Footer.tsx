@@ -36,6 +36,10 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                <Link href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('about')}</Link>
                <Link href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('work')}</Link>
                <Link href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('services')}</Link>
+               <Link href="/industries" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('industries')}</Link>
+               <Link href="/process" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('process')}</Link>
+               <Link href="/case-studies" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('caseStudies')}</Link>
+               <Link href="/blog" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('blogs')}</Link>
                <Link href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('contact')}</Link>
             </div>
 
