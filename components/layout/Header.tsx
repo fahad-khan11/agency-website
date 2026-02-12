@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import { MoveRight, Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { usePanel } from "@/lib/PanelContext";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LocaleLink from "@/components/LocaleLink";
+import { services } from "@/data/services";
+import { getServicesTranslations } from "@/lib/servicesTranslations";
 
 const navItems = [
   { label: "about", href: "/about" },
@@ -21,13 +23,30 @@ const navItems = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
   const pathname = usePathname();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
   const t = useTranslations('nav');
+  const servicesT = getServicesTranslations(locale);
   const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
 
   const lightPanels = [1, 3, 6];
   const isLightMode = isHome && lightPanels.includes(activeIndex);
+
+  // Get localized services for mega menu
+  const localizedServices = services.map(service => {
+    const key = service.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    const trans = servicesT.services[key as keyof typeof servicesT.services];
+    return {
+      ...service,
+      title: trans?.title || service.title,
+      category: trans?.category || service.category,
+      description: trans?.description || service.description
+    };
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +74,7 @@ export default function Header() {
       navigateToPanel(item.panelIndex);
     }
     setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
   };
 
   return (
@@ -96,22 +116,101 @@ export default function Header() {
           ? "bg-black/5 border-black/10"
           : "bg-white/5 border-white/10 hover:bg-white/10"
       )}>
-        {navItems.map((item) => (
-          <LocaleLink
-            key={item.label}
-            href={item.href}
-            onClick={(e) => handleNavClick(e, item)}
-            className={clsx(
-              "text-xs font-bold uppercase tracking-wider transition-colors relative group",
-              isLightMode
-                ? "text-gray-600 hover:text-black"
-                : "text-gray-300 hover:text-white"
-            )}
-          >
-            {t(item.label)}
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
-          </LocaleLink>
-        ))}
+        {navItems.map((item) => {
+          // Special handling for services with mega menu
+          if (item.label === "services") {
+            return (
+              <div
+                key={item.label}
+                className="relative group/menu"
+                onMouseEnter={() => setMegaMenuOpen(true)}
+                onMouseLeave={() => setMegaMenuOpen(false)}
+              >
+                <LocaleLink
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={clsx(
+                    "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                    isLightMode
+                      ? "text-gray-600 hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {t(item.label)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
+                </LocaleLink>
+
+                {/* Mega Menu - with invisible bridge */}
+                <div
+                  className={clsx(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-6 transition-all duration-300",
+                    megaMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                  )}
+                >
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
+                  
+                  <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[600px]">
+                    <div className="grid grid-cols-2 gap-6">
+                      {localizedServices.map((service) => (
+                        <LocaleLink
+                          key={service.id}
+                          href={`/services/${service.slug}`}
+                          className="group flex gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-[#00b4d9]/30"
+                          onClick={() => setMegaMenuOpen(false)}
+                        >
+                          {service.icon && (
+                            <div className="text-3xl shrink-0 group-hover:scale-110 transition-transform duration-300">
+                              {service.icon}
+                            </div>
+                          )}
+                          <div className="flex-1">
+                            <h3 className="text-sm font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300 mb-1">
+                              {service.title}
+                            </h3>
+                            <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
+                              {service.description}
+                            </p>
+                          </div>
+                        </LocaleLink>
+                      ))}
+                    </div>
+                    
+                    {/* View All Services Link */}
+                    <div className="mt-6 pt-6 border-t border-white/10">
+                      <LocaleLink
+                        href="/services"
+                        className="flex items-center justify-center gap-2 text-sm font-bold text-[#00b4d9] hover:text-white transition-colors duration-300 group"
+                        onClick={() => setMegaMenuOpen(false)}
+                      >
+                        <span>View All Services</span>
+                        <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Regular nav items
+          return (
+            <LocaleLink
+              key={item.label}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item)}
+              className={clsx(
+                "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                isLightMode
+                  ? "text-gray-600 hover:text-black"
+                  : "text-gray-300 hover:text-white"
+              )}
+            >
+              {t(item.label)}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
+            </LocaleLink>
+          );
+        })}
         <LanguageSwitcher isLightMode={isLightMode} />
       </nav>
 
@@ -170,25 +269,78 @@ export default function Header() {
           backgroundColor: '#000000',
         }}
       >
-        <nav className="flex flex-col items-center justify-center h-full gap-4 sm:gap-6 px-6 py-24" style={{ position: 'relative', zIndex: 10000 }}>
-          {navItems.map((item, index) => (
-            <LocaleLink
-              key={item.label}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item)}
-              className={clsx(
-                "text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300 transform",
-                mobileMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              )}
-              style={{
-                transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
-              }}
-            >
-              {t(item.label)}
-            </LocaleLink>
-          ))}
+        <nav className="flex flex-col items-center justify-center h-full gap-4 sm:gap-6 px-6 py-24 overflow-y-auto" style={{ position: 'relative', zIndex: 10000 }}>
+          {navItems.map((item, index) => {
+            // Special handling for services in mobile menu
+            if (item.label === "services") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+                  
+                  {/* Mobile Services Submenu */}
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileServicesOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3">
+                      {localizedServices.map((service) => (
+                        <LocaleLink
+                          key={service.id}
+                          href={`/services/${service.slug}`}
+                          onClick={(e) => {
+                            handleNavClick(e, item);
+                            setMobileServicesOpen(false);
+                          }}
+                          className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300 text-center"
+                        >
+                          {service.title}
+                        </LocaleLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Regular mobile nav items
+            return (
+              <LocaleLink
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item)}
+                className={clsx(
+                  "text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300 transform",
+                  mobileMenuOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                )}
+                style={{
+                  transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                }}
+              >
+                {t(item.label)}
+              </LocaleLink>
+            );
+          })}
+
 
           {/* Mobile Language Switcher */}
           <div
