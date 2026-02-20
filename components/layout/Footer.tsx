@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 export default function Footer({ asPanel, className }: { asPanel?: boolean; className?: string }) {
    const pathname = usePathname();
    const t = useTranslations('footer');
+   const tc = useTranslations('cookies');
 
    if (pathname === "/" && !asPanel) return null;
 
@@ -79,7 +80,18 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
          </div>
 
          <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-8 text-sm text-gray-500">
-            <p>{t('rights')}</p>
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+               <p>{t('rights')}</p>
+               <div className="flex gap-4 md:gap-6">
+                  <Link href="/privacy" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</Link>
+                  <button
+                     onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
+                     className="hover:text-white transition-colors cursor-pointer"
+                  >
+                     {tc('footerLink')}
+                  </button>
+               </div>
+            </div>
 
             <div className="flex gap-6 mt-4 md:mt-0">
                <Link href="https://www.facebook.com/atriona.digital" className="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" aria-label="Facebook" target="_blank">

@@ -202,5 +202,41 @@
     "language": {
         "english": "English",
         "german": "Deutsch"
+    },
+    "cookies": {
+        "banner": {
+            "title": "Wir schätzen Ihre Privatsphäre",
+            "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Traffic zu analysieren und relevante Inhalte bereitzustellen. Wir verarbeiten Daten auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
+            "acceptAll": "Alle akzeptieren",
+            "rejectAll": "Nur essenzielle",
+            "customize": "Anpassen",
+            "privacyPolicy": "Datenschutzerklärung"
+        },
+        "modal": {
+            "title": "Cookie-Einstellungen",
+            "description": "Verwalten Sie Ihre Präferenzen für verschiedene Cookie-Kategorien. Essenzielle Cookies sind für den Betrieb der Website zwingend erforderlich.",
+            "save": "Präferenzen speichern",
+            "categories": {
+                "essential": {
+                    "title": "Essenziell",
+                    "description": "Notwendig für die Grundfunktionen der Website (z. B. Sicherheit, Warenkorb, Consent-Speicherung).",
+                    "status": "Immer aktiv"
+                },
+                "functional": {
+                    "title": "Funktional",
+                    "description": "Ermöglicht erweiterte Funktionen wie Video-Player oder Chat-Widgets."
+                },
+                "analytics": {
+                    "title": "Analyse",
+                    "description": "Helfen uns zu verstehen, wie Besucher unsere Website nutzen (z. B. Google Analytics)."
+                },
+                "marketing": {
+                    "title": "Marketing",
+                    "description": "Werden verwendet, um Besuchern relevante Werbung auf anderen Plattformen anzuzeigen."
+                }
+            },
+            "legalNote": "Ihre Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft in den Cookie-Einstellungen widerrufen werden."
+        },
+        "footerLink": "Einwilligung verwalten"
     }
 }
