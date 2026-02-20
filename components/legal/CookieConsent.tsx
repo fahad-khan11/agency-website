@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, X, Settings, ShieldCheck, BarChart3, Target, MousePointer2 } from "lucide-react";
 import Link from "next/link";
+import LocaleLink from "../LocaleLink";
 
 interface ConsentSettings {
     essential: boolean;
@@ -83,7 +84,7 @@ export default function CookieConsent() {
                         initial={{ y: 100, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 100, opacity: 0 }}
-                        className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-[9999]"
+                        className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-9999"
                     >
                         <div className="bg-[#111]/80 backdrop-blur-2xl border border-white/10 p-6 rounded-2xl shadow-2xl text-white">
                             <div className="flex items-start gap-4 mb-4">
@@ -123,9 +124,9 @@ export default function CookieConsent() {
                             </div>
 
                             <div className="mt-5 pt-4 border-t border-white/5 flex justify-center">
-                                <Link href="/privacy" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]">
-                                    {t('banner.privacyPolicy')}
-                                </Link>
+                                <LocaleLink href="/privacy" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]" title="Datenschutzerklärung & Impressum">
+                                    {t('banner.privacyPolicy')} & Impressum
+                                </LocaleLink>
                             </div>
                         </div>
                     </motion.div>
@@ -134,7 +135,7 @@ export default function CookieConsent() {
 
             <AnimatePresence>
                 {showModal && (
-                    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
+                    <div className="fixed inset-0 z-10000 flex items-center justify-center p-4">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -146,7 +147,7 @@ export default function CookieConsent() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="relative bg-[#0A0A0A] border border-white/10 rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
+                            className="relative bg-[#0A0A0A] border border-white/10 rounded-4xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
                         >
                             <div className="p-6 md:p-10 flex justify-between items-start">
                                 <div>
@@ -193,10 +194,18 @@ export default function CookieConsent() {
                                     onChange={(val) => setSettings({ ...settings, marketing: val })}
                                 />
 
-                                <div className="bg-[#00B4D9]/5 border border-[#00B4D9]/10 p-5 rounded-2xl mt-8">
+                                <div className="bg-[#00B4D9]/5 border border-[#00B4D9]/10 p-5 rounded-2xl mt-8 flex flex-col gap-3">
                                     <p className="text-xs text-gray-400 leading-relaxed italic">
                                         {t('modal.legalNote')}
                                     </p>
+                                    <LocaleLink
+                                        href="/privacy"
+                                        className="text-[10px] md:text-xs text-[#00B4D9] hover:underline font-bold uppercase tracking-wider flex items-center gap-2"
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        <ShieldCheck className="w-3.5 h-3.5" />
+                                        {t('banner.privacyPolicy')} & Impressum
+                                    </LocaleLink>
                                 </div>
                             </div>
 
