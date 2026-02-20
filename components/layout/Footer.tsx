@@ -84,7 +84,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                <p>{t('rights')}</p>
                <div className="flex gap-4 md:gap-6">
-                  <LocaleLink href="/privacy" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</LocaleLink>
+                  <LocaleLink href="/DataProtectionDeclaration" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</LocaleLink>
                   <button
                      onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
                      className="hover:text-white transition-colors cursor-pointer"

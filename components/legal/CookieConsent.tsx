@@ -124,7 +124,7 @@ export default function CookieConsent() {
                             </div>
 
                             <div className="mt-5 pt-4 border-t border-white/5 flex justify-center">
-                                <LocaleLink href="/privacy" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]" title="Datenschutzerklärung & Impressum">
+                                <LocaleLink href="/DataProtectionDeclaration" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]" title="Datenschutzerklärung & Impressum">
                                     {t('banner.privacyPolicy')} & Impressum
                                 </LocaleLink>
                             </div>
@@ -147,24 +147,24 @@ export default function CookieConsent() {
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                            className="relative bg-[#0A0A0A] border border-white/10 rounded-4xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
+                            className="relative bg-[#0A0A0A] border border-white/10 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col"
                         >
-                            <div className="p-6 md:p-10 flex justify-between items-start">
+                            <div className="p-4 md:p-6 flex justify-between items-start">
                                 <div>
-                                    <h2 className="text-3xl font-bold font-display text-white tracking-tight">{t('modal.title')}</h2>
-                                    <p className="text-sm text-gray-500 mt-2 max-w-md leading-relaxed">{t('modal.description')}</p>
+                                    <h2 className="text-lg font-bold font-display text-white tracking-tight">{t('modal.title')}</h2>
+                                    <p className="text-[10px] text-gray-500 mt-1 max-w-xs leading-relaxed">{t('modal.description')}</p>
                                 </div>
                                 <button
                                     onClick={() => setShowModal(false)}
-                                    className="p-3 bg-white/5 hover:bg-white/10 hover:rotate-90 rounded-2xl transition-all duration-300"
+                                    className="p-1.5 bg-white/5 hover:bg-white/10 hover:rotate-90 rounded-lg transition-all duration-300"
                                 >
-                                    <X className="w-5 h-5 text-gray-400" />
+                                    <X className="w-3.5 h-3.5" />
                                 </button>
                             </div>
 
-                            <div className="flex-1 overflow-y-auto px-6 md:px-10 pb-6 space-y-4">
+                            <div className="flex-1 px-4 md:px-6 pb-3 space-y-2">
                                 <CookieCategory
-                                    icon={<ShieldCheck className="w-5 h-5 text-[#00B4D9]" />}
+                                    icon={<ShieldCheck className="w-3.5 h-3.5 text-[#00B4D9]" />}
                                     title={t('modal.categories.essential.title')}
                                     description={t('modal.categories.essential.description')}
                                     enabled={true}
@@ -173,52 +173,52 @@ export default function CookieConsent() {
                                     statusText={t('modal.categories.essential.status')}
                                 />
                                 <CookieCategory
-                                    icon={<MousePointer2 className="w-5 h-5 text-purple-400" />}
+                                    icon={<MousePointer2 className="w-3.5 h-3.5 text-purple-400" />}
                                     title={t('modal.categories.functional.title')}
                                     description={t('modal.categories.functional.description')}
                                     enabled={settings.functional}
                                     onChange={(val) => setSettings({ ...settings, functional: val })}
                                 />
                                 <CookieCategory
-                                    icon={<BarChart3 className="w-5 h-5 text-green-400" />}
+                                    icon={<BarChart3 className="w-3.5 h-3.5 text-green-400" />}
                                     title={t('modal.categories.analytics.title')}
                                     description={t('modal.categories.analytics.description')}
                                     enabled={settings.analytics}
                                     onChange={(val) => setSettings({ ...settings, analytics: val })}
                                 />
                                 <CookieCategory
-                                    icon={<Target className="w-5 h-5 text-red-500" />}
+                                    icon={<Target className="w-3.5 h-3.5 text-red-500" />}
                                     title={t('modal.categories.marketing.title')}
                                     description={t('modal.categories.marketing.description')}
                                     enabled={settings.marketing}
                                     onChange={(val) => setSettings({ ...settings, marketing: val })}
                                 />
 
-                                <div className="bg-[#00B4D9]/5 border border-[#00B4D9]/10 p-5 rounded-2xl mt-8 flex flex-col gap-3">
-                                    <p className="text-xs text-gray-400 leading-relaxed italic">
+                                <div className="bg-[#00B4D9]/5 border border-[#00B4D9]/10 p-3 rounded-lg mt-2 flex flex-col gap-1.5">
+                                    <p className="text-[9px] text-gray-500 leading-relaxed italic">
                                         {t('modal.legalNote')}
                                     </p>
                                     <LocaleLink
-                                        href="/privacy"
-                                        className="text-[10px] md:text-xs text-[#00B4D9] hover:underline font-bold uppercase tracking-wider flex items-center gap-2"
+                                        href="/DataProtectionDeclaration"
+                                        className="text-[9px] text-[#00B4D9] hover:underline font-bold uppercase tracking-wider flex items-center gap-1.5"
                                         onClick={() => setShowModal(false)}
                                     >
-                                        <ShieldCheck className="w-3.5 h-3.5" />
+                                        <ShieldCheck className="w-2.5 h-2.5" />
                                         {t('banner.privacyPolicy')} & Impressum
                                     </LocaleLink>
                                 </div>
                             </div>
 
-                            <div className="p-6 md:p-10 bg-white/5 border-t border-white/5 flex flex-col sm:flex-row gap-4">
+                            <div className="p-4 md:p-6 bg-white/5 border-t border-white/5 flex flex-col sm:flex-row gap-2">
                                 <button
                                     onClick={() => saveConsent(settings)}
-                                    className="flex-1 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-2xl border border-white/10 transition-all active:scale-[0.98]"
+                                    className="flex-1 py-1.5 bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold rounded-lg border border-white/10 transition-all active:scale-[0.98]"
                                 >
                                     {t('modal.save')}
                                 </button>
                                 <button
                                     onClick={handleAcceptAll}
-                                    className="flex-1 py-4 bg-[#00B4D9] hover:bg-[#0092B0] text-black font-bold rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-[#00B4D9]/20"
+                                    className="flex-1 py-1.5 bg-[#00B4D9] hover:bg-[#0092B0] text-black text-[10px] font-bold rounded-lg transition-all active:scale-[0.98] shadow-lg shadow-[#00B4D9]/20"
                                 >
                                     {t('banner.acceptAll')}
                                 </button>
@@ -249,15 +249,15 @@ function CookieCategory({
     statusText?: string;
 }) {
     return (
-        <div className={`flex gap-5 p-5 rounded-3xl transition-all duration-300 border ${enabled ? 'bg-white/5 border-white/10' : 'bg-transparent border-white/5'}`}>
-            <div className={`p-3 h-fit rounded-2xl ${enabled ? 'bg-white/10' : 'bg-white/5 opacity-50'}`}>
+        <div className={`flex gap-2.5 p-3 rounded-xl transition-all duration-300 border ${enabled ? 'bg-white/5 border-white/10' : 'bg-transparent border-white/5'}`}>
+            <div className={`p-1.5 h-fit rounded-lg ${enabled ? 'bg-white/10' : 'bg-white/5 opacity-50'}`}>
                 {icon}
             </div>
             <div className="flex-1">
-                <div className="flex justify-between items-center mb-1.5">
-                    <h4 className={`text-lg font-bold font-display ${enabled ? 'text-white' : 'text-gray-500'}`}>{title}</h4>
+                <div className="flex justify-between items-center mb-0.5">
+                    <h4 className={`text-sm font-bold font-display ${enabled ? 'text-white' : 'text-gray-500'}`}>{title}</h4>
                     {disabled ? (
-                        <span className="text-[10px] uppercase tracking-wider font-black text-[#00B4D9] bg-[#00B4D9]/10 px-3 py-1.5 rounded-full">
+                        <span className="text-[8px] uppercase tracking-wider font-black text-[#00B4D9] bg-[#00B4D9]/10 px-2 py-0.5 rounded-full">
                             {statusText}
                         </span>
                     ) : (
@@ -265,13 +265,13 @@ function CookieCategory({
                             onClick={() => onChange(!enabled)}
                             className="relative inline-flex items-center cursor-pointer group"
                         >
-                            <div className={`w-14 h-8 rounded-full transition-all duration-300 p-1 ${enabled ? 'bg-[#00B4D9]' : 'bg-white/5 border border-white/10'}`}>
-                                <div className={`w-6 h-6 rounded-full bg-white shadow-sm transition-all duration-300 transform ${enabled ? 'translate-x-6' : 'translate-x-0'}`} />
+                            <div className={`w-8 h-4.5 rounded-full transition-all duration-300 p-0.5 ${enabled ? 'bg-[#00B4D9]' : 'bg-white/5 border border-white/10'}`}>
+                                <div className={`w-3.5 h-3.5 rounded-full bg-white shadow-sm transition-all duration-300 transform ${enabled ? 'translate-x-3.5' : 'translate-x-0'}`} />
                             </div>
                         </button>
                     )}
                 </div>
-                <p className={`text-sm leading-relaxed ${enabled ? 'text-gray-400' : 'text-gray-600'}`}>
+                <p className={`text-[10px] leading-snug ${enabled ? 'text-gray-400' : 'text-gray-600'}`}>
                     {description}
                 </p>
             </div>
