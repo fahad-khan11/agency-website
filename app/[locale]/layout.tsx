@@ -8,6 +8,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/legal/CookieConsent";
 import { PanelProvider } from "@/lib/PanelContext";
+import { TidioChatProvider } from "@/lib/TidioChatContext";
+import TidioChat from "@/components/layout/TidioChat";
+import FloatingChatButton from "@/components/layout/FloatingChatButton";
 import "../globals.css";
 
 const syne = Syne({
@@ -56,12 +59,16 @@ export default async function LocaleLayout({
         className={`${syne.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
       >
         <NextIntlClientProvider messages={messages}>
-          <PanelProvider>
-            <Header />
-            {children}
-            <Footer />
-            <CookieConsent />
-          </PanelProvider>
+          <TidioChatProvider>
+            <PanelProvider>
+              <TidioChat />
+              <Header />
+              {children}
+              <Footer />
+              <CookieConsent />
+              <FloatingChatButton />
+            </PanelProvider>
+          </TidioChatProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MoveRight, Menu, X } from "lucide-react";
+import { MoveRight, Menu, X, MessageCircle } from "lucide-react";
 import clsx from "clsx";
 import { usePanel } from "@/lib/PanelContext";
 import { usePathname, useParams } from "next/navigation";
@@ -10,6 +10,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LocaleLink from "@/components/LocaleLink";
 import { services } from "@/data/services";
 import { getServicesTranslations } from "@/lib/servicesTranslations";
+import { useTidioChat } from "@/lib/TidioChatContext";
 
 const navItems = [
   { label: "about", href: "/about" },
@@ -26,6 +27,7 @@ export default function Header() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
+  const { openTidioChat } = useTidioChat();
   const pathname = usePathname();
   const params = useParams();
   const locale = (params?.locale as string) || 'en';
@@ -214,20 +216,37 @@ export default function Header() {
         <LanguageSwitcher isLightMode={isLightMode} />
       </nav>
 
-      {/* Desktop CTA Button */}
-      <LocaleLink
-        href="/contact"
-        onClick={(e) => handleNavClick(e, navItems[6])}
-        className={clsx(
-          "hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wide group px-4 py-2 rounded-full hover:bg-[#00b4d9] hover:text-white transition-all duration-300 z-50",
-          isLightMode
-            ? "bg-black text-white"
-            : "bg-white text-black"
-        )}
-      >
-        <span>{t('letsTalk')}</span>
-        <MoveRight className="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300" />
-      </LocaleLink>
+      {/* Desktop Chat Icon + CTA */}
+      <div className="hidden md:flex items-center gap-3 z-50">
+        {/* Message icon — opens Tidio chat */}
+        <button
+          id="header-chat-btn"
+          onClick={openTidioChat}
+          aria-label="Open live chat"
+          className={clsx(
+            "flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 hover:border-[#00b4d9] hover:text-[#00b4d9] hover:shadow-[0_0_16px_rgba(0,180,217,0.3)]",
+            isLightMode
+              ? "border-black/20 text-black"
+              : "border-white/20 text-white"
+          )}
+        >
+          <MessageCircle className="w-4 h-4" strokeWidth={2} />
+        </button>
+
+        <LocaleLink
+          href="/contact"
+          onClick={(e) => handleNavClick(e, navItems[6])}
+          className={clsx(
+            "flex items-center gap-2 text-xs font-bold uppercase tracking-wide group px-4 py-2 rounded-full hover:bg-[#00b4d9] hover:text-white transition-all duration-300",
+            isLightMode
+              ? "bg-black text-white"
+              : "bg-white text-black"
+          )}
+        >
+          <span>{t('letsTalk')}</span>
+          <MoveRight className="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300" />
+        </LocaleLink>
+      </div>
 
       {/* Mobile Menu Toggle Button */}
       <button
