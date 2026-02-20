@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Instagram, Link as LinkIcon, Twitter, Dribbble, Facebook } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import LocaleLink from '../LocaleLink';
 
 export default function Footer({ asPanel, className }: { asPanel?: boolean; className?: string }) {
    const pathname = usePathname();
@@ -33,15 +34,15 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
 
             <div className="md:col-span-2 md:col-start-6 flex flex-col gap-4">
                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t('sitemap')}</h4>
-               <Link href="/" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('home')}</Link>
-               <Link href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('about')}</Link>
-               <Link href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('work')}</Link>
-               <Link href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('services')}</Link>
-               <Link href="/industries" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('industries')}</Link>
-               <Link href="/process" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('process')}</Link>
-               <Link href="/case-studies" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('caseStudies')}</Link>
-               <Link href="/blog" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('blogs')}</Link>
-               <Link href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('contact')}</Link>
+               <LocaleLink href="/" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('home')}</LocaleLink>
+               <LocaleLink href="/about" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('about')}</LocaleLink>
+               <LocaleLink href="/projects" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('work')}</LocaleLink>
+               <LocaleLink href="/services" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('services')}</LocaleLink>
+               <LocaleLink href="/industries" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('industries')}</LocaleLink>
+               <LocaleLink href="/process" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('process')}</LocaleLink>
+               <LocaleLink href="/case-studies" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('caseStudies')}</LocaleLink>
+               <LocaleLink href="/blog" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('blogs')}</LocaleLink>
+               <LocaleLink href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('contact')}</LocaleLink>
             </div>
 
             {/* Socials Column */}
@@ -83,7 +84,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                <p>{t('rights')}</p>
                <div className="flex gap-4 md:gap-6">
-                  <Link href="/privacy" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</Link>
+                  <LocaleLink href="/privacy" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</LocaleLink>
                   <button
                      onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
                      className="hover:text-white transition-colors cursor-pointer"

@@ -40,9 +40,48 @@ export default function PrivacyPage() {
                     </p>
                 </section>
 
-                <p className="text-sm text-gray-500 mt-12">
-                    Dies ist eine Platzhalter-Seite. Bitte stellen Sie sicher, dass eine vollständige und rechtlich geprüfte Datenschutzerklärung implementiert wird.
-                </p>
+                <section className="bg-white/5 border border-white/10 rounded-2xl p-8 !mt-12">
+                    <h2 className="text-3xl font-display font-bold text-white mb-6">Impressum / Anbieterkennzeichnung</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div>
+                            <h3 className="text-lg font-bold text-[#00B4D9] mb-4 uppercase tracking-wider">Unternehmensangaben</h3>
+                            <div className="space-y-2 text-gray-200">
+                                <p><strong className="text-white">Firma:</strong> ATRIONA Digital GmbH</p>
+                                <p><strong className="text-white">Adresse:</strong> Ohiostraße 15, 76149 Karlsruhe</p>
+                                <p><strong className="text-white">Registergericht:</strong> Amtsgericht Mannheim</p>
+                                <p><strong className="text-white">Handelsregister:</strong> Neu</p>
+                                <p><strong className="text-white">Vertreten durch:</strong> Stefano Ala</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-bold text-[#00B4D9] mb-4 uppercase tracking-wider">Kontakt</h3>
+                            <div className="space-y-2 text-gray-200">
+                                <p><strong className="text-white">Telefon:</strong> +49 (0) 721 98618928</p>
+                                <p><strong className="text-white">E-Mail:</strong> info@atriona-digital.com</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-bold text-[#00B4D9] mb-4 uppercase tracking-wider">Redaktionell verantwortlich</h3>
+                            <div className="space-y-2 text-gray-200">
+                                <p>Stefano Ala</p>
+                                <p>Ohiostraße 15</p>
+                                <p>76149 Karlsruhe</p>
+                                <p><strong className="text-white">Telefon:</strong> +49 721 98618928</p>
+                                <p><strong className="text-white">E-Mail:</strong> stefano.ala@atriona-digital.com</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-bold text-[#00B4D9] mb-4 uppercase tracking-wider">Verbraucherstreitbeilegung</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     );
