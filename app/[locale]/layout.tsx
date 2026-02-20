@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/legal/CookieConsent";
 import { PanelProvider } from "@/lib/PanelContext";
 import "../globals.css";
 
@@ -41,12 +42,12 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
+
   if (!locales.includes(locale as any)) {
     notFound();
   }
 
-  
+
   const messages = await getMessages();
 
   return (
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
             <Header />
             {children}
             <Footer />
+            <CookieConsent />
           </PanelProvider>
         </NextIntlClientProvider>
       </body>

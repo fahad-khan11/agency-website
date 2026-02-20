@@ -101,7 +101,7 @@ export default function Header() {
             src="/logo/atriona-white.png"
             alt="Atriona"
             className={clsx(
-              "h-6 sm:h-7 md:h-9 lg:h-10 w-auto object-contain transition-opacity duration-500",
+              "h-10 sm:h-12 md:h-16 lg:h-16 w-auto object-contain transition-opacity duration-500",
               isLightMode ? "opacity-0" : "opacity-100"
             )}
           />
@@ -149,7 +149,7 @@ export default function Header() {
                 >
                   {/* Invisible bridge to prevent gap */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
-                  
+
                   <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[600px]">
                     <div className="grid grid-cols-2 gap-6">
                       {localizedServices.map((service) => (
@@ -175,7 +175,7 @@ export default function Header() {
                         </LocaleLink>
                       ))}
                     </div>
-                    
+
                     {/* View All Services Link */}
                     <div className="mt-6 pt-6 border-t border-white/10">
                       <LocaleLink
@@ -292,7 +292,7 @@ export default function Header() {
                   >
                     {t(item.label)}
                   </button>
-                  
+
                   {/* Mobile Services Submenu */}
                   <div
                     className={clsx(

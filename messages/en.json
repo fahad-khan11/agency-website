@@ -202,5 +202,41 @@
     "language": {
         "english": "English",
         "german": "Deutsch"
+    },
+    "cookies": {
+        "banner": {
+            "title": "We value your privacy",
+            "description": "We use cookies to enhance your experience, analyze traffic and provide relevant content. We process data based on your consent (Art. 6 Para. 1 lit. a GDPR).",
+            "acceptAll": "Accept All",
+            "rejectAll": "Only Essential",
+            "customize": "Customize",
+            "privacyPolicy": "Privacy Policy"
+        },
+        "modal": {
+            "title": "Cookie Settings",
+            "description": "Manage your preferences for different cookie categories. Essential cookies are strictly necessary for the operation of the website.",
+            "save": "Save Preferences",
+            "categories": {
+                "essential": {
+                    "title": "Essential",
+                    "description": "Necessary for the basic functions of the website (e.g., security, shopping cart, consent storage).",
+                    "status": "Always active"
+                },
+                "functional": {
+                    "title": "Functional",
+                    "description": "Enables enhanced features like video players or chat widgets."
+                },
+                "analytics": {
+                    "title": "Analytics",
+                    "description": "Helps us understand how visitors use our website (e.g., Google Analytics)."
+                },
+                "marketing": {
+                    "title": "Marketing",
+                    "description": "Used to show relevant advertising to visitors on other platforms."
+                }
+            },
+            "legalNote": "Your consent is voluntary and can be withdrawn at any time with effect for the future in the cookie settings."
+        },
+        "footerLink": "Manage Consent"
     }
 }

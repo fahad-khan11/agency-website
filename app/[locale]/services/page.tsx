@@ -53,7 +53,7 @@ export default function ServicesPage() {
   return (
     <main className="pt-32 min-h-screen bg-black text-white relative overflow-hidden" ref={containerRef}>
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px]  rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 pb-24 relative z-10">
         {/* Header Section */}
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00B5D9]/0 to-[#00B5D9]/0 rounded-2xl opacity-0 group-hover:from-[#00B5D9]/10 group-hover:to-[#00B5D9]/5 group-hover:opacity-100 transition-all duration-500 blur-xl" />
 
                 {/* Card Container */}
-                <div className="relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 h-full flex flex-col transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:shadow-2xl group-hover:shadow-[#00B5D9]/30 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                <div className="relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 h-full flex flex-col transition-all duration-500 ease-out group-hover:border-[#00B5D9]/70 group-hover:-translate-y-2 group-hover:scale-[1.02]">
 
                   {/* Shine Effect Overlay */}
                   <div className="absolute inset-0 rounded-2xl overflow-hidden">
