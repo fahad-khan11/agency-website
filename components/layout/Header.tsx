@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MoveRight, Menu, X, MessageCircle } from "lucide-react";
+import { MoveRight, Menu, X, MessageCircle, Layout, Clock, Handshake, TrendingUp, ChevronRight } from "lucide-react";
 import clsx from "clsx";
 import { usePanel } from "@/lib/PanelContext";
 import { usePathname, useParams } from "next/navigation";
@@ -16,8 +16,10 @@ const navItems = [
   { label: "about", href: "/about" },
   { label: "services", href: "/services" },
   { label: "industries", href: "/industries" },
+  { label: "projectModels", href: "/project-models" },
   { label: "caseStudies", href: "/case-studies" },
   { label: "blogs", href: "/blog" },
+  { label: "faq", href: "/faq" },
   { label: "contact", href: "/contact" },
 ];
 
@@ -25,13 +27,16 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [projectModelsOpen, setProjectModelsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileModelsOpen, setMobileModelsOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
   const { openTidioChat } = useTidioChat();
   const pathname = usePathname();
   const params = useParams();
   const locale = (params?.locale as string) || 'en';
   const t = useTranslations('nav');
+  const pmT = useTranslations('projectModels.megaMenu');
   const servicesT = getServicesTranslations(locale);
   const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
 
@@ -77,6 +82,7 @@ export default function Header() {
     }
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileModelsOpen(false);
   };
 
   return (
@@ -88,13 +94,13 @@ export default function Header() {
     >
       {/* Logo */}
       <LocaleLink href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
-        <div className="relative h-6 sm:h-7 md:h-9 lg:h-10 w-auto">
+        <div className="relative h-10 sm:h-11 md:h-12 lg:h-13 w-auto flex items-center">
           {/* Dark logo for light backgrounds */}
           <img
             src="/logo/atriona-dark.png"
             alt="Atriona"
             className={clsx(
-              "h-6 sm:h-7 md:h-9 lg:h-10 w-auto object-contain transition-opacity duration-500 absolute top-0 left-0",
+              "h-10 sm:h-11 md:h-12 lg:h-13 w-auto object-contain transition-opacity duration-500 absolute top-0 left-0",
               isLightMode ? "opacity-100" : "opacity-0"
             )}
           />
@@ -103,7 +109,7 @@ export default function Header() {
             src="/logo/atriona-white.png"
             alt="Atriona"
             className={clsx(
-              "h-10 sm:h-12 md:h-16 lg:h-16 w-auto object-contain transition-opacity duration-500",
+              "h-10 sm:h-11 md:h-12 lg:h-13 w-auto object-contain transition-opacity duration-500",
               isLightMode ? "opacity-0" : "opacity-100"
             )}
           />
@@ -188,6 +194,99 @@ export default function Header() {
                         <span>View All Services</span>
                         <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Special handling for projectModels with megamenu
+          if (item.label === "projectModels") {
+            return (
+              <div
+                key={item.label}
+                className="relative group/menu"
+                onMouseEnter={() => setProjectModelsOpen(true)}
+                onMouseLeave={() => setProjectModelsOpen(false)}
+              >
+                <LocaleLink
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={clsx(
+                    "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                    isLightMode
+                      ? "text-gray-600 hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {t(item.label)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#161616] transition-all duration-300 group-hover:w-full"></span>
+                </LocaleLink>
+
+                {/* PROJECT MODELS MEGA MENU - ALIGNED WITH THEME */}
+                <div
+                  className={clsx(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-6 transition-all duration-500",
+                    projectModelsOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"
+                  )}
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
+
+                  <div className="bg-[#161616] backdrop-blur-xl border border-white/10 rounded-2xl p-2 min-w-[900px] overflow-hidden shadow-2xl shadow-black/50">
+                    <div className="flex bg-[#161616] rounded-xl overflow-hidden">
+                      {/* Main Models - 3 Columns */}
+                      <div className="grid grid-cols-3 flex-grow gap-px bg-[#161616]">
+                        {[
+                          { id: "purchase", icon: Layout, color: "text-white", bg: "bg-white/10", href: "/purchase-model" },
+                          { id: "rental", icon: Clock, color: "text-white", bg: "bg-white/10", href: "/rental-model" },
+                          { id: "participation", icon: Handshake, color: "text-[#00b4d9]", bg: "bg-[#00b4d9]/10", href: "/strategic-participation" },
+                        ].map((model) => (
+                          <LocaleLink
+                            key={model.id}
+                            href={model.href}
+                            className="bg-black/40 p-8 group transition-all duration-500 hover:bg-white/5"
+                            onClick={() => setProjectModelsOpen(false)}
+                          >
+                            <div className={clsx("w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3", model.bg)}>
+                              <model.icon className={clsx("w-7 h-7", model.color)} />
+                            </div>
+                            <h4 className="text-xl font-display font-bold text-white mb-3 flex items-center gap-2">
+                              {pmT(`${model.id}.title`)}
+                              <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#00b4d9]" />
+                            </h4>
+                            <p className="text-sm text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
+                              {pmT(`${model.id}.desc`)}
+                            </p>
+                            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00b4d9] transition-all duration-300 group-hover:gap-3 group-hover:text-white">
+                              {pmT(`${model.id}.cta`)}
+                              <MoveRight className="w-4 h-4" />
+                            </span>
+                          </LocaleLink>
+                        ))}
+                      </div>
+
+                      {/* Side Section - Growth Modules */}
+                      <div className="w-72 bg-white/[0.02] p-8 flex flex-col justify-between border-l border-white/10">
+                        <div>
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[10px] font-bold uppercase tracking-wider mb-6">
+                            <TrendingUp className="w-3 h-3 text-[#00b4d9]" />
+                            Optional
+                          </div>
+                          <h4 className="text-lg font-display font-bold text-white mb-4">{pmT("growth.title")}</h4>
+                          <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                            {pmT("growth.items")}
+                          </p>
+                        </div>
+                        <LocaleLink
+                          href="/project-models"
+                          className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#00b4d9] transition-colors group/all"
+                          onClick={() => setProjectModelsOpen(false)}
+                        >
+                          <span>{pmT("growth.cta")}</span>
+                          <ChevronRight className="w-4 h-4 transition-transform group-hover/all:translate-x-1" />
+                        </LocaleLink>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -319,7 +418,7 @@ export default function Header() {
                       mobileServicesOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                     )}
                   >
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 text-center">
                       {localizedServices.map((service) => (
                         <LocaleLink
                           key={service.id}
@@ -328,9 +427,61 @@ export default function Header() {
                             handleNavClick(e, item);
                             setMobileServicesOpen(false);
                           }}
-                          className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300 text-center"
+                          className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
                         >
                           {service.title}
+                        </LocaleLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Mobile Project Models
+            if (item.label === "projectModels") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileModelsOpen(!mobileModelsOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-amber-400 transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileModelsOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-4 text-center">
+                      {[
+                        { id: "purchase", href: "/purchase-model" },
+                        { id: "rental", href: "/rental-model" },
+                        { id: "participation", href: "/strategic-participation" },
+                      ].map((model) => (
+                        <LocaleLink
+                          key={model.id}
+                          href={model.href}
+                          onClick={(e) => {
+                            handleNavClick(e, item);
+                            setMobileModelsOpen(false);
+                          }}
+                          className="text-base sm:text-lg text-gray-300 hover:text-amber-400 transition-colors duration-300"
+                        >
+                          {pmT(`${model.id}.title`)}
                         </LocaleLink>
                       ))}
                     </div>
@@ -397,4 +548,4 @@ export default function Header() {
       </div>
     </header>
   );
-};
+}

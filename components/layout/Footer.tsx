@@ -42,6 +42,8 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                <LocaleLink href="/process" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('process')}</LocaleLink>
                <LocaleLink href="/case-studies" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('caseStudies')}</LocaleLink>
                <LocaleLink href="/blog" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('blogs')}</LocaleLink>
+               <LocaleLink href="/project-models" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('projectModels')}</LocaleLink>
+               <LocaleLink href="/faq" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('faq')}</LocaleLink>
                <LocaleLink href="/contact" className="hover:text-[#00B4D9] transition-colors text-gray-300">{t('contact')}</LocaleLink>
             </div>
 

@@ -7,8 +7,10 @@
         "process": "Process",
         "caseStudies": "Case Studies",
         "blogs": "Blogs",
+        "projectModels": "Project Models",
         "contact": "Contact Us",
-        "letsTalk": "Let's Talk"
+        "letsTalk": "Let's Talk",
+        "faq": "FAQ"
     },
     "hero": {
         "tagline": "Digital Experience Design",
@@ -195,7 +197,9 @@
         "process": "Process",
         "caseStudies": "Case Studies",
         "blogs": "Blogs",
+        "projectModels": "Project Models",
         "contact": "Contact",
+        "faq": "FAQ",
         "socials": "Socials",
         "getInTouch": "Get in touch"
     },
@@ -238,5 +242,259 @@
             "legalNote": "Your consent is voluntary and can be withdrawn at any time with effect for the future in the cookie settings."
         },
         "footerLink": "Manage Consent"
+    },
+    "projectModels": {
+        "hero": {
+            "h1": "Project Models & Growth Structures",
+            "subline": "Digital systems are structured individually — as a purchase, rental solution, or strategic partnership.",
+            "pills": {
+                "purchase": "Purchase Model",
+                "rental": "Rental Model",
+                "participation": "Strategic Participation"
+            },
+            "ctas": {
+                "primary": "Schedule a Strategy Consultation",
+                "secondary": "Compare Models ↓"
+            }
+        },
+        "financing": {
+            "headline": "How would you like to structure your project?",
+            "subtext": "Each digital system can be structured individually depending on your strategic and financial goals.",
+            "models": {
+                "purchase": {
+                    "title": "Purchase Model",
+                    "bullets": [
+                        "One-time project investment",
+                        "Full ownership of the system",
+                        "Individual architecture & implementation",
+                        "Optionally combinable with growth modules"
+                    ],
+                    "note": "Investment is calculated on a project-specific basis.",
+                    "button": "Explore Model"
+                },
+                "rental": {
+                    "title": "Rental Model",
+                    "bullets": [
+                        "Reduced initial investment",
+                        "Predictable monthly structure",
+                        "Integrated technical support",
+                        "Upgrade or conversion possible"
+                    ],
+                    "note": "Term and scope are defined individually.",
+                    "button": "Explore Model"
+                },
+                "participation": {
+                    "title": "Strategic Participation",
+                    "bullets": [
+                        "Reduced upfront investment",
+                        "Revenue-based participation",
+                        "Long-term strategic partnership",
+                        "Available for selected projects"
+                    ],
+                    "note": "Selection based on market potential and strategic alignment.",
+                    "button": "Request Partnership"
+                }
+            }
+        },
+        "growth": {
+            "headline": "Continuous Optimization & Growth",
+            "intro": "Digital systems require ongoing development. Growth services can be flexibly combined — independent of the selected project model.",
+            "modules": {
+                "seo": {
+                    "title": "SEO & Visibility",
+                    "desc": "Monthly retainer structure. Continuous optimization, keyword strategy, and content development."
+                },
+                "marketing": {
+                    "title": "Performance Marketing",
+                    "desc": "Google Ads, social campaigns, conversion optimization."
+                },
+                "maintenance": {
+                    "title": "Technical Maintenance",
+                    "desc": "Updates, monitoring, security, performance stability."
+                },
+                "strategy": {
+                    "title": "Strategic Development",
+                    "desc": "Long-term digital evolution and data-driven growth planning."
+                }
+            },
+            "note": "Investment scope depends on strategic requirements."
+        },
+        "logic": {
+            "headline": "A Clear Structural Logic",
+            "step1": "1. Choose Project Model",
+            "step2": "2. Add Growth Components",
+            "text": "Project financing and growth services are structured separately and can be combined individually. This ensures maximum flexibility and strategic clarity."
+        },
+        "finalCta": {
+            "headline": "Which Structure Fits Your Project?",
+            "text": "In a focused strategy session, we analyze your objectives and recommend the optimal combination of project model and growth structure.",
+            "button": "Book a Strategy Session"
+        },
+        "megaMenu": {
+            "purchase": {
+                "title": "Purchase Model",
+                "desc": "Full ownership and long-term control of your digital asset.",
+                "cta": "Explore Model"
+            },
+            "rental": {
+                "title": "Rental Model",
+                "desc": "Predictable investment with integrated support and maintenance.",
+                "cta": "Explore Model"
+            },
+            "participation": {
+                "title": "Strategic Participation",
+                "desc": "Collaborative growth model with shared incentives.",
+                "cta": "Request Partnership"
+            },
+            "growth": {
+                "title": "Growth Modules",
+                "items": "SEO, Marketing, Support, Strategy",
+                "cta": "View All"
+            }
+        }
+    },
+    "modelPages": {
+        "compareAll": "Compare all project models",
+        "purchase": {
+            "hero": {
+                "headline": "Full Ownership. Long-Term Control.",
+                "subline": "A one-time project investment with complete system ownership and full architectural flexibility.",
+                "primaryCTA": "Schedule a Strategy Consultation",
+                "secondaryCTA": "Compare All Models"
+            },
+            "positioning": {
+                "headline": "Who This Model Is Designed For",
+                "text": "This structure is ideal for companies seeking long-term independence, full asset ownership, and maximum scalability without recurring structural commitments."
+            },
+            "advantages": {
+                "headline": "Structural Advantages",
+                "points": [
+                    "Full ownership of the digital asset",
+                    "Independent scalability",
+                    "Asset value creation",
+                    "Optional integration of growth modules"
+                ]
+            },
+            "process": {
+                "headline": "Process Overview",
+                "steps": [
+                    "Strategic Scope Definition",
+                    "Architecture & Implementation",
+                    "Launch & Optional Growth Integration"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Build a Digital Asset You Fully Own",
+                "button": "Book Strategy Session"
+            }
+        },
+        "rental": {
+            "hero": {
+                "headline": "Flexible Structure. Predictable Investment.",
+                "subline": "A reduced initial commitment with a structured monthly model and integrated technical support.",
+                "primaryCTA": "Schedule Strategy Session",
+                "secondaryCTA": "Compare All Models"
+            },
+            "positioning": {
+                "headline": "Who It’s For",
+                "text": "For companies prioritizing cash flow flexibility while still building a high-quality digital system."
+            },
+            "advantages": {
+                "headline": "Structural Advantages",
+                "points": [
+                    "Reduced upfront investment",
+                    "Predictable monthly structure",
+                    "Technical maintenance included",
+                    "Upgrade or buyout options available"
+                ]
+            },
+            "process": {
+                "headline": "How It Works",
+                "steps": [
+                    "Strategy & Scope",
+                    "Deployment",
+                    "Ongoing Support & Optimization"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Maintain Flexibility Without Compromising Quality",
+                "button": "Book Strategy Session"
+            }
+        },
+        "participation": {
+            "hero": {
+                "headline": "A Strategic Digital Partnership",
+                "subline": "Reduced upfront investment combined with revenue-based participation and long-term alignment.",
+                "primaryCTA": "Request Partnership Discussion",
+                "secondaryCTA": "Compare All Models"
+            },
+            "positioning": {
+                "headline": "Selective Collaboration Model",
+                "text": "This structure is available for projects with strong market potential and strategic alignment. Partnerships are evaluated individually."
+            },
+            "advantages": {
+                "headline": "Structural Advantages",
+                "points": [
+                    "Shared growth incentives",
+                    "Reduced initial investment",
+                    "Long-term strategic alignment",
+                    "Collaborative performance focus"
+                ]
+            },
+            "process": {
+                "headline": "Evaluation Process",
+                "steps": [
+                    "Market & Potential Assessment",
+                    "Strategic Alignment Review",
+                    "Partnership Structuring"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Explore a Strategic Growth Partnership",
+                "button": "Request Strategy Session"
+            }
+        }
+    },
+    "faq": {
+        "hero": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "Clear answers to the strategic and structural aspects of our collaboration."
+        },
+        "categories": {
+            "models": "Project Models",
+            "growth": "Growth & Support",
+            "booking": "Booking & Consultation"
+        },
+        "items": {
+            "purchase": {
+                "q": "What exactly is included in the Purchase Model?",
+                "a": "The Purchase Model is designed for full ownership. You receive the complete source code, all design assets, and a fully functional, production-ready digital asset. We provide a comprehensive handover and 3 months of technical warranty to ensure a smooth transition to your internal teams."
+            },
+            "rental": {
+                "q": "How does the Rental Model handle scalability?",
+                "a": "Our Rental Model is built for flexibility. While you benefit from a lower initial investment, the architecture is identically robust to our purchase systems. As your user base grows, we handle the infrastructure scaling and maintenance, allowing you to focus entirely on your business operations."
+            },
+            "participation": {
+                "q": "Who qualifies for Strategic Participation?",
+                "a": "Strategic Participation is our most exclusive model. We look for projects with high growth potential, clear market validation, and a strong cultural fit. It's a risk-sharing model where we invest our expertise and development capacity in exchange for equity or shared revenue."
+            },
+            "seo": {
+                "q": "Are the Growth Modules mandatory?",
+                "a": "No. Our Growth Modules like SEO, Performance Marketing, and ongoing Strategic Support are optional enhancements. They are designed to accelerate your digital asset's market presence once the technical foundation is established."
+            },
+            "support": {
+                "q": "What kind of post-launch support do you offer?",
+                "a": "We offer structured maintenance tiers ranging from basic security updates to dedicated technical support availability. For our Rental and Participation clients, infrastructure monitoring and essential updates are typically integrated into the model."
+            },
+            "booking": {
+                "q": "How do I start a project with you?",
+                "a": "The best way to start is by booking a Strategy Session through our Cal.com integration. During this 45-minute call, we evaluate your needs, recommend the most suitable project model, and define the high-level roadmap for your digital transformation."
+            }
+        },
+        "cta": {
+            "title": "Still have questions?",
+            "text": "Our strategic consultants are ready to discuss your specific requirements in detail.",
+            "button": "Book a Strategy Session"
+        }
     }
 }
