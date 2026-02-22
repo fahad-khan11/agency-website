@@ -78,6 +78,9 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                <div className="text-gray-400 text-sm leading-relaxed">
                   <p>Ohiostraße 15</p>
                   <p>76149 Karlsruhe</p>
+                  <p className="mt-2 text-white/50 group-hover:text-[#00b8db] transition-colors hover:text-white">
+                     <a href="tel:+4972198618928">+49 (0) 721 98618928</a>
+                  </p>
                </div>
             </div>
          </div>
@@ -86,6 +89,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                <p>{t('rights')}</p>
                <div className="flex gap-4 md:gap-6">
+                  <LocaleLink href="/imprint" className="hover:text-white transition-colors">{tc('imprint')}</LocaleLink>
                   <LocaleLink href="/DataProtectionDeclaration" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</LocaleLink>
                   <button
                      onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}

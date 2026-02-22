@@ -214,7 +214,8 @@
             "acceptAll": "Alle akzeptieren",
             "rejectAll": "Nur essenzielle",
             "customize": "Anpassen",
-            "privacyPolicy": "Datenschutzerklärung"
+            "privacyPolicy": "Datenschutzerklärung",
+            "imprint": "Impressum"
         },
         "modal": {
             "title": "Cookie-Einstellungen",
@@ -495,6 +496,64 @@
             "title": "Haben Sie noch Fragen?",
             "text": "Unsere strategischen Berater stehen bereit, um Ihre spezifischen Anforderungen im Detail zu besprechen.",
             "button": "Strategiesitzung buchen"
+        }
+    },
+    "legal": {
+        "imprint": {
+            "title": "Impressum",
+            "sections": {
+                "company": {
+                    "title": "Unternehmensangaben",
+                    "labels": {
+                        "name": "Firma",
+                        "address": "Adresse",
+                        "register": "Handelsregister",
+                        "representation": "Vertreten durch"
+                    },
+                    "values": {
+                        "name": "ATRIONA Digital GmbH",
+                        "address": "Ohiostraße 15\n76149 Karlsruhe",
+                        "register": "Amtsgericht Mannheim\nHandelsregister: Neu",
+                        "representation": "Stefano Ala"
+                    }
+                },
+                "contact": {
+                    "title": "Kontakt",
+                    "labels": {
+                        "phone": "Telefon",
+                        "email": "E-Mail"
+                    }
+                },
+                "editorial": {
+                    "title": "Redaktionell verantwortlich",
+                    "labels": {
+                        "email": "Email"
+                    }
+                },
+                "dispute": {
+                    "title": "Verbraucherstreitbeilegung",
+                    "text": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+                    "note": "Information gemäß der Verordnung (EU) Nr. 524/2013 über die Online-Beilegung verbraucherrechtlicher Streitigkeiten (ODR-Verordnung)."
+                }
+            }
+        },
+        "privacy": {
+            "title": "Datenschutzerklärung",
+            "sections": {
+                "glance": {
+                    "title": "1. Datenschutz auf einen Blick",
+                    "text": "Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO)."
+                },
+                "cookies": {
+                    "title": "2. Cookies & Einwilligung",
+                    "text": "Diese Website verwendet Cookies. Einige sind essenziell, andere helfen uns, das Nutzererlebnis zu verbessern. Sie können Ihre Einstellungen jederzeit über den Link \"Cookie-Einstellungen\" im Footer anpassen.",
+                    "button": "Cookie-Einstellungen jetzt anpassen"
+                },
+                "rights": {
+                    "title": "3. Ihre Rechte",
+                    "text": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten (Art. 15-18 DSGVO)."
+                }
+            }
         }
     }
 }

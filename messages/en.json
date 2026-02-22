@@ -214,7 +214,8 @@
             "acceptAll": "Accept All",
             "rejectAll": "Only Essential",
             "customize": "Customize",
-            "privacyPolicy": "Data Protection Declaration"
+            "privacyPolicy": "Data Protection Declaration",
+            "imprint": "Imprint"
         },
         "modal": {
             "title": "Cookie Settings",
@@ -495,6 +496,64 @@
             "title": "Still have questions?",
             "text": "Our strategic consultants are ready to discuss your specific requirements in detail.",
             "button": "Book a Strategy Session"
+        }
+    },
+    "legal": {
+        "imprint": {
+            "title": "Imprint",
+            "sections": {
+                "company": {
+                    "title": "Company Details",
+                    "labels": {
+                        "name": "Company",
+                        "address": "Address",
+                        "register": "Commercial Register",
+                        "representation": "Represented by"
+                    },
+                    "values": {
+                        "name": "ATRIONA Digital GmbH",
+                        "address": "Ohiostraße 15\n76149 Karlsruhe",
+                        "register": "Amtsgericht Mannheim\nRegister No: New",
+                        "representation": "Stefano Ala"
+                    }
+                },
+                "contact": {
+                    "title": "Contact",
+                    "labels": {
+                        "phone": "Phone",
+                        "email": "E-Mail"
+                    }
+                },
+                "editorial": {
+                    "title": "Editorial Responsibility",
+                    "labels": {
+                        "email": "Email"
+                    }
+                },
+                "dispute": {
+                    "title": "Consumer Dispute Resolution",
+                    "text": "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+                    "note": "Information according to Regulation (EU) No 524/2013 on online dispute resolution for consumer disputes (ODR Regulation)."
+                }
+            }
+        },
+        "privacy": {
+            "title": "Data Protection Declaration",
+            "sections": {
+                "glance": {
+                    "title": "1. Data protection at a glance",
+                    "text": "The protection of your personal data is an important concern for us. We treat your personal data confidentially and in accordance with the statutory data protection regulations (GDPR)."
+                },
+                "cookies": {
+                    "title": "2. Cookies & Consent",
+                    "text": "This website uses cookies. Some are essential, others help us to improve the user experience. You can adjust your settings at any time via the \"Cookie Settings\" link in the footer.",
+                    "button": "Adjust cookie settings now"
+                },
+                "rights": {
+                    "title": "3. Your Rights",
+                    "text": "You have the right to information, correction, deletion, and restriction of the processing of your personal data (Art. 15-18 GDPR)."
+                }
+            }
         }
     }
 }
