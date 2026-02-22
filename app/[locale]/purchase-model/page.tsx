@@ -109,7 +109,9 @@ export default function PurchaseModelPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                         {t.raw("advantages.points").map((point: string, i: number) => (
                             <div key={i} className="animate-reveal group">
-                                <div className="w-px h-12 bg-white/20 mb-8 transition-all duration-500 group-hover:h-16 group-hover:bg-cyan-500" />
+                                <div className="h-16 flex items-end mb-6">
+                                    <div className="w-px h-12 bg-white/20 transition-all duration-500 group-hover:h-16 group-hover:bg-cyan-500" />
+                                </div>
                                 <p className="text-xl font-display font-bold text-white transition-colors duration-300 group-hover:text-cyan-400">
                                     {point}
                                 </p>
