@@ -107,8 +107,14 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
   }, [isActive]);
 
   return (
-    <section ref={containerRef} className="w-full min-h-screen bg-[#F0F0F0] text-black py-16 md:py-24 px-6 md:px-12 flex flex-col justify-center section-panel relative overflow-hidden" data-index="1">
-      <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-white rounded-full blur-[100px] opacity-60 pointer-events-none"></div>
+    <section
+      ref={containerRef}
+      className="w-full min-h-screen bg-[#040406] text-white py-16 md:py-24 px-6 md:px-12 flex flex-col justify-center section-panel relative overflow-hidden"
+      data-index="1"
+    >
+      {/* Background Gradient Orbs */}
+      <div className="absolute top-[-15%] right-[-10%] w-[50vw] h-[50vw] bg-[#00B4D9]/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-[#1e40af]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-20 items-start">
 
@@ -116,14 +122,14 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
         <div className="w-full md:w-1/4 flex flex-col justify-start md:pt-5">
           <div className="flex flex-col gap-4 md:gap-6">
             <span className="block text-xs md:text-sm font-mono text-white bg-[#00b4d9] uppercase tracking-widest px-3 py-1 font-bold w-max mb-2">{t('capabilities')}</span>
-            <div className="flex flex-col gap-0">
+            <div className="flex flex-col gap-0 border-t border-white/10">
               {[t('brandIdentity'), t('webDesign'), t('creativeDev'), t('motionDirection')].map((tag, i) => (
-                <div key={tag} className="tag-anim group relative py-4 md:py-6 border-b border-gray-300 cursor-pointer overflow-hidden opacity-0 translate-y-5">
+                <div key={tag} className="tag-anim group relative py-4 md:py-6 border-b border-white/10 cursor-pointer overflow-hidden opacity-0 translate-y-5">
                   <div className="absolute inset-0 bg-[#00b4d9] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ease-out -z-10"></div>
                   <div className="flex items-center justify-between group-hover:translate-x-2 transition-transform duration-300">
                     <div className="flex items-baseline gap-2 md:gap-4">
                       <span className="font-mono text-xs text-[#00b4d9] group-hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300">0{i + 1}</span>
-                      <span className="text-base md:text-xl font-bold font-display uppercase tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300">{tag}</span>
+                      <span className="text-base md:text-xl font-bold font-display uppercase tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">{tag}</span>
                     </div>
                   </div>
                 </div>
@@ -134,34 +140,35 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
 
         {/* Right Column - Main Content */}
         <div className="w-full md:w-3/4 flex flex-col justify-start relative">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black leading-[1.1] tracking-tight text-gray-900 mb-6 md:mb-10 relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-black leading-[1.1] tracking-tight text-white mb-6 md:mb-10 relative z-10">
             <SplitText highlights={["digital", "digitale", "narratives.", "Narrative."]}>{t('mainTitle')}</SplitText>
           </h2>
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-10">
             <div className="tag-anim opacity-0 translate-y-5 flex items-start gap-4 md:gap-6 ml-0 md:ml-1 max-w-xl w-full">
               <div className="h-[2px] w-8 md:w-12 bg-[#00b4d9] mt-2 md:mt-3 flex-shrink-0"></div>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light text-balance">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed font-light text-balance">
                 {t('approach')}
               </p>
             </div>
-            <div className="badge-anim opacity-0 scale-50 hidden lg:flex items-center justify-center w-32 h-32 rounded-full relative flex-shrink-0 border border-gray-200 bg-white">
-              <div className="absolute inset-1 border border-dashed border-gray-300 rounded-full"></div>
+            <div className="badge-anim opacity-0 scale-50 hidden lg:flex items-center justify-center w-32 h-32 rounded-full relative flex-shrink-0 border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+              <div className="absolute inset-1 border border-dashed border-white/20 rounded-full"></div>
               <span className="w-full h-full p-2 animate-[spin_10s_linear_infinite]">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <path id="curve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent" />
                   <text>
-                    <textPath href="#curve" className="text-[12px] font-mono font-bold uppercase tracking-[0.18em] fill-gray-900">
+                    <textPath href="#curve" className="text-[12px] font-mono font-bold uppercase tracking-[0.18em] fill-white">
                       {t('badge')}
                     </textPath>
                   </text>
                 </svg>
               </span>
-              <div className="absolute w-2 h-2 bg-[#00b4d9] rounded-full"></div>
+              <div className="absolute w-2 h-2 bg-[#00b4d9] shadow-[0_0_10px_#00B4D9] rounded-full"></div>
             </div>
           </div>
         </div>
 
       </div>
     </section>
+
   );
 }

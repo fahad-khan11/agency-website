@@ -78,18 +78,18 @@ const testimonials = [
 
 export default function Testimonials({ isActive }: { isActive?: boolean }) {
   const t = useTranslations('testimonials');
-  
+
   // Only translate first 3 testimonials
   const testimonialsToShow = testimonials.slice(0, 3);
 
 
   return (
-    <section className="bg-white text-black h-full flex flex-col px-6 md:px-12 section-panel overflow-hidden" data-index="6">
+    <section className="bg-[#040406] text-white h-full flex flex-col px-6 md:px-12 section-panel overflow-hidden" data-index="6">
 
       {/* Fixed Header */}
-      <div className="max-w-7xl mx-auto w-full pt-10 md:pt-16 pb-4 md:pb-5 flex-shrink-0 sticky top-0 bg-white z-10">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">{t('title')}</h2>
-        <div className="h-1 w-16 md:w-20 bg-[#00b4d9]"></div>
+      <div className="max-w-7xl mx-auto w-full pt-10 md:pt-16 pb-4 md:pb-8 flex-shrink-0 sticky top-0 bg-[#040406] z-10 transition-colors">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">{t('title')}</h2>
+        <div className="h-1 w-16 md:w-20 bg-[#00b4d9] mt-2"></div>
       </div>
 
       {/* Internal Scroll Container - Targeted by PanelContainer Observer by class name for Horizontal Scroll */}
@@ -98,26 +98,31 @@ export default function Testimonials({ isActive }: { isActive?: boolean }) {
           {testimonialsToShow.map((testimonial, i) => {
             const translationKey = `testimonial${i + 1}`;
             return (
-            <div key={testimonial.id} className="bg-[#F8F9FA] p-6 sm:p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal">
-              <div>
-                <Quote className="text-[#00b4d9] w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-80" />
-                <p className="text-base sm:text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-6">
-                  "{t(`${translationKey}.quote`)}"
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                  <div className={`w-full h-full ${testimonial.color}`}></div>
-                </div>
+              <div
+                key={testimonial.id}
+                className="bg-white/[0.03] p-6 sm:p-8 md:p-10 rounded-2xl border border-white/5 backdrop-blur-sm shadow-2xl hover:bg-white/[0.05] hover:border-white/10 transition-all duration-500 min-w-[300px] sm:min-w-[350px] md:min-w-[450px] max-w-[300px] sm:max-w-[350px] md:max-w-[450px] flex flex-col justify-between h-[360px] sm:h-[380px] md:h-[400px] flex-shrink-0 whitespace-normal group"
+              >
                 <div>
-                  <h4 className="font-bold font-display text-sm uppercase tracking-wide text-black">{t(`${translationKey}.author`)}</h4>
-                  <p className="text-xs text-gray-500">{t(`${translationKey}.role`)}</p>
+                  <Quote className="text-[#00b4d9] w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-4 opacity-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
+                  <p className="text-base sm:text-lg md:text-xl font-serif italic text-white/80 leading-relaxed mb-6 group-hover:text-white transition-colors">
+                    "{t(`${translationKey}.quote`)}"
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 p-[1px] flex-shrink-0">
+                    <div className={`w-full h-full rounded-full ${testimonial.color} opacity-80 group-hover:opacity-100 transition-opacity`}></div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold font-display text-sm uppercase tracking-widest text-white group-hover:text-[#00b4d9] transition-colors">{t(`${translationKey}.author`)}</h4>
+                    <p className="text-xs text-gray-400 font-mono tracking-tight">{t(`${translationKey}.role`)}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          )})}
+            )
+          })}
         </div>
       </div>
+
 
       <style jsx global>{`
          .no-scrollbar::-webkit-scrollbar {

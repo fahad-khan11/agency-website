@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MoveRight, Menu, X, MessageCircle, Layout, Clock, Handshake, TrendingUp, ChevronRight } from "lucide-react";
+import { MoveRight, Menu, X, MessageCircle, Layout, Clock, Handshake, TrendingUp, ChevronRight, Hotel, Home, Building2, Utensils, ShoppingBag, Briefcase } from "lucide-react";
 import clsx from "clsx";
 import { usePanel } from "@/lib/PanelContext";
 import { usePathname, useParams } from "next/navigation";
@@ -9,7 +9,13 @@ import { useTranslations } from 'next-intl';
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LocaleLink from "@/components/LocaleLink";
 import { services } from "@/data/services";
+import { industries } from "@/data/industries";
 import { getServicesTranslations } from "@/lib/servicesTranslations";
+import { getIndustriesTranslations } from "@/lib/industriesTranslations";
+import { getCaseStudiesTranslations } from "@/lib/caseStudiesTranslations";
+import { getBlogTranslations } from "@/lib/blogTranslations";
+import { caseStudies as staticCaseStudies } from "@/data/caseStudiesData";
+import { blogPosts as staticBlogPosts } from "@/data/blog";
 import { useTidioChat } from "@/lib/TidioChatContext";
 
 const navItems = [
@@ -27,8 +33,14 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [industriesMenuOpen, setIndustriesMenuOpen] = useState(false);
+  const [caseStudiesMenuOpen, setCaseStudiesMenuOpen] = useState(false);
+  const [blogsMenuOpen, setBlogsMenuOpen] = useState(false);
   const [projectModelsOpen, setProjectModelsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [mobileCaseStudiesOpen, setMobileCaseStudiesOpen] = useState(false);
+  const [mobileBlogsOpen, setMobileBlogsOpen] = useState(false);
   const [mobileModelsOpen, setMobileModelsOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
   const { openTidioChat } = useTidioChat();
@@ -37,7 +49,12 @@ export default function Header() {
   const locale = (params?.locale as string) || 'en';
   const t = useTranslations('nav');
   const pmT = useTranslations('projectModels.megaMenu');
+  const csT = useTranslations('caseStudies.page');
+  const blogT = useTranslations('blog.page');
   const servicesT = getServicesTranslations(locale);
+  const industriesT = getIndustriesTranslations(locale);
+  const caseStudiesTranslations = getCaseStudiesTranslations(locale);
+  const blogTranslations = getBlogTranslations(locale);
   const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
 
   const lightPanels = [1, 3, 6];
@@ -54,6 +71,55 @@ export default function Header() {
       description: trans?.description || service.description
     };
   });
+
+  // Get localized industries for mega menu
+  const industryIcons: Record<string, any> = {
+    "hotels-resorts": Hotel,
+    "vacation-rentals": Home,
+    "real-estate-property-management": Building2,
+    "gastronomy": Utensils,
+    "retail": ShoppingBag,
+    "smes-service-businesses": Briefcase
+  };
+
+  const localizedIndustries = industries
+    .filter(industry => industry.featured)
+    .map(industry => {
+      const key = industry.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+      const trans = industriesT.industries[key as keyof typeof industriesT.industries];
+      return {
+        ...industry,
+        title: trans?.title || industry.title,
+        summary: trans?.summary || industry.summary,
+        icon: industryIcons[industry.slug] || Briefcase
+      };
+    });
+
+  // Get localized case studies for mega menu
+  const localizedCaseStudies = staticCaseStudies
+    .slice(0, 6)
+    .map(study => {
+      const key = study.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+      const trans = caseStudiesTranslations.studies[key as keyof typeof caseStudiesTranslations.studies];
+      return {
+        ...study,
+        title: trans?.title || study.title,
+        overview: trans?.overview || study.overview
+      };
+    });
+
+  // Get localized blogs for mega menu
+  const localizedBlogs = staticBlogPosts
+    .slice(0, 6)
+    .map(post => {
+      const key = post.slug.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
+      const trans = blogTranslations.posts[key as keyof typeof blogTranslations.posts];
+      return {
+        ...post,
+        title: trans?.title || post.title,
+        excerpt: trans?.excerpt || post.excerpt
+      };
+    });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,6 +148,9 @@ export default function Header() {
     }
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileIndustriesOpen(false);
+    setMobileCaseStudiesOpen(false);
+    setMobileBlogsOpen(false);
     setMobileModelsOpen(false);
   };
 
@@ -192,6 +261,231 @@ export default function Header() {
                         onClick={() => setMegaMenuOpen(false)}
                       >
                         <span>View All Services</span>
+                        <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Special handling for industries with mega menu
+          if (item.label === "industries") {
+            return (
+              <div
+                key={item.label}
+                className="relative group/menu"
+                onMouseEnter={() => setIndustriesMenuOpen(true)}
+                onMouseLeave={() => setIndustriesMenuOpen(false)}
+              >
+                <LocaleLink
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={clsx(
+                    "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                    isLightMode
+                      ? "text-gray-600 hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {t(item.label)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
+                </LocaleLink>
+
+                {/* Mega Menu - Industries */}
+                <div
+                  className={clsx(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-6 transition-all duration-300",
+                    industriesMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                  )}
+                >
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
+
+                  <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[700px]">
+                    <div className="grid grid-cols-2 gap-x-10 gap-y-2">
+                      {/* Column Header */}
+                      <div className="col-span-2 mb-4">
+                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">Our Focus</h4>
+                        <p className="text-white font-display font-medium text-lg">Specialized Industry Solutions</p>
+                      </div>
+
+                      {localizedIndustries.map((industry) => (
+                        <LocaleLink
+                          key={industry.slug}
+                          href={`/industries/${industry.slug}`}
+                          className="group flex items-start gap-4 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300"
+                          onClick={() => setIndustriesMenuOpen(false)}
+                        >
+                          <div className="bg-white/5 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#00b4d9]/20 transition-colors">
+                            <industry.icon className="w-5 h-5 text-gray-400 group-hover:text-[#00b4d9] transition-colors" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-sm font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300 mb-0.5">
+                              {industry.title}
+                            </h3>
+                            <p className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1">
+                              {industry.summary}
+                            </p>
+                          </div>
+                        </LocaleLink>
+                      ))}
+                    </div>
+
+                    {/* View All Industries Link */}
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                      <LocaleLink
+                        href="/industries"
+                        className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#00b4d9] transition-all duration-300 group"
+                        onClick={() => setIndustriesMenuOpen(false)}
+                      >
+                        <span>Explore all industries & use cases</span>
+                        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00b4d9]/50 group-hover:bg-[#00b4d9]/10">
+                          <MoveRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
+                        </div>
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Special handling for Case Studies with mega menu
+          if (item.label === "caseStudies") {
+            return (
+              <div
+                key={item.label}
+                className="relative group/menu"
+                onMouseEnter={() => setCaseStudiesMenuOpen(true)}
+                onMouseLeave={() => setCaseStudiesMenuOpen(false)}
+              >
+                <LocaleLink
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={clsx(
+                    "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                    isLightMode
+                      ? "text-gray-600 hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {t(item.label)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
+                </LocaleLink>
+
+                <div
+                  className={clsx(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-6 transition-all duration-300",
+                    caseStudiesMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                  )}
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
+                  <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[700px]">
+                    <div className="grid grid-cols-2 gap-x-10 gap-y-2">
+                      <div className="col-span-2 mb-4">
+                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">Our Success Stories</h4>
+                        <p className="text-white font-display font-medium text-lg">Selected Case Studies</p>
+                      </div>
+
+                      {localizedCaseStudies.map((study) => (
+                        <LocaleLink
+                          key={study.slug}
+                          href={`/case-studies/${study.slug}`}
+                          className="group flex flex-col gap-2 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300"
+                          onClick={() => setCaseStudiesMenuOpen(false)}
+                        >
+                          <h3 className="text-sm font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300">
+                            {study.title}
+                          </h3>
+                          <p className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-2 leading-relaxed">
+                            {study.overview}
+                          </p>
+                        </LocaleLink>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                      <LocaleLink
+                        href="/case-studies"
+                        className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#00b4d9] transition-all duration-300 group"
+                        onClick={() => setCaseStudiesMenuOpen(false)}
+                      >
+                        <span>View All Projects</span>
+                        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00b4d9]/50 group-hover:bg-[#00b4d9]/10">
+                          <MoveRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
+                        </div>
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Special handling for Blogs with mega menu
+          if (item.label === "blogs") {
+            return (
+              <div
+                key={item.label}
+                className="relative group/menu"
+                onMouseEnter={() => setBlogsMenuOpen(true)}
+                onMouseLeave={() => setBlogsMenuOpen(false)}
+              >
+                <LocaleLink
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={clsx(
+                    "text-xs font-bold uppercase tracking-wider transition-colors relative group",
+                    isLightMode
+                      ? "text-gray-600 hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                  )}
+                >
+                  {t(item.label)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00b4d9] transition-all duration-300 group-hover:w-full"></span>
+                </LocaleLink>
+
+                <div
+                  className={clsx(
+                    "absolute top-full left-1/2 -translate-x-1/2 pt-6 transition-all duration-300",
+                    blogsMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                  )}
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
+                  <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[700px]">
+                    <div className="grid grid-cols-2 gap-px bg-white/5 rounded-xl overflow-hidden">
+                      {localizedBlogs.map((post) => (
+                        <LocaleLink
+                          key={post.slug}
+                          href={`/blog/${post.slug}`}
+                          className="bg-black/95 p-6 group transition-all duration-500 hover:bg-white/5"
+                          onClick={() => setBlogsMenuOpen(false)}
+                        >
+                          <div className="inline-flex items-center gap-2 px-2 py-0.5 rounded bg-[#00b4d9]/10 text-[#00b4d9] text-[9px] font-bold uppercase tracking-wider mb-3">
+                            {post.categories[0]}
+                          </div>
+                          <h3 className="text-sm font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300 mb-2">
+                            {post.title}
+                          </h3>
+                          <p className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-2 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        </LocaleLink>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
+                      <div className="flex items-center gap-2 text-[10px] text-gray-500 italic">
+                        Weekly insights on design and digital strategy.
+                      </div>
+                      <LocaleLink
+                        href="/blog"
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00b4d9] hover:text-white transition-all duration-300 group"
+                        onClick={() => setBlogsMenuOpen(false)}
+                      >
+                        <span>Visit Magazine</span>
                         <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </LocaleLink>
                     </div>
@@ -432,6 +726,175 @@ export default function Header() {
                           {service.title}
                         </LocaleLink>
                       ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Special handling for industries in mobile menu
+            if (item.label === "industries") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+
+                  {/* Mobile Industries Submenu */}
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileIndustriesOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3 text-center">
+                      {localizedIndustries.map((industry) => (
+                        <LocaleLink
+                          key={industry.slug}
+                          href={`/industries/${industry.slug}`}
+                          onClick={(e) => {
+                            handleNavClick(e, item);
+                            setMobileIndustriesOpen(false);
+                          }}
+                          className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
+                        >
+                          {industry.title}
+                        </LocaleLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Special handling for Case Studies in mobile menu (ALIGNED WITH LOGIC)
+            if (item.label === "caseStudies") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileCaseStudiesOpen(!mobileCaseStudiesOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileCaseStudiesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3 text-center px-4">
+                      {localizedCaseStudies.map((study) => (
+                        <LocaleLink
+                          key={study.slug}
+                          href={`/case-studies/${study.slug}`}
+                          onClick={(e) => {
+                            handleNavClick(e, item);
+                            setMobileCaseStudiesOpen(false);
+                          }}
+                          className="flex flex-col gap-1 py-2 group"
+                        >
+                          <span className="text-base sm:text-lg text-gray-300 group-hover:text-[#00b4d9] transition-colors duration-300 font-bold">
+                            {study.title}
+                          </span>
+                          <span className="text-[10px] sm:text-xs text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">
+                            {study.overview}
+                          </span>
+                        </LocaleLink>
+                      ))}
+                      <LocaleLink
+                        href="/case-studies"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-[#00b4d9]"
+                      >
+                        All Projects
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Special handling for Blogs in mobile menu
+            if (item.label === "blogs") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileBlogsOpen(!mobileBlogsOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileBlogsOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3 text-center px-4">
+                      {localizedBlogs.map((post) => (
+                        <LocaleLink
+                          key={post.slug}
+                          href={`/blog/${post.slug}`}
+                          onClick={(e) => {
+                            handleNavClick(e, item);
+                            setMobileBlogsOpen(false);
+                          }}
+                          className="flex flex-col gap-1 py-2 group"
+                        >
+                          <span className="text-base sm:text-lg text-gray-300 group-hover:text-[#00b4d9] transition-colors duration-300 font-bold">
+                            {post.title}
+                          </span>
+                          <span className="text-[10px] sm:text-xs text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">
+                            {post.excerpt}
+                          </span>
+                        </LocaleLink>
+                      ))}
+                      <LocaleLink
+                        href="/blog"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-[#00b4d9]"
+                      >
+                        Visit Magazine
+                      </LocaleLink>
                     </div>
                   </div>
                 </div>
