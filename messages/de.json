@@ -7,8 +7,10 @@
         "process": "Prozess",
         "caseStudies": "Fallstudien",
         "blogs": "Blog",
+        "projectModels": "Projektmodelle",
         "contact": "Kontakt",
-        "letsTalk": "Kontaktieren Sie uns"
+        "letsTalk": "Kontaktieren Sie uns",
+        "faq": "FAQ"
     },
     "hero": {
         "tagline": "Digitales Erlebnis Design",
@@ -195,7 +197,9 @@
         "process": "Prozess",
         "caseStudies": "Fallstudien",
         "blogs": "Blog",
+        "projectModels": "Projektmodelle",
         "contact": "Kontakt",
+        "faq": "FAQ",
         "socials": "Soziale Medien",
         "getInTouch": "Kontaktieren Sie uns"
     },
@@ -238,5 +242,259 @@
             "legalNote": "Ihre Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft in den Cookie-Einstellungen widerrufen werden."
         },
         "footerLink": "Einwilligung verwalten"
+    },
+    "projectModels": {
+        "hero": {
+            "h1": "Projektmodelle & Wachstumsstrukturen",
+            "subline": "Digitale Systeme werden individuell strukturiert – als Kaufmodell, Mietlösung oder strategische Beteiligung.",
+            "pills": {
+                "purchase": "Kaufmodell",
+                "rental": "Mietmodell",
+                "participation": "Strategische Beteiligung"
+            },
+            "ctas": {
+                "primary": "Strategieberatung vereinbaren",
+                "secondary": "Modelle vergleichen ↓"
+            }
+        },
+        "financing": {
+            "headline": "Wie möchten Sie Ihr Projekt strukturieren?",
+            "subtext": "Jedes digitale System kann abhängig von Ihren strategischen und finanziellen Zielen individuell strukturiert werden.",
+            "models": {
+                "purchase": {
+                    "title": "Kaufmodell",
+                    "bullets": [
+                        "Einmalige Projektinvestition",
+                        "Vollständiges Eigentum am System",
+                        "Individuelle Architektur & Implementierung",
+                        "Optional kombinierbar mit Wachstumsmodulen"
+                    ],
+                    "note": "Die Investition wird projektspezifisch berechnet.",
+                    "button": "Modell erkunden"
+                },
+                "rental": {
+                    "title": "Mietmodell",
+                    "bullets": [
+                        "Reduzierte Anfangsinvestition",
+                        "Planbare monatliche Struktur",
+                        "Integrierter technischer Support",
+                        "Upgrade oder Umwandlung möglich"
+                    ],
+                    "note": "Laufzeit und Umfang werden individuell festgelegt.",
+                    "button": "Modell erkunden"
+                },
+                "participation": {
+                    "title": "Strategische Beteiligung",
+                    "bullets": [
+                        "Reduzierte Vorabinvestition",
+                        "Umsatzabhängige Beteiligung",
+                        "Langfristige strategische Partnerschaft",
+                        "Verfügbar für ausgewählte Projekte"
+                    ],
+                    "note": "Auswahl basierend auf Marktpotenzial und strategischer Ausrichtung.",
+                    "button": "Partnerschaft anfragen"
+                }
+            }
+        },
+        "growth": {
+            "headline": "Kontinuierliche Optimierung & Wachstum",
+            "intro": "Digitale Systeme erfordern eine laufende Weiterentwicklung. Wachstums-Services können flexibel kombiniert werden – unabhängig vom gewählten Projektmodell.",
+            "modules": {
+                "seo": {
+                    "title": "SEO & Sichtbarkeit",
+                    "desc": "Monatliche Retainer-Struktur. Kontinuierliche Optimierung, Keyword-Strategie und Content-Entwicklung."
+                },
+                "marketing": {
+                    "title": "Performance Marketing",
+                    "desc": "Google Ads, Social Campaigns, Conversion-Optimierung."
+                },
+                "maintenance": {
+                    "title": "Technische Wartung",
+                    "desc": "Updates, Monitoring, Sicherheit, Performance-Stabilität."
+                },
+                "strategy": {
+                    "title": "Strategische Entwicklung",
+                    "desc": "Langfristige digitale Evolution und datengestützte Wachstumsplanung."
+                }
+            },
+            "note": "Der Investitionsrahmen richtet sich nach den strategischen Anforderungen."
+        },
+        "logic": {
+            "headline": "Eine klare strukturelle Logik",
+            "step1": "1. Projektmodell wählen",
+            "step2": "2. Wachstumskomponenten hinzufügen",
+            "text": "Projektfinanzierung und Wachstums-Services sind getrennt strukturiert und können einzeln kombiniert werden. Dies sorgt für maximale Flexibilität und strategische Klarheit."
+        },
+        "finalCta": {
+            "headline": "Welche Struktur passt zu Ihrem Projekt?",
+            "text": "In einer fokussierten Strategiesitzung analysieren wir Ihre Ziele und empfehlen die optimale Kombination aus Projektmodell und Wachstumsstruktur.",
+            "button": "Strategiesitzung buchen"
+        },
+        "megaMenu": {
+            "purchase": {
+                "title": "Kaufmodell",
+                "desc": "Volles Eigentum und langfristige Kontrolle über Ihr digitales Asset.",
+                "cta": "Modell erkunden"
+            },
+            "rental": {
+                "title": "Mietmodell",
+                "desc": "Planbare Investition mit integriertem Support und Wartung.",
+                "cta": "Modell erkunden"
+            },
+            "participation": {
+                "title": "Strategische Beteiligung",
+                "desc": "Kollaboratives Wachstumsmodell mit gemeinsamen Anreizen.",
+                "cta": "Partnerschaft anfragen"
+            },
+            "growth": {
+                "title": "Wachstumsmodule",
+                "items": "SEO, Marketing, Support, Strategie",
+                "cta": "Alle ansehen"
+            }
+        }
+    },
+    "modelPages": {
+        "compareAll": "Alle Projektmodelle vergleichen",
+        "purchase": {
+            "hero": {
+                "headline": "Volles Eigentum. Langfristige Kontrolle.",
+                "subline": "Eine einmalige Projektinvestition mit vollständigem Systembesitz und maximaler architektonischer Flexibilität.",
+                "primaryCTA": "Strategieberatung vereinbaren",
+                "secondaryCTA": "Alle Modelle vergleichen"
+            },
+            "positioning": {
+                "headline": "Für wen dieses Modell entwickelt wurde",
+                "text": "Diese Struktur ist ideal für Unternehmen, die langfristige Unabhängigkeit, vollständiges Asset-Eigentum und maximale Skalierbarkeit ohne wiederkehrende strukturelle Verpflichtungen suchen."
+            },
+            "advantages": {
+                "headline": "Strukturelle Vorteile",
+                "points": [
+                    "Vollständiges Eigentum am digitalen Asset",
+                    "Unabhängige Skalierbarkeit",
+                    "Schaffung von Asset-Wert",
+                    "Optionale Integration von Wachstumsmodulen"
+                ]
+            },
+            "process": {
+                "headline": "Prozessübersicht",
+                "steps": [
+                    "Strategische Definition des Umfangs",
+                    "Architektur & Implementierung",
+                    "Launch & Optionale Wachstums-Integration"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Bauen Sie ein digitales Asset, das Ihnen vollständig gehört",
+                "button": "Strategiesitzung buchen"
+            }
+        },
+        "rental": {
+            "hero": {
+                "headline": "Flexible Struktur. Planbare Investition.",
+                "subline": "Ein reduziertes anfängliches Engagement mit einem strukturierten monatlichen Modell und integriertem technischen Support.",
+                "primaryCTA": "Strategiesitzung vereinbaren",
+                "secondaryCTA": "Alle Modelle vergleichen"
+            },
+            "positioning": {
+                "headline": "Für wen es gedacht ist",
+                "text": "Für Unternehmen, die die Flexibilität des Cashflows priorisieren, während sie dennoch ein hochwertiges digitales System aufbauen."
+            },
+            "advantages": {
+                "headline": "Strukturelle Vorteile",
+                "points": [
+                    "Reduzierte Anfangsinvestition",
+                    "Planbare monatliche Struktur",
+                    "Technische Wartung inklusive",
+                    "Upgrade- oder Buyout-Optionen verfügbar"
+                ]
+            },
+            "process": {
+                "headline": "Wie es funktioniert",
+                "steps": [
+                    "Strategie & Umfang",
+                    "Bereitstellung",
+                    "Laufender Support & Optimierung"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Flexibilität bewahren, ohne Kompromisse bei der Qualität einzugehen",
+                "button": "Strategiesitzung buchen"
+            }
+        },
+        "participation": {
+            "hero": {
+                "headline": "Eine strategische digitale Partnerschaft",
+                "subline": "Reduzierte Vorabinvestition kombiniert mit umsatzabhängiger Beteiligung und langfristiger Ausrichtung.",
+                "primaryCTA": "Partnerschaftsgespräch anfragen",
+                "secondaryCTA": "Alle Modelle vergleichen"
+            },
+            "positioning": {
+                "headline": "Selektives Kollaborationsmodell",
+                "text": "Diese Struktur ist für Projekte mit großem Marktpotenzial und strategischer Übereinstimmung verfügbar. Partnerschaften werden individuell bewertet."
+            },
+            "advantages": {
+                "headline": "Strukturelle Vorteile",
+                "points": [
+                    "Gemeinsame Wachstumsanreize",
+                    "Reduzierte Anfangsinvestition",
+                    "Langfristige strategische Ausrichtung",
+                    "Fokus auf gemeinschaftliche Performance"
+                ]
+            },
+            "process": {
+                "headline": "Bewertungsprozess",
+                "steps": [
+                    "Markt- & Potenzialbewertung",
+                    "Prüfung der strategischen Übereinstimmung",
+                    "Strukturierung der Partnerschaft"
+                ]
+            },
+            "finalCTA": {
+                "headline": "Erkunden Sie eine strategische Wachstumspartnerschaft",
+                "button": "Strategiesitzung anfragen"
+            }
+        }
+    },
+    "faq": {
+        "hero": {
+            "title": "Häufig gestellte Fragen",
+            "subtitle": "Klare Antworten auf die strategischen und strukturellen Aspekte unserer Zusammenarbeit."
+        },
+        "categories": {
+            "models": "Projektmodelle",
+            "growth": "Wachstum & Support",
+            "booking": "Buchung & Beratung"
+        },
+        "items": {
+            "purchase": {
+                "q": "Was genau ist im Kaufmodell enthalten?",
+                "a": "Das Kaufmodell ist auf volles Eigentum ausgelegt. Sie erhalten den kompletten Quellcode, alle Design-Assets und ein voll funktionsfähiges, produktionsbereites digitales Asset. Wir bieten eine umfassende Übergabe und 3 Monate technische Gewährleistung, um einen reibungslosen Übergang zu Ihren internen Teams zu gewährleisten."
+            },
+            "rental": {
+                "q": "Wie geht das Mietmodell mit Skalierbarkeit um?",
+                "a": "Unser Mietmodell ist auf Flexibilität ausgelegt. Während Sie von einer geringeren Anfangsinvestition profitieren, ist die Architektur identisch robust wie bei unseren Kaufsystemen. Wenn Ihre Nutzerbasis wächst, übernehmen wir die Skalierung der Infrastruktur und die Wartung, sodass Sie sich voll und ganz auf Ihr Geschäft konzentrieren können."
+            },
+            "participation": {
+                "q": "Wer qualifiziert sich für eine strategische Beteiligung?",
+                "a": "Die strategische Beteiligung ist unser exklusivstes Modell. Wir suchen nach Projekten mit hohem Wachstumspotenzial, klarer Marktvalidierung und einer starken kulturellen Übereinstimmung. Es ist ein Risikoteilungsmodell, bei dem wir unsere Expertise und Entwicklungskapazität gegen Eigenkapital oder Umsatzbeteiligung investieren."
+            },
+            "seo": {
+                "q": "Sind die Wachstumsmodule obligatorisch?",
+                "a": "Nein. Unsere Wachstumsmodule wie SEO, Performance Marketing und laufende strategische Unterstützung sind optionale Erweiterungen. Sie sind darauf ausgelegt, die Marktpräsenz Ihres digitalen Assets zu beschleunigen, sobald das technische Fundament gelegt ist."
+            },
+            "support": {
+                "q": "Welche Art von Support bieten Sie nach dem Launch an?",
+                "a": "Wir bieten strukturierte Wartungsstufen an, die von grundlegenden Sicherheitsupdates bis hin zur dedizierten technischen Supportverfügbarkeit reichen. Für unsere Miet- und Beteiligungskunden sind Infrastrukturüberwachung und wesentliche Updates in der Regel in das Modell integriert."
+            },
+            "booking": {
+                "q": "Wie starte ich ein Projekt mit Ihnen?",
+                "a": "Der beste Weg zu starten ist die Buchung einer Strategiesitzung über unsere Cal.com-Integration. In diesem 45-minütigen Gespräch bewerten wir Ihre Bedürfnisse, empfehlen das am besten geeignete Projektmodell und definieren die Roadmap für Ihre digitale Transformation."
+            }
+        },
+        "cta": {
+            "title": "Haben Sie noch Fragen?",
+            "text": "Unsere strategischen Berater stehen bereit, um Ihre spezifischen Anforderungen im Detail zu besprechen.",
+            "button": "Strategiesitzung buchen"
+        }
     }
 }

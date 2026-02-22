@@ -8,20 +8,18 @@ export default function TidioChat() {
 
     const api = (window as any).tidioChatApi;
 
-    const hideWidget = () => {
+    const configureWidget = () => {
       const tidioApi = (window as any).tidioChatApi;
       if (tidioApi) {
-        // Hide the default floating bubble — we use our own trigger buttons
-        tidioApi.hide();
+        // We no longer hide the widget as we want the default "black" Tidio button
+        tidioApi.show();
       }
     };
 
     if (api) {
-      // Already ready
-      hideWidget();
+      configureWidget();
     } else {
-      // Wait for the tidioChat-ready event
-      document.addEventListener("tidioChat-ready", hideWidget, { once: true });
+      document.addEventListener("tidioChat-ready", configureWidget, { once: true });
     }
   };
 

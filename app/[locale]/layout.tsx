@@ -66,7 +66,6 @@ export default async function LocaleLayout({
               {children}
               <Footer />
               <CookieConsent />
-              <FloatingChatButton />
             </PanelProvider>
           </TidioChatProvider>
         </NextIntlClientProvider>
