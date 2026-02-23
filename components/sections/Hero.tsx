@@ -228,14 +228,14 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
             href="/contact"
             className="hero-cta-primary group relative inline-flex items-center gap-3 px-8 py-4 font-display font-bold text-sm uppercase tracking-wider rounded-full overflow-hidden transition-all duration-500 hover:scale-[1.03] text-[#040406]"
           >
-            <span className="relative z-10">Start a Project</span>
+            <span className="relative z-10">{t('ctaStart')}</span>
             <ArrowUpRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
             href="/projects"
             className="group inline-flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-display font-bold text-sm uppercase tracking-wider rounded-full transition-all duration-500 hover:border-white/25 hover:bg-white/[0.04] backdrop-blur-sm hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]"
           >
-            <span>View Our Work</span>
+            <span>{t('ctaWork')}</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-gray-400 group-hover:text-white" />
           </a>
         </div>

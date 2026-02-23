@@ -40,7 +40,7 @@ const navItems = [
     }))
   },
   {
-    label: "models",
+    label: "projectModels",
     href: "/project-models",
     dropdown: true,
     items: [
@@ -208,20 +208,9 @@ export default function Header() {
       <LocaleLink href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
         <div className="relative h-10 w-auto flex items-center">
           <img
-            src="/logo/atriona-dark.png"
-            alt="Atriona"
-            className={clsx(
-              "h-10 w-auto object-contain transition-opacity duration-500 absolute top-0 left-0",
-              isLightMode ? "opacity-100" : "opacity-0"
-            )}
-          />
-          <img
             src="/logo/atriona-white.png"
             alt="Atriona"
-            className={clsx(
-              "h-10 w-auto object-contain transition-opacity duration-500",
-              isLightMode ? "opacity-0" : "opacity-100"
-            )}
+            className="h-10 w-auto object-contain transition-opacity duration-500"
           />
           <span className="w-2 h-2 rounded-full bg-[#00b4d9] absolute -top-1 -right-2"></span>
         </div>
@@ -528,27 +517,27 @@ export default function Header() {
             )}
           >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-6" />
-            <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 min-w-[700px] min-h-[220px] flex flex-col justify-between">
-              <div className="grid grid-cols-2 gap-x-10 gap-y-2">
+            <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl shadow-black/50 min-w-[450px] flex flex-col justify-between">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-0">
                 <div className="col-span-2 mb-4">
-                  <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">{t('company')}</h4>
-                  <p className="text-white font-display font-medium text-lg">{t('learnMoreAboutUs')}</p>
+                  <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">Other pages</h4>
+                  <p className="text-white font-display font-medium text-lg"></p>
                 </div>
-                <LocaleLink href="/about" className="group flex flex-col gap-1 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
+                <LocaleLink href="/about" className="group flex flex-col gap-1 py-2 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
                   <span className="text-base font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300">{t('about')}</span>
-                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">{t('aboutDesc')}</span>
+                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic"></span>
                 </LocaleLink>
-                <LocaleLink href="/blog" className="group flex flex-col gap-1 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
+                <LocaleLink href="/blog" className="group flex flex-col gap-1 py-2 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
                   <span className="text-base font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300">{t('blogs')}</span>
-                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">{t('blogDesc')}</span>
+                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic"></span>
                 </LocaleLink>
-                <LocaleLink href="/faq" className="group flex flex-col gap-1 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
+                <LocaleLink href="/faq" className="group flex flex-col gap-1 py-2 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
                   <span className="text-base font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300">{t('faq')}</span>
-                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">{t('faqDesc')}</span>
+                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic"></span>
                 </LocaleLink>
-                <LocaleLink href="/contact" className="group flex flex-col gap-1 py-4 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
+                <LocaleLink href="/contact" className="group flex flex-col gap-1 py-2 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
                   <span className="text-base font-bold text-white group-hover:text-[#00b4d9] transition-colors duration-300">{t('contact')}</span>
-                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic">{t('contactDesc')}</span>
+                  <span className="text-[11px] text-gray-500 group-hover:text-gray-400 transition-colors duration-300 line-clamp-1 italic"></span>
                 </LocaleLink>
               </div>
             </div>

@@ -1,10 +1,4 @@
 {
-    "cookies": {
-        "imprint": "Impressum",
-        "banner": {
-            "privacyPolicy": "Datenschutzerklärung"
-        }
-    },
     "nav": {
         "home": "Startseite",
         "about": "Über uns",
@@ -16,7 +10,8 @@
         "projectModels": "Projektmodelle",
         "contact": "Kontakt",
         "letsTalk": "Kontaktieren Sie uns",
-        "faq": "FAQ"
+        "faq": "FAQ",
+        "company": "Unternehmen"
     },
     "hero": {
         "tagline": "Digitales Erlebnis Design",
@@ -30,7 +25,9 @@
         "location": "San Francisco",
         "since": "Seit",
         "year": "2024",
-        "ticker": "STRATEGIE • DESIGN • ENTWICKLUNG • MOTION • "
+        "ticker": "STRATEGIE • DESIGN • ENTWICKLUNG • MOTION • ",
+        "ctaStart": "Projekt starten",
+        "ctaWork": "Arbeiten ansehen"
     },
     "services": {
         "expertise": "Unsere Expertise",
@@ -214,6 +211,7 @@
         "german": "Deutsch"
     },
     "cookies": {
+        "imprint": "Impressum",
         "banner": {
             "title": "Wir schätzen Ihre Privatsphäre",
             "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Traffic zu analysieren und relevante Inhalte bereitzustellen. Wir verarbeiten Daten auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",

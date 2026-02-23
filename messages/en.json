@@ -10,7 +10,8 @@
         "projectModels": "Project Models",
         "contact": "Contact Us",
         "letsTalk": "Let's Talk",
-        "faq": "FAQ"
+        "faq": "FAQ",
+        "company": "Company"
     },
     "hero": {
         "tagline": "Digital Experience Design",
@@ -24,7 +25,9 @@
         "location": "San Francisco",
         "since": "Since",
         "year": "2024",
-        "ticker": "STRATEGY • DESIGN • DEVELOPMENT • MOTION • "
+        "ticker": "STRATEGY • DESIGN • DEVELOPMENT • MOTION • ",
+        "ctaStart": "Start a Project",
+        "ctaWork": "View Our Work"
     },
     "services": {
         "expertise": "Our Expertise",
@@ -208,6 +211,7 @@
         "german": "Deutsch"
     },
     "cookies": {
+        "imprint": "Imprint",
         "banner": {
             "title": "We value your privacy",
             "description": "We use cookies to enhance your experience, analyze traffic and provide relevant content. We process data based on your consent (Art. 6 Para. 1 lit. a GDPR).",
