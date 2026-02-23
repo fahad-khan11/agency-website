@@ -1,4 +1,10 @@
 {
+    "cookies": {
+        "imprint": "Impressum",
+        "banner": {
+            "privacyPolicy": "Datenschutzerklärung"
+        }
+    },
     "nav": {
         "home": "Startseite",
         "about": "Über uns",
