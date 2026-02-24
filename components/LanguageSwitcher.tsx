@@ -21,27 +21,21 @@ export default function LanguageSwitcher({ isLightMode = false }: LanguageSwitch
     router.push(`/${newLocale}${pathWithoutLocale}`);
   };
 
+  const targetLocale = locales.find(loc => loc !== locale) || (locale === 'en' ? 'de' : 'en');
+
   return (
     <div className="flex items-center gap-2">
-      {locales.map((loc) => (
-        <button
-          key={loc}
-          onClick={() => switchLocale(loc)}
-          disabled={locale === loc}
-          className={clsx(
-            "px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300",
-            locale === loc
-              ? isLightMode
-                ? "bg-black text-white cursor-not-allowed"
-                : "bg-white text-black cursor-not-allowed"
-              : isLightMode
-                ? "bg-transparent text-gray-600 hover:bg-black/10 hover:text-black"
-                : "bg-transparent text-gray-400 hover:bg-white/10 hover:text-white"
-          )}
-        >
-          {loc.toUpperCase()}
-        </button>
-      ))}
+      <button
+        onClick={() => switchLocale(targetLocale)}
+        className={clsx(
+          "px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300",
+          isLightMode
+            ? "bg-transparent text-gray-600 hover:bg-black/10 hover:text-black"
+            : "bg-transparent text-gray-400 hover:bg-white/10 hover:text-white"
+        )}
+      >
+        {targetLocale.toUpperCase()}
+      </button>
     </div>
   );
 }
