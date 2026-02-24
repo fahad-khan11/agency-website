@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Instagram, Twitter, Facebook } from "lucide-react";
+import { Instagram, Twitter, Facebook, ChevronDown } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import LocaleLink from '../LocaleLink';
 
@@ -98,15 +98,31 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
          <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-4 text-[10px] text-gray-500">
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                <p>{t('rights')}</p>
-               <div className="flex gap-4 md:gap-6">
-                  <LocaleLink href="/imprint" className="hover:text-white transition-colors">{tc('imprint')}</LocaleLink>
-                  <LocaleLink href="/DataProtectionDeclaration" className="hover:text-white transition-colors">{tc('banner.privacyPolicy')}</LocaleLink>
-                  <button
-                     onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
-                     className="hover:text-white transition-colors cursor-pointer"
-                  >
-                     {tc('footerLink')}
-                  </button>
+               <div className="flex gap-6 items-center">
+                  <div className="relative group">
+                     <button className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer group text-[10px] md:text-xs uppercase tracking-widest font-bold">
+                        {tc('legal')}
+                        <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
+                     </button>
+                     <div className="absolute bottom-full left-0 mb-4 w-56 bg-[#0A0A0A]/90 border border-white/10 rounded-2xl p-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 backdrop-blur-2xl z-50">
+                        <LocaleLink href="/imprint" className="block w-full px-4 py-2.5 hover:bg-white/5 rounded-xl text-[10px] md:text-xs transition-colors text-gray-400 hover:text-[#00B4D9]">
+                           {tc('imprint')}
+                        </LocaleLink>
+                        <LocaleLink href="/DataProtectionDeclaration" className="block w-full px-4 py-2.5 hover:bg-white/5 rounded-xl text-[10px] md:text-xs transition-colors text-gray-400 hover:text-[#00B4D9]">
+                           {tc('banner.privacyPolicy')}
+                        </LocaleLink>
+                        <LocaleLink href="/terms" className="block w-full px-4 py-2.5 hover:bg-white/5 rounded-xl text-[10px] md:text-xs transition-colors text-gray-400 hover:text-[#00B4D9]">
+                           {tc('terms')}
+                        </LocaleLink>
+                        <div className="my-1 border-t border-white/5" />
+                        <button
+                           onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
+                           className="block w-full text-left px-4 py-2.5 hover:bg-white/5 rounded-xl text-[10px] md:text-xs transition-colors text-gray-400 hover:text-[#00B4D9]"
+                        >
+                           {tc('footerLink')}
+                        </button>
+                     </div>
+                  </div>
                </div>
             </div>
 

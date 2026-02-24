@@ -211,7 +211,9 @@
         "german": "Deutsch"
     },
     "cookies": {
+        "legal": "Rechtliches",
         "imprint": "Impressum",
+        "terms": "AGB",
         "banner": {
             "title": "Wir schätzen Ihre Privatsphäre",
             "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Traffic zu analysieren und relevante Inhalte bereitzustellen. Wir verarbeiten Daten auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
