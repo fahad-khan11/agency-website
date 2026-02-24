@@ -12,9 +12,11 @@ interface ConsentSettings {
     functional: boolean;
     analytics: boolean;
     marketing: boolean;
+    timestamp?: number;
 }
 
 const STORAGE_KEY = "atriona_cookie_consent";
+const EXPIRY_TIME = 180 * 24 * 60 * 60 * 1000; // 6 months (180 days) in milliseconds
 
 export default function CookieConsent() {
     const t = useTranslations("cookies");
@@ -33,8 +35,16 @@ export default function CookieConsent() {
             setShowBanner(true);
         } else {
             try {
-                const parsed = JSON.parse(saved);
-                setSettings(parsed);
+                const parsed = JSON.parse(saved) as ConsentSettings;
+                const now = Date.now();
+
+                // Check if consent has expired
+                if (parsed.timestamp && (now - parsed.timestamp) > EXPIRY_TIME) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    setShowBanner(true);
+                } else {
+                    setSettings(parsed);
+                }
             } catch (e) {
                 setShowBanner(true);
             }
@@ -47,13 +57,17 @@ export default function CookieConsent() {
     }, []);
 
     const saveConsent = (newSettings: ConsentSettings) => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(newSettings));
-        setSettings(newSettings);
+        const settingsWithTimestamp = {
+            ...newSettings,
+            timestamp: Date.now()
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(settingsWithTimestamp));
+        setSettings(settingsWithTimestamp);
         setShowBanner(false);
         setShowModal(false);
 
         // Trigger event for other components (e.g. Google Analytics)
-        window.dispatchEvent(new CustomEvent("cookieConsentUpdate", { detail: newSettings }));
+        window.dispatchEvent(new CustomEvent("cookieConsentUpdate", { detail: settingsWithTimestamp }));
     };
 
     const handleAcceptAll = () => {

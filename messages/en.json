@@ -211,7 +211,9 @@
         "german": "Deutsch"
     },
     "cookies": {
+        "legal": "Legal",
         "imprint": "Imprint",
+        "terms": "Terms & Conditions",
         "banner": {
             "title": "We value your privacy",
             "description": "We use cookies to enhance your experience, analyze traffic and provide relevant content. We process data based on your consent (Art. 6 Para. 1 lit. a GDPR).",
