@@ -17,7 +17,8 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
    const t = useTranslations('footer');
    const tc = useTranslations('cookies');
 
-   if (pathname === "/" && !asPanel) return null;
+   const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
+   if (isHome && !asPanel) return null;
 
    return (
       <footer className={`bg-black text-white py-6 md:py-10 px-6 md:px-12 flex flex-col justify-between overflow-y-auto no-scrollbar inner-panel-scroll ${className || ""}`} id="global-footer">

@@ -21,7 +21,7 @@ export default function Home() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -38,7 +38,7 @@ export default function Home() {
         <OrangeStatement />
         <Process />
         <Testimonials />
-        <Footer className="min-h-screen" />
+        <Footer asPanel className="min-h-screen" />
       </div>
     );
   }
