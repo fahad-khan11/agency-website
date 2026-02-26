@@ -190,11 +190,11 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         </div>
 
         {/* Main Title */}
-        <h1 className="font-display font-black text-center leading-[0.85] tracking-tighter uppercase relative mb-4">
-          <div className="hero-title-line text-[16vw] sm:text-[14vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[8.5vw]">
+        <h1 className="font-display font-black text-center leading-[1] sm:leading-[0.85] tracking-tighter uppercase relative mb-4 flex flex-col items-center">
+          <div className="hero-title-line text-[12vw] sm:text-[13vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[8.5vw] whitespace-nowrap">
             {splitText(t('title1'))}
           </div>
-          <div className="hero-title-line text-[16vw] sm:text-[14vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[8.5vw] flex items-baseline justify-center gap-[0.15em]">
+          <div className="hero-title-line text-[10vw] sm:text-[10.5vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[8.5vw] flex flex-wrap items-baseline justify-center gap-x-[0.15em] gap-y-1 sm:gap-y-0 mt-2 sm:mt-0">
             <span className="inline-flex">
               {t('title2').split("").map((char, i) => (
                 <span key={i} className="inline-block overflow-hidden" style={{ perspective: "600px" }}>
@@ -210,6 +210,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
           </div>
         </h1>
 
+        {/* Accent line */}
         {/* Accent line */}
         <div className="hero-accent-line h-[2px] w-[200px] sm:w-[280px] bg-gradient-to-r from-transparent via-[#00B4D9] to-transparent mb-8 origin-center"></div>
 
