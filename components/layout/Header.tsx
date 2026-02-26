@@ -84,6 +84,7 @@ export default function Header() {
   const [mobileCaseStudiesOpen, setMobileCaseStudiesOpen] = useState(false);
   const [mobileBlogsOpen, setMobileBlogsOpen] = useState(false);
   const [mobileModelsOpen, setMobileModelsOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const { navigateToPanel, activeIndex } = usePanel();
   const { openTidioChat } = useTidioChat();
   const pathname = usePathname();
@@ -194,6 +195,7 @@ export default function Header() {
     setMobileCaseStudiesOpen(false);
     setMobileBlogsOpen(false);
     setMobileModelsOpen(false);
+    setMobileCompanyOpen(false);
   };
 
 
@@ -206,13 +208,13 @@ export default function Header() {
     >
       {/* Logo */}
       <LocaleLink href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
-        <div className="relative h-10 w-auto flex items-center">
+        <div className="relative h-16 md:h-20 w-auto flex items-center">
           <img
             src="/logo/atriona-white.png"
             alt="Atriona"
-            className="h-10 w-auto object-contain transition-opacity duration-500"
+            className="h-16 md:h-20 w-auto object-contain transition-opacity duration-500"
           />
-          <span className="w-2 h-2 rounded-full bg-[#00b4d9] absolute -top-1 -right-2"></span>
+          <span className="w-3 h-3 rounded-full bg-[#00b4d9] absolute -top-1 -right-4"></span>
         </div>
       </LocaleLink>
 
@@ -278,7 +280,7 @@ export default function Header() {
                   className="flex items-center justify-center gap-2 text-sm font-bold text-[#00b4d9] hover:text-white transition-colors duration-300 group"
                   onClick={() => setMegaMenuOpen(false)}
                 >
-                  <span>View All Services</span>
+                  <span>{t('viewAllServices')}</span>
                   <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </LocaleLink>
               </div>
@@ -343,7 +345,7 @@ export default function Header() {
                   className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#00b4d9] transition-all duration-300 group"
                   onClick={() => setIndustriesMenuOpen(false)}
                 >
-                  <span>Explore all industries & use cases</span>
+                  <span>{t('exploreAllIndustries')}</span>
                   <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00b4d9]/50 group-hover:bg-[#00b4d9]/10">
                     <MoveRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
                   </div>
@@ -367,7 +369,7 @@ export default function Header() {
               isLightMode ? "text-gray-600 hover:text-black" : "text-gray-300 hover:text-white"
             )}
           >
-            Models <span className="text-xs">▾</span>
+            {t("projectModels")} <span className="text-xs">▾</span>
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#161616] transition-all duration-300 group-hover:w-full"></span>
           </LocaleLink>
           <div
@@ -412,7 +414,7 @@ export default function Header() {
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[10px] font-bold uppercase tracking-wider mb-6">
                       <TrendingUp className="w-3 h-3 text-[#00b4d9]" />
-                      Optional
+                      {t('optional')}
                     </div>
                     <h4 className="text-lg font-display font-bold text-white mb-4">{pmT("growth.title")}</h4>
                     <p className="text-sm text-gray-400 leading-relaxed mb-6">
@@ -485,7 +487,7 @@ export default function Header() {
                   className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-[#00b4d9] transition-all duration-300 group"
                   onClick={() => setCaseStudiesMenuOpen(false)}
                 >
-                  <span>View All Projects</span>
+                  <span>{t('viewAllProjects')}</span>
                   <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#00b4d9]/50 group-hover:bg-[#00b4d9]/10">
                     <MoveRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
                   </div>
@@ -508,7 +510,7 @@ export default function Header() {
             )}
             tabIndex={0}
           >
-            Company <span className="ml-1 text-xs">▾</span>
+            {t("company")} <span className="ml-1 text-xs">▾</span>
           </button>
           <div
             className={clsx(
@@ -520,7 +522,7 @@ export default function Header() {
             <div className="bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl shadow-black/50 min-w-[450px] flex flex-col justify-between">
               <div className="grid grid-cols-2 gap-x-6 gap-y-0">
                 <div className="col-span-2 mb-4">
-                  <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">Other pages</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b4d9] mb-1">{t('otherPages')}</h4>
                   <p className="text-white font-display font-medium text-lg"></p>
                 </div>
                 <LocaleLink href="/about" className="group flex flex-col gap-1 py-2 border-b border-white/5 hover:border-[#00b4d9]/30 transition-all duration-300">
@@ -810,6 +812,69 @@ export default function Header() {
                         className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-[#00b4d9]"
                       >
                         Visit Magazine
+                      </LocaleLink>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            // Special handling for Company in mobile menu
+            if (item.label === "company") {
+              return (
+                <div
+                  key={item.label}
+                  className={clsx(
+                    "flex flex-col items-center transform transition-all duration-300",
+                    mobileMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 100}ms` : "0ms"
+                  }}
+                >
+                  <button
+                    onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+                    className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-wide text-white hover:text-[#00b4d9] transition-all duration-300"
+                  >
+                    {t(item.label)}
+                  </button>
+
+                  <div
+                    className={clsx(
+                      "overflow-hidden transition-all duration-300 mt-4",
+                      mobileCompanyOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="flex flex-col gap-3 text-center">
+                      <LocaleLink
+                        href="/about"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
+                      >
+                        {t('about')}
+                      </LocaleLink>
+                      <LocaleLink
+                        href="/blog"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
+                      >
+                        {t('blogs')}
+                      </LocaleLink>
+                      <LocaleLink
+                        href="/faq"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
+                      >
+                        {t('faq')}
+                      </LocaleLink>
+                      <LocaleLink
+                        href="/contact"
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="text-base sm:text-lg text-gray-300 hover:text-[#00b4d9] transition-colors duration-300"
+                      >
+                        {t('contact')}
                       </LocaleLink>
                     </div>
                   </div>

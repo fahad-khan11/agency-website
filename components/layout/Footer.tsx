@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Instagram, Twitter, Facebook, ChevronDown } from "lucide-react";
+import { Instagram, Twitter, Facebook, ChevronDown, Linkedin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import LocaleLink from '../LocaleLink';
+import clsx from "clsx";
 
 const XingIcon = ({ className }: { className?: string }) => (
    <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -16,6 +18,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
    const pathname = usePathname();
    const t = useTranslations('footer');
    const tc = useTranslations('cookies');
+   const [isLegalOpen, setIsLegalOpen] = useState(false);
 
    const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
    if (isHome && !asPanel) return null;
@@ -30,7 +33,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                   <img
                      src="/logo/atriona-white.png"
                      alt="Atriona"
-                     className="h-7 md:h-9 w-auto object-contain transition-opacity duration-500"
+                     className="h-12 md:h-16 w-auto object-contain transition-opacity duration-500"
                   />
                </Link>
                <p className="text-gray-400 max-w-xs leading-relaxed text-xs">
@@ -64,6 +67,10 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                   <Link target="_blank" href="https://www.facebook.com/atriona.digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
                      <Facebook className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                      <span>Facebook</span>
+                  </Link>
+                  <Link target="_blank" href="https://www.linkedin.com/company/atriona-digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
+                     <Linkedin className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                     <span>LinkedIn</span>
                   </Link>
                   <Link target="_blank" href="https://www.instagram.com/atriona.digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
                      <Instagram className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
@@ -99,12 +106,18 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                <p>{t('rights')}</p>
                <div className="flex gap-6 items-center">
-                  <div className="relative group">
-                     <button className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer group text-[10px] md:text-xs uppercase tracking-widest font-bold">
+                  <div className="relative group" onMouseLeave={() => setIsLegalOpen(false)}>
+                     <button
+                        onClick={() => setIsLegalOpen(!isLegalOpen)}
+                        className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer group text-[10px] md:text-xs uppercase tracking-widest font-bold"
+                     >
                         {tc('legal')}
-                        <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
+                        <ChevronDown className={clsx("w-3 h-3 transition-transform duration-300", (isLegalOpen) && "rotate-180")} />
                      </button>
-                     <div className="absolute bottom-full left-0 mb-4 w-56 bg-[#0A0A0A]/90 border border-white/10 rounded-2xl p-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 backdrop-blur-2xl z-50">
+                     <div className={clsx(
+                        "absolute bottom-full left-0 mb-4 w-56 bg-[#0A0A0A]/90 border border-white/10 rounded-2xl p-2 shadow-2xl transition-all duration-300 backdrop-blur-2xl z-50",
+                        isLegalOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2 md:group-hover:opacity-100 md:group-hover:visible md:group-hover:translate-y-0"
+                     )}>
                         <LocaleLink href="/imprint" className="block w-full px-4 py-2.5 hover:bg-white/5 rounded-xl text-[10px] md:text-xs transition-colors text-gray-400 hover:text-[#00B4D9]">
                            {tc('imprint')}
                         </LocaleLink>
@@ -130,6 +143,9 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                <Link href="https://www.facebook.com/atriona.digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Facebook" target="_blank">
                   <Facebook className="w-4 h-4" />
                </Link>
+               <Link href="https://www.linkedin.com/company/atriona-digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="LinkedIn" target="_blank">
+                  <Linkedin className="w-4 h-4" />
+               </Link>
                <Link href="https://www.instagram.com/atriona.digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Instagram" target="_blank">
                   <Instagram className="w-4 h-4" />
                </Link>
@@ -141,7 +157,6 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                </Link>
             </div>
          </div>
-      </footer >
-
+      </footer>
    );
 }

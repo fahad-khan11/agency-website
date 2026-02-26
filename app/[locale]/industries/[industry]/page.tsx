@@ -274,12 +274,12 @@ export default function IndustryDetailPage(props: { params: Promise<{ industry: 
                         >
                             {t.page.bookDemo}
                         </Link>
-                        <Link
+                        {/* <Link
                             href="/contact"
                             className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold uppercase tracking-wide rounded-full hover:bg-white/10 hover:border-white transition-all duration-300"
                         >
                             {t.page.talkToExpert}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </section>
