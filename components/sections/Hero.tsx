@@ -211,6 +211,7 @@ export default function Hero({ isActive }: { isActive?: boolean }) {
         </h1>
 
         {/* Accent line */}
+        {/* Accent line */}
         <div className="hero-accent-line h-[2px] w-[200px] sm:w-[280px] bg-gradient-to-r from-transparent via-[#00B4D9] to-transparent mb-8 origin-center"></div>
 
         {/* Description */}
