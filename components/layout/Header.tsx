@@ -202,17 +202,17 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-[100] transition-all duration-300 px-6 md:px-12 py-4 flex justify-between items-center",
+        "fixed top-0 left-0 w-full z-[100] transition-all duration-300 px-6 min-[810px]:px-12 py-4 flex justify-between items-center",
         scrolled ? "bg-black/80 backdrop-blur-md py-3" : "bg-transparent"
       )}
     >
       {/* Logo */}
       <LocaleLink href="/" className="flex items-center gap-2 group z-50 relative" onClick={(e) => handleNavClick(e, { label: "Home", href: "/", panelIndex: 0 })}>
-        <div className="relative h-16 md:h-20 w-auto flex items-center">
+        <div className="relative h-16 min-[810px]:h-20 w-auto flex items-center">
           <img
             src="/logo/atriona-white.png"
             alt="Atriona"
-            className="h-16 md:h-20 w-auto object-contain transition-opacity duration-500"
+            className="h-16 min-[810px]:h-20 w-auto object-contain transition-opacity duration-500"
           />
           <span className="w-3 h-3 rounded-full bg-[#00b4d9] absolute -top-1 -right-4"></span>
         </div>
@@ -220,7 +220,7 @@ export default function Header() {
 
       {/* Desktop Nav - Themed Mega Menus for main items, dropdown for Company */}
       <nav className={clsx(
-        "hidden md:flex gap-6 items-center px-6 py-2.5 rounded-full border transition-all duration-500 backdrop-blur-sm",
+        "flex max-[809px]:hidden gap-6 items-center px-6 py-2.5 rounded-full border transition-all duration-500 backdrop-blur-sm",
         isLightMode
           ? "bg-black/5 border-black/10"
           : "bg-white/5 border-white/10 hover:bg-white/10"
@@ -549,7 +549,7 @@ export default function Header() {
       </nav>
 
       {/* Desktop CTA Button */}
-      <div className="hidden md:flex items-center gap-2 z-50">
+      <div className="flex max-[809px]:hidden items-center gap-2 z-50">
         <LocaleLink
           href="/contact"
           className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide px-5 py-2 rounded-full bg-[#00b4d9] text-white hover:bg-white hover:text-black transition-all duration-300 shadow"
@@ -563,7 +563,7 @@ export default function Header() {
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={clsx(
-          "md:hidden z-[10000] text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 transition-colors duration-300 relative",
+          "flex min-[810px]:hidden z-[10000] text-xs sm:text-sm font-bold uppercase tracking-wide items-center gap-1.5 transition-colors duration-300 relative",
           mobileMenuOpen
             ? "text-white"
             : isLightMode
@@ -584,7 +584,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       <div
         className={clsx(
-          "fixed inset-0 bg-black backdrop-blur-lg md:hidden transition-all duration-500",
+          "fixed inset-0 bg-black backdrop-blur-lg max-[809px]:block hidden transition-all duration-500",
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
         style={{
