@@ -138,8 +138,8 @@ export default function CookieConsent() {
                             </div>
 
                             <div className="mt-5 pt-4 border-t border-white/5 flex justify-center">
-                                <LocaleLink href="/DataProtectionDeclaration" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]" title="Datenschutzerklärung & Impressum">
-                                    {t('banner.privacyPolicy')} & Impressum
+                                <LocaleLink href="/DataProtectionDeclaration" className="text-[10px] md:text-xs text-gray-500 hover:text-[#00B4D9] transition-colors uppercase tracking-[0.2em]" title={t('banner.privacyPolicy')}>
+                                    {t('banner.privacyPolicy')}
                                 </LocaleLink>
                             </div>
                         </div>
@@ -218,7 +218,7 @@ export default function CookieConsent() {
                                         onClick={() => setShowModal(false)}
                                     >
                                         <ShieldCheck className="w-2.5 h-2.5" />
-                                        {t('banner.privacyPolicy')} & Impressum
+                                        {t('banner.privacyPolicy')}
                                     </LocaleLink>
                                 </div>
                             </div>

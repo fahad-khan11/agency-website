@@ -7,11 +7,16 @@
         "process": "Prozess",
         "caseStudies": "Fallstudien",
         "blogs": "Blog",
-        "projectModels": "Projektmodelle",
+        "projectModels": "Modelle",
+        "company": "Unternehmen",
         "contact": "Kontakt",
         "letsTalk": "Kontaktieren Sie uns",
         "faq": "FAQ",
-        "company": "Unternehmen"
+        "viewAllServices": "Alle Services ansehen",
+        "exploreAllIndustries": "Alle Branchen erkunden",
+        "viewAllProjects": "Alle Projekte ansehen",
+        "otherPages": "Weitere Seiten",
+        "optional": "Optional"
     },
     "hero": {
         "tagline": "Digitales Erlebnis Design",
