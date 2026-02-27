@@ -36,7 +36,7 @@ export default function PrivacyPage() {
     }, []);
 
     return (
-        <main className="pt-40 pb-24 px-6 md:px-12 max-w-5xl mx-auto min-h-screen">
+        <main className="pt-40 pb-24 px-4 sm:px-6 md:px-12 max-w-5xl w-full mx-auto min-h-screen overflow-x-hidden">
             {/* Inject global styles for the embedded content directly */}
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -48,6 +48,7 @@ export default function PrivacyPage() {
                     color: #000 !important;
                     border-bottom: 3px solid #00B4D9;
                     padding-bottom: 1.5rem;
+                    word-break: break-word !important;
                 }
                 .itrk-legaltext-wrapper h2 {
                     font-size: 2.25rem !important;
@@ -56,12 +57,14 @@ export default function PrivacyPage() {
                     margin-bottom: 1.5rem !important;
                     line-height: 1.2 !important;
                     color: #000 !important;
+                    word-break: break-word !important;
                 }
                 .itrk-legaltext-wrapper h3 {
                     font-size: 1.75rem !important;
                     font-weight: 700 !important;
                     margin-top: 3rem !important;
                     color: #111 !important;
+                    word-break: break-word !important;
                 }
                 .itrk-legaltext-wrapper p, 
                 .itrk-legaltext-wrapper li, 
@@ -70,6 +73,8 @@ export default function PrivacyPage() {
                     line-height: 1.8 !important;
                     color: #333 !important;
                     margin-bottom: 1.75rem !important;
+                    word-break: break-word !important;
+                    overflow-wrap: break-word !important;
                 }
                 .itrk-legaltext-wrapper ul, 
                 .itrk-legaltext-wrapper ol {
@@ -82,13 +87,44 @@ export default function PrivacyPage() {
                     min-height: 1200px !important;
                     background: white !important;
                 }
+                @media (max-width: 768px) {
+                    .itrk-legaltext-wrapper h1 {
+                        font-size: 1.75rem !important;
+                        margin-bottom: 1.25rem !important;
+                        padding-bottom: 1rem;
+                    }
+                    .itrk-legaltext-wrapper h2 {
+                        font-size: 1.35rem !important;
+                        margin-top: 2.5rem !important;
+                        margin-bottom: 0.75rem !important;
+                    }
+                    .itrk-legaltext-wrapper h3 {
+                        font-size: 1.15rem !important;
+                        margin-top: 2rem !important;
+                    }
+                    .itrk-legaltext-wrapper p,
+                    .itrk-legaltext-wrapper li,
+                    .itrk-legaltext-wrapper div {
+                        font-size: 0.95rem !important;
+                        line-height: 1.7 !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    .itrk-legaltext-wrapper ul,
+                    .itrk-legaltext-wrapper ol {
+                        padding-left: 1.25rem !important;
+                        margin-bottom: 1.5rem !important;
+                    }
+                    .itrk-legaltext-wrapper iframe {
+                        min-height: 800px !important;
+                    }
+                }
             `}} />
 
             <header className="mb-20 text-center md:text-left">
                 <div className="inline-block px-5 py-2 mb-8 rounded-full bg-[#00B4D9]/10 border border-[#00B4D9]/20 text-[#00B4D9] text-sm font-bold uppercase tracking-[0.3em]">
                     Transparency / {locale === 'de' ? 'Datenschutz' : 'Privacy'}
                 </div>
-                <h1 className="text-5xl md:text-8xl font-bold font-display mb-8 bg-gradient-to-br from-white via-white to-gray-500 bg-clip-text text-transparent tracking-tighter leading-[0.9]">
+                <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold font-display mb-8 bg-gradient-to-br from-white via-white to-gray-500 bg-clip-text text-transparent tracking-tighter leading-[0.95] md:leading-[0.9]">
                     {pt('title')}
                 </h1>
                 <div className="h-2 w-40 bg-[#00B4D9] rounded-full mx-auto md:mx-0 shadow-[0_0_30px_rgba(0,180,217,0.5)]" />
@@ -99,9 +135,9 @@ export default function PrivacyPage() {
                 <div className="absolute -top-60 -right-60 w-[500px] h-[500px] bg-[#00B4D9]/10 rounded-full blur-[150px] pointer-events-none" />
                 <div className="absolute -bottom-60 -left-60 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none" />
 
-                <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[4rem] p-2 md:p-4 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
-                    <div className="bg-white rounded-[3.2rem] overflow-hidden min-h-[900px]">
-                        <div className="itrk-legaltext-wrapper p-10 md:p-20 lg:p-28">
+                <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] p-2 md:p-4 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
+                    <div className="bg-white rounded-[1.6rem] sm:rounded-[2.5rem] md:rounded-[3.2rem] overflow-hidden min-h-[900px]">
+                        <div className="itrk-legaltext-wrapper p-5 sm:p-8 md:p-20 lg:p-28">
                             {/* Manual Heading to ensure it looks great regardless of script behavior */}
 
 
@@ -131,14 +167,14 @@ export default function PrivacyPage() {
             {/* Cookie Policy Interaction */}
             <div className="mt-32 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00B4D9]/20 via-transparent to-[#0092B0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <div className="relative p-12 md:p-20 bg-white/[0.02] border border-white/5 rounded-[3.5rem] backdrop-blur-3xl transition-all duration-700 hover:border-[#00B4D9]/30">
+                <div className="relative p-6 sm:p-10 md:p-20 bg-white/[0.02] border border-white/5 rounded-[2rem] sm:rounded-[3rem] md:rounded-[3.5rem] backdrop-blur-3xl transition-all duration-700 hover:border-[#00B4D9]/30">
                     <div className="flex flex-col items-center text-center gap-10">
                         <div className="max-w-4xl">
                             <div className="flex flex-col items-center gap-8 mb-10">
                                 <div className="p-6 bg-[#00B4D9] rounded-[2rem] shadow-2xl shadow-[#00B4D9]/40 transform group-hover:rotate-12 transition-transform duration-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
                                 </div>
-                                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-display tracking-tighter whitespace-nowrap">
+                                <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white font-display tracking-tighter">
                                     {pt('sections.cookies.title')}
                                 </h2>
                             </div>
@@ -149,7 +185,7 @@ export default function PrivacyPage() {
 
                         <button
                             onClick={() => window.dispatchEvent(new Event('openCookieSettings'))}
-                            className="group/btn relative px-16 py-8 bg-[#00B4D9] hover:bg-white text-black font-black uppercase tracking-[0.3em] text-sm rounded-[2.5rem] transition-all duration-700 shadow-[0_20px_60px_-10px_rgba(0,180,217,0.6)] hover:shadow-white/20 active:scale-95"
+                            className="group/btn relative px-8 sm:px-16 py-5 sm:py-8 bg-[#00B4D9] hover:bg-white text-black font-black uppercase tracking-[0.15em] sm:tracking-[0.3em] text-sm rounded-[2rem] sm:rounded-[2.5rem] transition-all duration-700 shadow-[0_20px_60px_-10px_rgba(0,180,217,0.6)] hover:shadow-white/20 active:scale-95"
                         >
                             <span className="relative z-10 flex items-center gap-5">
                                 {pt('sections.cookies.button')}

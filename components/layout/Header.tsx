@@ -959,7 +959,7 @@ export default function Header() {
           {/* Mobile Language Switcher */}
           <div
             className={clsx(
-              "transform transition-all duration-300",
+              "flex flex-col items-center gap-3 transform transition-all duration-300",
               mobileMenuOpen
                 ? "translate-y-0 opacity-100"
                 : "translate-y-4 opacity-0"
@@ -968,6 +968,7 @@ export default function Header() {
               transitionDelay: mobileMenuOpen ? `${navItems.length * 100}ms` : "0ms"
             }}
           >
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-600">Language</span>
             <LanguageSwitcher isLightMode={false} />
           </div>
 
