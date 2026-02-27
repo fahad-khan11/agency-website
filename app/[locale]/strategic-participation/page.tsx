@@ -20,20 +20,15 @@ export default function StrategicParticipationPage() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(".animate-reveal", {
-                y: 60,
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power4.out",
-            });
+            gsap.fromTo(".animate-reveal",
+                { y: 60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: "power4.out", clearProps: "all" }
+            );
 
-            gsap.from(".animate-line", {
-                width: 0,
-                duration: 1.5,
-                delay: 0.5,
-                ease: "expo.inOut"
-            });
+            gsap.fromTo(".animate-line",
+                { width: 0 },
+                { width: "auto", duration: 1.5, delay: 0.5, ease: "expo.inOut", clearProps: "all" }
+            );
 
             gsap.to(".animate-glow", {
                 opacity: 0.6,
@@ -48,12 +43,12 @@ export default function StrategicParticipationPage() {
     }, []);
 
     return (
-        <main ref={containerRef} className="bg-[#050505] text-white min-h-screen relative overflow-hidden">
+        <main ref={containerRef} className="bg-[#050505] text-white min-h-screen relative overflow-hidden w-full overflow-x-hidden">
             {/* 🌌 Exclusive background elements */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-[150px] pointer-events-none animate-glow opacity-30" />
 
             {/* 🧭 NAVIGATION OVERLAY (Back Link) */}
-            <div className="fixed top-32 left-6 md:left-12 z-50">
+            <div className="absolute top-28 md:top-32 left-4 md:left-12 z-50">
                 <LocaleLink
                     href="/project-models"
                     className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors"
@@ -64,17 +59,17 @@ export default function StrategicParticipationPage() {
             </div>
 
             {/* 🧱 SECTION 1 — HERO */}
-            <section className="relative pt-48 pb-32 px-6 flex flex-col items-center text-center">
+            <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 px-4 sm:px-6 flex flex-col items-center text-center">
                 <div className="animate-reveal inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mb-8">
                     <Shield className="w-3 h-3" />
                     Selective Collaboration
                 </div>
 
                 <div className="max-w-4xl relative z-10">
-                    <h1 className="animate-reveal text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8 tracking-tight leading-[1.05]">
+                    <h1 className="animate-reveal text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 md:mb-8 tracking-tight leading-[1.05] break-words">
                         {t("hero.headline")}
                     </h1>
-                    <p className="animate-reveal text-gray-400 text-lg md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                    <p className="animate-reveal text-gray-400 text-base sm:text-lg md:text-2xl max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-2">
                         {t("hero.subline")}
                     </p>
 
@@ -83,14 +78,14 @@ export default function StrategicParticipationPage() {
                             href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-10 py-5 bg-cyan-600 text-white rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] flex items-center gap-2"
+                            className="px-8 sm:px-10 py-4 sm:py-5 bg-cyan-600 text-white rounded-full font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] flex items-center justify-center gap-2 w-full sm:w-auto"
                         >
                             <Calendar className="w-4 h-4" />
                             {t("hero.primaryCTA")}
                         </a>
                         <LocaleLink
                             href="/project-models"
-                            className="px-10 py-5 border border-white/20 text-white rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-white/5"
+                            className="px-8 sm:px-10 py-4 sm:py-5 border border-white/20 text-white rounded-full font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 hover:bg-white/5 w-full sm:w-auto text-center"
                         >
                             {t("hero.secondaryCTA")}
                         </LocaleLink>
@@ -99,15 +94,15 @@ export default function StrategicParticipationPage() {
             </section>
 
             {/* 🧱 SECTION 2 — QUALIFICATION FRAMING */}
-            <section className="py-32 px-6 border-t border-white/5 bg-zinc-950/50">
+            <section className="py-20 md:py-32 px-4 sm:px-6 border-t border-white/5 bg-zinc-950/50">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div className="animate-reveal">
-                        <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 md:mb-8 leading-tight break-words">
                             {t("positioning.headline")}
                         </h2>
                     </div>
                     <div className="animate-reveal">
-                        <p className="text-gray-400 text-xl md:text-2xl leading-relaxed font-light">
+                        <p className="text-gray-400 text-lg sm:text-xl md:text-2xl leading-relaxed font-light">
                             {t("positioning.text")}
                         </p>
                     </div>
@@ -115,21 +110,50 @@ export default function StrategicParticipationPage() {
             </section>
 
             {/* 🧱 SECTION 3 — STRUCTURAL ADVANTAGES */}
-            <section className="py-32 px-6 border-y border-white/5">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="animate-reveal text-sm font-mono text-cyan-400 uppercase tracking-[0.3em] mb-16 block">
-                        {t("advantages.headline")}
-                    </h2>
+            <section className="relative py-24 md:py-36 px-4 sm:px-6 overflow-hidden">
+                {/* Background grid texture */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <div className="relative max-w-7xl mx-auto">
+                    {/* Section label row */}
+                    <div className="animate-reveal flex items-center gap-4 mb-6">
+                        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#00b4d9]/40" />
+                        <span className="text-[11px] font-black uppercase tracking-[0.35em] text-[#00b4d9]">
+                            {t("advantages.headline")}
+                        </span>
+                        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#00b4d9]/40" />
+                    </div>
+
+                    {/* Cards grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14">
                         {t.raw("advantages.points").map((point: string, i: number) => (
-                            <div key={i} className="animate-reveal group">
-                                <div className="h-16 flex items-end mb-6">
-                                    <div className="w-px h-12 bg-white/20 transition-all duration-500 group-hover:h-16 group-hover:bg-cyan-500" />
-                                </div>
-                                <p className="text-xl font-display font-bold text-white transition-colors duration-300 group-hover:text-cyan-400">
+                            <div
+                                key={i}
+                                className="animate-reveal group relative rounded-2xl border border-white/8 bg-white/[0.03] backdrop-blur-sm p-7 flex flex-col gap-5 overflow-hidden transition-all duration-500 hover:border-[#00b4d9]/40 hover:bg-[#00b4d9]/[0.04] hover:shadow-[0_0_40px_-10px_rgba(0,180,217,0.25)] hover:-translate-y-1"
+                            >
+                                {/* Circular SVG accent */}
+                                <svg className="absolute top-3 right-3 w-14 h-14 opacity-20 group-hover:opacity-50 transition-all duration-500 group-hover:rotate-90" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="28" cy="28" r="26" stroke="#00b4d9" strokeWidth="1.5" strokeDasharray="4 3" />
+                                    <circle cx="28" cy="28" r="18" stroke="#00b4d9" strokeWidth="1" strokeOpacity="0.5" />
+                                    <circle cx="28" cy="28" r="3" fill="#00b4d9" />
+                                </svg>
+
+                                {/* Index number */}
+                                <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#00b4d9]/60 group-hover:text-[#00b4d9] transition-colors duration-300">
+                                    {String(i + 1).padStart(2, '0')}
+                                </span>
+
+                                {/* Divider */}
+                                <div className="w-8 h-px bg-white/20 group-hover:w-16 group-hover:bg-[#00b4d9] transition-all duration-500" />
+
+                                {/* Content */}
+                                <p className="text-lg font-display font-bold text-white/90 leading-snug group-hover:text-white transition-colors duration-300 flex-1">
                                     {point}
                                 </p>
+
+                                {/* Bottom glow line */}
+                                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#00b4d9] to-transparent group-hover:w-full transition-all duration-700" />
                             </div>
                         ))}
                     </div>
@@ -137,9 +161,9 @@ export default function StrategicParticipationPage() {
             </section>
 
             {/* 🧱 SECTION 4 — EVALUATION PROCESS */}
-            <section className="py-40 px-6 bg-zinc-950">
+            <section className="py-24 md:py-40 px-4 sm:px-6 bg-zinc-950">
                 <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="animate-reveal text-4xl md:text-5xl font-display font-bold mb-24 tracking-tight">
+                    <h2 className="animate-reveal text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-16 md:mb-24 tracking-tight break-words">
                         {t("process.headline")}
                     </h2>
 
@@ -162,9 +186,9 @@ export default function StrategicParticipationPage() {
             </section>
 
             {/* 🧱 SECTION 5 — FINAL CTA */}
-            <section className="py-48 px-6 bg-white text-black">
+            <section className="py-28 md:py-48 px-4 sm:px-6 bg-white text-black">
                 <div className="max-w-5xl mx-auto text-center">
-                    <h2 className="animate-reveal text-5xl md:text-7xl font-display font-bold mb-12 tracking-tight">
+                    <h2 className="animate-reveal text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-10 md:mb-12 tracking-tight break-words">
                         {t("finalCTA.headline")}
                     </h2>
 
@@ -173,7 +197,7 @@ export default function StrategicParticipationPage() {
                             href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group px-12 py-6 bg-cyan-600 text-white rounded-full font-display font-bold text-base uppercase tracking-wider transition-all duration-500 hover:scale-[1.05] flex items-center gap-3"
+                            className="group px-8 sm:px-12 py-5 sm:py-6 bg-cyan-600 text-white rounded-full font-display font-bold text-xs sm:text-base uppercase tracking-wider transition-all duration-500 hover:scale-[1.05] flex items-center justify-center gap-3 w-full sm:w-auto"
                         >
                             <Calendar className="w-5 h-5" />
                             {t("finalCTA.button")}
