@@ -1,22 +1,29 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import gsap from "@/lib/gsap";
-import { useTranslations } from 'next-intl';
 
-export default function Process({ isActive }: { isActive?: boolean }) {
+export default function Process({ isActive, initialData }: { isActive?: boolean; initialData?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations('process');
+
+  const processContent = useMemo(() => {
+    if (!initialData) return null;
+    return initialData;
+  }, [initialData]);
+
+  const steps = useMemo(() => {
+    return processContent?.steps || [];
+  }, [processContent]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const steps = gsap.utils.toArray<HTMLElement>(".process-step");
+      const stepElements = gsap.utils.toArray<HTMLElement>(".process-step");
 
       // If isActive is strictly provided (Panel Mode)
       if (isActive !== undefined) {
         if (isActive) {
           // Play Animation
-          gsap.fromTo(steps,
+          gsap.fromTo(stepElements,
             { y: 50, opacity: 0 },
             {
               y: 0,
@@ -27,10 +34,9 @@ export default function Process({ isActive }: { isActive?: boolean }) {
               overwrite: true
             }
           );
-        } else {
         }
       } else {
-        steps.forEach((step, i) => {
+        stepElements.forEach((step, i) => {
           gsap.from(step, {
             scrollTrigger: {
               trigger: step,
@@ -48,30 +54,24 @@ export default function Process({ isActive }: { isActive?: boolean }) {
     }, containerRef);
 
     return () => ctx.revert();
-  }, [isActive]);
+  }, [isActive, steps]);
 
-  const steps = [
-    { num: "01", key: "discover" },
-    { num: "02", key: "design" },
-    { num: "03", key: "build" },
-    { num: "04", key: "launch" }
-  ];
+  if (!processContent) return null;
 
   return (
     <section ref={containerRef} className="bg-black text-white py-24 px-6 md:px-12 w-full h-full flex flex-col justify-center" data-index="5">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-center md:text-left">{t('title')}</h2>
+        <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-center md:text-left">{processContent.title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {steps.map((step) => (
-            <div key={step.num} className="process-step border-t border-gray-800 pt-6 relative group hover:border-[#00b4d9] transition-colors duration-500 opacity-100">
-              {/* Note: opacity-100 default, GSAP handles hide from/to */}
+          {steps.map((step: any) => (
+            <div key={step.id} className="process-step border-t border-gray-800 pt-6 relative group hover:border-[#00b4d9] transition-colors duration-500 opacity-100">
               <span className="text-4xl md:text-5xl font-mono font-bold text-gray-800 mb-6 block group-hover:text-white transition-colors duration-500">
-                {step.num}
+                {step.number}
               </span>
-              <h3 className="text-2xl font-bold font-display mb-3 text-[#00b4d9]">{t(`${step.key}.title`)}</h3>
+              <h3 className="text-2xl font-bold font-display mb-3 text-[#00b4d9]">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed max-w-[200px]">
-                {t(`${step.key}.desc`)}
+                {step.description}
               </p>
             </div>
           ))}

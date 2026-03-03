@@ -3,11 +3,20 @@
 import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from 'next-intl';
 
-export default function Hero({ isActive }: { isActive?: boolean }) {
+export default function Hero({ isActive, strapiData }: { isActive?: boolean; strapiData?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations('hero');
+  
+  const t = (key: string): string => {
+    const val = strapiData?.[key];
+    if (typeof val === 'string') return val;
+    if (Array.isArray(val)) {
+      // Basic extraction for Strapi rich text blocks if needed
+      return val.map((block: any) => block.children?.map((c: any) => c.text).join('')).join('\n');
+    }
+    // Return empty string instead of undefined/null to prevent UI crashes if a field is missing
+    return "";
+  };
 
   useEffect(() => {
     if (isActive !== undefined && !isActive) return;

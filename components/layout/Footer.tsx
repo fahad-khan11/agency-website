@@ -14,7 +14,7 @@ const XingIcon = ({ className }: { className?: string }) => (
    </svg>
 );
 
-export default function Footer({ asPanel, className }: { asPanel?: boolean; className?: string }) {
+export default function Footer({ asPanel, className, initialData }: { asPanel?: boolean; className?: string; initialData?: any }) {
    const pathname = usePathname();
    const t = useTranslations('footer');
    const tc = useTranslations('cookies');
@@ -22,6 +22,20 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
 
    const isHome = pathname === "/" || pathname === "/en" || pathname === "/de";
    if (isHome && !asPanel) return null;
+
+   const footerContent = initialData || {};
+   const socialLinks = footerContent.socialLinks || [];
+
+   const getSocialIcon = (platform: string) => {
+      switch (platform.toLowerCase()) {
+         case 'facebook': return <Facebook className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />;
+         case 'linkedin': return <Linkedin className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />;
+         case 'instagram': return <Instagram className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />;
+         case 'xing': return <XingIcon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />;
+         case 'twitter': return <Twitter className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />;
+         default: return null;
+      }
+   };
 
    return (
       <footer className={`bg-black text-white py-6 md:py-10 px-6 md:px-12 flex flex-col justify-between overflow-y-auto no-scrollbar inner-panel-scroll ${className || ""}`} id="global-footer">
@@ -37,7 +51,7 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                   />
                </Link>
                <p className="text-gray-400 max-w-xs leading-relaxed text-xs">
-                  {t('description')}
+                  {footerContent.description}
                </p>
             </div>
 
@@ -60,51 +74,43 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
                </div>
             </div>
 
-            {/* Socials Column - 2 Column on Mobile */}
+            {/* Socials Column */}
             <div className="md:col-span-2 flex flex-col gap-3">
                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500">{t('socials')}</h4>
                <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <Link target="_blank" href="https://www.facebook.com/atriona.digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
-                     <Facebook className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                     <span>Facebook</span>
-                  </Link>
-                  <Link target="_blank" href="https://www.linkedin.com/company/atriona-digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
-                     <Linkedin className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                     <span>LinkedIn</span>
-                  </Link>
-                  <Link target="_blank" href="https://www.instagram.com/atriona.digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
-                     <Instagram className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                     <span>Instagram</span>
-                  </Link>
-                  <Link target="_blank" href="https://www.xing.com/pages/atriona-digital-gmbh" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
-                     <XingIcon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                     <span>Xing DE</span>
-                  </Link>
-                  <Link target="_blank" href="https://x.com/atriona_digital" className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
-                     <Twitter className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                     <span>Twitter</span>
-                  </Link>
+                  {socialLinks.map((link: any) => (
+                     <Link key={link.id} target="_blank" href={link.url} className="hover:text-[#00B4D9] transition-colors text-gray-400 text-xs flex items-center gap-2 group">
+                        {getSocialIcon(link.platform)}
+                        <span>{link.platform}</span>
+                     </Link>
+                  ))}
                </div>
             </div>
 
             {/* Contact Column */}
             <div className="md:col-span-3 flex flex-col gap-4">
                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500">{t('getInTouch')}</h4>
-               <a href="mailto:info@atriona-digital.com" className="text-base md:text-lg font-display font-bold hover:text-[#00b8db] transition-colors break-all">
-                  info@atriona-digital.com
-               </a>
+               {footerContent.email && (
+                  <a href={`mailto:${footerContent.email}`} className="text-base md:text-lg font-display font-bold hover:text-[#00b8db] transition-colors break-all">
+                     {footerContent.email}
+                  </a>
+               )}
                <div className="text-gray-400 text-[10px] md:text-xs leading-relaxed">
-                  <p>Ohiostraße 15, 76149 Karlsruhe</p>
-                  <p className="mt-1 text-[#00b8db] hover:text-white transition-colors">
-                     <a href="tel:+4972198618928">+49 (0) 721 98618928</a>
-                  </p>
+                  <p>{footerContent.address}</p>
+                  {footerContent.phone && (
+                     <p className="mt-1 text-[#00b8db] hover:text-white transition-colors">
+                        <a href={`tel:${footerContent.phone.replace(/\s/g, '')}`}>
+                           {footerContent.phone}
+                        </a>
+                     </p>
+                  )}
                </div>
             </div>
          </div>
 
          <div className="w-full flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-4 text-[10px] text-gray-500">
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-               <p>{t('rights')}</p>
+               <p>{footerContent.copyright}</p>
                <div className="flex gap-6 items-center">
                   <div className="relative group" onMouseLeave={() => setIsLegalOpen(false)}>
                      <button
@@ -140,21 +146,15 @@ export default function Footer({ asPanel, className }: { asPanel?: boolean; clas
             </div>
 
             <div className="flex gap-4 mt-4 md:mt-0">
-               <Link href="https://www.facebook.com/atriona.digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Facebook" target="_blank">
-                  <Facebook className="w-4 h-4" />
-               </Link>
-               <Link href="https://www.linkedin.com/company/atriona-digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="LinkedIn" target="_blank">
-                  <Linkedin className="w-4 h-4" />
-               </Link>
-               <Link href="https://www.instagram.com/atriona.digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Instagram" target="_blank">
-                  <Instagram className="w-4 h-4" />
-               </Link>
-               <Link href="https://www.xing.com/pages/atriona-digital-gmbh" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Xing" target="_blank">
-                  <XingIcon className="w-4 h-4" />
-               </Link>
-               <Link href="https://x.com/atriona_digital" className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label="Twitter" target="_blank">
-                  <Twitter className="w-4 h-4" />
-               </Link>
+               {socialLinks.map((link: any) => (
+                  <Link key={link.id} href={link.url} className="hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-full" aria-label={link.platform} target="_blank">
+                     {link.platform === 'Facebook' && <Facebook className="w-4 h-4" />}
+                     {link.platform === 'LinkedIn' && <Linkedin className="w-4 h-4" />}
+                     {link.platform === 'Instagram' && <Instagram className="w-4 h-4" />}
+                     {link.platform === 'Xing' && <XingIcon className="w-4 h-4" />}
+                     {link.platform === 'Twitter' && <Twitter className="w-4 h-4" />}
+                  </Link>
+               ))}
             </div>
          </div>
       </footer>

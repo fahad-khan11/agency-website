@@ -71,7 +71,7 @@ const navItems = [
   },
 ];
 
-export default function Header() {
+export default function Header({ initialCaseStudies, initialIndustries, initialServices, initialFinancingModels }: { initialCaseStudies?: any[], initialIndustries?: any[], initialServices?: any[], initialFinancingModels?: any[] }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -104,14 +104,40 @@ export default function Header() {
   const isLightMode = isHome && lightPanels.includes(activeIndex);
 
   // Get localized services for mega menu
-  const localizedServices = services.map(service => {
-    const key = service.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-    const trans = servicesT.services[key as keyof typeof servicesT.services];
+  const extractedServices = initialServices && initialServices.length > 0 
+    ? initialServices.map((srv: any) => {
+        const attrs = srv.attributes || srv;
+        const slug = attrs.slug || srv.slug;
+        const key = slug?.replace(/-([a-z])/g, (g:any) => g[1]?.[0]?.toUpperCase() + g[1]?.slice(1) || '');
+        const trans = key ? (servicesT.services as any)[key] : null;
+
+        return {
+          id: srv.id || Math.random(),
+          slug: slug || "",
+          category: trans?.category || attrs.category || srv.category || "",
+          title: trans?.title || attrs.title || srv.title || "",
+          description: trans?.description || attrs.description || srv.description || "",
+        };
+      })
+    : services;
+
+  const localizedServices = extractedServices.map((service: any) => {
+    // If it's a static service
+    if(service.icon) {
+      const key = service.slug.replace(/-([a-z])/g, (g: any) => g[1].toUpperCase());
+      const trans = (servicesT.services as any)[key];
+      return {
+        ...service,
+        title: trans?.title || service.title,
+        category: trans?.category || service.category,
+        description: trans?.description || service.description
+      };
+    }
+    // If it's a dynamic service from Strapi, attempt to match icon from static list or fallback
+    const staticSrv = services.find((s) => s.slug === service.slug);
     return {
       ...service,
-      title: trans?.title || service.title,
-      category: trans?.category || service.category,
-      description: trans?.description || service.description
+      icon: staticSrv?.icon || "",
     };
   });
 
@@ -125,29 +151,61 @@ export default function Header() {
     "smes-service-businesses": Briefcase
   };
 
-  const localizedIndustries = industries
-    .filter(industry => industry.featured)
-    .map(industry => {
-      const key = industry.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-      const trans = industriesT.industries[key as keyof typeof industriesT.industries];
-      return {
-        ...industry,
-        title: trans?.title || industry.title,
-        summary: trans?.summary || industry.summary,
-        icon: industryIcons[industry.slug] || Briefcase
-      };
-    });
+  // Extract and format Strapi industries if available, fallback to static fully
+  const extractedIndustries = initialIndustries && initialIndustries.length > 0 
+    ? initialIndustries.map((ind: any) => {
+        const attrs = ind.attributes || ind;
+        const slug = attrs.slug || ind.slug;
+        const key = slug?.replace(/-([a-z])/g, (g:any) => g[1]?.[0]?.toUpperCase() + g[1]?.slice(1) || '');
+        const trans = key ? (industriesT.industries as any)[key] : null;
+        
+        return {
+          id: ind.id || Math.random(),
+          slug: slug || "",
+          featured: attrs.featured !== undefined ? attrs.featured : (ind.featured || false),
+          title: trans?.title || attrs.title || ind.title || "",
+          summary: trans?.summary || attrs.summary || ind.summary || "",
+          icon: industryIcons[slug] || Briefcase
+        };
+      })
+    : industries.map(ind => {
+        const key = ind.slug.replace(/-([a-z])/g, (g:any) => g[1].toUpperCase());
+        const trans = industriesT.industries[key as keyof typeof industriesT.industries];
+        return {
+          ...ind,
+          title: trans?.title || ind.title,
+          summary: trans?.summary || ind.summary,
+          icon: industryIcons[ind.slug] || Briefcase
+        };
+      });
+
+  const localizedIndustries = extractedIndustries.filter((industry: any) => industry.featured);
 
   // Get localized case studies for mega menu
-  const localizedCaseStudies = staticCaseStudies
+  const extractedCaseStudies = initialCaseStudies && initialCaseStudies.length > 0 
+    ? initialCaseStudies 
+    : staticCaseStudies;
+
+  const localizedCaseStudies = extractedCaseStudies
     .slice(0, 6)
-    .map(study => {
-      const key = study.slug.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    .map((studyRaw: any) => {
+      const attrs = studyRaw.attributes || studyRaw;
+      const slug = attrs.slug || studyRaw.slug || "";
+      const title = attrs.title || studyRaw.title || "";
+      const overviewRaw = attrs.overview || studyRaw.overview || "";
+      
+      let overview = overviewRaw;
+      if (Array.isArray(overviewRaw)) {
+          overview = overviewRaw.map((block: any) => block?.children?.map((c: any) => c.text).join("")).join(" ");
+      }
+
+      const key = slug.replace(/-([a-z])/g, (g:any) => g[1].toUpperCase());
       const trans = caseStudiesTranslations.studies[key as keyof typeof caseStudiesTranslations.studies];
       return {
-        ...study,
-        title: trans?.title || study.title,
-        overview: trans?.overview || study.overview
+        ...studyRaw,
+        slug,
+        title: trans?.title || title,
+        overview: trans?.overview || overview
       };
     });
 
@@ -163,6 +221,35 @@ export default function Header() {
         excerpt: trans?.excerpt || post.excerpt
       };
     });
+
+  // Get localized financing models
+  const defaultModels = [
+    { id: "purchase", slug: "purchase-model", icon: Layout, color: "text-white", bg: "bg-white/10", href: "/purchase-model" },
+    { id: "rental", slug: "rental-model", icon: Clock, color: "text-white", bg: "bg-white/10", href: "/rental-model" },
+    { id: "participation", slug: "strategic-participation", icon: Handshake, color: "text-[#00b4d9]", bg: "bg-[#00b4d9]/10", href: "/strategic-participation" },
+  ];
+
+  const localizedModels = initialFinancingModels && initialFinancingModels.length > 0
+    ? initialFinancingModels.map((model: any) => {
+        const attrs = model.attributes || model;
+        const slug = attrs.slug || model.slug;
+        const baseModel = defaultModels.find(m => m.slug === slug) || defaultModels[0];
+        
+        return {
+          ...baseModel,
+          slug,
+          href: `/${slug}`,
+          title: attrs.title || model.title || pmT(`${baseModel.id}.title`),
+          desc: attrs.cardNote || model.cardNote || pmT(`${baseModel.id}.desc`),
+          cta: attrs.cardButtonText || model.cardButtonText || pmT(`${baseModel.id}.cta`),
+        };
+      })
+    : defaultModels.map(model => ({
+        ...model,
+        title: pmT(`${model.id}.title`),
+        desc: pmT(`${model.id}.desc`),
+        cta: pmT(`${model.id}.cta`)
+      }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -382,11 +469,7 @@ export default function Header() {
             <div className="bg-[#161616] backdrop-blur-xl border border-white/10 rounded-2xl p-2 min-w-[900px] overflow-hidden shadow-2xl shadow-black/50">
               <div className="flex bg-[#161616] rounded-xl overflow-hidden">
                 <div className="grid grid-cols-3 flex-grow gap-px bg-[#161616]">
-                  {[
-                    { id: "purchase", icon: Layout, color: "text-white", bg: "bg-white/10", href: "/purchase-model" },
-                    { id: "rental", icon: Clock, color: "text-white", bg: "bg-white/10", href: "/rental-model" },
-                    { id: "participation", icon: Handshake, color: "text-[#00b4d9]", bg: "bg-[#00b4d9]/10", href: "/strategic-participation" },
-                  ].map((model) => (
+                  {localizedModels.map((model) => (
                     <LocaleLink
                       key={model.id}
                       href={model.href}
@@ -397,14 +480,14 @@ export default function Header() {
                         <model.icon className={clsx("w-7 h-7", model.color)} />
                       </div>
                       <h4 className="text-xl font-display font-bold text-white mb-3 flex items-center gap-2">
-                        {pmT(`${model.id}.title`)}
+                        {model.title}
                         <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-[#00b4d9]" />
                       </h4>
                       <p className="text-sm text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
-                        {pmT(`${model.id}.desc`)}
+                        {model.desc}
                       </p>
                       <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00b4d9] transition-all duration-300 group-hover:gap-3 group-hover:text-white">
-                        {pmT(`${model.id}.cta`)}
+                        {model.cta}
                         <MoveRight className="w-4 h-4" />
                       </span>
                     </LocaleLink>
@@ -911,11 +994,7 @@ export default function Header() {
                     )}
                   >
                     <div className="flex flex-col gap-4 text-center">
-                      {[
-                        { id: "purchase", href: "/purchase-model" },
-                        { id: "rental", href: "/rental-model" },
-                        { id: "participation", href: "/strategic-participation" },
-                      ].map((model) => (
+                      {localizedModels.map((model) => (
                         <LocaleLink
                           key={model.id}
                           href={model.href}
@@ -925,7 +1004,7 @@ export default function Header() {
                           }}
                           className="text-base sm:text-lg text-gray-300 hover:text-amber-400 transition-colors duration-300"
                         >
-                          {pmT(`${model.id}.title`)}
+                          {model.title}
                         </LocaleLink>
                       ))}
                     </div>

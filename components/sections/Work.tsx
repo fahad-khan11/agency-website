@@ -7,10 +7,21 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 
-export default function Work({ isActive }: { isActive?: boolean }) {
+export default function Work({ isActive, strapiData }: { isActive?: boolean; strapiData?: any[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [activeProject, setActiveProject] = useState<number | null>(null);
+  const [activeProject, setActiveProject] = useState<number | string | null>(null);
+
+  const displayProjects = strapiData && strapiData.length > 0 ? strapiData : projects;
+
+  const getMediaUrl = (media: any) => {
+    if (!media) return null;
+    const url = media.url || media.data?.attributes?.url || media.attributes?.url;
+    if (url && url.startsWith('/')) {
+        return `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${url}`;
+    }
+    return url || null;
+  };
 
   useEffect(() => {
     // Entrance Animation
@@ -64,37 +75,46 @@ export default function Work({ isActive }: { isActive?: boolean }) {
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {projects.map((project) => (
+          {displayProjects.map((project: any) => {
+            const id = project.documentId || project.id || project.slug;
+            const title = project.title || project.attributes?.title;
+            const slug = project.slug || project.attributes?.slug;
+            const category = project.category || project.attributes?.category;
+            const year = project.year || project.attributes?.year;
+            const videoUrl = getMediaUrl(project.heroVideo || project.attributes?.heroVideo);
+            const imageUrl = getMediaUrl(project.heroImage || project.attributes?.heroImage);
+
+            return (
             <Link
-              key={project.id}
-              href={`/projects/${project.slug}`}
+              key={id}
+              href={`/projects/${slug}`}
               className="block"
             >
               <div
                 className="work-item group relative cursor-pointer"
-                onMouseEnter={() => setActiveProject(project.id)}
+                onMouseEnter={() => setActiveProject(id)}
                 onMouseLeave={() => setActiveProject(null)}
               >
                 {/* Image/Video Container */}
                 <div className="relative w-full aspect-[4/3] bg-neutral-900 rounded-xl overflow-hidden mb-6">
-                  {project.heroVideo ? (
+                  {videoUrl ? (
                     <video
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       autoPlay
                       muted
                       loop
                       playsInline
-                      src={project.heroVideo}
+                      src={videoUrl}
                     />
-                  ) : project.heroImage ? (
+                  ) : imageUrl ? (
                     <img
-                      src={project.heroImage}
-                      alt={project.title}
+                      src={imageUrl}
+                      alt={title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                      <span className="text-xs uppercase tracking-widest text-brand-orange">{project.title}</span>
+                      <span className="text-xs uppercase tracking-widest text-brand-orange">{title}</span>
                     </div>
                   )}
 
@@ -111,15 +131,15 @@ export default function Work({ isActive }: { isActive?: boolean }) {
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <h3 className="text-2xl md:text-3xl font-display font-semibold mb-2 group-hover:text-[#00b4d9] transition-colors">
-                      {project.title}
+                      {title}
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base">{project.category}</p>
+                    <p className="text-gray-400 text-sm md:text-base">{category}</p>
                   </div>
-                  <span className="text-gray-500 font-mono text-sm mt-1">{project.year}</span>
+                  <span className="text-gray-500 font-mono text-sm mt-1">{year}</span>
                 </div>
               </div>
             </Link>
-          ))}
+          )})}
         </div>
       </div>
 
@@ -128,32 +148,38 @@ export default function Work({ isActive }: { isActive?: boolean }) {
         ref={cursorRef}
         className="fixed top-0 left-0 w-[320px] h-[220px] pointer-events-none z-50 hidden lg:block -translate-x-1/2 -translate-y-1/2 rounded-lg overflow-hidden bg-gray-800 opacity-0 scale-0"
       >
-        {projects.map((p) => (
+        {displayProjects.map((p: any) => {
+          const id = p.documentId || p.id || p.slug;
+          const title = p.title || p.attributes?.title;
+          const videoUrl = getMediaUrl(p.heroVideo || p.attributes?.heroVideo);
+          const imageUrl = getMediaUrl(p.heroImage || p.attributes?.heroImage);
+
+          return (
           <div
-            key={p.id}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${activeProject === p.id ? 'opacity-100' : 'opacity-0'}`}
+            key={id}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${activeProject === id ? 'opacity-100' : 'opacity-0'}`}
           >
             <div className="w-full h-full bg-neutral-800 flex items-center justify-center text-gray-500 overflow-hidden relative">
               {/* Video or Image Preview */}
-              {p.heroVideo ? (
+              {videoUrl ? (
                 <video
                   className="w-full h-full object-cover"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  src={p.heroVideo}
+                  src={videoUrl}
                 />
-              ) : p.heroImage ? (
-                <img src={p.heroImage} alt={p.title} className="w-full h-full object-cover" />
+              ) : imageUrl ? (
+                <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black p-4 flex items-center justify-center">
-                  <span className="text-xs uppercase tracking-widest text-brand-orange">{p.title}</span>
+                  <span className="text-xs uppercase tracking-widest text-brand-orange">{title}</span>
                 </div>
               )}
             </div>
           </div>
-        ))}
+        )})}
 
         <div className="absolute bottom-4 right-4 bg-white text-black text-[10px] font-bold px-2 py-1 rounded uppercase">
           View Case

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
-import { useTranslations } from 'next-intl';
 
 const SplitText = ({ children, className, highlights = [] }: { children: string, className?: string, highlights?: string[] }) => {
   const words = children.split(" ");
@@ -22,9 +21,17 @@ const SplitText = ({ children, className, highlights = [] }: { children: string,
   );
 };
 
-export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
+export default function FeatureStrip({ isActive, strapiData }: { isActive?: boolean; strapiData?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations('featureStrip');
+
+  const t = (key: string): string => {
+    const val = strapiData?.[key];
+    if (typeof val === 'string') return val;
+    if (Array.isArray(val)) {
+      return val.map((block: any) => block.children?.map((c: any) => c.text).join('')).join('\n');
+    }
+    return "";
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -123,7 +130,9 @@ export default function FeatureStrip({ isActive }: { isActive?: boolean }) {
           <div className="flex flex-col gap-4 md:gap-6">
             <span className="block text-xs md:text-sm font-mono text-white bg-[#00b4d9] uppercase tracking-widest px-3 py-1 font-bold w-max mb-2">{t('capabilities')}</span>
             <div className="flex flex-col gap-0 border-t border-white/10">
-              {[t('brandIdentity'), t('webDesign'), t('creativeDev'), t('motionDirection')].map((tag, i) => (
+              {[t('brandIdentity'), t('webDesign'), t('creativeDev'), t('motionDirection')]
+                .filter(Boolean)
+                .map((tag, i) => (
                 <div key={tag} className="tag-anim group relative py-4 md:py-6 border-b border-white/10 cursor-pointer overflow-hidden opacity-0 translate-y-5">
                   <div className="absolute inset-0 bg-[#00b4d9] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ease-out -z-10"></div>
                   <div className="flex items-center justify-between group-hover:translate-x-2 transition-transform duration-300">

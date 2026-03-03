@@ -11,6 +11,7 @@ import { PanelProvider } from "@/lib/PanelContext";
 import { TidioChatProvider } from "@/lib/TidioChatContext";
 import TidioChat from "@/components/layout/TidioChat";
 import FloatingChatButton from "@/components/layout/FloatingChatButton";
+import { getCaseStudiesData, getIndustriesData, getServicesData, getFinancingModels } from "@/lib/strapiFetch";
 import "../globals.css";
 
 const syne = Syne({
@@ -52,6 +53,10 @@ export default async function LocaleLayout({
 
 
   const messages = await getMessages();
+  const caseStudiesData = await getCaseStudiesData(locale);
+  const industriesData = await getIndustriesData(locale);
+  const servicesData = await getServicesData(locale);
+  const financingModelsData = await getFinancingModels(locale);
 
   return (
     <html lang={locale} className="scroll-smooth">
@@ -62,7 +67,7 @@ export default async function LocaleLayout({
           <TidioChatProvider>
             <PanelProvider>
               <TidioChat />
-              <Header />
+              <Header initialCaseStudies={caseStudiesData} initialIndustries={industriesData} initialServices={servicesData} initialFinancingModels={financingModelsData} />
               {children}
               <Footer />
               <CookieConsent />
