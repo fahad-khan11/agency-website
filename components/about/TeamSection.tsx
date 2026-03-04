@@ -4,11 +4,10 @@ import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TeamCard from "./TeamCard";
+import { getStrapiMedia } from "@/lib/strapiFetch";
 
 export default function TeamSection({ initialData }: { initialData?: any }) {
     const containerRef = useRef<HTMLDivElement>(null);
-
-    const ENV_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
     const title = initialData?.teamTitle || "";
     const description = initialData?.teamDescription || "";
@@ -17,7 +16,7 @@ export default function TeamSection({ initialData }: { initialData?: any }) {
         name: member.name,
         role: member.role,
         specialty: member.specialty,
-        image: member.image?.url ? `${ENV_URL}${member.image.url}` : null
+        image: getStrapiMedia(member.image?.url)
     })).filter((m: any) => m.name) || [];
 
     useEffect(() => {

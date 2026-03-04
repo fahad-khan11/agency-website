@@ -5,6 +5,7 @@ import gsap from "@/lib/gsap";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import { getStrapiMedia } from "@/lib/strapiFetch";
 
 export default function AboutHero({ initialData }: { initialData?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,9 +41,7 @@ export default function AboutHero({ initialData }: { initialData?: any }) {
   const disciplinesTitle = initialData?.heroDisciplinesTitle || "";
   const disciplineList = initialData?.heroDisciplineList || [];
 
-  const heroImageUrl = initialData?.heroImage?.url 
-      ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${initialData.heroImage.url}`
-      : "/agency-hero.png";
+  const heroImageUrl = getStrapiMedia(initialData?.heroImage?.url) || "/agency-hero.png";
 
   return (
     <section ref={containerRef} className="w-full min-h-[90vh] bg-black text-white flex items-center pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">

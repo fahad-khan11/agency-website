@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { getStrapiMedia } from "@/lib/strapiFetch";
 
 // Register ScrollTrigger if not already done globally
 gsap.registerPlugin(ScrollTrigger);
@@ -11,16 +12,12 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutStory({ initialData }: { initialData?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const ENV_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
-
   const storyTagline = initialData?.storyTagline || "";
   const paragraph1 = initialData?.storyParagraph1 || "";
   const paragraph2 = initialData?.storyParagraph2 || "";
   const paragraph3 = initialData?.storyParagraph3 || "";
   
-  const storyImageUrl = initialData?.storyImage?.url 
-    ? `${ENV_URL}${initialData.storyImage.url}`
-    : "";
+  const storyImageUrl = getStrapiMedia(initialData?.storyImage?.url) || "";
 
   const stats = initialData?.stats || [];
 

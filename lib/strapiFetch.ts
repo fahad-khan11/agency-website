@@ -1,5 +1,11 @@
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
+export function getStrapiMedia(url: string | null | undefined) {
+  if (!url) return null;
+  if (url.startsWith("http") || url.startsWith("//")) return url;
+  return `${STRAPI_URL}${url}`;
+}
+
 export async function getHeroData(locale: string) {
   try {
     const res = await fetch(`${STRAPI_URL}/api/hero-section?locale=${locale}&populate=*`, {
