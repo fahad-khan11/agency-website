@@ -7,6 +7,8 @@ import { locales } from '@/i18n';
 import clsx from 'clsx';
 import { ChevronDown, Check } from 'lucide-react';
 
+import { getCanonicalPath, getLocalizedPath } from '@/routing';
+
 // Map locale codes to display labels and flag emojis
 const LOCALE_META: Record<string, { label: string; flag: string; nativeName: string }> = {
   en: { label: 'EN', flag: '🇬🇧', nativeName: 'English' },
@@ -44,10 +46,12 @@ export default function LanguageSwitcher({ isLightMode = false }: LanguageSwitch
       setOpen(false);
       return;
     }
-    // Safely replace ONLY the leading /{currentLocale} prefix.
-    // This avoids creating double-locale URLs like /de/en/about.
+    // Strip the leading /{currentLocale} prefix
     const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), '');
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    // Convert locale-specific path back to canonical, then to new locale's path
+    const canonical = getCanonicalPath(pathWithoutLocale, locale);
+    const translated = getLocalizedPath(canonical, newLocale);
+    router.push(`/${newLocale}${translated}`);
     setOpen(false);
   };
 

@@ -2,15 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import gsap from "@/lib/gsap";
 import {
     Plus,
     Minus,
-    Layout,
-    TrendingUp,
     Calendar,
     HelpCircle,
-    ArrowUpRight
 } from "lucide-react";
 import LocaleLink from "@/components/LocaleLink";
 
@@ -67,6 +65,23 @@ function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
 export default function FAQClient({ initialData }: { initialData?: any }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [openIndex, setOpenIndex] = useState<string | null>("0-0");
+
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi({
+                namespace: "15min",
+                embedJsUrl: "https://www.cal.eu/embed/embed.js",
+            });
+            cal("ui", {
+                cssVarsPerTheme: {
+                    light: { "cal-brand": "#1B263B" },
+                    dark: { "cal-brand": "#00B4D8" },
+                },
+                hideEventTypeDetails: false,
+                layout: "month_view",
+            });
+        })();
+    }, []);
 
     const heroTitle = initialData?.heroTitle || "";
     const heroSubtitle = initialData?.heroSubtitle || "";
@@ -141,28 +156,33 @@ export default function FAQClient({ initialData }: { initialData?: any }) {
             </section>
 
             {/* 🧱 FINAL CTA */}
-            <section className="py-40 px-6 border-t border-white/5 bg-gradient-to-b from-transparent to-white/[0.02]">
-                <div className="max-w-5xl mx-auto text-center relative">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#00b4d9]/10 rounded-full blur-[100px] pointer-events-none" />
+            <section className="py-20 px-6 border-t border-white/5 bg-gradient-to-b from-transparent to-white/[0.02]">
+                <div className="max-w-5xl mx-auto text-center">
+                    <div className="relative z-10 mb-16">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#00b4d9]/10 rounded-full blur-[100px] pointer-events-none" />
+                        <h2 className="animate-reveal text-4xl md:text-6xl font-display font-bold mb-8 text-white relative z-10">
+                            {ctaTitle}
+                        </h2>
+                        <p className="animate-reveal text-gray-400 text-lg md:text-xl max-w-2xl mx-auto relative z-10">
+                            {ctaText}
+                        </p>
+                    </div>
 
-                    <h2 className="animate-reveal text-4xl md:text-6xl font-display font-bold mb-8 text-white relative z-10">
-                        {ctaTitle}
-                    </h2>
-                    <p className="animate-reveal text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 relative z-10">
-                        {ctaText}
-                    </p>
-
-                    <div className="animate-reveal relative z-10 flex flex-col items-center gap-8">
-                        <a
-                            href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group px-12 py-6 bg-white text-black rounded-full font-display font-bold text-base uppercase tracking-wider transition-all duration-500 hover:scale-[1.05] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center gap-3"
-                        >
-                            <Calendar className="w-5 h-5" />
+                    <div className="animate-reveal flex flex-col items-center gap-6">
+                        <span className="flex items-center gap-3 text-base font-display font-bold uppercase tracking-wider text-white">
+                            <Calendar className="w-5 h-5 text-[#00b4d9]" />
                             {ctaButton}
-                            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                        </a>
+                        </span>
+
+                        <div className="w-full rounded-2xl overflow-hidden border border-white/10">
+                            <Cal
+                                namespace="15min"
+                                calLink="atriona.digital/15min"
+                                calOrigin="https://www.cal.eu"
+                                style={{ width: "100%", height: "600px" }}
+                                config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+                            />
+                        </div>
 
                         <LocaleLink
                             href="/contact"

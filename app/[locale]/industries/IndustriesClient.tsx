@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useRef, useState, useMemo } from "react";
-import Link from "next/link";
+import LocaleLink from "@/components/LocaleLink";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -381,7 +381,7 @@ export default function IndustriesClient({
         {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredIndustries.map((industry: any) => (
-            <Link
+            <LocaleLink
               key={industry.slug}
               href={`/industries/${industry.slug}`}
               className="group block h-full"
@@ -435,7 +435,7 @@ export default function IndustriesClient({
                   </div>
                 </div>
               </article>
-            </Link>
+            </LocaleLink>
           ))}
         </div>
 

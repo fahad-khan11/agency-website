@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "@/lib/gsap";
 import LocaleLink from "@/components/LocaleLink";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import {
     ArrowUpRight,
     ChevronDown,
@@ -24,9 +25,6 @@ export default function ProjectModelsClient({ initialData, financingModels = [] 
     // Dynamic Data Fallbacks
     const heroH1 = initialData?.heroH1 || "";
     const heroSubline = initialData?.heroSubline || "";
-    const heroPillPurchase = initialData?.heroPillPurchase || "";
-    const heroPillRental = initialData?.heroPillRental || "";
-    const heroPillParticipation = initialData?.heroPillParticipation || "";
     const heroCtaPrimary = initialData?.heroCtaPrimary || "";
     const heroCtaSecondary = initialData?.heroCtaSecondary || "";
     
@@ -51,6 +49,36 @@ export default function ProjectModelsClient({ initialData, financingModels = [] 
                 behavior: "smooth",
             });
         }
+    };
+
+    // Cal.com: initialise the namespace UI
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi({
+                namespace: "15min",
+                embedJsUrl: "https://www.cal.eu/embed/embed.js",
+            });
+            cal("ui", {
+                cssVarsPerTheme: {
+                    light: { "cal-brand": "#1B263B" },
+                    dark: { "cal-brand": "#00B4D8" },
+                },
+                hideEventTypeDetails: false,
+                layout: "month_view",
+            });
+        })();
+    }, []);
+
+    // Cal.com: open modal popup
+    const handleBooking = async () => {
+        const cal = await getCalApi({
+            namespace: "15min",
+            embedJsUrl: "https://www.cal.eu/embed/embed.js",
+        });
+        cal("modal", {
+            calLink: "atriona.digital/15min",
+            config: { layout: "month_view" },
+        });
     };
 
     useEffect(() => {
@@ -149,12 +177,13 @@ export default function ProjectModelsClient({ initialData, financingModels = [] 
                     </div>
 
                     <div className="animate-hero-text flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="/contact"
-                            className="px-10 py-5 bg-white text-black rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                        <button
+                            onClick={handleBooking}
+                            className="px-10 py-5 bg-white text-black rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center gap-2"
                         >
+                            <Calendar className="w-4 h-4" />
                             {heroCtaPrimary}
-                        </a>
+                        </button>
                         <button
                             onClick={() => {
                                 if (financingModels.length > 0) {
@@ -308,25 +337,22 @@ export default function ProjectModelsClient({ initialData, financingModels = [] 
                     </p>
 
                     <div className="reveal-section flex flex-col items-center w-full">
-                        <a
-                            href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            onClick={handleBooking}
                             className="px-12 py-6 bg-white text-black rounded-full font-display font-bold text-base uppercase tracking-wider transition-all duration-500 hover:scale-[1.05] hover:shadow-[0_0_50px_rgba(255,255,255,0.15)] flex items-center gap-3 mb-12 sm:mb-16"
                         >
                             <Calendar className="w-5 h-5" />
                             {t("finalCta.button")}
-                        </a>
+                        </button>
 
                         {/* Cal.com Inline Embed */}
-                        <div className="w-full max-w-5xl h-[700px] md:h-[800px] rounded-3xl border border-white/10 bg-white/[0.02] overflow-hidden shadow-2xl backdrop-blur-sm">
-                            <iframe
-                                src="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW?theme=dark"
-                                width="100%"
-                                height="100%"
-                                frameBorder="0"
-                                className="w-full h-full"
-                                title="Schedule Strategy Session"
+                        <div className="w-full max-w-5xl h-[550px] overflow-hidden rounded-3xl border border-white/10">
+                            <Cal
+                                namespace="15min"
+                                calLink="atriona.digital/15min"
+                                calOrigin="https://www.cal.eu"
+                                style={{ width: "100%", height: "100%" }}
+                                config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
                             />
                         </div>
                     </div>

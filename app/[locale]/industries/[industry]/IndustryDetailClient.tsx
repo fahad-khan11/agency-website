@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import { getCalApi } from "@calcom/embed-react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -55,6 +56,34 @@ export default function IndustryDetailClient({
   // Convert slug to camelCase key used in JSON (e.g. 'hotels-resorts' -> 'hotelsResorts')
   const t = getIndustriesTranslations(locale); // Get general page translations
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({
+        namespace: "15min",
+        embedJsUrl: "https://www.cal.eu/embed/embed.js",
+      });
+      cal("ui", {
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#1B263B" },
+          dark: { "cal-brand": "#00B4D8" },
+        },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+
+  const handleBooking = async () => {
+    const cal = await getCalApi({
+      namespace: "15min",
+      embedJsUrl: "https://www.cal.eu/embed/embed.js",
+    });
+    cal("modal", {
+      calLink: "atriona.digital/15min",
+      config: { layout: "month_view" },
+    });
+  };
 
   if (!initialIndustryData) {
     notFound();
@@ -349,12 +378,12 @@ export default function IndustryDetailClient({
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <Link
-              href="/contact"
+            <button
+              onClick={handleBooking}
               className="px-8 py-4 bg-[#00B5D9] text-black font-bold uppercase tracking-wide rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,181,217,0.4)] hover:shadow-[0_0_30px_rgba(0,181,217,0.6)]"
             >
               {t.page.bookDemo}
-            </Link>
+            </button>
           </div>
         </div>
       </section>

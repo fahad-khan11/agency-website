@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import gsap from "@/lib/gsap";
+import { getCalApi } from "@calcom/embed-react";
 import {
     ArrowUpRight,
     Check,
@@ -17,6 +17,34 @@ export default function StrategicParticipationPage() {
     const t = useTranslations("modelPages.participation");
     const tc = useTranslations("modelPages");
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi({
+                namespace: "15min",
+                embedJsUrl: "https://www.cal.eu/embed/embed.js",
+            });
+            cal("ui", {
+                cssVarsPerTheme: {
+                    light: { "cal-brand": "#1B263B" },
+                    dark: { "cal-brand": "#00B4D8" },
+                },
+                hideEventTypeDetails: false,
+                layout: "month_view",
+            });
+        })();
+    }, []);
+
+    const handleBooking = async () => {
+        const cal = await getCalApi({
+            namespace: "15min",
+            embedJsUrl: "https://www.cal.eu/embed/embed.js",
+        });
+        cal("modal", {
+            calLink: "atriona.digital/15min",
+            config: { layout: "month_view" },
+        });
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -74,15 +102,13 @@ export default function StrategicParticipationPage() {
                     </p>
 
                     <div className="animate-reveal flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            onClick={handleBooking}
                             className="px-8 sm:px-10 py-4 sm:py-5 bg-cyan-600 text-white rounded-full font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] flex items-center justify-center gap-2 w-full sm:w-auto"
                         >
                             <Calendar className="w-4 h-4" />
                             {t("hero.primaryCTA")}
-                        </a>
+                        </button>
                         <LocaleLink
                             href="/project-models"
                             className="px-8 sm:px-10 py-4 sm:py-5 border border-white/20 text-white rounded-full font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 hover:bg-white/5 w-full sm:w-auto text-center"
@@ -193,16 +219,14 @@ export default function StrategicParticipationPage() {
                     </h2>
 
                     <div className="animate-reveal flex flex-col items-center gap-6">
-                        <a
-                            href="https://cal.eu/stefano-ala/pmz7mfb7wvc-ayw.XFW"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
+                            onClick={handleBooking}
                             className="group px-8 sm:px-12 py-5 sm:py-6 bg-cyan-600 text-white rounded-full font-display font-bold text-xs sm:text-base uppercase tracking-wider transition-all duration-500 hover:scale-[1.05] flex items-center justify-center gap-3 w-full sm:w-auto"
                         >
                             <Calendar className="w-5 h-5" />
                             {t("finalCTA.button")}
                             <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                        </a>
+                        </button>
 
                         <LocaleLink
                             href="/project-models"
